@@ -1,6 +1,8 @@
 # days-until
 An Alexa skill that counts the number of days until special events.
 
+View the published skill here: https://www.amazon.com/dp/B0759KJ8D2
+
 ## Example Dialog
 
 You: "Alexa, ask Days Until to create a new countdown for the end of the world on May 21."<br />
