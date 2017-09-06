@@ -1,4 +1,8 @@
-# days-until
+<p align="center">
+  <img src="./icon.png" height="256" /><br />
+  <h1 align="center">Days Until</h1>
+</p>
+
 An Alexa skill that counts the number of days until special events.
 
 View the published skill here: https://www.amazon.com/dp/B0759KJ8D2
