@@ -6,20 +6,20 @@
   "scripts": {
     "build": "tsc",
     "deploy-win": "powershell.exe ./deploy-win.ps1",
-    "deploy-nix": "bash deploy-nix.sh",    
+    "deploy-nix": "bash deploy-nix.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Nathan Friend",
   "license": "MIT",
   "dependencies": {
-    "@types/lodash": "^4.14.73",
-    "@types/natural": "^0.2.32",
-    "alexa-sdk": "^1.0.12",
-    "capitalize": "^1.0.0",
-    "lodash": "^4.17.4",
-    "moment": "^2.18.1",
-    "natural": "^0.5.4",
-    "typescript": "^2.4.2"
+    "@types/lodash": "^4.14.137",
+    "@types/natural": "^0.6.1",
+    "ask-sdk-core": "^2.7.0",
+    "capitalize": "^2.0.0",
+    "lodash": "^4.17.5",
+    "moment": "^2.24.0",
+    "natural": "^0.6.3",
+    "typescript": "^3.5.3"
   },
   "devDependencies": {}
 }

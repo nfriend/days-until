@@ -15,6 +15,6 @@ echo "Compressing...";
 7za a handleDaysUntil.zip ./* -mx9
 
 echo "Uploading...";
-aws lambda update-function-code --function-name handleDaysUntil --zip-file fileb:///Users/nathanfriend/Documents/GitLab/days-until/lambda/handleDaysUntil.zip
+aws lambda update-function-code --function-name handleDaysUntil --zip-file "fileb://$PWD/handleDaysUntil.zip"
 
 echo "Done!";
