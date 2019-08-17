@@ -26,6 +26,9 @@ export const languageStrings = {
       EVENT_PROMPT:
         'Would you like to create a new countdown or check an existing one?',
       EVENT_REPROMPT: `I didn't catch that - can you repeat what you'd like to do?`,
+      CONFIRMATION_INCORRECT_TITLE: ':(',
+      CONFIRMATION_INCORRECT_MESSAGE: 'Ok, sorry about that!',
+      CONFIRMATION_INCORRECT_MESSAGE_VISUAL: 'Sorry!',
       STOP_MESSAGE: 'Have a good one!',
       SAVED_MESSAGE: `Done. To check on this countdown, just say, "Ask Days Until, 'how long until`,
       COUNTDOWN_SAVED: 'Countdown Saved',
@@ -66,6 +69,13 @@ export const alexaHandlers = {
   StartCountdownIntent: function() {
     if (this.event.request.dialogState !== 'COMPLETED') {
       this.emit(':delegate');
+    } else if (this.event.request.intent.confirmationStatus === 'DENIED') {
+      this.emit(
+        ':tellWithCard',
+        this.t('CONFIRMATION_INCORRECT_MESSAGE'),
+        this.t('CONFIRMATION_INCORRECT_TITLE'),
+        this.t('CONFIRMATION_INCORRECT_MESSAGE_VISUAL'),
+      );
     } else {
       const eventName = capitalize.words(
         this.event.request.intent.slots.CountdownEvent.value,
