@@ -14,8 +14,7 @@
   "dependencies": {
     "@types/lodash": "^4.14.137",
     "@types/natural": "^0.6.1",
-    "ask-sdk-core": "^2.7.0",
-    "ask-sdk-model": "^1.19.0",
+    "alexa-sdk": "^1.0.12",
     "capitalize": "^2.0.0",
     "lodash": "^4.17.5",
     "moment": "^2.24.0",

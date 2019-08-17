@@ -1,7 +1,7 @@
 import * as natural from 'natural';
 import * as moment from 'moment';
 import * as _ from 'lodash';
-const Alexa = require('ask-sdk-core');
+const Alexa = require('alexa-sdk');
 const capitalize = require('capitalize');
 
 // not included in this repo.  After cloning this repo,
