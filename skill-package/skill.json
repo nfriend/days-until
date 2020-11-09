@@ -4,11 +4,31 @@
       "locales": {
         "en-US": {
           "summary": "Sample Short Description",
-          "examplePhrases": [
-            "Alexa open hello world",
-            "hello",
-            "help"
-          ],
+          "examplePhrases": ["Alexa open hello world", "hello", "help"],
+          "name": "Days Until",
+          "description": "Sample Full Description"
+        },
+        "en-CA": {
+          "summary": "Sample Short Description",
+          "examplePhrases": ["Alexa open hello world", "hello", "help"],
+          "name": "Days Until",
+          "description": "Sample Full Description"
+        },
+        "en-GB": {
+          "summary": "Sample Short Description",
+          "examplePhrases": ["Alexa open hello world", "hello", "help"],
+          "name": "Days Until",
+          "description": "Sample Full Description"
+        },
+        "en-AU": {
+          "summary": "Sample Short Description",
+          "examplePhrases": ["Alexa open hello world", "hello", "help"],
+          "name": "Days Until",
+          "description": "Sample Full Description"
+        },
+        "en-IN": {
+          "summary": "Sample Short Description",
+          "examplePhrases": ["Alexa open hello world", "hello", "help"],
           "name": "Days Until",
           "description": "Sample Full Description"
         }
@@ -17,6 +37,35 @@
       "testingInstructions": "Sample Testing Instructions.",
       "category": "KNOWLEDGE_AND_TRIVIA",
       "distributionCountries": []
+    },
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "usesPersonalInfo": false,
+      "isChildDirected": false,
+      "isExportCompliant": true,
+      "containsAds": false,
+      "locales": {
+        "en-US": {
+          "privacyPolicyUrl": "https://gitlab.com/nfriend/days-until/blob/master/privacy-policy.md",
+          "termsOfUseUrl": "https://gitlab.com/nfriend/days-until/blob/master/terms-of-use.md"
+        },
+        "en-CA": {
+          "privacyPolicyUrl": "https://gitlab.com/nfriend/days-until/blob/master/privacy-policy.md",
+          "termsOfUseUrl": "https://gitlab.com/nfriend/days-until/blob/master/terms-of-use.md"
+        },
+        "en-GB": {
+          "privacyPolicyUrl": "https://gitlab.com/nfriend/days-until/blob/master/privacy-policy.md",
+          "termsOfUseUrl": "https://gitlab.com/nfriend/days-until/blob/master/terms-of-use.md"
+        },
+        "en-AU": {
+          "privacyPolicyUrl": "https://gitlab.com/nfriend/days-until/blob/master/privacy-policy.md",
+          "termsOfUseUrl": "https://gitlab.com/nfriend/days-until/blob/master/terms-of-use.md"
+        },
+        "en-IN": {
+          "privacyPolicyUrl": "https://gitlab.com/nfriend/days-until/blob/master/privacy-policy.md",
+          "termsOfUseUrl": "https://gitlab.com/nfriend/days-until/blob/master/terms-of-use.md"
+        }
+      }
     },
     "apis": {
       "custom": {}
