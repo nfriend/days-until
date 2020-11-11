@@ -88,7 +88,11 @@
       }
     },
     "apis": {
-      "custom": {}
+      "custom": {
+        "endpoint": {
+          "uri": "arn:aws:lambda:us-east-1:641962070086:function:ask-DaysUntil-default-skillStac-AlexaSkillFunction-1JZKTGLSX8D11"
+        }
+      }
     },
     "manifestVersion": "1.0"
   }
