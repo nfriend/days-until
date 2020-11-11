@@ -3,7 +3,7 @@
 // This utility script copies the relevant en-US files/sections
 // to other English-speaking locales to allow
 // this skill to be available in those stores.
-// Be sure to run this script AFTER running ./generate-model.sh
+// Be sure to run this script AFTER running ./generate-model.sh and ./merge-model.js
 
 const path = require('path');
 const fs = require('fs');

@@ -1,0 +1,64 @@
+{
+  "interactionModel": {
+    "dialog": {
+      "intents": [
+        {
+          "name": "RunPipelineIntent",
+          "delegationStrategy": "SKILL_RESPONSE",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "pipelineVariable",
+              "type": "pipelineVariable",
+              "confirmationRequired": false,
+              "elicitationRequired": false,
+              "prompts": {}
+            },
+            {
+              "name": "projectId",
+              "type": "AMAZON.NUMBER",
+              "confirmationRequired": false,
+              "elicitationRequired": true,
+              "prompts": {
+                "elicitation": "which-project"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SwitchProjectIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "projectId",
+              "type": "AMAZON.NUMBER",
+              "confirmationRequired": false,
+              "elicitationRequired": true,
+              "prompts": {
+                "elicitation": "which-project"
+              }
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "which-project",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Sure, what's the ID of the project? You can find the project ID on the project's page on Gitlab.com underneath the project name."
+          },
+          {
+            "type": "PlainText",
+            "value": "Okay, what is the ID of the project? You can find the project ID on the project's page on Gitlab.com underneath the project name."
+          }
+        ]
+      }
+    ]
+  }
+}

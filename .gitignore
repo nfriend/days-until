@@ -3,3 +3,6 @@ package-lock.json
 .DS_Store
 
 skill-package/interactionModels/custom/*.json
+!skill-package/interactionModels/custom/en-US.base.json
+
+lambda/build
