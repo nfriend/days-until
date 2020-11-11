@@ -1,0 +1,28 @@
+default:
+  image: node:latest
+  before_script:
+    - cd lambda
+    - yarn install --frozen-lockfile --cache-folder .yarn
+  cache:
+    paths:
+      - lambda/node_modules/
+      - lambda/.yarn
+
+workflow:
+  rules:
+    - if: $CI_COMMIT_BRANCH
+    - if: $CI_COMMIT_TAG
+
+stages:
+  - test
+  - build
+
+lint:
+  stage: test
+  script:
+    - yarn lint
+
+build:
+  stage: build
+  script:
+    - yarn build
