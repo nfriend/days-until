@@ -17,10 +17,12 @@
     "lint": "eslint . --ext .ts"
   },
   "dependencies": {
+    "@types/lodash": "4.14.165",
     "ask-sdk-core": "2.6.0",
     "ask-sdk-model": "1.18.0",
     "aws-sdk": "2.326.0",
-    "i18next": "19.8.3"
+    "i18next": "19.8.3",
+    "lodash": "4.17.20"
   },
   "devDependencies": {
     "@tsconfig/node12": "^1.0.7",

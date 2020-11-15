@@ -1,3 +1,4 @@
 {
-  "hello!?": "hello!?"
+  "Welcome to the new days until skill!": "Welcome to the new days until skill!",
+  "You just triggered {{ intentName }}, but no handler was able to handle the request.": "You just triggered {{ intentName }}, but no handler was able to handle the request."
 }

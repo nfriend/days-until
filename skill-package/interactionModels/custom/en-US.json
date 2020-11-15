@@ -1,19 +1,19 @@
 {
-  "interactionModel" : {
-    "languageModel" : {
-      "intents" : [
+  "interactionModel": {
+    "languageModel": {
+      "intents": [
         {
-          "name" : "AMAZON.CancelIntent"
+          "name": "AMAZON.CancelIntent"
         },
         {
-          "name" : "AMAZON.HelpIntent"
+          "name": "AMAZON.HelpIntent"
         },
         {
-          "name" : "AMAZON.StopIntent"
+          "name": "AMAZON.StopIntent"
         },
         {
-          "name" : "StartCountdownIntent",
-          "samples" : [
+          "name": "StartCountdownIntent",
+          "samples": [
             "begin a count down",
             "begin a countdown",
             "begin a new count down",
@@ -35,8 +35,8 @@
           ]
         }
       ],
-      "types" : [ ],
-      "invocationName" : "days until"
+      "types": [],
+      "invocationName": "days until"
     }
   }
 }
