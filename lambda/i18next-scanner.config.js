@@ -7,7 +7,7 @@ module.exports = {
   options: {
     debug: true,
     func: {
-      list: ['t'],
+      list: ['t', 'mft'],
     },
     removeUnusedKeys: true,
     sort: true,

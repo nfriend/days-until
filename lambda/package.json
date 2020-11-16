@@ -19,6 +19,8 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
+    "@sentry/node": "^5.27.4",
+    "@sentry/tracing": "^5.27.4",
     "@types/jest": "^26.0.15",
     "@types/lodash": "4.14.165",
     "@types/node": "^14.14.7",
