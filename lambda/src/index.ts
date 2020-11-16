@@ -1,6 +1,7 @@
 import * as Alexa from 'ask-sdk-core';
 import { IntentReflectorHandler } from './handlers/IntentReflectorHandler';
 import { LaunchRequestHandler } from './handlers/LaunchRequestHandler';
+import { LocalizationInterceptor } from './interceptors/LocalizationInterceptor';
 
 export const handler = Alexa.SkillBuilders.custom()
   .addRequestHandlers(
@@ -10,4 +11,5 @@ export const handler = Alexa.SkillBuilders.custom()
     // override any custom intent handlers
     new IntentReflectorHandler(),
   )
+  .addRequestInterceptors(new LocalizationInterceptor())
   .lambda();
