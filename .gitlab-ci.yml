@@ -22,6 +22,16 @@ lint:
   script:
     - yarn lint
 
+jest:
+  stage: test
+  script:
+    - yarn test
+  artifacts:
+    paths:
+      - lambda/test-report.xml
+    reports:
+      junit: lambda/test-report.xml
+
 build:
   stage: build
   script:

@@ -8,3 +8,5 @@ skill-package/interactionModels/custom/*.json
 lambda/build
 
 .ask
+
+test-report.xml
