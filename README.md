@@ -1,4 +1,4 @@
-<img align="right" src="https://raw.githubusercontent.com/nfriend/days-until/master/skill-package/assets/en-US_largeIcon.png" />
+<img align="right" src="https://raw.githubusercontent.com/nfriend/days-until/master/skill-package/assets/en-US_largeIcon.png" width="200" />
 
 # Days Until
 
