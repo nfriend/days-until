@@ -2,11 +2,11 @@ default:
   image: node:latest
   before_script:
     - cd lambda
-    - yarn install --frozen-lockfile --cache-folder .yarn
+    - yarn install --frozen-lockfile --cache-folder $CI_PROJECT_DIR/.yarn
   cache:
     paths:
       - lambda/node_modules/
-      - lambda/.yarn
+      - $CI_PROJECT_DIR/.yarn
 
 workflow:
   rules:
@@ -47,9 +47,9 @@ deploy:
   needs:
     - build
   script:
-    - yarn install --prod --frozen-lockfile --cache-folder .yarn
+    - yarn install --prod --frozen-lockfile --cache-folder $CI_PROJECT_DIR/.yarn
     - cd $CI_PROJECT_DIR
-    - yarn global add ask-cli --cache-folder .yarn
+    - yarn global add ask-cli --cache-folder $CI_PROJECT_DIR/.yarn
     - ask deploy
     - cat .ask/ask-states.json
   environment:
