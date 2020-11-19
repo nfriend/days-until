@@ -16,6 +16,7 @@ workflow:
 stages:
   - test
   - build
+  - deploy
 
 lint:
   stage: test
@@ -34,5 +35,20 @@ jest:
 
 build:
   stage: build
+  needs: []
   script:
     - yarn build
+  artifacts:
+    paths:
+      - lambda/build/
+
+deploy:
+  stage: deploy
+  needs:
+    - build
+  script:
+    - yarn --prod
+    - yarn ask deploy
+    - cat .ask/ask-states.json
+  environment:
+    name: development

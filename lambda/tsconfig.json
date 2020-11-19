@@ -6,7 +6,8 @@
     "paths": {
       "~/*": ["src/*"]
     },
-    "strictNullChecks": false
+    "strictNullChecks": false,
+    "sourceMap": true
   },
   "include": ["src", "types"],
   "exclude": ["**/__mocks__/**"]

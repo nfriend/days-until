@@ -1,0 +1,21 @@
+{
+  "askcliStatesVersion": "2020-03-31",
+  "profiles": {
+    "__ENVIRONMENT_ASK_PROFILE__": {
+      "skillInfrastructure": {
+        "@ask-cli/cfn-deployer": {
+          "deployState": {
+            "default": {
+              "s3": {
+                "bucket": "ask-days-until-default-useast1-1605104884000",
+                "key": "endpoint/build.zip"
+              },
+              "stackId": "arn:aws:cloudformation:us-east-1:641962070086:stack/ask-DaysUntil-default-skillStack-1605104884000/25743050-242a-11eb-9a23-0ed9163b6ca9"
+            }
+          }
+        }
+      },
+      "skillId": "amzn1.ask.skill.bbc0e286-5827-4303-933c-21e84ec5baae"
+    }
+  }
+}

@@ -1,7 +1,7 @@
 {
   "askcliResourcesVersion": "2020-03-31",
   "profiles": {
-    "default": {
+    "__ENVIRONMENT_ASK_PROFILE__": {
       "skillMetadata": {
         "src": "./skill-package"
       },
