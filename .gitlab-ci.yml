@@ -48,7 +48,7 @@ deploy:
     - build
   script:
     - yarn --prod
-    - yarn ask deploy
+    - yarn --cwd $CI_PROJECT_DIR ask deploy
     - cat .ask/ask-states.json
   environment:
     name: development
