@@ -24,6 +24,7 @@
     "@types/jest": "^26.0.15",
     "@types/lodash": "4.14.165",
     "@types/node": "^14.14.7",
+    "ask-cli": "^2.20.0",
     "ask-sdk-core": "2.6.0",
     "ask-sdk-model": "1.18.0",
     "aws-sdk": "2.326.0",
