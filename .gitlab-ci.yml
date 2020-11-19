@@ -50,7 +50,7 @@ deploy:
     - yarn install --prod --frozen-lockfile --cache-folder .yarn
     - cd $CI_PROJECT_DIR
     - yarn global add ask-cli --cache-folder .yarn
-    - ask deploy --debug
+    - ask deploy
     - cat .ask/ask-states.json
   environment:
     name: development
