@@ -6,7 +6,7 @@ width="200" />
 
 <a href="https://gitlab.com/nfriend/days-until/-/pipelines/latest"
 target="_blank"><img
-src="https://gitlab.com/nfriend/days-until/-/badges/master/pipeline.svg"
+src="https://gitlab.com/nfriend/days-until/badges/master/pipeline.svg"
 alt="GitLab build status"></a>
 
 An Alexa skill that counts the number of days until special events.
@@ -115,7 +115,7 @@ redeploy of the skill (to its "development" stage).
 Currently, the pipeline is: <a
 href="https://gitlab.com/nfriend/days-until/-/pipelines/latest"
 target="_blank"><img
-src="https://gitlab.com/nfriend/days-until/-/badges/master/pipeline.svg"
+src="https://gitlab.com/nfriend/days-until/badges/master/pipeline.svg"
 alt="GitLab build status"></a>
 
 ### Pipeline variables
