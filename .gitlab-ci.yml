@@ -13,6 +13,9 @@ workflow:
     - if: $CI_COMMIT_BRANCH
     - if: $CI_COMMIT_TAG
 
+variables:
+  SENTRY_RELEASE_VERSION: $CI_PIPELINE_IID
+
 stages:
   - test
   - build
@@ -60,4 +63,4 @@ deploy:
 upload source maps:
   stage: deploy
   script:
-    - yarn sentry-cli releases files $CI_PIPELINE_IID upload-sourcemaps build
+    - yarn sentry-cli releases files $SENTRY_RELEASE_VERSION upload-sourcemaps build

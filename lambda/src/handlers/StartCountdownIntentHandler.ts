@@ -9,6 +9,8 @@ export class StartCountdownIntentHandler implements Alexa.RequestHandler {
     );
   }
   handle(): Response | Promise<Response> {
-    throw new Error('StartCountdownIntent is not yet implemented!');
+    throw new Error(
+      `StartCountdownIntent is not yet implemented! Sentry release version: ${process.env.SENTRY_RELEASE_VERSION}`,
+    );
   }
 }

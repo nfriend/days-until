@@ -128,6 +128,7 @@ The GitLab pipeline relies on a few environment variables:
 | AWS_SECRET_ACCESS_KEY | The AWS secret access key of the user mentioned above                             |
 | ASK_VENDOR_ID         | The ASK vendor ID associated with the Alexa Developer account that owns the skill |
 | ASK_REFRESH_TOKEN     | The OAuth 2.0 refresh token of the Alexa Developer account mentioned above        |
+| SENTRY_AUTH_TOKEN     | The Sentry API token used to upload sourcemaps to [Sentry](https://sentry.io/)    |
 
 More info on these variables and how to generate their values can be found [in
 this blog
