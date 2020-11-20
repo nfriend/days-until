@@ -66,5 +66,5 @@ deploy:
 upload source maps:
   stage: deploy
   script:
-    - yarn sentry-cli releases files $SENTRY_RELEASE_VERSION upload-sourcemaps build --url-prefix="/"
-    - yarn sentry-cli releases files $SENTRY_RELEASE_VERSION upload src --url-prefix="/"
+    - yarn sentry-cli releases files $SENTRY_RELEASE_VERSION upload-sourcemaps build --url-prefix="/var/task/build/"
+    - yarn sentry-cli releases files $SENTRY_RELEASE_VERSION upload src --url-prefix="/var/task/build/"
