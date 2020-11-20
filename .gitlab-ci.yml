@@ -44,8 +44,6 @@ build:
 
 deploy:
   stage: deploy
-  needs:
-    - build
   script:
     - yarn install --prod --frozen-lockfile --cache-folder $CI_PROJECT_DIR/.yarn
     - cd $CI_PROJECT_DIR
