@@ -9,8 +9,8 @@
     "strictNullChecks": false,
     "sourceMap": true,
     "inlineSources": true,
-    "sourceRoot": "/",
-    "mapRoot": "/"
+    "sourceRoot": "/var/task/build/",
+    "mapRoot": "/var/task/build/"
   },
   "include": ["src", "types"],
   "exclude": ["**/__mocks__/**"]
