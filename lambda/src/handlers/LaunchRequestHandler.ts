@@ -13,7 +13,7 @@ export class LaunchRequestHandler implements Alexa.RequestHandler {
           'Would you like to create a new countdown or check an existing one?',
         ),
       )
-      .speak(
+      .reprompt(
         i18n.t("I didn't catch that - can you repeat what you'd like to do?"),
       )
       .getResponse();

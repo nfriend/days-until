@@ -11,6 +11,8 @@ describe('LaunchRequestHandler', () => {
   test('Greets the user', async () => {
     const result = await executeLambda(event);
 
-    expect(result).toSpeek('Welcome to the new days until skill!');
+    expect(result).toSpeek(
+      'Would you like to create a new countdown or check an existing one?',
+    );
   });
 });
