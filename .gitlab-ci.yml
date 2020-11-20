@@ -51,7 +51,7 @@ deploy:
     - yarn install --prod --frozen-lockfile --cache-folder $CI_PROJECT_DIR/.yarn
     - cd $CI_PROJECT_DIR
     - apt-get update
-    - apt-get --yes install moreutils
+    - apt-get --yes install moreutils gettext
     - envsubst < "ask-resources.json" | sponge "ask-resources.json"
     - yarn global add ask-cli --cache-folder $CI_PROJECT_DIR/.yarn
     - ask deploy
