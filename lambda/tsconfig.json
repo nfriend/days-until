@@ -10,7 +10,7 @@
     "sourceMap": true,
     "inlineSources": true,
     "mapRoot": "https://nfriend.gitlab.io/days-until/",
-    "sourceRoot": "https://nfriend.gitlab.io/days-until/"
+    "sourceRoot": "/"
   },
   "include": ["src", "types"],
   "exclude": ["**/__mocks__/**"]
