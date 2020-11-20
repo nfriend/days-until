@@ -9,7 +9,8 @@
     "strictNullChecks": false,
     "sourceMap": true,
     "inlineSources": true,
-    "sourceRoot": "/"
+    "sourceRoot": "/",
+    "mapRoot": "/"
   },
   "include": ["src", "types"],
   "exclude": ["**/__mocks__/**"]
