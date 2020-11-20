@@ -17,7 +17,12 @@
           "templatePath": "./infrastructure/cfn-deployer/skill-stack.yaml",
           "awsRegion": "us-east-1"
         },
-        "type": "@ask-cli/cfn-deployer"
+        "type": "@ask-cli/cfn-deployer",
+        "cfn": {
+          "parameters": {
+            "SentryReleaseVersion": "$SENTRY_RELEASE_VERSION"
+          }
+        }
       }
     }
   }
