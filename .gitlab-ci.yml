@@ -54,3 +54,16 @@ deploy:
     - yarn install --frozen-lockfile --cache-folder $CI_PROJECT_DIR/.yarn
   environment:
     name: development
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+pages:
+  stage: deploy
+  script:
+    - mkdir $CI_PROJECT_DIR/public
+    - cp src $CI_PROJECT_DIR/public
+  artifacts:
+    paths:
+      - $CI_PROJECT_DIR/public
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
