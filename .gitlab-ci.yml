@@ -57,14 +57,7 @@ deploy:
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
 
-pages:
+upload source maps:
   stage: deploy
   script:
-    - apt-get update && apt-get -y install rsync
-    - rsync -av src/ $CI_PROJECT_DIR/public
-    - rsync -av build/ $CI_PROJECT_DIR/public
-  artifacts:
-    paths:
-      - $CI_PROJECT_DIR/public
-  rules:
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - yarn sentry-cli releases files $CI_PIPELINE_IID upload-sourcemaps build

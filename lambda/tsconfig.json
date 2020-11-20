@@ -9,7 +9,6 @@
     "strictNullChecks": false,
     "sourceMap": true,
     "inlineSources": true,
-    "mapRoot": "https://nfriend.gitlab.io/days-until/",
     "sourceRoot": "/"
   },
   "include": ["src", "types"],
