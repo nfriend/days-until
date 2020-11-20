@@ -52,7 +52,8 @@ deploy:
     - cd $CI_PROJECT_DIR
     - apt-get update
     - apt-get --yes install moreutils gettext
-    - envsubst < "ask-resources.json" | sponge "ask-resources.json"
+    - envsubst < ask-resources.json | sponge ask-resources.json
+    - cat ask-resources.json
     - yarn global add ask-cli --cache-folder $CI_PROJECT_DIR/.yarn
     - ask deploy
     - cat .ask/ask-states.json
