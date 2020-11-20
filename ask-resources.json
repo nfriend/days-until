@@ -11,16 +11,16 @@
         }
       },
       "skillInfrastructure": {
+        "type": "@ask-cli/cfn-deployer",
         "userConfig": {
-          "runtime": "nodejs10.x",
+          "runtime": "nodejs12.x",
           "handler": "index.handler",
           "templatePath": "./infrastructure/cfn-deployer/skill-stack.yaml",
-          "awsRegion": "us-east-1"
-        },
-        "type": "@ask-cli/cfn-deployer",
-        "cfn": {
-          "parameters": {
-            "SentryReleaseVersion": "$SENTRY_RELEASE_VERSION"
+          "awsRegion": "us-east-1",
+          "cfn": {
+            "parameters": {
+              "SentryReleaseVersion": "$SENTRY_RELEASE_VERSION"
+            }
           }
         }
       }
