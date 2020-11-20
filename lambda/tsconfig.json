@@ -9,7 +9,8 @@
     "strictNullChecks": false,
     "sourceMap": true,
     "inlineSources": true,
-    "sourceRoot": "/"
+    "mapRoot": "https://nfriend.gitlab.io/days-until/",
+    "sourceRoot": "https://nfriend.gitlab.io/days-until/"
   },
   "include": ["src", "types"],
   "exclude": ["**/__mocks__/**"]
