@@ -56,7 +56,6 @@ deploy:
     - cat ask-resources.json
     - yarn global add ask-cli --cache-folder $CI_PROJECT_DIR/.yarn
     - ask deploy
-    - cat .ask/ask-states.json
     - cd lambda
     - yarn install --frozen-lockfile --cache-folder $CI_PROJECT_DIR/.yarn
   environment:
