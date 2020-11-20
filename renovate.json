@@ -1,4 +1,12 @@
 {
   "extends": ["config:base", ":automergeMinor"],
-  "labels": ["renovate", "dependencies"]
+  "labels": ["renovate", "dependencies"],
+  "hostRules": [
+    {
+      "domainName": "github.com",
+      "encrypted": {
+        "token": "RzSicTk+H3b8WMPdO7vi+9sG4cxlSBnRW7JLy2KhWTQhBul+90zwyhBUgxG+OOa+wA7n4e9usWKSRyVK9C+D4WdXZZMUdCThoqJPAXvgWSEpD6zAAPP8uueqKnpIeBxfTImQZkthLM5+W3q1XmxQqkdaFAkNlcBs0PIUd/+s/73ffqztVSyLWsq03opvgqzfRbdpAQ9FwpMyzXuu6rdG85VcSmSxRWl4r0rp8Yab8+qeMJkw0JF2B7RPLQJ2pJIdbmCARD07o5kWsOHzR9vRbPmZlO2Ireec1oXKIuqqKDI9f2g893eV2ouXhmcCUeQIGBqgmrokaR6cGWh/VFjONQ=="
+      }
+    }
+  ]
 }
