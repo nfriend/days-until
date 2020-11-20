@@ -60,11 +60,9 @@ deploy:
 pages:
   stage: deploy
   script:
-    - mkdir $CI_PROJECT_DIR/public
-    - cd src
-    - cp -R **/* $CI_PROJECT_DIR/public
-    - cd ../build
-    - cp -R **/* $CI_PROJECT_DIR/public
+    - apt-get update && apt-get -y install rsync
+    - rsync -av src/ $CI_PROJECT_DIR/public
+    - rsync -av build/ $CI_PROJECT_DIR/public
   artifacts:
     paths:
       - $CI_PROJECT_DIR/public
