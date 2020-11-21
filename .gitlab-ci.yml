@@ -21,10 +21,21 @@ stages:
   - build
   - deploy
 
-lint:
+lint code:
   stage: test
   script:
     - yarn lint
+
+lint translations:
+  stage: test
+  script:
+    - lambda/utility-scripts/check-for-new-translations.sh
+
+lint model:
+  image: nathanfriend/java-node-git:latest
+  stage: test
+  script:
+    - lambda/utility-scripts/check-for-model-changes.sh
 
 jest:
   stage: test

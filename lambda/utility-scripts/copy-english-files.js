@@ -13,7 +13,7 @@ const supportedEnglishCodes = ['en-CA', 'en-GB', 'en-AU', 'en-IN'];
 // Copy en-US.json to en-CA.json, en-GB.json, etc.
 const modelDir = path.resolve(
   __dirname,
-  '../skill-package/interactionModels/custom',
+  '../../skill-package/interactionModels/custom',
 );
 const enUsModelJsonPath = path.resolve(__dirname, modelDir, 'en-US.json');
 const enUsModelJson = require(enUsModelJsonPath);
@@ -26,7 +26,7 @@ supportedEnglishCodes.forEach((code) => {
 // Copy the manifest.publishingInformation.locales.en-US and
 // manifest.privacyAndCompliance.locales.en-US sections in
 // skill.json to en-CA, en-GB, etc.
-const skillJsonPath = path.resolve(__dirname, '../skill-package/skill.json');
+const skillJsonPath = path.resolve(__dirname, '../../skill-package/skill.json');
 const skillJson = require(skillJsonPath);
 
 const enUsPublishing =
