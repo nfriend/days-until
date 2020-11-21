@@ -16,7 +16,7 @@ export class LaunchRequestHandler implements Alexa.RequestHandler {
     if (isFirstLaunch) {
       speeches.push(
         chooseOne(
-          i18n.t('Welcome to Days Until!'),
+          i18n.t('Testing the translation linter!'),
           i18n.t('Hello!'),
           i18n.t('Hi there!'),
         ),
