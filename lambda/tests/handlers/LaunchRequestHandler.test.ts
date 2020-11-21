@@ -1,7 +1,7 @@
 import { createAlexaEvent } from './create-alexa-event';
 import { executeLambda } from './execute-lambda';
 
-xdescribe('LaunchRequestHandler', () => {
+describe('LaunchRequestHandler', () => {
   const event = createAlexaEvent({
     request: {
       type: 'LaunchRequest',

@@ -7,9 +7,6 @@ export class LaunchRequestHandler implements Alexa.RequestHandler {
     return Alexa.getRequestType(input.requestEnvelope) === 'LaunchRequest';
   }
   handle(input: Alexa.HandlerInput): Response | Promise<Response> {
-    const anObject: any = {};
-    anObject.aMethodThatDoesntExist();
-
     return input.responseBuilder
       .speak(
         i18n.t(
