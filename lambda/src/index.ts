@@ -1,8 +1,10 @@
 import * as Alexa from 'ask-sdk-core';
+import { adapter } from './adapters/dynamo-db';
 import { ErrorHandler } from './handlers/ErrorHandler';
 import { IntentReflectorHandler } from './handlers/IntentReflectorHandler';
 import { LaunchRequestHandler } from './handlers/LaunchRequestHandler';
 import { StartCountdownIntentHandler } from './handlers/StartCountdownIntentHandler';
+import { FirstLaunchInterceptor } from './interceptors/FirstLaunchInterceptor';
 import { LocalizationInterceptor } from './interceptors/LocalizationInterceptor';
 import { SentryInterceptor } from './interceptors/SentryInterceptor';
 
@@ -17,7 +19,9 @@ export const handler = Alexa.SkillBuilders.custom()
   )
   .addRequestInterceptors(
     new SentryInterceptor(),
+    new FirstLaunchInterceptor(),
     new LocalizationInterceptor(),
   )
   .addErrorHandlers(new ErrorHandler())
+  .withPersistenceAdapter(adapter)
   .lambda();
