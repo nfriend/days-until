@@ -8,7 +8,12 @@ export class StartCountdownIntentHandler implements Alexa.RequestHandler {
       Alexa.getIntentName(input.requestEnvelope) === 'StartCountdownIntent'
     );
   }
-  handle(): Response | Promise<Response> {
-    throw new Error(`StartCountdownIntent is not yet implemented!`);
+  handle(input: Alexa.HandlerInput): Response | Promise<Response> {
+    console.log('input:', input);
+
+    return input.responseBuilder
+      .speak("Sorry, but this handler isn't implemented yet!")
+      .withShouldEndSession(true)
+      .getResponse();
   }
 }

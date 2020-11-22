@@ -1,7 +1,13 @@
 Invocation: days until
 
 StartCountdownIntent:
-{start|create|begin} a {|new} {countdown|count down|one}
+{start|can you start|create|begin|how about|i want|} a {|new} {countdown|count down|one}
+{start|can you start|create|begin|how about|i want|} a {|new} {countdown|count down|one} for {{CountdownEvent:EventType}}
+{start|can you start|create|begin|how about|i want|} a {|new} {{CountdownEvent:EventType}} {countdown|count down|one}
+{start|can you start|create|begin|how about|i want|} a {|new} {countdown|count down|one} {on|in} {{EventDate:AMAZON.DATE}}
+{start|can you start|create|begin|how about|i want|} a {|new} {{CountdownEvent:EventType}} {countdown|count down|one} {on|in} {{EventDate:AMAZON.DATE}}
+{start|can you start|create|begin|how about|i want|} a {|new} {countdown|count down|one} {on|in} {{EventDate:AMAZON.DATE}} for {{CountdownEvent:EventType}}
+{start|can you start|create|begin|how about|i want|} a {|new} {countdown|count down|one} for {{CountdownEvent:EventType}} {on|in} {{EventDate:AMAZON.DATE}}
 
 AMAZON.CancelIntent:
 AMAZON.HelpIntent:

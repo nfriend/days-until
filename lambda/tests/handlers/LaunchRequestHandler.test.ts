@@ -27,9 +27,7 @@ describe('LaunchRequestHandler', () => {
     const expected = [
       'Welcome to Days Until!',
       'Looks like this is your first visit!',
-      'You can create a new countdown by saying something like <break strength="strong"/> <prosody pitch="+10%">"start a new countdown for my birthday."</prosody>',
-      'Then, check on its status by saying <break strength="strong"/> <prosody pitch="+10%">"Ask Days Until, how long until my birthday?"</prosody>',
-      'What would you like to do?',
+      'To get started, say <break strength="strong"/> <prosody pitch="+10%">"start a new countdown."</prosody>',
     ].join(' ');
 
     expect(result).toSpeek(expected);
@@ -43,7 +41,7 @@ describe('LaunchRequestHandler', () => {
     const result = await executeLambda(event);
 
     expect(result).toSpeek(
-      'Would you like to create a new countdown or check an existing one?',
+      'Hello again! Would you like to create a new countdown or check an existing one?',
     );
   });
 });

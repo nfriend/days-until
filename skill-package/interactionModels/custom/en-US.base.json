@@ -1,1 +1,96 @@
-{}
+{
+  "interactionModel": {
+    "prompts": [
+      {
+        "id": "Confirm.Intent-StartCountdownIntent",
+        "promptVersion": "1.0",
+        "definitionVersion": "1.0",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "I'll create a new countdown for {CountdownEvent} on {EventDate}.  Does that sound right?"
+          },
+          {
+            "type": "PlainText",
+            "value": "Okay, I'll start a countdown for {CountdownEvent} on {EventDate}.  Did I get that right?"
+          },
+          {
+            "type": "PlainText",
+            "value": "I'll create a new countdown for {CountdownEvent} on {EventDate}.  Is that right?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Intent-StartCountdownIntent.IntentSlot-CountdownEvent",
+        "promptVersion": "1.0",
+        "definitionVersion": "1.0",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What's the event?"
+          },
+          {
+            "type": "PlainText",
+            "value": "Okay, what's the event?"
+          },
+          {
+            "type": "PlainText",
+            "value": "Sure.  What event would you like to track?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Intent-StartCountdownIntent.IntentSlot-EventDate",
+        "promptVersion": "1.0",
+        "definitionVersion": "1.0",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Sure, when will it take place?"
+          },
+          {
+            "type": "PlainText",
+            "value": "Okay, when will it take place?"
+          },
+          {
+            "type": "PlainText",
+            "value": "When will it take place?"
+          }
+        ]
+      }
+    ],
+    "dialog": {
+      "version": "1.0",
+      "delegationStrategy": "ALWAYS",
+      "intents": [
+        {
+          "name": "StartCountdownIntent",
+          "confirmationRequired": true,
+          "prompts": {
+            "confirm": "Confirm.Intent-StartCountdownIntent"
+          },
+          "slots": [
+            {
+              "name": "CountdownEvent",
+              "type": "EventType",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicit": "Elicit.Intent-StartCountdownIntent.IntentSlot-CountdownEvent"
+              }
+            },
+            {
+              "name": "EventDate",
+              "type": "AMAZON.DATE",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicit": "Elicit.Intent-StartCountdownIntent.IntentSlot-EventDate"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
