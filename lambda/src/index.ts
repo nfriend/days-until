@@ -3,6 +3,7 @@ import { adapter } from './adapters/dynamo-db';
 import { ErrorHandler } from './handlers/ErrorHandler';
 import { IntentReflectorHandler } from './handlers/IntentReflectorHandler';
 import { LaunchRequestHandler } from './handlers/LaunchRequestHandler';
+import { SessionEndedRequestHandler } from './handlers/SessionEndedRequestHandler';
 import { StartCountdownIntentHandler } from './handlers/StartCountdownIntentHandler';
 import { FirstLaunchInterceptor } from './interceptors/FirstLaunchInterceptor';
 import { LocalizationInterceptor } from './interceptors/LocalizationInterceptor';
@@ -12,6 +13,7 @@ export const handler = Alexa.SkillBuilders.custom()
   .addRequestHandlers(
     new LaunchRequestHandler(),
     new StartCountdownIntentHandler(),
+    new SessionEndedRequestHandler(),
 
     // IntentReflectorHandler needs to be last so that it doesn't
     // override any custom intent handlers
