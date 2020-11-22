@@ -13,7 +13,7 @@ if git diff-index --quiet HEAD --; then
 else
     echo -e "\033[31;1m⚠️  The model has been changed! Please run \"npm run model\" and commit these changes. ⚠️\033[0m"
     echo "Diff:"
-    git diff ../../skill-package/interactionModels/custom/en-US.json
+    git diff ../skill-package/interactionModels/custom/en-US.json
 
     exit 1
 fi
