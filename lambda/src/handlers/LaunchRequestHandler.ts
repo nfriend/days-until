@@ -11,6 +11,11 @@ export class LaunchRequestHandler implements Alexa.RequestHandler {
     const isFirstLaunch: boolean = input.attributesManager.getRequestAttributes()
       .isFirstLaunch;
 
+    console.log(
+      'isFirstLaunch inside of lambda/src/handlers/LaunchRequestHandler.ts',
+      isFirstLaunch,
+    );
+
     const speeches = [];
 
     if (isFirstLaunch) {
