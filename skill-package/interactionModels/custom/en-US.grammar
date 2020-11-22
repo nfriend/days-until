@@ -1,7 +1,7 @@
 Invocation: days until
 
 StartCountdownIntent:
-{start|create|begin} a {|new} {countdown|count down|one}
+{start|create|begin|initiate} a {|new} {countdown|count down|one}
 
 AMAZON.CancelIntent:
 AMAZON.HelpIntent:
