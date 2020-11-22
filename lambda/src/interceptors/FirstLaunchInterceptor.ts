@@ -11,5 +11,8 @@ export class FirstLaunchInterceptor implements Alexa.RequestInterceptor {
 
     const attributes = input.attributesManager.getRequestAttributes();
     attributes.isFirstLaunch = !lastLaunch;
+
+    console.log('isFirstLaunch:', attributes.isFirstLaunch);
+    console.log('lastLaunch:', lastLaunch);
   }
 }
