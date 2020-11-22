@@ -9,7 +9,8 @@ export class ErrorHandler implements Alexa.ErrorHandler {
     return true;
   }
   handle(handlerInput: Alexa.HandlerInput, error: Error) {
-    console.log(`~~~~ Error handled: ${error.stack}`);
+    console.log(`~~~~ error:`, error);
+    console.log(`~~~~ handlerInput:`, handlerInput);
 
     Sentry.captureException(error);
 
