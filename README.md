@@ -73,8 +73,8 @@ Generator](https://github.com/KayLerch/alexa-utterance-generator) library. This
 library takes
 [en-US.grammar](skill-package/interactionModels/custom/en-US.grammar) and
 outputs [en-US.json](skill-package/interactionModels/custom/en-US.json). To run
-this process, run `scripts/model.sh`. Note that you will need a JDK installed
-for this command to run; it executes
+this process, run `yarn model`. Note that you will need a JDK installed for this
+command to run; it executes
 [alexa-generate.jar](skill-package/interactionModels/custom/alexa-generate.jar)
 which is included in this repository.
 
@@ -95,9 +95,10 @@ directory](./Lab_Assistant/lambda/custom/i18n). You can run this extraction
 process by running `yarn translate`.
 
 To make this skill available in all English-speaking Amazon stores, a utility
-script ([scripts/copy-english-files.js](scripts/copy-english-files.js)) can be
-run to copy the appropriate `en-US` files/sections to `en-CA`, `en-GB`, `en-AU`,
-and `en-IN`.
+script
+([lambda/utility-scripts/copy-english-files.js](lambda/utility-scripts/copy-english-files.js))
+can be run to copy the appropriate `en-US` files/sections to `en-CA`, `en-GB`,
+`en-AU`, and `en-IN`.
 
 ### Linting
 
