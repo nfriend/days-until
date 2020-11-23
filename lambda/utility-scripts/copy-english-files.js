@@ -15,7 +15,7 @@ const modelDir = path.resolve(
   __dirname,
   '../../skill-package/interactionModels/custom',
 );
-const enUsModelJsonPath = path.resolve(__dirname, modelDir, 'en-US.json');
+const enUsModelJsonPath = path.resolve(modelDir, 'en-US.json');
 const enUsModelJson = require(enUsModelJsonPath);
 
 supportedEnglishCodes.forEach((code) => {
