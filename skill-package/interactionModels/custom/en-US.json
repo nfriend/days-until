@@ -3,8 +3,6 @@
     "prompts": [
       {
         "id": "Confirm.Intent-StartCountdownIntent",
-        "promptVersion": "1.0",
-        "definitionVersion": "1.0",
         "variations": [
           {
             "type": "PlainText",
@@ -22,8 +20,6 @@
       },
       {
         "id": "Elicit.Intent-StartCountdownIntent.IntentSlot-CountdownEvent",
-        "promptVersion": "1.0",
-        "definitionVersion": "1.0",
         "variations": [
           {
             "type": "PlainText",
@@ -41,8 +37,6 @@
       },
       {
         "id": "Elicit.Intent-StartCountdownIntent.IntentSlot-EventDate",
-        "promptVersion": "1.0",
-        "definitionVersion": "1.0",
         "variations": [
           {
             "type": "PlainText",
