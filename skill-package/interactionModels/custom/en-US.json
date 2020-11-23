@@ -2,7 +2,7 @@
   "interactionModel": {
     "prompts": [
       {
-        "id": "Confirm.Intent-StartCountdownIntent",
+        "id": "confirm-countdown",
         "variations": [
           {
             "type": "PlainText",
@@ -19,7 +19,7 @@
         ]
       },
       {
-        "id": "Elicit.Intent-StartCountdownIntent.IntentSlot-CountdownEvent",
+        "id": "what-event",
         "variations": [
           {
             "type": "PlainText",
@@ -36,7 +36,7 @@
         ]
       },
       {
-        "id": "Elicit.Intent-StartCountdownIntent.IntentSlot-EventDate",
+        "id": "what-date",
         "variations": [
           {
             "type": "PlainText",
@@ -54,14 +54,13 @@
       }
     ],
     "dialog": {
-      "version": "1.0",
       "delegationStrategy": "ALWAYS",
       "intents": [
         {
           "name": "StartCountdownIntent",
           "confirmationRequired": true,
           "prompts": {
-            "confirm": "Confirm.Intent-StartCountdownIntent"
+            "confirm": "confirm-countdown"
           },
           "slots": [
             {
@@ -70,7 +69,7 @@
               "elicitationRequired": true,
               "confirmationRequired": false,
               "prompts": {
-                "elicit": "Elicit.Intent-StartCountdownIntent.IntentSlot-CountdownEvent"
+                "elicitation": "what-event"
               }
             },
             {
@@ -79,7 +78,7 @@
               "elicitationRequired": true,
               "confirmationRequired": false,
               "prompts": {
-                "elicit": "Elicit.Intent-StartCountdownIntent.IntentSlot-EventDate"
+                "elicitation": "what-date"
               }
             }
           ]
