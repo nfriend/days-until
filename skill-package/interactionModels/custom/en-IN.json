@@ -579,15 +579,15 @@
           "name": "EventType",
           "values": [
             {
-              "id": "my new season",
+              "id": "our-car",
               "name": {
-                "value": "my new season"
+                "value": "our car"
               }
             },
             {
-              "id": "my new apartment",
+              "id": "bachelorette-party",
               "name": {
-                "value": "my new apartment"
+                "value": "bachelorette party"
               }
             },
             {
@@ -597,39 +597,21 @@
               }
             },
             {
-              "id": "the new job",
+              "id": "our-holiday",
               "name": {
-                "value": "the new job"
+                "value": "our holiday"
               }
             },
             {
-              "id": "the new house",
+              "id": "the-surgery",
               "name": {
-                "value": "the new house"
+                "value": "the surgery"
               }
             },
             {
-              "id": "my birthday",
+              "id": "American-Thanksgiving",
               "name": {
-                "value": "my birthday"
-              }
-            },
-            {
-              "id": "the new season",
-              "name": {
-                "value": "the new season"
-              }
-            },
-            {
-              "id": "our game",
-              "name": {
-                "value": "our game"
-              }
-            },
-            {
-              "id": "the playoffs",
-              "name": {
-                "value": "the playoffs"
+                "value": "American Thanksgiving"
               }
             },
             {
@@ -645,9 +627,15 @@
               }
             },
             {
-              "id": "our time off",
+              "id": "solar-eclipse",
               "name": {
-                "value": "our time off"
+                "value": "solar eclipse"
+              }
+            },
+            {
+              "id": "honey-moon",
+              "name": {
+                "value": "honey moon"
               }
             },
             {
@@ -657,21 +645,27 @@
               }
             },
             {
-              "id": "school's over",
+              "id": "the-first-day-of-work",
               "name": {
-                "value": "school's over"
+                "value": "the first day of work"
               }
             },
             {
-              "id": "the holiday",
+              "id": "Ash-Wednesday",
               "name": {
-                "value": "the holiday"
+                "value": "Ash Wednesday"
               }
             },
             {
-              "id": "American Thanksgiving",
+              "id": "our-party",
               "name": {
-                "value": "American Thanksgiving"
+                "value": "our party"
+              }
+            },
+            {
+              "id": "schools-out",
+              "name": {
+                "value": "school's out"
               }
             },
             {
@@ -681,27 +675,15 @@
               }
             },
             {
-              "id": "our party",
-              "name": {
-                "value": "our party"
-              }
-            },
-            {
               "id": "dance",
               "name": {
                 "value": "dance"
               }
             },
             {
-              "id": "our exams",
+              "id": "our-bachelor-party",
               "name": {
-                "value": "our exams"
-              }
-            },
-            {
-              "id": "our new house",
-              "name": {
-                "value": "our new house"
+                "value": "our bachelor party"
               }
             },
             {
@@ -711,75 +693,51 @@
               }
             },
             {
-              "id": "Valentine's Day",
+              "id": "our-flight",
               "name": {
-                "value": "Valentine's Day"
+                "value": "our flight"
               }
             },
             {
-              "id": "July fourth",
+              "id": "the-eclipse",
               "name": {
-                "value": "July fourth"
+                "value": "the eclipse"
               }
             },
             {
-              "id": "job interview",
+              "id": "the-baby",
               "name": {
-                "value": "job interview"
+                "value": "the baby"
               }
             },
             {
-              "id": "test results",
+              "id": "my-apartment",
               "name": {
-                "value": "test results"
+                "value": "my apartment"
               }
             },
             {
-              "id": "Groundhog Day",
+              "id": "my-honey-moon",
               "name": {
-                "value": "Groundhog Day"
+                "value": "my honey moon"
               }
             },
             {
-              "id": "our trip",
+              "id": "new-apartment",
               "name": {
-                "value": "our trip"
+                "value": "new apartment"
               }
             },
             {
-              "id": "our exam",
+              "id": "our-playoffs",
               "name": {
-                "value": "our exam"
+                "value": "our playoffs"
               }
             },
             {
-              "id": "the new car",
+              "id": "the-solar-eclipse",
               "name": {
-                "value": "the new car"
-              }
-            },
-            {
-              "id": "my bachelor party",
-              "name": {
-                "value": "my bachelor party"
-              }
-            },
-            {
-              "id": "last day of school",
-              "name": {
-                "value": "last day of school"
-              }
-            },
-            {
-              "id": "get together",
-              "name": {
-                "value": "get together"
-              }
-            },
-            {
-              "id": "the performance",
-              "name": {
-                "value": "the performance"
+                "value": "the solar eclipse"
               }
             },
             {
@@ -789,75 +747,69 @@
               }
             },
             {
-              "id": "our holidays",
+              "id": "the-graduation",
               "name": {
-                "value": "our holidays"
+                "value": "the graduation"
               }
             },
             {
-              "id": "the birthday party",
+              "id": "full-moon",
               "name": {
-                "value": "the birthday party"
+                "value": "full moon"
               }
             },
             {
-              "id": "the party",
+              "id": "our-roadtrip",
               "name": {
-                "value": "the party"
+                "value": "our roadtrip"
               }
             },
             {
-              "id": "my wedding",
+              "id": "the-New-Years-party",
               "name": {
-                "value": "my wedding"
+                "value": "the New Year's party"
               }
             },
             {
-              "id": "the lunar eclipse",
+              "id": "Easter-Sunday",
               "name": {
-                "value": "the lunar eclipse"
+                "value": "Easter Sunday"
               }
             },
             {
-              "id": "Boxing Day",
+              "id": "the-exams",
               "name": {
-                "value": "Boxing Day"
+                "value": "the exams"
               }
             },
             {
-              "id": "first day of work",
+              "id": "the-baby-is-born",
               "name": {
-                "value": "first day of work"
+                "value": "the baby is born"
               }
             },
             {
-              "id": "my speech",
+              "id": "my-test-results",
               "name": {
-                "value": "my speech"
+                "value": "my test results"
               }
             },
             {
-              "id": "New Year's Eve",
+              "id": "the-new-car",
               "name": {
-                "value": "New Year's Eve"
+                "value": "the new car"
               }
             },
             {
-              "id": "New Year's Eve party",
+              "id": "my-graduation",
               "name": {
-                "value": "New Year's Eve party"
+                "value": "my graduation"
               }
             },
             {
-              "id": "our anniversary",
+              "id": "the-new-job",
               "name": {
-                "value": "our anniversary"
-              }
-            },
-            {
-              "id": "my concert",
-              "name": {
-                "value": "my concert"
+                "value": "the new job"
               }
             },
             {
@@ -867,51 +819,39 @@
               }
             },
             {
-              "id": "the solar eclipse",
+              "id": "the-speech",
               "name": {
-                "value": "the solar eclipse"
+                "value": "the speech"
               }
             },
             {
-              "id": "our test results",
+              "id": "new-house",
               "name": {
-                "value": "our test results"
+                "value": "new house"
               }
             },
             {
-              "id": "classes end",
+              "id": "last-day-of-school",
               "name": {
-                "value": "classes end"
+                "value": "last day of school"
               }
             },
             {
-              "id": "Martin Luther King Jr. Day",
+              "id": "our-big-game",
               "name": {
-                "value": "Martin Luther King Jr. Day"
+                "value": "our big game"
               }
             },
             {
-              "id": "the roadtrip",
+              "id": "the-lunar-eclipse",
               "name": {
-                "value": "the roadtrip"
+                "value": "the lunar eclipse"
               }
             },
             {
-              "id": "classes are out",
+              "id": "new-moon",
               "name": {
-                "value": "classes are out"
-              }
-            },
-            {
-              "id": "Christmas Party",
-              "name": {
-                "value": "Christmas Party"
-              }
-            },
-            {
-              "id": "the Superbowl",
-              "name": {
-                "value": "the Superbowl"
+                "value": "new moon"
               }
             },
             {
@@ -921,81 +861,45 @@
               }
             },
             {
-              "id": "our honey moon",
+              "id": "my-game",
               "name": {
-                "value": "our honey moon"
+                "value": "my game"
               }
             },
             {
-              "id": "bachelorette party",
+              "id": "the-bachelor-party",
               "name": {
-                "value": "bachelorette party"
+                "value": "the bachelor party"
               }
             },
             {
-              "id": "my trip",
+              "id": "class-starts",
               "name": {
-                "value": "my trip"
+                "value": "class starts"
               }
             },
             {
-              "id": "our vacation",
+              "id": "the-honey-moon",
               "name": {
-                "value": "our vacation"
+                "value": "the honey moon"
               }
             },
             {
-              "id": "Canada Day",
+              "id": "July-four",
               "name": {
-                "value": "Canada Day"
+                "value": "July four"
               }
             },
             {
-              "id": "my exam",
+              "id": "my-holiday",
               "name": {
-                "value": "my exam"
+                "value": "my holiday"
               }
             },
             {
-              "id": "the new baby is born",
+              "id": "time-off",
               "name": {
-                "value": "the new baby is born"
-              }
-            },
-            {
-              "id": "new house",
-              "name": {
-                "value": "new house"
-              }
-            },
-            {
-              "id": "the exams",
-              "name": {
-                "value": "the exams"
-              }
-            },
-            {
-              "id": "my tests",
-              "name": {
-                "value": "my tests"
-              }
-            },
-            {
-              "id": "the new apartment",
-              "name": {
-                "value": "the new apartment"
-              }
-            },
-            {
-              "id": "the New Year's party",
-              "name": {
-                "value": "the New Year's party"
-              }
-            },
-            {
-              "id": "our gala",
-              "name": {
-                "value": "our gala"
+                "value": "time off"
               }
             },
             {
@@ -1005,21 +909,33 @@
               }
             },
             {
-              "id": "the retirement party",
+              "id": "my-dance",
               "name": {
-                "value": "the retirement party"
+                "value": "my dance"
               }
             },
             {
-              "id": "my new baby",
+              "id": "schools-done",
               "name": {
-                "value": "my new baby"
+                "value": "school's done"
               }
             },
             {
-              "id": "our retirement",
+              "id": "my-vacation",
               "name": {
-                "value": "our retirement"
+                "value": "my vacation"
+              }
+            },
+            {
+              "id": "my-move",
+              "name": {
+                "value": "my move"
+              }
+            },
+            {
+              "id": "my-gala",
+              "name": {
+                "value": "my gala"
               }
             },
             {
@@ -1029,21 +945,15 @@
               }
             },
             {
-              "id": "the interview",
-              "name": {
-                "value": "the interview"
-              }
-            },
-            {
               "id": "anniversary",
               "name": {
                 "value": "anniversary"
               }
             },
             {
-              "id": "our move",
+              "id": "the-birthday",
               "name": {
-                "value": "our move"
+                "value": "the birthday"
               }
             },
             {
@@ -1053,33 +963,69 @@
               }
             },
             {
-              "id": "the full moon",
+              "id": "the-New-Years-Eve-party",
               "name": {
-                "value": "the full moon"
+                "value": "the New Year's Eve party"
               }
             },
             {
-              "id": "our get together",
+              "id": "retirement-party",
               "name": {
-                "value": "our get together"
+                "value": "retirement party"
               }
             },
             {
-              "id": "Black Friday",
+              "id": "the-get-together",
               "name": {
-                "value": "Black Friday"
+                "value": "the get together"
               }
             },
             {
-              "id": "the big move",
+              "id": "my-new-baby",
               "name": {
-                "value": "the big move"
+                "value": "my new baby"
               }
             },
             {
-              "id": "my appointment",
+              "id": "my-flight",
               "name": {
-                "value": "my appointment"
+                "value": "my flight"
+              }
+            },
+            {
+              "id": "my-exam",
+              "name": {
+                "value": "my exam"
+              }
+            },
+            {
+              "id": "my-car",
+              "name": {
+                "value": "my car"
+              }
+            },
+            {
+              "id": "my-big-game",
+              "name": {
+                "value": "my big game"
+              }
+            },
+            {
+              "id": "my-payday",
+              "name": {
+                "value": "my payday"
+              }
+            },
+            {
+              "id": "my-exams",
+              "name": {
+                "value": "my exams"
+              }
+            },
+            {
+              "id": "our-test-results",
+              "name": {
+                "value": "our test results"
               }
             },
             {
@@ -1089,15 +1035,9 @@
               }
             },
             {
-              "id": "the New Year",
+              "id": "my-trip",
               "name": {
-                "value": "the New Year"
-              }
-            },
-            {
-              "id": "New Year",
-              "name": {
-                "value": "New Year"
+                "value": "my trip"
               }
             },
             {
@@ -1113,39 +1053,57 @@
               }
             },
             {
-              "id": "Christmas Day",
+              "id": "the-election",
               "name": {
-                "value": "Christmas Day"
+                "value": "the election"
               }
             },
             {
-              "id": "my anniversary",
+              "id": "first-day-of-winter",
               "name": {
-                "value": "my anniversary"
+                "value": "first day of winter"
               }
             },
             {
-              "id": "the graduation",
+              "id": "Canadian-Thanksgiving",
               "name": {
-                "value": "the graduation"
+                "value": "Canadian Thanksgiving"
               }
             },
             {
-              "id": "my playoffs",
+              "id": "the-trip",
               "name": {
-                "value": "my playoffs"
+                "value": "the trip"
               }
             },
             {
-              "id": "our last day of work",
+              "id": "New-Years-Eve-party",
               "name": {
-                "value": "our last day of work"
+                "value": "New Year's Eve party"
               }
             },
             {
-              "id": "the first day of work",
+              "id": "the-dance",
               "name": {
-                "value": "the first day of work"
+                "value": "the dance"
+              }
+            },
+            {
+              "id": "Independence-Day",
+              "name": {
+                "value": "Independence Day"
+              }
+            },
+            {
+              "id": "our-move",
+              "name": {
+                "value": "our move"
+              }
+            },
+            {
+              "id": "the-new-baby-is-born",
+              "name": {
+                "value": "the new baby is born"
               }
             },
             {
@@ -1155,45 +1113,39 @@
               }
             },
             {
-              "id": "our first day of work",
+              "id": "our-holidays",
               "name": {
-                "value": "our first day of work"
+                "value": "our holidays"
               }
             },
             {
-              "id": "the big game",
+              "id": "my-birthday",
               "name": {
-                "value": "the big game"
+                "value": "my birthday"
               }
             },
             {
-              "id": "the New Year's Eve party",
+              "id": "my-test-result",
               "name": {
-                "value": "the New Year's Eve party"
+                "value": "my test result"
               }
             },
             {
-              "id": "Inauguration Day",
+              "id": "my-first-day-of-work",
               "name": {
-                "value": "Inauguration Day"
+                "value": "my first day of work"
               }
             },
             {
-              "id": "my graduation",
+              "id": "our-baby-is-born",
               "name": {
-                "value": "my graduation"
+                "value": "our baby is born"
               }
             },
             {
-              "id": "Easter Sunday",
+              "id": "our-last-day-of-work",
               "name": {
-                "value": "Easter Sunday"
-              }
-            },
-            {
-              "id": "our new apartment",
-              "name": {
-                "value": "our new apartment"
+                "value": "our last day of work"
               }
             },
             {
@@ -1203,45 +1155,27 @@
               }
             },
             {
-              "id": "our job interview",
+              "id": "Labor-Day",
               "name": {
-                "value": "our job interview"
+                "value": "Labor Day"
               }
             },
             {
-              "id": "my test results",
+              "id": "our-time-off",
               "name": {
-                "value": "my test results"
+                "value": "our time off"
               }
             },
             {
-              "id": "new car",
+              "id": "our-finals",
               "name": {
-                "value": "new car"
+                "value": "our finals"
               }
             },
             {
-              "id": "my baby",
+              "id": "New-Years",
               "name": {
-                "value": "my baby"
-              }
-            },
-            {
-              "id": "the fourth",
-              "name": {
-                "value": "the fourth"
-              }
-            },
-            {
-              "id": "our test",
-              "name": {
-                "value": "our test"
-              }
-            },
-            {
-              "id": "the concert",
-              "name": {
-                "value": "the concert"
+                "value": "New Year's"
               }
             },
             {
@@ -1251,9 +1185,9 @@
               }
             },
             {
-              "id": "our roadtrip",
+              "id": "our-gala",
               "name": {
-                "value": "our roadtrip"
+                "value": "our gala"
               }
             },
             {
@@ -1263,9 +1197,9 @@
               }
             },
             {
-              "id": "my roadtrip",
+              "id": "the-payday",
               "name": {
-                "value": "my roadtrip"
+                "value": "the payday"
               }
             },
             {
@@ -1275,15 +1209,15 @@
               }
             },
             {
-              "id": "the last day of work",
+              "id": "my-baby-is-born",
               "name": {
-                "value": "the last day of work"
+                "value": "my baby is born"
               }
             },
             {
-              "id": "my surgery",
+              "id": "our-new-baby-is-born",
               "name": {
-                "value": "my surgery"
+                "value": "our new baby is born"
               }
             },
             {
@@ -1293,81 +1227,81 @@
               }
             },
             {
+              "id": "the-house",
+              "name": {
+                "value": "the house"
+              }
+            },
+            {
               "id": "Kwanzaa",
               "name": {
                 "value": "Kwanzaa"
               }
             },
             {
-              "id": "the car",
+              "id": "the-time-off",
               "name": {
-                "value": "the car"
+                "value": "the time off"
               }
             },
             {
-              "id": "our car",
+              "id": "our-new-baby",
               "name": {
-                "value": "our car"
+                "value": "our new baby"
               }
             },
             {
-              "id": "Christmas Eve",
+              "id": "Groundhog-Day",
               "name": {
-                "value": "Christmas Eve"
+                "value": "Groundhog Day"
               }
             },
             {
-              "id": "my exams",
+              "id": "my-performance",
               "name": {
-                "value": "my exams"
+                "value": "my performance"
               }
             },
             {
-              "id": "baby is born",
+              "id": "the-full-moon",
               "name": {
-                "value": "baby is born"
+                "value": "the full moon"
               }
             },
             {
-              "id": "the retirement",
+              "id": "the-flight",
               "name": {
-                "value": "the retirement"
+                "value": "the flight"
               }
             },
             {
-              "id": "the inauguration",
+              "id": "our-birthday",
               "name": {
-                "value": "the inauguration"
+                "value": "our birthday"
               }
             },
             {
-              "id": "new job",
+              "id": "the-holiday",
               "name": {
-                "value": "new job"
+                "value": "the holiday"
               }
             },
             {
-              "id": "our bachelorette party",
+              "id": "our-game",
               "name": {
-                "value": "our bachelorette party"
+                "value": "our game"
               }
             },
             {
-              "id": "the dance",
+              "id": "our-exams",
               "name": {
-                "value": "the dance"
+                "value": "our exams"
               }
             },
             {
-              "id": "our new baby is born",
+              "id": "the-roadtrip",
               "name": {
-                "value": "our new baby is born"
-              }
-            },
-            {
-              "id": "fourth of July",
-              "name": {
-                "value": "fourth of July"
+                "value": "the roadtrip"
               }
             },
             {
@@ -1377,55 +1311,73 @@
               }
             },
             {
-              "id": "the payday",
+              "id": "fourth-of-July",
               "name": {
-                "value": "the payday"
+                "value": "fourth of July"
               }
             },
             {
-              "id": "our wedding",
+              "id": "classes-are-done",
               "name": {
-                "value": "our wedding"
+                "value": "classes are done"
               }
             },
             {
-              "id": "bachelor party",
+              "id": "the-test-results",
               "name": {
-                "value": "bachelor party"
+                "value": "the test results"
               }
             },
             {
-              "id": "my performance",
+              "id": "my-reunion",
               "name": {
-                "value": "my performance"
+                "value": "my reunion"
               }
             },
             {
-              "id": "my flight",
+              "id": "our-new-apartment",
               "name": {
-                "value": "my flight"
+                "value": "our new apartment"
               }
             },
             {
-              "id": "my payday",
+              "id": "the-concert",
               "name": {
-                "value": "my payday"
+                "value": "the concert"
               }
             },
             {
-              "id": "my test result",
+              "id": "our-vacation",
               "name": {
-                "value": "my test result"
+                "value": "our vacation"
               }
             },
             {
-              "id": "our retirement party",
+              "id": "my-new-job",
               "name": {
-                "value": "our retirement party"
+                "value": "my new job"
               }
             },
             {
-              "id": "our speech",
+              "id": "the-test",
+              "name": {
+                "value": "the test"
+              }
+            },
+            {
+              "id": "lunar-eclipse",
+              "name": {
+                "value": "lunar eclipse"
+              }
+            },
+            {
+              "id": "Presidents-Day",
+              "name": {
+                "value": "President's Day"
+              }
+            },
+            {
+              "id": "our-speech",
               "name": {
                 "value": "our speech"
               }
@@ -1437,69 +1389,105 @@
               }
             },
             {
-              "id": "my vacation",
+              "id": "New-Years-party",
               "name": {
-                "value": "my vacation"
+                "value": "New Year's party"
               }
             },
             {
-              "id": "our graduation",
+              "id": "my-retirement-party",
               "name": {
-                "value": "our graduation"
+                "value": "my retirement party"
               }
             },
             {
-              "id": "my test",
+              "id": "the-party",
               "name": {
-                "value": "my test"
+                "value": "the party"
               }
             },
             {
-              "id": "the baby",
+              "id": "the-birthday-party",
               "name": {
-                "value": "the baby"
+                "value": "the birthday party"
               }
             },
             {
-              "id": "the election",
+              "id": "my-interview",
               "name": {
-                "value": "the election"
+                "value": "my interview"
               }
             },
             {
-              "id": "the test",
+              "id": "test-results",
               "name": {
-                "value": "the test"
+                "value": "test results"
               }
             },
             {
-              "id": "our tests",
+              "id": "our-retirement-party",
               "name": {
-                "value": "our tests"
+                "value": "our retirement party"
               }
             },
             {
-              "id": "our baby is born",
+              "id": "our-wedding",
               "name": {
-                "value": "our baby is born"
+                "value": "our wedding"
               }
             },
             {
-              "id": "my apartment",
+              "id": "classes-end",
               "name": {
-                "value": "my apartment"
+                "value": "classes end"
               }
             },
             {
-              "id": "lunar eclipse",
+              "id": "the-new-baby",
               "name": {
-                "value": "lunar eclipse"
+                "value": "the new baby"
               }
             },
             {
-              "id": "our new season",
+              "id": "the-car",
               "name": {
-                "value": "our new season"
+                "value": "the car"
+              }
+            },
+            {
+              "id": "our-get-together",
+              "name": {
+                "value": "our get together"
+              }
+            },
+            {
+              "id": "Boxing-Day",
+              "name": {
+                "value": "Boxing Day"
+              }
+            },
+            {
+              "id": "the-big-game",
+              "name": {
+                "value": "the big game"
+              }
+            },
+            {
+              "id": "our-job-interview",
+              "name": {
+                "value": "our job interview"
+              }
+            },
+            {
+              "id": "schools-over",
+              "name": {
+                "value": "school's over"
+              }
+            },
+            {
+              "id": "our-exam",
+              "name": {
+                "value": "our exam"
               }
             },
             {
@@ -1509,183 +1497,171 @@
               }
             },
             {
-              "id": "the wedding",
+              "id": "the-holidays",
               "name": {
-                "value": "the wedding"
+                "value": "the holidays"
               }
             },
             {
-              "id": "our test result",
+              "id": "baby-is-born",
               "name": {
-                "value": "our test result"
+                "value": "baby is born"
               }
             },
             {
-              "id": "first day of spring",
+              "id": "our-trip",
+              "name": {
+                "value": "our trip"
+              }
+            },
+            {
+              "id": "our-new-car",
+              "name": {
+                "value": "our new car"
+              }
+            },
+            {
+              "id": "our-tests",
+              "name": {
+                "value": "our tests"
+              }
+            },
+            {
+              "id": "New-Years-Eve",
+              "name": {
+                "value": "New Year's Eve"
+              }
+            },
+            {
+              "id": "my-new-car",
+              "name": {
+                "value": "my new car"
+              }
+            },
+            {
+              "id": "new-season",
+              "name": {
+                "value": "new season"
+              }
+            },
+            {
+              "id": "our-payday",
+              "name": {
+                "value": "our payday"
+              }
+            },
+            {
+              "id": "the-big-move",
+              "name": {
+                "value": "the big move"
+              }
+            },
+            {
+              "id": "my-test",
+              "name": {
+                "value": "my test"
+              }
+            },
+            {
+              "id": "Maundy-Thursday",
+              "name": {
+                "value": "Maundy Thursday"
+              }
+            },
+            {
+              "id": "Good-Friday",
+              "name": {
+                "value": "Good Friday"
+              }
+            },
+            {
+              "id": "Canada-Day",
+              "name": {
+                "value": "Canada Day"
+              }
+            },
+            {
+              "id": "the-Superbowl",
+              "name": {
+                "value": "the Superbowl"
+              }
+            },
+            {
+              "id": "first-day-of-spring",
               "name": {
                 "value": "first day of spring"
               }
             },
             {
-              "id": "the last day of school",
+              "id": "the-fourth",
               "name": {
-                "value": "the last day of school"
+                "value": "the fourth"
               }
             },
             {
-              "id": "the get together",
+              "id": "my-roadtrip",
               "name": {
-                "value": "the get together"
+                "value": "my roadtrip"
               }
             },
             {
-              "id": "the flight",
+              "id": "Election-Day",
               "name": {
-                "value": "the flight"
+                "value": "Election Day"
               }
             },
             {
-              "id": "the eclipse",
+              "id": "the-move",
               "name": {
-                "value": "the eclipse"
+                "value": "the move"
               }
             },
             {
-              "id": "new moon",
+              "id": "my-playoffs",
               "name": {
-                "value": "new moon"
+                "value": "my playoffs"
               }
             },
             {
-              "id": "test result",
+              "id": "the-new-season",
               "name": {
-                "value": "test result"
+                "value": "the new season"
               }
             },
             {
-              "id": "classes are done",
+              "id": "our-new-job",
               "name": {
-                "value": "classes are done"
+                "value": "our new job"
               }
             },
             {
-              "id": "new apartment",
+              "id": "Black-Friday",
               "name": {
-                "value": "new apartment"
+                "value": "Black Friday"
               }
             },
             {
-              "id": "my retirement",
+              "id": "the-gala",
               "name": {
-                "value": "my retirement"
+                "value": "the gala"
               }
             },
             {
-              "id": "our finals",
-              "name": {
-                "value": "our finals"
-              }
-            },
-            {
-              "id": "my time off",
-              "name": {
-                "value": "my time off"
-              }
-            },
-            {
-              "id": "our bachelor party",
-              "name": {
-                "value": "our bachelor party"
-              }
-            },
-            {
-              "id": "new baby is born",
+              "id": "new-baby-is-born",
               "name": {
                 "value": "new baby is born"
               }
             },
             {
-              "id": "July four",
+              "id": "my-time-off",
               "name": {
-                "value": "July four"
+                "value": "my time off"
               }
             },
             {
-              "id": "first day of school",
+              "id": "bachelor-party",
               "name": {
-                "value": "first day of school"
-              }
-            },
-            {
-              "id": "my get together",
-              "name": {
-                "value": "my get together"
-              }
-            },
-            {
-              "id": "the speech",
-              "name": {
-                "value": "the speech"
-              }
-            },
-            {
-              "id": "the honey moon",
-              "name": {
-                "value": "the honey moon"
-              }
-            },
-            {
-              "id": "the anniversary",
-              "name": {
-                "value": "the anniversary"
-              }
-            },
-            {
-              "id": "my holidays",
-              "name": {
-                "value": "my holidays"
-              }
-            },
-            {
-              "id": "my holiday",
-              "name": {
-                "value": "my holiday"
-              }
-            },
-            {
-              "id": "school's done",
-              "name": {
-                "value": "school's done"
-              }
-            },
-            {
-              "id": "first day of winter",
-              "name": {
-                "value": "first day of winter"
-              }
-            },
-            {
-              "id": "our big game",
-              "name": {
-                "value": "our big game"
-              }
-            },
-            {
-              "id": "big game",
-              "name": {
-                "value": "big game"
-              }
-            },
-            {
-              "id": "Ash Wednesday",
-              "name": {
-                "value": "Ash Wednesday"
-              }
-            },
-            {
-              "id": "my new car",
-              "name": {
-                "value": "my new car"
+                "value": "bachelor party"
               }
             },
             {
@@ -1701,27 +1677,21 @@
               }
             },
             {
-              "id": "my reunion",
+              "id": "my-party",
               "name": {
-                "value": "my reunion"
+                "value": "my party"
               }
             },
             {
-              "id": "honey moon",
+              "id": "my-appointment",
               "name": {
-                "value": "honey moon"
+                "value": "my appointment"
               }
             },
             {
-              "id": "solar eclipse",
+              "id": "the-anniversary",
               "name": {
-                "value": "solar eclipse"
-              }
-            },
-            {
-              "id": "our new job",
-              "name": {
-                "value": "our new job"
+                "value": "the anniversary"
               }
             },
             {
@@ -1731,9 +1701,21 @@
               }
             },
             {
-              "id": "my bachelorette party",
+              "id": "the-vacation",
               "name": {
-                "value": "my bachelorette party"
+                "value": "the vacation"
+              }
+            },
+            {
+              "id": "first-day-of-school",
+              "name": {
+                "value": "first day of school"
+              }
+            },
+            {
+              "id": "the-new-moon",
+              "name": {
+                "value": "the new moon"
               }
             },
             {
@@ -1743,21 +1725,21 @@
               }
             },
             {
+              "id": "our-graduation",
+              "name": {
+                "value": "our graduation"
+              }
+            },
+            {
+              "id": "the-game",
+              "name": {
+                "value": "the game"
+              }
+            },
+            {
               "id": "payday",
               "name": {
                 "value": "payday"
-              }
-            },
-            {
-              "id": "my honey moon",
-              "name": {
-                "value": "my honey moon"
-              }
-            },
-            {
-              "id": "Independence Day",
-              "name": {
-                "value": "Independence Day"
               }
             },
             {
@@ -1767,39 +1749,81 @@
               }
             },
             {
-              "id": "our birthday",
+              "id": "our-concert",
               "name": {
-                "value": "our birthday"
+                "value": "our concert"
               }
             },
             {
-              "id": "the surgery",
+              "id": "Martin-Luther-King-Jr-Day",
               "name": {
-                "value": "the surgery"
+                "value": "Martin Luther King Jr. Day"
               }
             },
             {
-              "id": "full moon",
+              "id": "classes-start",
               "name": {
-                "value": "full moon"
+                "value": "classes start"
               }
             },
             {
-              "id": "the house",
+              "id": "my-concert",
               "name": {
-                "value": "the house"
+                "value": "my concert"
               }
             },
             {
-              "id": "the time off",
+              "id": "first-day-of-work",
               "name": {
-                "value": "the time off"
+                "value": "first day of work"
               }
             },
             {
-              "id": "my new job",
+              "id": "the-retirement-party",
               "name": {
-                "value": "my new job"
+                "value": "the retirement party"
+              }
+            },
+            {
+              "id": "our-dance",
+              "name": {
+                "value": "our dance"
+              }
+            },
+            {
+              "id": "our-test",
+              "name": {
+                "value": "our test"
+              }
+            },
+            {
+              "id": "my-surgery",
+              "name": {
+                "value": "my surgery"
+              }
+            },
+            {
+              "id": "the-exam",
+              "name": {
+                "value": "the exam"
+              }
+            },
+            {
+              "id": "my-anniversary",
+              "name": {
+                "value": "my anniversary"
+              }
+            },
+            {
+              "id": "my-bachelor-party",
+              "name": {
+                "value": "my bachelor party"
+              }
+            },
+            {
+              "id": "the-tests",
+              "name": {
+                "value": "the tests"
               }
             },
             {
@@ -1809,21 +1833,21 @@
               }
             },
             {
-              "id": "the bachelorette party",
+              "id": "my-wedding",
               "name": {
-                "value": "the bachelorette party"
+                "value": "my wedding"
               }
             },
             {
-              "id": "our reunion",
+              "id": "my-new-house",
               "name": {
-                "value": "our reunion"
+                "value": "my new house"
               }
             },
             {
-              "id": "the baby is born",
+              "id": "Valentines-Day",
               "name": {
-                "value": "the baby is born"
+                "value": "Valentine's Day"
               }
             },
             {
@@ -1833,69 +1857,39 @@
               }
             },
             {
-              "id": "President's Day",
+              "id": "our-apartment",
               "name": {
-                "value": "President's Day"
+                "value": "our apartment"
               }
             },
             {
-              "id": "our baby",
+              "id": "my-baby",
               "name": {
-                "value": "our baby"
+                "value": "my baby"
               }
             },
             {
-              "id": "school ends",
+              "id": "the-last-day-of-school",
               "name": {
-                "value": "school ends"
+                "value": "the last day of school"
               }
             },
             {
-              "id": "classes start",
+              "id": "my-speech",
               "name": {
-                "value": "classes start"
+                "value": "my speech"
               }
             },
             {
-              "id": "my last day of work",
+              "id": "the-playoffs",
               "name": {
-                "value": "my last day of work"
+                "value": "the playoffs"
               }
             },
             {
-              "id": "class starts",
+              "id": "school-starts",
               "name": {
-                "value": "class starts"
-              }
-            },
-            {
-              "id": "Canadian Thanksgiving",
-              "name": {
-                "value": "Canadian Thanksgiving"
-              }
-            },
-            {
-              "id": "the first day of school",
-              "name": {
-                "value": "the first day of school"
-              }
-            },
-            {
-              "id": "New Year's",
-              "name": {
-                "value": "New Year's"
-              }
-            },
-            {
-              "id": "birthday party",
-              "name": {
-                "value": "birthday party"
-              }
-            },
-            {
-              "id": "time off",
-              "name": {
-                "value": "time off"
+                "value": "school starts"
               }
             },
             {
@@ -1911,93 +1905,81 @@
               }
             },
             {
-              "id": "our performance",
+              "id": "our-house",
               "name": {
-                "value": "our performance"
+                "value": "our house"
               }
             },
             {
-              "id": "our apartment",
+              "id": "our-test-result",
               "name": {
-                "value": "our apartment"
+                "value": "our test result"
               }
             },
             {
-              "id": "my game",
+              "id": "my-last-day-of-work",
               "name": {
-                "value": "my game"
+                "value": "my last day of work"
               }
             },
             {
-              "id": "our payday",
+              "id": "our-anniversary",
               "name": {
-                "value": "our payday"
+                "value": "our anniversary"
               }
             },
             {
-              "id": "the holidays",
+              "id": "the-interview",
               "name": {
-                "value": "the holidays"
+                "value": "the interview"
               }
             },
             {
-              "id": "my house",
+              "id": "big-game",
               "name": {
-                "value": "my house"
+                "value": "big game"
               }
             },
             {
-              "id": "the trip",
+              "id": "the-job-interview",
               "name": {
-                "value": "the trip"
+                "value": "the job interview"
               }
             },
             {
-              "id": "our birthday party",
+              "id": "our-birthday-party",
               "name": {
                 "value": "our birthday party"
               }
             },
             {
-              "id": "the event",
+              "id": "my-job-interview",
               "name": {
-                "value": "the event"
+                "value": "my job interview"
               }
             },
             {
-              "id": "our flight",
+              "id": "Christmas-Party",
               "name": {
-                "value": "our flight"
+                "value": "Christmas Party"
               }
             },
             {
-              "id": "retirement party",
+              "id": "July-fourth",
               "name": {
-                "value": "retirement party"
+                "value": "July fourth"
               }
             },
             {
-              "id": "my new house",
+              "id": "first-day-of-summer",
               "name": {
-                "value": "my new house"
+                "value": "first day of summer"
               }
             },
             {
-              "id": "New Year's party",
+              "id": "test-result",
               "name": {
-                "value": "New Year's party"
-              }
-            },
-            {
-              "id": "the game",
-              "name": {
-                "value": "the game"
-              }
-            },
-            {
-              "id": "new season",
-              "name": {
-                "value": "new season"
+                "value": "test result"
               }
             },
             {
@@ -2007,15 +1989,39 @@
               }
             },
             {
-              "id": "the new baby",
+              "id": "the-first-day-of-school",
               "name": {
-                "value": "the new baby"
+                "value": "the first day of school"
               }
             },
             {
-              "id": "my baby is born",
+              "id": "classes-finish",
               "name": {
-                "value": "my baby is born"
+                "value": "classes finish"
+              }
+            },
+            {
+              "id": "new-baby",
+              "name": {
+                "value": "new baby"
+              }
+            },
+            {
+              "id": "the-retirement",
+              "name": {
+                "value": "the retirement"
+              }
+            },
+            {
+              "id": "birthday-party",
+              "name": {
+                "value": "birthday party"
+              }
+            },
+            {
+              "id": "New-Year",
+              "name": {
+                "value": "New Year"
               }
             },
             {
@@ -2025,27 +2031,33 @@
               }
             },
             {
-              "id": "our interview",
+              "id": "the-bachelorette-party",
               "name": {
-                "value": "our interview"
+                "value": "the bachelorette party"
               }
             },
             {
-              "id": "the bachelor party",
+              "id": "the-apartment",
               "name": {
-                "value": "the bachelor party"
+                "value": "the apartment"
               }
             },
             {
-              "id": "my move",
+              "id": "the-reunion",
               "name": {
-                "value": "my move"
+                "value": "the reunion"
               }
             },
             {
-              "id": "the exam",
+              "id": "my-holidays",
               "name": {
-                "value": "the exam"
+                "value": "my holidays"
+              }
+            },
+            {
+              "id": "the-last-day-of-work",
+              "name": {
+                "value": "the last day of work"
               }
             },
             {
@@ -2055,39 +2067,33 @@
               }
             },
             {
-              "id": "my gala",
+              "id": "our-appointment",
               "name": {
-                "value": "my gala"
+                "value": "our appointment"
               }
             },
             {
-              "id": "our dance",
+              "id": "get-together",
               "name": {
-                "value": "our dance"
+                "value": "get together"
               }
             },
             {
-              "id": "our playoffs",
+              "id": "our-reunion",
               "name": {
-                "value": "our playoffs"
+                "value": "our reunion"
               }
             },
             {
-              "id": "school's out",
+              "id": "Christmas-Day",
               "name": {
-                "value": "school's out"
+                "value": "Christmas Day"
               }
             },
             {
-              "id": "Good Friday",
+              "id": "our-baby",
               "name": {
-                "value": "Good Friday"
-              }
-            },
-            {
-              "id": "our new car",
-              "name": {
-                "value": "our new car"
+                "value": "our baby"
               }
             },
             {
@@ -2097,33 +2103,45 @@
               }
             },
             {
-              "id": "classes finish",
-              "name": {
-                "value": "classes finish"
-              }
-            },
-            {
-              "id": "the move",
-              "name": {
-                "value": "the move"
-              }
-            },
-            {
               "id": "game",
               "name": {
                 "value": "game"
               }
             },
             {
-              "id": "my dance",
+              "id": "our-bachelorette-party",
               "name": {
-                "value": "my dance"
+                "value": "our bachelorette party"
               }
             },
             {
-              "id": "the gala",
+              "id": "the-appointment",
               "name": {
-                "value": "the gala"
+                "value": "the appointment"
+              }
+            },
+            {
+              "id": "the-test-result",
+              "name": {
+                "value": "the test result"
+              }
+            },
+            {
+              "id": "the-new-apartment",
+              "name": {
+                "value": "the new apartment"
+              }
+            },
+            {
+              "id": "my-birthday-party",
+              "name": {
+                "value": "my birthday party"
+              }
+            },
+            {
+              "id": "job-interview",
+              "name": {
+                "value": "job interview"
               }
             },
             {
@@ -2133,63 +2151,63 @@
               }
             },
             {
-              "id": "last day of work",
+              "id": "our-retirement",
+              "name": {
+                "value": "our retirement"
+              }
+            },
+            {
+              "id": "last-day-of-work",
               "name": {
                 "value": "last day of work"
               }
             },
             {
-              "id": "my birthday party",
+              "id": "my-tests",
               "name": {
-                "value": "my birthday party"
+                "value": "my tests"
               }
             },
             {
-              "id": "our new baby",
+              "id": "new-car",
               "name": {
-                "value": "our new baby"
+                "value": "new car"
               }
             },
             {
-              "id": "my first day of work",
+              "id": "the-inauguration",
               "name": {
-                "value": "my first day of work"
+                "value": "the inauguration"
               }
             },
             {
-              "id": "the tests",
+              "id": "our-new-house",
               "name": {
-                "value": "the tests"
+                "value": "our new house"
               }
             },
             {
-              "id": "new baby",
+              "id": "my-new-season",
               "name": {
-                "value": "new baby"
+                "value": "my new season"
               }
             },
             {
-              "id": "I move",
+              "id": "my-new-apartment",
               "name": {
-                "value": "I move"
+                "value": "my new apartment"
               }
             },
             {
-              "id": "the test results",
+              "id": "my-retirement",
               "name": {
-                "value": "the test results"
+                "value": "my retirement"
               }
             },
             {
-              "id": "my finals",
+              "id": "our-first-day-of-work",
               "name": {
-                "value": "my finals"
-              }
-            },
-            {
-              "id": "my retirement party",
-              "name": {
-                "value": "my retirement party"
+                "value": "our first day of work"
               }
             },
             {
@@ -2199,63 +2217,45 @@
               }
             },
             {
-              "id": "my party",
+              "id": "my-house",
               "name": {
-                "value": "my party"
+                "value": "my house"
               }
             },
             {
-              "id": "my car",
+              "id": "our-new-season",
               "name": {
-                "value": "my car"
+                "value": "our new season"
               }
             },
             {
-              "id": "first day of fall",
+              "id": "the-event",
               "name": {
-                "value": "first day of fall"
+                "value": "the event"
               }
             },
             {
-              "id": "our concert",
+              "id": "my-bachelorette-party",
               "name": {
-                "value": "our concert"
+                "value": "my bachelorette party"
               }
             },
             {
-              "id": "the new moon",
+              "id": "the-performance",
               "name": {
-                "value": "the new moon"
+                "value": "the performance"
               }
             },
             {
-              "id": "the test result",
+              "id": "my-new-baby-is-born",
               "name": {
-                "value": "the test result"
+                "value": "my new baby is born"
               }
             },
             {
-              "id": "Election Day",
+              "id": "the-wedding",
               "name": {
-                "value": "Election Day"
-              }
-            },
-            {
-              "id": "the vacation",
-              "name": {
-                "value": "the vacation"
-              }
-            },
-            {
-              "id": "Maundy Thursday",
-              "name": {
-                "value": "Maundy Thursday"
-              }
-            },
-            {
-              "id": "the birthday",
-              "name": {
-                "value": "the birthday"
+                "value": "the wedding"
               }
             },
             {
@@ -2265,63 +2265,51 @@
               }
             },
             {
-              "id": "my job interview",
+              "id": "my-get-together",
               "name": {
-                "value": "my job interview"
+                "value": "my get together"
               }
             },
             {
-              "id": "our appointment",
+              "id": "Christmas-Eve",
               "name": {
-                "value": "our appointment"
+                "value": "Christmas Eve"
               }
             },
             {
-              "id": "our house",
+              "id": "the-New-Year",
               "name": {
-                "value": "our house"
+                "value": "the New Year"
               }
             },
             {
-              "id": "Labor Day",
+              "id": "Inauguration-Day",
               "name": {
-                "value": "Labor Day"
+                "value": "Inauguration Day"
               }
             },
             {
-              "id": "our holiday",
+              "id": "school-ends",
               "name": {
-                "value": "our holiday"
+                "value": "school ends"
               }
             },
             {
-              "id": "my interview",
+              "id": "I-move",
               "name": {
-                "value": "my interview"
+                "value": "I move"
               }
             },
             {
-              "id": "the job interview",
+              "id": "my-finals",
               "name": {
-                "value": "the job interview"
+                "value": "my finals"
               }
             },
             {
-              "id": "the reunion",
+              "id": "our-honey-moon",
               "name": {
-                "value": "the reunion"
-              }
-            },
-            {
-              "id": "the appointment",
-              "name": {
-                "value": "the appointment"
-              }
-            },
-            {
-              "id": "school starts",
-              "name": {
-                "value": "school starts"
+                "value": "our honey moon"
               }
             },
             {
@@ -2337,9 +2325,15 @@
               }
             },
             {
-              "id": "the finals",
+              "id": "the-finals",
               "name": {
                 "value": "the finals"
+              }
+            },
+            {
+              "id": "first-day-of-fall",
+              "name": {
+                "value": "first day of fall"
               }
             },
             {
@@ -2349,33 +2343,39 @@
               }
             },
             {
-              "id": "my big game",
+              "id": "new-job",
               "name": {
-                "value": "my big game"
+                "value": "new job"
               }
             },
             {
-              "id": "the apartment",
+              "id": "our-performance",
               "name": {
-                "value": "the apartment"
+                "value": "our performance"
               }
             },
             {
-              "id": "my new baby is born",
+              "id": "our-interview",
               "name": {
-                "value": "my new baby is born"
+                "value": "our interview"
+              }
+            },
+            {
+              "id": "classes-are-out",
+              "name": {
+                "value": "classes are out"
+              }
+            },
+            {
+              "id": "the-new-house",
+              "name": {
+                "value": "the new house"
               }
             },
             {
               "id": "apartment",
               "name": {
                 "value": "apartment"
-              }
-            },
-            {
-              "id": "first day of summer",
-              "name": {
-                "value": "first day of summer"
               }
             },
             {
