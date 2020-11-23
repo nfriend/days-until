@@ -7,7 +7,7 @@
           "name": "StartCountdownIntent",
           "confirmationRequired": true,
           "prompts": {
-            "confirm": "confirm-countdown"
+            "confirmation": "confirm-countdown"
           },
           "slots": [
             {
