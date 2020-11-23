@@ -19,4 +19,4 @@ const model = require(modelFilePath);
 
 const merged = _.merge({}, base, model);
 
-fs.writeFileSync(modelFilePath, JSON.stringify(merged, null, 4));
+fs.writeFileSync(modelFilePath, JSON.stringify(merged, null, 2));

@@ -20,7 +20,7 @@ const enUsModelJson = require(enUsModelJsonPath);
 
 supportedEnglishCodes.forEach((code) => {
   const newFilePath = path.resolve(modelDir, `${code}.json`);
-  fs.writeFileSync(newFilePath, JSON.stringify(enUsModelJson, null, 4));
+  fs.writeFileSync(newFilePath, JSON.stringify(enUsModelJson, null, 2));
 });
 
 // Copy the manifest.publishingInformation.locales.en-US and
@@ -37,4 +37,4 @@ supportedEnglishCodes.forEach((code) => {
   skillJson.manifest.privacyAndCompliance.locales[code] = enUsPrivacy;
 });
 
-fs.writeFileSync(skillJsonPath, JSON.stringify(skillJson, null, 4));
+fs.writeFileSync(skillJsonPath, JSON.stringify(skillJson, null, 2));
