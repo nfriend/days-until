@@ -1,2393 +1,2393 @@
 {
-  "interactionModel": {
-    "dialog": {
-      "delegationStrategy": "ALWAYS",
-      "intents": [
-        {
-          "name": "StartCountdownIntent",
-          "confirmationRequired": true,
-          "prompts": {
-            "confirm": "confirm-countdown"
-          },
-          "slots": [
-            {
-              "name": "CountdownEvent",
-              "type": "EventType",
-              "elicitationRequired": true,
-              "confirmationRequired": false,
-              "prompts": {
-                "elicitation": "what-event"
-              }
-            },
-            {
-              "name": "EventDate",
-              "type": "AMAZON.DATE",
-              "elicitationRequired": true,
-              "confirmationRequired": false,
-              "prompts": {
-                "elicitation": "what-date"
-              }
-            }
-          ]
-        }
-      ]
-    },
-    "prompts": [
-      {
-        "id": "confirm-countdown",
-        "variations": [
-          {
-            "type": "PlainText",
-            "value": "I'll create a new countdown for {CountdownEvent} on {EventDate}.  Does that sound right?"
-          },
-          {
-            "type": "PlainText",
-            "value": "Okay, I'll start a countdown for {CountdownEvent} on {EventDate}.  Did I get that right?"
-          },
-          {
-            "type": "PlainText",
-            "value": "I'll create a new countdown for {CountdownEvent} on {EventDate}.  Is that right?"
-          }
-        ]
-      },
-      {
-        "id": "what-event",
-        "variations": [
-          {
-            "type": "PlainText",
-            "value": "What's the event?"
-          },
-          {
-            "type": "PlainText",
-            "value": "Okay, what's the event?"
-          },
-          {
-            "type": "PlainText",
-            "value": "Sure.  What event would you like to track?"
-          }
-        ]
-      },
-      {
-        "id": "what-date",
-        "variations": [
-          {
-            "type": "PlainText",
-            "value": "Sure, when will it take place?"
-          },
-          {
-            "type": "PlainText",
-            "value": "Okay, when will it take place?"
-          },
-          {
-            "type": "PlainText",
-            "value": "When will it take place?"
-          }
-        ]
-      }
-    ],
-    "languageModel": {
-      "intents": [
-        {
-          "name": "AMAZON.CancelIntent"
+    "interactionModel": {
+        "dialog": {
+            "delegationStrategy": "ALWAYS",
+            "intents": [
+                {
+                    "name": "StartCountdownIntent",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirm": "confirm-countdown"
+                    },
+                    "slots": [
+                        {
+                            "name": "CountdownEvent",
+                            "type": "EventType",
+                            "elicitationRequired": true,
+                            "confirmationRequired": false,
+                            "prompts": {
+                                "elicitation": "what-event"
+                            }
+                        },
+                        {
+                            "name": "EventDate",
+                            "type": "AMAZON.DATE",
+                            "elicitationRequired": true,
+                            "confirmationRequired": false,
+                            "prompts": {
+                                "elicitation": "what-date"
+                            }
+                        }
+                    ]
+                }
+            ]
         },
-        {
-          "name": "AMAZON.HelpIntent"
-        },
-        {
-          "name": "AMAZON.StopIntent"
-        },
-        {
-          "name": "StartCountdownIntent",
-          "samples": [
-            "a count down",
-            "a count down for {CountdownEvent}",
-            "a count down for {CountdownEvent} in {EventDate}",
-            "a count down for {CountdownEvent} on {EventDate}",
-            "a count down in {EventDate}",
-            "a count down in {EventDate} for {CountdownEvent}",
-            "a count down on {EventDate}",
-            "a count down on {EventDate} for {CountdownEvent}",
-            "a countdown",
-            "a countdown for {CountdownEvent}",
-            "a countdown for {CountdownEvent} in {EventDate}",
-            "a countdown for {CountdownEvent} on {EventDate}",
-            "a countdown in {EventDate}",
-            "a countdown in {EventDate} for {CountdownEvent}",
-            "a countdown on {EventDate}",
-            "a countdown on {EventDate} for {CountdownEvent}",
-            "a new count down",
-            "a new count down for {CountdownEvent}",
-            "a new count down for {CountdownEvent} in {EventDate}",
-            "a new count down for {CountdownEvent} on {EventDate}",
-            "a new count down in {EventDate}",
-            "a new count down in {EventDate} for {CountdownEvent}",
-            "a new count down on {EventDate}",
-            "a new count down on {EventDate} for {CountdownEvent}",
-            "a new countdown",
-            "a new countdown for {CountdownEvent}",
-            "a new countdown for {CountdownEvent} in {EventDate}",
-            "a new countdown for {CountdownEvent} on {EventDate}",
-            "a new countdown in {EventDate}",
-            "a new countdown in {EventDate} for {CountdownEvent}",
-            "a new countdown on {EventDate}",
-            "a new countdown on {EventDate} for {CountdownEvent}",
-            "a new one",
-            "a new one for {CountdownEvent}",
-            "a new one for {CountdownEvent} in {EventDate}",
-            "a new one for {CountdownEvent} on {EventDate}",
-            "a new one in {EventDate}",
-            "a new one in {EventDate} for {CountdownEvent}",
-            "a new one on {EventDate}",
-            "a new one on {EventDate} for {CountdownEvent}",
-            "a new {CountdownEvent} count down",
-            "a new {CountdownEvent} count down in {EventDate}",
-            "a new {CountdownEvent} count down on {EventDate}",
-            "a new {CountdownEvent} countdown",
-            "a new {CountdownEvent} countdown in {EventDate}",
-            "a new {CountdownEvent} countdown on {EventDate}",
-            "a new {CountdownEvent} one",
-            "a new {CountdownEvent} one in {EventDate}",
-            "a new {CountdownEvent} one on {EventDate}",
-            "a one",
-            "a one for {CountdownEvent}",
-            "a one for {CountdownEvent} in {EventDate}",
-            "a one for {CountdownEvent} on {EventDate}",
-            "a one in {EventDate}",
-            "a one in {EventDate} for {CountdownEvent}",
-            "a one on {EventDate}",
-            "a one on {EventDate} for {CountdownEvent}",
-            "a {CountdownEvent} count down",
-            "a {CountdownEvent} count down in {EventDate}",
-            "a {CountdownEvent} count down on {EventDate}",
-            "a {CountdownEvent} countdown",
-            "a {CountdownEvent} countdown in {EventDate}",
-            "a {CountdownEvent} countdown on {EventDate}",
-            "a {CountdownEvent} one",
-            "a {CountdownEvent} one in {EventDate}",
-            "a {CountdownEvent} one on {EventDate}",
-            "begin a count down",
-            "begin a count down for {CountdownEvent}",
-            "begin a count down for {CountdownEvent} in {EventDate}",
-            "begin a count down for {CountdownEvent} on {EventDate}",
-            "begin a count down in {EventDate}",
-            "begin a count down in {EventDate} for {CountdownEvent}",
-            "begin a count down on {EventDate}",
-            "begin a count down on {EventDate} for {CountdownEvent}",
-            "begin a countdown",
-            "begin a countdown for {CountdownEvent}",
-            "begin a countdown for {CountdownEvent} in {EventDate}",
-            "begin a countdown for {CountdownEvent} on {EventDate}",
-            "begin a countdown in {EventDate}",
-            "begin a countdown in {EventDate} for {CountdownEvent}",
-            "begin a countdown on {EventDate}",
-            "begin a countdown on {EventDate} for {CountdownEvent}",
-            "begin a new count down",
-            "begin a new count down for {CountdownEvent}",
-            "begin a new count down for {CountdownEvent} in {EventDate}",
-            "begin a new count down for {CountdownEvent} on {EventDate}",
-            "begin a new count down in {EventDate}",
-            "begin a new count down in {EventDate} for {CountdownEvent}",
-            "begin a new count down on {EventDate}",
-            "begin a new count down on {EventDate} for {CountdownEvent}",
-            "begin a new countdown",
-            "begin a new countdown for {CountdownEvent}",
-            "begin a new countdown for {CountdownEvent} in {EventDate}",
-            "begin a new countdown for {CountdownEvent} on {EventDate}",
-            "begin a new countdown in {EventDate}",
-            "begin a new countdown in {EventDate} for {CountdownEvent}",
-            "begin a new countdown on {EventDate}",
-            "begin a new countdown on {EventDate} for {CountdownEvent}",
-            "begin a new one",
-            "begin a new one for {CountdownEvent}",
-            "begin a new one for {CountdownEvent} in {EventDate}",
-            "begin a new one for {CountdownEvent} on {EventDate}",
-            "begin a new one in {EventDate}",
-            "begin a new one in {EventDate} for {CountdownEvent}",
-            "begin a new one on {EventDate}",
-            "begin a new one on {EventDate} for {CountdownEvent}",
-            "begin a new {CountdownEvent} count down",
-            "begin a new {CountdownEvent} count down in {EventDate}",
-            "begin a new {CountdownEvent} count down on {EventDate}",
-            "begin a new {CountdownEvent} countdown",
-            "begin a new {CountdownEvent} countdown in {EventDate}",
-            "begin a new {CountdownEvent} countdown on {EventDate}",
-            "begin a new {CountdownEvent} one",
-            "begin a new {CountdownEvent} one in {EventDate}",
-            "begin a new {CountdownEvent} one on {EventDate}",
-            "begin a one",
-            "begin a one for {CountdownEvent}",
-            "begin a one for {CountdownEvent} in {EventDate}",
-            "begin a one for {CountdownEvent} on {EventDate}",
-            "begin a one in {EventDate}",
-            "begin a one in {EventDate} for {CountdownEvent}",
-            "begin a one on {EventDate}",
-            "begin a one on {EventDate} for {CountdownEvent}",
-            "begin a {CountdownEvent} count down",
-            "begin a {CountdownEvent} count down in {EventDate}",
-            "begin a {CountdownEvent} count down on {EventDate}",
-            "begin a {CountdownEvent} countdown",
-            "begin a {CountdownEvent} countdown in {EventDate}",
-            "begin a {CountdownEvent} countdown on {EventDate}",
-            "begin a {CountdownEvent} one",
-            "begin a {CountdownEvent} one in {EventDate}",
-            "begin a {CountdownEvent} one on {EventDate}",
-            "can you start a count down",
-            "can you start a count down for {CountdownEvent}",
-            "can you start a count down for {CountdownEvent} in {EventDate}",
-            "can you start a count down for {CountdownEvent} on {EventDate}",
-            "can you start a count down in {EventDate}",
-            "can you start a count down in {EventDate} for {CountdownEvent}",
-            "can you start a count down on {EventDate}",
-            "can you start a count down on {EventDate} for {CountdownEvent}",
-            "can you start a countdown",
-            "can you start a countdown for {CountdownEvent}",
-            "can you start a countdown for {CountdownEvent} in {EventDate}",
-            "can you start a countdown for {CountdownEvent} on {EventDate}",
-            "can you start a countdown in {EventDate}",
-            "can you start a countdown in {EventDate} for {CountdownEvent}",
-            "can you start a countdown on {EventDate}",
-            "can you start a countdown on {EventDate} for {CountdownEvent}",
-            "can you start a new count down",
-            "can you start a new count down for {CountdownEvent}",
-            "can you start a new count down for {CountdownEvent} in {EventDate}",
-            "can you start a new count down for {CountdownEvent} on {EventDate}",
-            "can you start a new count down in {EventDate}",
-            "can you start a new count down in {EventDate} for {CountdownEvent}",
-            "can you start a new count down on {EventDate}",
-            "can you start a new count down on {EventDate} for {CountdownEvent}",
-            "can you start a new countdown",
-            "can you start a new countdown for {CountdownEvent}",
-            "can you start a new countdown for {CountdownEvent} in {EventDate}",
-            "can you start a new countdown for {CountdownEvent} on {EventDate}",
-            "can you start a new countdown in {EventDate}",
-            "can you start a new countdown in {EventDate} for {CountdownEvent}",
-            "can you start a new countdown on {EventDate}",
-            "can you start a new countdown on {EventDate} for {CountdownEvent}",
-            "can you start a new one",
-            "can you start a new one for {CountdownEvent}",
-            "can you start a new one for {CountdownEvent} in {EventDate}",
-            "can you start a new one for {CountdownEvent} on {EventDate}",
-            "can you start a new one in {EventDate}",
-            "can you start a new one in {EventDate} for {CountdownEvent}",
-            "can you start a new one on {EventDate}",
-            "can you start a new one on {EventDate} for {CountdownEvent}",
-            "can you start a new {CountdownEvent} count down",
-            "can you start a new {CountdownEvent} count down in {EventDate}",
-            "can you start a new {CountdownEvent} count down on {EventDate}",
-            "can you start a new {CountdownEvent} countdown",
-            "can you start a new {CountdownEvent} countdown in {EventDate}",
-            "can you start a new {CountdownEvent} countdown on {EventDate}",
-            "can you start a new {CountdownEvent} one",
-            "can you start a new {CountdownEvent} one in {EventDate}",
-            "can you start a new {CountdownEvent} one on {EventDate}",
-            "can you start a one",
-            "can you start a one for {CountdownEvent}",
-            "can you start a one for {CountdownEvent} in {EventDate}",
-            "can you start a one for {CountdownEvent} on {EventDate}",
-            "can you start a one in {EventDate}",
-            "can you start a one in {EventDate} for {CountdownEvent}",
-            "can you start a one on {EventDate}",
-            "can you start a one on {EventDate} for {CountdownEvent}",
-            "can you start a {CountdownEvent} count down",
-            "can you start a {CountdownEvent} count down in {EventDate}",
-            "can you start a {CountdownEvent} count down on {EventDate}",
-            "can you start a {CountdownEvent} countdown",
-            "can you start a {CountdownEvent} countdown in {EventDate}",
-            "can you start a {CountdownEvent} countdown on {EventDate}",
-            "can you start a {CountdownEvent} one",
-            "can you start a {CountdownEvent} one in {EventDate}",
-            "can you start a {CountdownEvent} one on {EventDate}",
-            "create a count down",
-            "create a count down for {CountdownEvent}",
-            "create a count down for {CountdownEvent} in {EventDate}",
-            "create a count down for {CountdownEvent} on {EventDate}",
-            "create a count down in {EventDate}",
-            "create a count down in {EventDate} for {CountdownEvent}",
-            "create a count down on {EventDate}",
-            "create a count down on {EventDate} for {CountdownEvent}",
-            "create a countdown",
-            "create a countdown for {CountdownEvent}",
-            "create a countdown for {CountdownEvent} in {EventDate}",
-            "create a countdown for {CountdownEvent} on {EventDate}",
-            "create a countdown in {EventDate}",
-            "create a countdown in {EventDate} for {CountdownEvent}",
-            "create a countdown on {EventDate}",
-            "create a countdown on {EventDate} for {CountdownEvent}",
-            "create a new count down",
-            "create a new count down for {CountdownEvent}",
-            "create a new count down for {CountdownEvent} in {EventDate}",
-            "create a new count down for {CountdownEvent} on {EventDate}",
-            "create a new count down in {EventDate}",
-            "create a new count down in {EventDate} for {CountdownEvent}",
-            "create a new count down on {EventDate}",
-            "create a new count down on {EventDate} for {CountdownEvent}",
-            "create a new countdown",
-            "create a new countdown for {CountdownEvent}",
-            "create a new countdown for {CountdownEvent} in {EventDate}",
-            "create a new countdown for {CountdownEvent} on {EventDate}",
-            "create a new countdown in {EventDate}",
-            "create a new countdown in {EventDate} for {CountdownEvent}",
-            "create a new countdown on {EventDate}",
-            "create a new countdown on {EventDate} for {CountdownEvent}",
-            "create a new one",
-            "create a new one for {CountdownEvent}",
-            "create a new one for {CountdownEvent} in {EventDate}",
-            "create a new one for {CountdownEvent} on {EventDate}",
-            "create a new one in {EventDate}",
-            "create a new one in {EventDate} for {CountdownEvent}",
-            "create a new one on {EventDate}",
-            "create a new one on {EventDate} for {CountdownEvent}",
-            "create a new {CountdownEvent} count down",
-            "create a new {CountdownEvent} count down in {EventDate}",
-            "create a new {CountdownEvent} count down on {EventDate}",
-            "create a new {CountdownEvent} countdown",
-            "create a new {CountdownEvent} countdown in {EventDate}",
-            "create a new {CountdownEvent} countdown on {EventDate}",
-            "create a new {CountdownEvent} one",
-            "create a new {CountdownEvent} one in {EventDate}",
-            "create a new {CountdownEvent} one on {EventDate}",
-            "create a one",
-            "create a one for {CountdownEvent}",
-            "create a one for {CountdownEvent} in {EventDate}",
-            "create a one for {CountdownEvent} on {EventDate}",
-            "create a one in {EventDate}",
-            "create a one in {EventDate} for {CountdownEvent}",
-            "create a one on {EventDate}",
-            "create a one on {EventDate} for {CountdownEvent}",
-            "create a {CountdownEvent} count down",
-            "create a {CountdownEvent} count down in {EventDate}",
-            "create a {CountdownEvent} count down on {EventDate}",
-            "create a {CountdownEvent} countdown",
-            "create a {CountdownEvent} countdown in {EventDate}",
-            "create a {CountdownEvent} countdown on {EventDate}",
-            "create a {CountdownEvent} one",
-            "create a {CountdownEvent} one in {EventDate}",
-            "create a {CountdownEvent} one on {EventDate}",
-            "how about a count down",
-            "how about a count down for {CountdownEvent}",
-            "how about a count down for {CountdownEvent} in {EventDate}",
-            "how about a count down for {CountdownEvent} on {EventDate}",
-            "how about a count down in {EventDate}",
-            "how about a count down in {EventDate} for {CountdownEvent}",
-            "how about a count down on {EventDate}",
-            "how about a count down on {EventDate} for {CountdownEvent}",
-            "how about a countdown",
-            "how about a countdown for {CountdownEvent}",
-            "how about a countdown for {CountdownEvent} in {EventDate}",
-            "how about a countdown for {CountdownEvent} on {EventDate}",
-            "how about a countdown in {EventDate}",
-            "how about a countdown in {EventDate} for {CountdownEvent}",
-            "how about a countdown on {EventDate}",
-            "how about a countdown on {EventDate} for {CountdownEvent}",
-            "how about a new count down",
-            "how about a new count down for {CountdownEvent}",
-            "how about a new count down for {CountdownEvent} in {EventDate}",
-            "how about a new count down for {CountdownEvent} on {EventDate}",
-            "how about a new count down in {EventDate}",
-            "how about a new count down in {EventDate} for {CountdownEvent}",
-            "how about a new count down on {EventDate}",
-            "how about a new count down on {EventDate} for {CountdownEvent}",
-            "how about a new countdown",
-            "how about a new countdown for {CountdownEvent}",
-            "how about a new countdown for {CountdownEvent} in {EventDate}",
-            "how about a new countdown for {CountdownEvent} on {EventDate}",
-            "how about a new countdown in {EventDate}",
-            "how about a new countdown in {EventDate} for {CountdownEvent}",
-            "how about a new countdown on {EventDate}",
-            "how about a new countdown on {EventDate} for {CountdownEvent}",
-            "how about a new one",
-            "how about a new one for {CountdownEvent}",
-            "how about a new one for {CountdownEvent} in {EventDate}",
-            "how about a new one for {CountdownEvent} on {EventDate}",
-            "how about a new one in {EventDate}",
-            "how about a new one in {EventDate} for {CountdownEvent}",
-            "how about a new one on {EventDate}",
-            "how about a new one on {EventDate} for {CountdownEvent}",
-            "how about a new {CountdownEvent} count down",
-            "how about a new {CountdownEvent} count down in {EventDate}",
-            "how about a new {CountdownEvent} count down on {EventDate}",
-            "how about a new {CountdownEvent} countdown",
-            "how about a new {CountdownEvent} countdown in {EventDate}",
-            "how about a new {CountdownEvent} countdown on {EventDate}",
-            "how about a new {CountdownEvent} one",
-            "how about a new {CountdownEvent} one in {EventDate}",
-            "how about a new {CountdownEvent} one on {EventDate}",
-            "how about a one",
-            "how about a one for {CountdownEvent}",
-            "how about a one for {CountdownEvent} in {EventDate}",
-            "how about a one for {CountdownEvent} on {EventDate}",
-            "how about a one in {EventDate}",
-            "how about a one in {EventDate} for {CountdownEvent}",
-            "how about a one on {EventDate}",
-            "how about a one on {EventDate} for {CountdownEvent}",
-            "how about a {CountdownEvent} count down",
-            "how about a {CountdownEvent} count down in {EventDate}",
-            "how about a {CountdownEvent} count down on {EventDate}",
-            "how about a {CountdownEvent} countdown",
-            "how about a {CountdownEvent} countdown in {EventDate}",
-            "how about a {CountdownEvent} countdown on {EventDate}",
-            "how about a {CountdownEvent} one",
-            "how about a {CountdownEvent} one in {EventDate}",
-            "how about a {CountdownEvent} one on {EventDate}",
-            "i want a count down",
-            "i want a count down for {CountdownEvent}",
-            "i want a count down for {CountdownEvent} in {EventDate}",
-            "i want a count down for {CountdownEvent} on {EventDate}",
-            "i want a count down in {EventDate}",
-            "i want a count down in {EventDate} for {CountdownEvent}",
-            "i want a count down on {EventDate}",
-            "i want a count down on {EventDate} for {CountdownEvent}",
-            "i want a countdown",
-            "i want a countdown for {CountdownEvent}",
-            "i want a countdown for {CountdownEvent} in {EventDate}",
-            "i want a countdown for {CountdownEvent} on {EventDate}",
-            "i want a countdown in {EventDate}",
-            "i want a countdown in {EventDate} for {CountdownEvent}",
-            "i want a countdown on {EventDate}",
-            "i want a countdown on {EventDate} for {CountdownEvent}",
-            "i want a new count down",
-            "i want a new count down for {CountdownEvent}",
-            "i want a new count down for {CountdownEvent} in {EventDate}",
-            "i want a new count down for {CountdownEvent} on {EventDate}",
-            "i want a new count down in {EventDate}",
-            "i want a new count down in {EventDate} for {CountdownEvent}",
-            "i want a new count down on {EventDate}",
-            "i want a new count down on {EventDate} for {CountdownEvent}",
-            "i want a new countdown",
-            "i want a new countdown for {CountdownEvent}",
-            "i want a new countdown for {CountdownEvent} in {EventDate}",
-            "i want a new countdown for {CountdownEvent} on {EventDate}",
-            "i want a new countdown in {EventDate}",
-            "i want a new countdown in {EventDate} for {CountdownEvent}",
-            "i want a new countdown on {EventDate}",
-            "i want a new countdown on {EventDate} for {CountdownEvent}",
-            "i want a new one",
-            "i want a new one for {CountdownEvent}",
-            "i want a new one for {CountdownEvent} in {EventDate}",
-            "i want a new one for {CountdownEvent} on {EventDate}",
-            "i want a new one in {EventDate}",
-            "i want a new one in {EventDate} for {CountdownEvent}",
-            "i want a new one on {EventDate}",
-            "i want a new one on {EventDate} for {CountdownEvent}",
-            "i want a new {CountdownEvent} count down",
-            "i want a new {CountdownEvent} count down in {EventDate}",
-            "i want a new {CountdownEvent} count down on {EventDate}",
-            "i want a new {CountdownEvent} countdown",
-            "i want a new {CountdownEvent} countdown in {EventDate}",
-            "i want a new {CountdownEvent} countdown on {EventDate}",
-            "i want a new {CountdownEvent} one",
-            "i want a new {CountdownEvent} one in {EventDate}",
-            "i want a new {CountdownEvent} one on {EventDate}",
-            "i want a one",
-            "i want a one for {CountdownEvent}",
-            "i want a one for {CountdownEvent} in {EventDate}",
-            "i want a one for {CountdownEvent} on {EventDate}",
-            "i want a one in {EventDate}",
-            "i want a one in {EventDate} for {CountdownEvent}",
-            "i want a one on {EventDate}",
-            "i want a one on {EventDate} for {CountdownEvent}",
-            "i want a {CountdownEvent} count down",
-            "i want a {CountdownEvent} count down in {EventDate}",
-            "i want a {CountdownEvent} count down on {EventDate}",
-            "i want a {CountdownEvent} countdown",
-            "i want a {CountdownEvent} countdown in {EventDate}",
-            "i want a {CountdownEvent} countdown on {EventDate}",
-            "i want a {CountdownEvent} one",
-            "i want a {CountdownEvent} one in {EventDate}",
-            "i want a {CountdownEvent} one on {EventDate}",
-            "start a count down",
-            "start a count down for {CountdownEvent}",
-            "start a count down for {CountdownEvent} in {EventDate}",
-            "start a count down for {CountdownEvent} on {EventDate}",
-            "start a count down in {EventDate}",
-            "start a count down in {EventDate} for {CountdownEvent}",
-            "start a count down on {EventDate}",
-            "start a count down on {EventDate} for {CountdownEvent}",
-            "start a countdown",
-            "start a countdown for {CountdownEvent}",
-            "start a countdown for {CountdownEvent} in {EventDate}",
-            "start a countdown for {CountdownEvent} on {EventDate}",
-            "start a countdown in {EventDate}",
-            "start a countdown in {EventDate} for {CountdownEvent}",
-            "start a countdown on {EventDate}",
-            "start a countdown on {EventDate} for {CountdownEvent}",
-            "start a new count down",
-            "start a new count down for {CountdownEvent}",
-            "start a new count down for {CountdownEvent} in {EventDate}",
-            "start a new count down for {CountdownEvent} on {EventDate}",
-            "start a new count down in {EventDate}",
-            "start a new count down in {EventDate} for {CountdownEvent}",
-            "start a new count down on {EventDate}",
-            "start a new count down on {EventDate} for {CountdownEvent}",
-            "start a new countdown",
-            "start a new countdown for {CountdownEvent}",
-            "start a new countdown for {CountdownEvent} in {EventDate}",
-            "start a new countdown for {CountdownEvent} on {EventDate}",
-            "start a new countdown in {EventDate}",
-            "start a new countdown in {EventDate} for {CountdownEvent}",
-            "start a new countdown on {EventDate}",
-            "start a new countdown on {EventDate} for {CountdownEvent}",
-            "start a new one",
-            "start a new one for {CountdownEvent}",
-            "start a new one for {CountdownEvent} in {EventDate}",
-            "start a new one for {CountdownEvent} on {EventDate}",
-            "start a new one in {EventDate}",
-            "start a new one in {EventDate} for {CountdownEvent}",
-            "start a new one on {EventDate}",
-            "start a new one on {EventDate} for {CountdownEvent}",
-            "start a new {CountdownEvent} count down",
-            "start a new {CountdownEvent} count down in {EventDate}",
-            "start a new {CountdownEvent} count down on {EventDate}",
-            "start a new {CountdownEvent} countdown",
-            "start a new {CountdownEvent} countdown in {EventDate}",
-            "start a new {CountdownEvent} countdown on {EventDate}",
-            "start a new {CountdownEvent} one",
-            "start a new {CountdownEvent} one in {EventDate}",
-            "start a new {CountdownEvent} one on {EventDate}",
-            "start a one",
-            "start a one for {CountdownEvent}",
-            "start a one for {CountdownEvent} in {EventDate}",
-            "start a one for {CountdownEvent} on {EventDate}",
-            "start a one in {EventDate}",
-            "start a one in {EventDate} for {CountdownEvent}",
-            "start a one on {EventDate}",
-            "start a one on {EventDate} for {CountdownEvent}",
-            "start a {CountdownEvent} count down",
-            "start a {CountdownEvent} count down in {EventDate}",
-            "start a {CountdownEvent} count down on {EventDate}",
-            "start a {CountdownEvent} countdown",
-            "start a {CountdownEvent} countdown in {EventDate}",
-            "start a {CountdownEvent} countdown on {EventDate}",
-            "start a {CountdownEvent} one",
-            "start a {CountdownEvent} one in {EventDate}",
-            "start a {CountdownEvent} one on {EventDate}"
-          ],
-          "slots": [
+        "prompts": [
             {
-              "name": "CountdownEvent",
-              "type": "EventType"
+                "id": "confirm-countdown",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "I'll create a new countdown for {CountdownEvent} on {EventDate}.  Does that sound right?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Okay, I'll start a countdown for {CountdownEvent} on {EventDate}.  Did I get that right?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "I'll create a new countdown for {CountdownEvent} on {EventDate}.  Is that right?"
+                    }
+                ]
             },
             {
-              "name": "EventDate",
-              "type": "AMAZON.DATE"
+                "id": "what-event",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "What's the event?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Okay, what's the event?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Sure.  What event would you like to track?"
+                    }
+                ]
+            },
+            {
+                "id": "what-date",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Sure, when will it take place?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Okay, when will it take place?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "When will it take place?"
+                    }
+                ]
             }
-          ]
+        ],
+        "languageModel": {
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent"
+                },
+                {
+                    "name": "AMAZON.HelpIntent"
+                },
+                {
+                    "name": "AMAZON.StopIntent"
+                },
+                {
+                    "name": "StartCountdownIntent",
+                    "samples": [
+                        "a count down",
+                        "a count down for {CountdownEvent}",
+                        "a count down for {CountdownEvent} in {EventDate}",
+                        "a count down for {CountdownEvent} on {EventDate}",
+                        "a count down in {EventDate}",
+                        "a count down in {EventDate} for {CountdownEvent}",
+                        "a count down on {EventDate}",
+                        "a count down on {EventDate} for {CountdownEvent}",
+                        "a countdown",
+                        "a countdown for {CountdownEvent}",
+                        "a countdown for {CountdownEvent} in {EventDate}",
+                        "a countdown for {CountdownEvent} on {EventDate}",
+                        "a countdown in {EventDate}",
+                        "a countdown in {EventDate} for {CountdownEvent}",
+                        "a countdown on {EventDate}",
+                        "a countdown on {EventDate} for {CountdownEvent}",
+                        "a new count down",
+                        "a new count down for {CountdownEvent}",
+                        "a new count down for {CountdownEvent} in {EventDate}",
+                        "a new count down for {CountdownEvent} on {EventDate}",
+                        "a new count down in {EventDate}",
+                        "a new count down in {EventDate} for {CountdownEvent}",
+                        "a new count down on {EventDate}",
+                        "a new count down on {EventDate} for {CountdownEvent}",
+                        "a new countdown",
+                        "a new countdown for {CountdownEvent}",
+                        "a new countdown for {CountdownEvent} in {EventDate}",
+                        "a new countdown for {CountdownEvent} on {EventDate}",
+                        "a new countdown in {EventDate}",
+                        "a new countdown in {EventDate} for {CountdownEvent}",
+                        "a new countdown on {EventDate}",
+                        "a new countdown on {EventDate} for {CountdownEvent}",
+                        "a new one",
+                        "a new one for {CountdownEvent}",
+                        "a new one for {CountdownEvent} in {EventDate}",
+                        "a new one for {CountdownEvent} on {EventDate}",
+                        "a new one in {EventDate}",
+                        "a new one in {EventDate} for {CountdownEvent}",
+                        "a new one on {EventDate}",
+                        "a new one on {EventDate} for {CountdownEvent}",
+                        "a new {CountdownEvent} count down",
+                        "a new {CountdownEvent} count down in {EventDate}",
+                        "a new {CountdownEvent} count down on {EventDate}",
+                        "a new {CountdownEvent} countdown",
+                        "a new {CountdownEvent} countdown in {EventDate}",
+                        "a new {CountdownEvent} countdown on {EventDate}",
+                        "a new {CountdownEvent} one",
+                        "a new {CountdownEvent} one in {EventDate}",
+                        "a new {CountdownEvent} one on {EventDate}",
+                        "a one",
+                        "a one for {CountdownEvent}",
+                        "a one for {CountdownEvent} in {EventDate}",
+                        "a one for {CountdownEvent} on {EventDate}",
+                        "a one in {EventDate}",
+                        "a one in {EventDate} for {CountdownEvent}",
+                        "a one on {EventDate}",
+                        "a one on {EventDate} for {CountdownEvent}",
+                        "a {CountdownEvent} count down",
+                        "a {CountdownEvent} count down in {EventDate}",
+                        "a {CountdownEvent} count down on {EventDate}",
+                        "a {CountdownEvent} countdown",
+                        "a {CountdownEvent} countdown in {EventDate}",
+                        "a {CountdownEvent} countdown on {EventDate}",
+                        "a {CountdownEvent} one",
+                        "a {CountdownEvent} one in {EventDate}",
+                        "a {CountdownEvent} one on {EventDate}",
+                        "begin a count down",
+                        "begin a count down for {CountdownEvent}",
+                        "begin a count down for {CountdownEvent} in {EventDate}",
+                        "begin a count down for {CountdownEvent} on {EventDate}",
+                        "begin a count down in {EventDate}",
+                        "begin a count down in {EventDate} for {CountdownEvent}",
+                        "begin a count down on {EventDate}",
+                        "begin a count down on {EventDate} for {CountdownEvent}",
+                        "begin a countdown",
+                        "begin a countdown for {CountdownEvent}",
+                        "begin a countdown for {CountdownEvent} in {EventDate}",
+                        "begin a countdown for {CountdownEvent} on {EventDate}",
+                        "begin a countdown in {EventDate}",
+                        "begin a countdown in {EventDate} for {CountdownEvent}",
+                        "begin a countdown on {EventDate}",
+                        "begin a countdown on {EventDate} for {CountdownEvent}",
+                        "begin a new count down",
+                        "begin a new count down for {CountdownEvent}",
+                        "begin a new count down for {CountdownEvent} in {EventDate}",
+                        "begin a new count down for {CountdownEvent} on {EventDate}",
+                        "begin a new count down in {EventDate}",
+                        "begin a new count down in {EventDate} for {CountdownEvent}",
+                        "begin a new count down on {EventDate}",
+                        "begin a new count down on {EventDate} for {CountdownEvent}",
+                        "begin a new countdown",
+                        "begin a new countdown for {CountdownEvent}",
+                        "begin a new countdown for {CountdownEvent} in {EventDate}",
+                        "begin a new countdown for {CountdownEvent} on {EventDate}",
+                        "begin a new countdown in {EventDate}",
+                        "begin a new countdown in {EventDate} for {CountdownEvent}",
+                        "begin a new countdown on {EventDate}",
+                        "begin a new countdown on {EventDate} for {CountdownEvent}",
+                        "begin a new one",
+                        "begin a new one for {CountdownEvent}",
+                        "begin a new one for {CountdownEvent} in {EventDate}",
+                        "begin a new one for {CountdownEvent} on {EventDate}",
+                        "begin a new one in {EventDate}",
+                        "begin a new one in {EventDate} for {CountdownEvent}",
+                        "begin a new one on {EventDate}",
+                        "begin a new one on {EventDate} for {CountdownEvent}",
+                        "begin a new {CountdownEvent} count down",
+                        "begin a new {CountdownEvent} count down in {EventDate}",
+                        "begin a new {CountdownEvent} count down on {EventDate}",
+                        "begin a new {CountdownEvent} countdown",
+                        "begin a new {CountdownEvent} countdown in {EventDate}",
+                        "begin a new {CountdownEvent} countdown on {EventDate}",
+                        "begin a new {CountdownEvent} one",
+                        "begin a new {CountdownEvent} one in {EventDate}",
+                        "begin a new {CountdownEvent} one on {EventDate}",
+                        "begin a one",
+                        "begin a one for {CountdownEvent}",
+                        "begin a one for {CountdownEvent} in {EventDate}",
+                        "begin a one for {CountdownEvent} on {EventDate}",
+                        "begin a one in {EventDate}",
+                        "begin a one in {EventDate} for {CountdownEvent}",
+                        "begin a one on {EventDate}",
+                        "begin a one on {EventDate} for {CountdownEvent}",
+                        "begin a {CountdownEvent} count down",
+                        "begin a {CountdownEvent} count down in {EventDate}",
+                        "begin a {CountdownEvent} count down on {EventDate}",
+                        "begin a {CountdownEvent} countdown",
+                        "begin a {CountdownEvent} countdown in {EventDate}",
+                        "begin a {CountdownEvent} countdown on {EventDate}",
+                        "begin a {CountdownEvent} one",
+                        "begin a {CountdownEvent} one in {EventDate}",
+                        "begin a {CountdownEvent} one on {EventDate}",
+                        "can you start a count down",
+                        "can you start a count down for {CountdownEvent}",
+                        "can you start a count down for {CountdownEvent} in {EventDate}",
+                        "can you start a count down for {CountdownEvent} on {EventDate}",
+                        "can you start a count down in {EventDate}",
+                        "can you start a count down in {EventDate} for {CountdownEvent}",
+                        "can you start a count down on {EventDate}",
+                        "can you start a count down on {EventDate} for {CountdownEvent}",
+                        "can you start a countdown",
+                        "can you start a countdown for {CountdownEvent}",
+                        "can you start a countdown for {CountdownEvent} in {EventDate}",
+                        "can you start a countdown for {CountdownEvent} on {EventDate}",
+                        "can you start a countdown in {EventDate}",
+                        "can you start a countdown in {EventDate} for {CountdownEvent}",
+                        "can you start a countdown on {EventDate}",
+                        "can you start a countdown on {EventDate} for {CountdownEvent}",
+                        "can you start a new count down",
+                        "can you start a new count down for {CountdownEvent}",
+                        "can you start a new count down for {CountdownEvent} in {EventDate}",
+                        "can you start a new count down for {CountdownEvent} on {EventDate}",
+                        "can you start a new count down in {EventDate}",
+                        "can you start a new count down in {EventDate} for {CountdownEvent}",
+                        "can you start a new count down on {EventDate}",
+                        "can you start a new count down on {EventDate} for {CountdownEvent}",
+                        "can you start a new countdown",
+                        "can you start a new countdown for {CountdownEvent}",
+                        "can you start a new countdown for {CountdownEvent} in {EventDate}",
+                        "can you start a new countdown for {CountdownEvent} on {EventDate}",
+                        "can you start a new countdown in {EventDate}",
+                        "can you start a new countdown in {EventDate} for {CountdownEvent}",
+                        "can you start a new countdown on {EventDate}",
+                        "can you start a new countdown on {EventDate} for {CountdownEvent}",
+                        "can you start a new one",
+                        "can you start a new one for {CountdownEvent}",
+                        "can you start a new one for {CountdownEvent} in {EventDate}",
+                        "can you start a new one for {CountdownEvent} on {EventDate}",
+                        "can you start a new one in {EventDate}",
+                        "can you start a new one in {EventDate} for {CountdownEvent}",
+                        "can you start a new one on {EventDate}",
+                        "can you start a new one on {EventDate} for {CountdownEvent}",
+                        "can you start a new {CountdownEvent} count down",
+                        "can you start a new {CountdownEvent} count down in {EventDate}",
+                        "can you start a new {CountdownEvent} count down on {EventDate}",
+                        "can you start a new {CountdownEvent} countdown",
+                        "can you start a new {CountdownEvent} countdown in {EventDate}",
+                        "can you start a new {CountdownEvent} countdown on {EventDate}",
+                        "can you start a new {CountdownEvent} one",
+                        "can you start a new {CountdownEvent} one in {EventDate}",
+                        "can you start a new {CountdownEvent} one on {EventDate}",
+                        "can you start a one",
+                        "can you start a one for {CountdownEvent}",
+                        "can you start a one for {CountdownEvent} in {EventDate}",
+                        "can you start a one for {CountdownEvent} on {EventDate}",
+                        "can you start a one in {EventDate}",
+                        "can you start a one in {EventDate} for {CountdownEvent}",
+                        "can you start a one on {EventDate}",
+                        "can you start a one on {EventDate} for {CountdownEvent}",
+                        "can you start a {CountdownEvent} count down",
+                        "can you start a {CountdownEvent} count down in {EventDate}",
+                        "can you start a {CountdownEvent} count down on {EventDate}",
+                        "can you start a {CountdownEvent} countdown",
+                        "can you start a {CountdownEvent} countdown in {EventDate}",
+                        "can you start a {CountdownEvent} countdown on {EventDate}",
+                        "can you start a {CountdownEvent} one",
+                        "can you start a {CountdownEvent} one in {EventDate}",
+                        "can you start a {CountdownEvent} one on {EventDate}",
+                        "create a count down",
+                        "create a count down for {CountdownEvent}",
+                        "create a count down for {CountdownEvent} in {EventDate}",
+                        "create a count down for {CountdownEvent} on {EventDate}",
+                        "create a count down in {EventDate}",
+                        "create a count down in {EventDate} for {CountdownEvent}",
+                        "create a count down on {EventDate}",
+                        "create a count down on {EventDate} for {CountdownEvent}",
+                        "create a countdown",
+                        "create a countdown for {CountdownEvent}",
+                        "create a countdown for {CountdownEvent} in {EventDate}",
+                        "create a countdown for {CountdownEvent} on {EventDate}",
+                        "create a countdown in {EventDate}",
+                        "create a countdown in {EventDate} for {CountdownEvent}",
+                        "create a countdown on {EventDate}",
+                        "create a countdown on {EventDate} for {CountdownEvent}",
+                        "create a new count down",
+                        "create a new count down for {CountdownEvent}",
+                        "create a new count down for {CountdownEvent} in {EventDate}",
+                        "create a new count down for {CountdownEvent} on {EventDate}",
+                        "create a new count down in {EventDate}",
+                        "create a new count down in {EventDate} for {CountdownEvent}",
+                        "create a new count down on {EventDate}",
+                        "create a new count down on {EventDate} for {CountdownEvent}",
+                        "create a new countdown",
+                        "create a new countdown for {CountdownEvent}",
+                        "create a new countdown for {CountdownEvent} in {EventDate}",
+                        "create a new countdown for {CountdownEvent} on {EventDate}",
+                        "create a new countdown in {EventDate}",
+                        "create a new countdown in {EventDate} for {CountdownEvent}",
+                        "create a new countdown on {EventDate}",
+                        "create a new countdown on {EventDate} for {CountdownEvent}",
+                        "create a new one",
+                        "create a new one for {CountdownEvent}",
+                        "create a new one for {CountdownEvent} in {EventDate}",
+                        "create a new one for {CountdownEvent} on {EventDate}",
+                        "create a new one in {EventDate}",
+                        "create a new one in {EventDate} for {CountdownEvent}",
+                        "create a new one on {EventDate}",
+                        "create a new one on {EventDate} for {CountdownEvent}",
+                        "create a new {CountdownEvent} count down",
+                        "create a new {CountdownEvent} count down in {EventDate}",
+                        "create a new {CountdownEvent} count down on {EventDate}",
+                        "create a new {CountdownEvent} countdown",
+                        "create a new {CountdownEvent} countdown in {EventDate}",
+                        "create a new {CountdownEvent} countdown on {EventDate}",
+                        "create a new {CountdownEvent} one",
+                        "create a new {CountdownEvent} one in {EventDate}",
+                        "create a new {CountdownEvent} one on {EventDate}",
+                        "create a one",
+                        "create a one for {CountdownEvent}",
+                        "create a one for {CountdownEvent} in {EventDate}",
+                        "create a one for {CountdownEvent} on {EventDate}",
+                        "create a one in {EventDate}",
+                        "create a one in {EventDate} for {CountdownEvent}",
+                        "create a one on {EventDate}",
+                        "create a one on {EventDate} for {CountdownEvent}",
+                        "create a {CountdownEvent} count down",
+                        "create a {CountdownEvent} count down in {EventDate}",
+                        "create a {CountdownEvent} count down on {EventDate}",
+                        "create a {CountdownEvent} countdown",
+                        "create a {CountdownEvent} countdown in {EventDate}",
+                        "create a {CountdownEvent} countdown on {EventDate}",
+                        "create a {CountdownEvent} one",
+                        "create a {CountdownEvent} one in {EventDate}",
+                        "create a {CountdownEvent} one on {EventDate}",
+                        "how about a count down",
+                        "how about a count down for {CountdownEvent}",
+                        "how about a count down for {CountdownEvent} in {EventDate}",
+                        "how about a count down for {CountdownEvent} on {EventDate}",
+                        "how about a count down in {EventDate}",
+                        "how about a count down in {EventDate} for {CountdownEvent}",
+                        "how about a count down on {EventDate}",
+                        "how about a count down on {EventDate} for {CountdownEvent}",
+                        "how about a countdown",
+                        "how about a countdown for {CountdownEvent}",
+                        "how about a countdown for {CountdownEvent} in {EventDate}",
+                        "how about a countdown for {CountdownEvent} on {EventDate}",
+                        "how about a countdown in {EventDate}",
+                        "how about a countdown in {EventDate} for {CountdownEvent}",
+                        "how about a countdown on {EventDate}",
+                        "how about a countdown on {EventDate} for {CountdownEvent}",
+                        "how about a new count down",
+                        "how about a new count down for {CountdownEvent}",
+                        "how about a new count down for {CountdownEvent} in {EventDate}",
+                        "how about a new count down for {CountdownEvent} on {EventDate}",
+                        "how about a new count down in {EventDate}",
+                        "how about a new count down in {EventDate} for {CountdownEvent}",
+                        "how about a new count down on {EventDate}",
+                        "how about a new count down on {EventDate} for {CountdownEvent}",
+                        "how about a new countdown",
+                        "how about a new countdown for {CountdownEvent}",
+                        "how about a new countdown for {CountdownEvent} in {EventDate}",
+                        "how about a new countdown for {CountdownEvent} on {EventDate}",
+                        "how about a new countdown in {EventDate}",
+                        "how about a new countdown in {EventDate} for {CountdownEvent}",
+                        "how about a new countdown on {EventDate}",
+                        "how about a new countdown on {EventDate} for {CountdownEvent}",
+                        "how about a new one",
+                        "how about a new one for {CountdownEvent}",
+                        "how about a new one for {CountdownEvent} in {EventDate}",
+                        "how about a new one for {CountdownEvent} on {EventDate}",
+                        "how about a new one in {EventDate}",
+                        "how about a new one in {EventDate} for {CountdownEvent}",
+                        "how about a new one on {EventDate}",
+                        "how about a new one on {EventDate} for {CountdownEvent}",
+                        "how about a new {CountdownEvent} count down",
+                        "how about a new {CountdownEvent} count down in {EventDate}",
+                        "how about a new {CountdownEvent} count down on {EventDate}",
+                        "how about a new {CountdownEvent} countdown",
+                        "how about a new {CountdownEvent} countdown in {EventDate}",
+                        "how about a new {CountdownEvent} countdown on {EventDate}",
+                        "how about a new {CountdownEvent} one",
+                        "how about a new {CountdownEvent} one in {EventDate}",
+                        "how about a new {CountdownEvent} one on {EventDate}",
+                        "how about a one",
+                        "how about a one for {CountdownEvent}",
+                        "how about a one for {CountdownEvent} in {EventDate}",
+                        "how about a one for {CountdownEvent} on {EventDate}",
+                        "how about a one in {EventDate}",
+                        "how about a one in {EventDate} for {CountdownEvent}",
+                        "how about a one on {EventDate}",
+                        "how about a one on {EventDate} for {CountdownEvent}",
+                        "how about a {CountdownEvent} count down",
+                        "how about a {CountdownEvent} count down in {EventDate}",
+                        "how about a {CountdownEvent} count down on {EventDate}",
+                        "how about a {CountdownEvent} countdown",
+                        "how about a {CountdownEvent} countdown in {EventDate}",
+                        "how about a {CountdownEvent} countdown on {EventDate}",
+                        "how about a {CountdownEvent} one",
+                        "how about a {CountdownEvent} one in {EventDate}",
+                        "how about a {CountdownEvent} one on {EventDate}",
+                        "i want a count down",
+                        "i want a count down for {CountdownEvent}",
+                        "i want a count down for {CountdownEvent} in {EventDate}",
+                        "i want a count down for {CountdownEvent} on {EventDate}",
+                        "i want a count down in {EventDate}",
+                        "i want a count down in {EventDate} for {CountdownEvent}",
+                        "i want a count down on {EventDate}",
+                        "i want a count down on {EventDate} for {CountdownEvent}",
+                        "i want a countdown",
+                        "i want a countdown for {CountdownEvent}",
+                        "i want a countdown for {CountdownEvent} in {EventDate}",
+                        "i want a countdown for {CountdownEvent} on {EventDate}",
+                        "i want a countdown in {EventDate}",
+                        "i want a countdown in {EventDate} for {CountdownEvent}",
+                        "i want a countdown on {EventDate}",
+                        "i want a countdown on {EventDate} for {CountdownEvent}",
+                        "i want a new count down",
+                        "i want a new count down for {CountdownEvent}",
+                        "i want a new count down for {CountdownEvent} in {EventDate}",
+                        "i want a new count down for {CountdownEvent} on {EventDate}",
+                        "i want a new count down in {EventDate}",
+                        "i want a new count down in {EventDate} for {CountdownEvent}",
+                        "i want a new count down on {EventDate}",
+                        "i want a new count down on {EventDate} for {CountdownEvent}",
+                        "i want a new countdown",
+                        "i want a new countdown for {CountdownEvent}",
+                        "i want a new countdown for {CountdownEvent} in {EventDate}",
+                        "i want a new countdown for {CountdownEvent} on {EventDate}",
+                        "i want a new countdown in {EventDate}",
+                        "i want a new countdown in {EventDate} for {CountdownEvent}",
+                        "i want a new countdown on {EventDate}",
+                        "i want a new countdown on {EventDate} for {CountdownEvent}",
+                        "i want a new one",
+                        "i want a new one for {CountdownEvent}",
+                        "i want a new one for {CountdownEvent} in {EventDate}",
+                        "i want a new one for {CountdownEvent} on {EventDate}",
+                        "i want a new one in {EventDate}",
+                        "i want a new one in {EventDate} for {CountdownEvent}",
+                        "i want a new one on {EventDate}",
+                        "i want a new one on {EventDate} for {CountdownEvent}",
+                        "i want a new {CountdownEvent} count down",
+                        "i want a new {CountdownEvent} count down in {EventDate}",
+                        "i want a new {CountdownEvent} count down on {EventDate}",
+                        "i want a new {CountdownEvent} countdown",
+                        "i want a new {CountdownEvent} countdown in {EventDate}",
+                        "i want a new {CountdownEvent} countdown on {EventDate}",
+                        "i want a new {CountdownEvent} one",
+                        "i want a new {CountdownEvent} one in {EventDate}",
+                        "i want a new {CountdownEvent} one on {EventDate}",
+                        "i want a one",
+                        "i want a one for {CountdownEvent}",
+                        "i want a one for {CountdownEvent} in {EventDate}",
+                        "i want a one for {CountdownEvent} on {EventDate}",
+                        "i want a one in {EventDate}",
+                        "i want a one in {EventDate} for {CountdownEvent}",
+                        "i want a one on {EventDate}",
+                        "i want a one on {EventDate} for {CountdownEvent}",
+                        "i want a {CountdownEvent} count down",
+                        "i want a {CountdownEvent} count down in {EventDate}",
+                        "i want a {CountdownEvent} count down on {EventDate}",
+                        "i want a {CountdownEvent} countdown",
+                        "i want a {CountdownEvent} countdown in {EventDate}",
+                        "i want a {CountdownEvent} countdown on {EventDate}",
+                        "i want a {CountdownEvent} one",
+                        "i want a {CountdownEvent} one in {EventDate}",
+                        "i want a {CountdownEvent} one on {EventDate}",
+                        "start a count down",
+                        "start a count down for {CountdownEvent}",
+                        "start a count down for {CountdownEvent} in {EventDate}",
+                        "start a count down for {CountdownEvent} on {EventDate}",
+                        "start a count down in {EventDate}",
+                        "start a count down in {EventDate} for {CountdownEvent}",
+                        "start a count down on {EventDate}",
+                        "start a count down on {EventDate} for {CountdownEvent}",
+                        "start a countdown",
+                        "start a countdown for {CountdownEvent}",
+                        "start a countdown for {CountdownEvent} in {EventDate}",
+                        "start a countdown for {CountdownEvent} on {EventDate}",
+                        "start a countdown in {EventDate}",
+                        "start a countdown in {EventDate} for {CountdownEvent}",
+                        "start a countdown on {EventDate}",
+                        "start a countdown on {EventDate} for {CountdownEvent}",
+                        "start a new count down",
+                        "start a new count down for {CountdownEvent}",
+                        "start a new count down for {CountdownEvent} in {EventDate}",
+                        "start a new count down for {CountdownEvent} on {EventDate}",
+                        "start a new count down in {EventDate}",
+                        "start a new count down in {EventDate} for {CountdownEvent}",
+                        "start a new count down on {EventDate}",
+                        "start a new count down on {EventDate} for {CountdownEvent}",
+                        "start a new countdown",
+                        "start a new countdown for {CountdownEvent}",
+                        "start a new countdown for {CountdownEvent} in {EventDate}",
+                        "start a new countdown for {CountdownEvent} on {EventDate}",
+                        "start a new countdown in {EventDate}",
+                        "start a new countdown in {EventDate} for {CountdownEvent}",
+                        "start a new countdown on {EventDate}",
+                        "start a new countdown on {EventDate} for {CountdownEvent}",
+                        "start a new one",
+                        "start a new one for {CountdownEvent}",
+                        "start a new one for {CountdownEvent} in {EventDate}",
+                        "start a new one for {CountdownEvent} on {EventDate}",
+                        "start a new one in {EventDate}",
+                        "start a new one in {EventDate} for {CountdownEvent}",
+                        "start a new one on {EventDate}",
+                        "start a new one on {EventDate} for {CountdownEvent}",
+                        "start a new {CountdownEvent} count down",
+                        "start a new {CountdownEvent} count down in {EventDate}",
+                        "start a new {CountdownEvent} count down on {EventDate}",
+                        "start a new {CountdownEvent} countdown",
+                        "start a new {CountdownEvent} countdown in {EventDate}",
+                        "start a new {CountdownEvent} countdown on {EventDate}",
+                        "start a new {CountdownEvent} one",
+                        "start a new {CountdownEvent} one in {EventDate}",
+                        "start a new {CountdownEvent} one on {EventDate}",
+                        "start a one",
+                        "start a one for {CountdownEvent}",
+                        "start a one for {CountdownEvent} in {EventDate}",
+                        "start a one for {CountdownEvent} on {EventDate}",
+                        "start a one in {EventDate}",
+                        "start a one in {EventDate} for {CountdownEvent}",
+                        "start a one on {EventDate}",
+                        "start a one on {EventDate} for {CountdownEvent}",
+                        "start a {CountdownEvent} count down",
+                        "start a {CountdownEvent} count down in {EventDate}",
+                        "start a {CountdownEvent} count down on {EventDate}",
+                        "start a {CountdownEvent} countdown",
+                        "start a {CountdownEvent} countdown in {EventDate}",
+                        "start a {CountdownEvent} countdown on {EventDate}",
+                        "start a {CountdownEvent} one",
+                        "start a {CountdownEvent} one in {EventDate}",
+                        "start a {CountdownEvent} one on {EventDate}"
+                    ],
+                    "slots": [
+                        {
+                            "name": "CountdownEvent",
+                            "type": "EventType"
+                        },
+                        {
+                            "name": "EventDate",
+                            "type": "AMAZON.DATE"
+                        }
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "EventType",
+                    "values": [
+                        {
+                            "id": "my new season",
+                            "name": {
+                                "value": "my new season"
+                            }
+                        },
+                        {
+                            "id": "my new apartment",
+                            "name": {
+                                "value": "my new apartment"
+                            }
+                        },
+                        {
+                            "id": "concert",
+                            "name": {
+                                "value": "concert"
+                            }
+                        },
+                        {
+                            "id": "the new job",
+                            "name": {
+                                "value": "the new job"
+                            }
+                        },
+                        {
+                            "id": "the new house",
+                            "name": {
+                                "value": "the new house"
+                            }
+                        },
+                        {
+                            "id": "my birthday",
+                            "name": {
+                                "value": "my birthday"
+                            }
+                        },
+                        {
+                            "id": "the new season",
+                            "name": {
+                                "value": "the new season"
+                            }
+                        },
+                        {
+                            "id": "our game",
+                            "name": {
+                                "value": "our game"
+                            }
+                        },
+                        {
+                            "id": "the playoffs",
+                            "name": {
+                                "value": "the playoffs"
+                            }
+                        },
+                        {
+                            "id": "roadtrip",
+                            "name": {
+                                "value": "roadtrip"
+                            }
+                        },
+                        {
+                            "id": "trip",
+                            "name": {
+                                "value": "trip"
+                            }
+                        },
+                        {
+                            "id": "our time off",
+                            "name": {
+                                "value": "our time off"
+                            }
+                        },
+                        {
+                            "id": "graduation",
+                            "name": {
+                                "value": "graduation"
+                            }
+                        },
+                        {
+                            "id": "school's over",
+                            "name": {
+                                "value": "school's over"
+                            }
+                        },
+                        {
+                            "id": "the holiday",
+                            "name": {
+                                "value": "the holiday"
+                            }
+                        },
+                        {
+                            "id": "American Thanksgiving",
+                            "name": {
+                                "value": "American Thanksgiving"
+                            }
+                        },
+                        {
+                            "id": "Superbowl",
+                            "name": {
+                                "value": "Superbowl"
+                            }
+                        },
+                        {
+                            "id": "our party",
+                            "name": {
+                                "value": "our party"
+                            }
+                        },
+                        {
+                            "id": "dance",
+                            "name": {
+                                "value": "dance"
+                            }
+                        },
+                        {
+                            "id": "our exams",
+                            "name": {
+                                "value": "our exams"
+                            }
+                        },
+                        {
+                            "id": "our new house",
+                            "name": {
+                                "value": "our new house"
+                            }
+                        },
+                        {
+                            "id": "playoffs",
+                            "name": {
+                                "value": "playoffs"
+                            }
+                        },
+                        {
+                            "id": "Valentine's Day",
+                            "name": {
+                                "value": "Valentine's Day"
+                            }
+                        },
+                        {
+                            "id": "July fourth",
+                            "name": {
+                                "value": "July fourth"
+                            }
+                        },
+                        {
+                            "id": "job interview",
+                            "name": {
+                                "value": "job interview"
+                            }
+                        },
+                        {
+                            "id": "test results",
+                            "name": {
+                                "value": "test results"
+                            }
+                        },
+                        {
+                            "id": "Groundhog Day",
+                            "name": {
+                                "value": "Groundhog Day"
+                            }
+                        },
+                        {
+                            "id": "our trip",
+                            "name": {
+                                "value": "our trip"
+                            }
+                        },
+                        {
+                            "id": "our exam",
+                            "name": {
+                                "value": "our exam"
+                            }
+                        },
+                        {
+                            "id": "the new car",
+                            "name": {
+                                "value": "the new car"
+                            }
+                        },
+                        {
+                            "id": "my bachelor party",
+                            "name": {
+                                "value": "my bachelor party"
+                            }
+                        },
+                        {
+                            "id": "last day of school",
+                            "name": {
+                                "value": "last day of school"
+                            }
+                        },
+                        {
+                            "id": "get together",
+                            "name": {
+                                "value": "get together"
+                            }
+                        },
+                        {
+                            "id": "the performance",
+                            "name": {
+                                "value": "the performance"
+                            }
+                        },
+                        {
+                            "id": "exam",
+                            "name": {
+                                "value": "exam"
+                            }
+                        },
+                        {
+                            "id": "our holidays",
+                            "name": {
+                                "value": "our holidays"
+                            }
+                        },
+                        {
+                            "id": "the birthday party",
+                            "name": {
+                                "value": "the birthday party"
+                            }
+                        },
+                        {
+                            "id": "the party",
+                            "name": {
+                                "value": "the party"
+                            }
+                        },
+                        {
+                            "id": "my wedding",
+                            "name": {
+                                "value": "my wedding"
+                            }
+                        },
+                        {
+                            "id": "the lunar eclipse",
+                            "name": {
+                                "value": "the lunar eclipse"
+                            }
+                        },
+                        {
+                            "id": "Boxing Day",
+                            "name": {
+                                "value": "Boxing Day"
+                            }
+                        },
+                        {
+                            "id": "first day of work",
+                            "name": {
+                                "value": "first day of work"
+                            }
+                        },
+                        {
+                            "id": "my speech",
+                            "name": {
+                                "value": "my speech"
+                            }
+                        },
+                        {
+                            "id": "New Year's Eve",
+                            "name": {
+                                "value": "New Year's Eve"
+                            }
+                        },
+                        {
+                            "id": "New Year's Eve party",
+                            "name": {
+                                "value": "New Year's Eve party"
+                            }
+                        },
+                        {
+                            "id": "our anniversary",
+                            "name": {
+                                "value": "our anniversary"
+                            }
+                        },
+                        {
+                            "id": "my concert",
+                            "name": {
+                                "value": "my concert"
+                            }
+                        },
+                        {
+                            "id": "flight",
+                            "name": {
+                                "value": "flight"
+                            }
+                        },
+                        {
+                            "id": "the solar eclipse",
+                            "name": {
+                                "value": "the solar eclipse"
+                            }
+                        },
+                        {
+                            "id": "our test results",
+                            "name": {
+                                "value": "our test results"
+                            }
+                        },
+                        {
+                            "id": "classes end",
+                            "name": {
+                                "value": "classes end"
+                            }
+                        },
+                        {
+                            "id": "Martin Luther King Jr. Day",
+                            "name": {
+                                "value": "Martin Luther King Jr. Day"
+                            }
+                        },
+                        {
+                            "id": "the roadtrip",
+                            "name": {
+                                "value": "the roadtrip"
+                            }
+                        },
+                        {
+                            "id": "classes are out",
+                            "name": {
+                                "value": "classes are out"
+                            }
+                        },
+                        {
+                            "id": "Christmas Party",
+                            "name": {
+                                "value": "Christmas Party"
+                            }
+                        },
+                        {
+                            "id": "the Superbowl",
+                            "name": {
+                                "value": "the Superbowl"
+                            }
+                        },
+                        {
+                            "id": "wedding",
+                            "name": {
+                                "value": "wedding"
+                            }
+                        },
+                        {
+                            "id": "our honey moon",
+                            "name": {
+                                "value": "our honey moon"
+                            }
+                        },
+                        {
+                            "id": "bachelorette party",
+                            "name": {
+                                "value": "bachelorette party"
+                            }
+                        },
+                        {
+                            "id": "my trip",
+                            "name": {
+                                "value": "my trip"
+                            }
+                        },
+                        {
+                            "id": "our vacation",
+                            "name": {
+                                "value": "our vacation"
+                            }
+                        },
+                        {
+                            "id": "Canada Day",
+                            "name": {
+                                "value": "Canada Day"
+                            }
+                        },
+                        {
+                            "id": "my exam",
+                            "name": {
+                                "value": "my exam"
+                            }
+                        },
+                        {
+                            "id": "the new baby is born",
+                            "name": {
+                                "value": "the new baby is born"
+                            }
+                        },
+                        {
+                            "id": "new house",
+                            "name": {
+                                "value": "new house"
+                            }
+                        },
+                        {
+                            "id": "the exams",
+                            "name": {
+                                "value": "the exams"
+                            }
+                        },
+                        {
+                            "id": "my tests",
+                            "name": {
+                                "value": "my tests"
+                            }
+                        },
+                        {
+                            "id": "the new apartment",
+                            "name": {
+                                "value": "the new apartment"
+                            }
+                        },
+                        {
+                            "id": "the New Year's party",
+                            "name": {
+                                "value": "the New Year's party"
+                            }
+                        },
+                        {
+                            "id": "our gala",
+                            "name": {
+                                "value": "our gala"
+                            }
+                        },
+                        {
+                            "id": "speech",
+                            "name": {
+                                "value": "speech"
+                            }
+                        },
+                        {
+                            "id": "the retirement party",
+                            "name": {
+                                "value": "the retirement party"
+                            }
+                        },
+                        {
+                            "id": "my new baby",
+                            "name": {
+                                "value": "my new baby"
+                            }
+                        },
+                        {
+                            "id": "our retirement",
+                            "name": {
+                                "value": "our retirement"
+                            }
+                        },
+                        {
+                            "id": "interview",
+                            "name": {
+                                "value": "interview"
+                            }
+                        },
+                        {
+                            "id": "the interview",
+                            "name": {
+                                "value": "the interview"
+                            }
+                        },
+                        {
+                            "id": "anniversary",
+                            "name": {
+                                "value": "anniversary"
+                            }
+                        },
+                        {
+                            "id": "our move",
+                            "name": {
+                                "value": "our move"
+                            }
+                        },
+                        {
+                            "id": "surgery",
+                            "name": {
+                                "value": "surgery"
+                            }
+                        },
+                        {
+                            "id": "the full moon",
+                            "name": {
+                                "value": "the full moon"
+                            }
+                        },
+                        {
+                            "id": "our get together",
+                            "name": {
+                                "value": "our get together"
+                            }
+                        },
+                        {
+                            "id": "Black Friday",
+                            "name": {
+                                "value": "Black Friday"
+                            }
+                        },
+                        {
+                            "id": "the big move",
+                            "name": {
+                                "value": "the big move"
+                            }
+                        },
+                        {
+                            "id": "my appointment",
+                            "name": {
+                                "value": "my appointment"
+                            }
+                        },
+                        {
+                            "id": "spring",
+                            "name": {
+                                "value": "spring"
+                            }
+                        },
+                        {
+                            "id": "the New Year",
+                            "name": {
+                                "value": "the New Year"
+                            }
+                        },
+                        {
+                            "id": "New Year",
+                            "name": {
+                                "value": "New Year"
+                            }
+                        },
+                        {
+                            "id": "holidays",
+                            "name": {
+                                "value": "holidays"
+                            }
+                        },
+                        {
+                            "id": "school",
+                            "name": {
+                                "value": "school"
+                            }
+                        },
+                        {
+                            "id": "Christmas Day",
+                            "name": {
+                                "value": "Christmas Day"
+                            }
+                        },
+                        {
+                            "id": "my anniversary",
+                            "name": {
+                                "value": "my anniversary"
+                            }
+                        },
+                        {
+                            "id": "the graduation",
+                            "name": {
+                                "value": "the graduation"
+                            }
+                        },
+                        {
+                            "id": "my playoffs",
+                            "name": {
+                                "value": "my playoffs"
+                            }
+                        },
+                        {
+                            "id": "our last day of work",
+                            "name": {
+                                "value": "our last day of work"
+                            }
+                        },
+                        {
+                            "id": "the first day of work",
+                            "name": {
+                                "value": "the first day of work"
+                            }
+                        },
+                        {
+                            "id": "test",
+                            "name": {
+                                "value": "test"
+                            }
+                        },
+                        {
+                            "id": "our first day of work",
+                            "name": {
+                                "value": "our first day of work"
+                            }
+                        },
+                        {
+                            "id": "the big game",
+                            "name": {
+                                "value": "the big game"
+                            }
+                        },
+                        {
+                            "id": "the New Year's Eve party",
+                            "name": {
+                                "value": "the New Year's Eve party"
+                            }
+                        },
+                        {
+                            "id": "Inauguration Day",
+                            "name": {
+                                "value": "Inauguration Day"
+                            }
+                        },
+                        {
+                            "id": "my graduation",
+                            "name": {
+                                "value": "my graduation"
+                            }
+                        },
+                        {
+                            "id": "Easter Sunday",
+                            "name": {
+                                "value": "Easter Sunday"
+                            }
+                        },
+                        {
+                            "id": "our new apartment",
+                            "name": {
+                                "value": "our new apartment"
+                            }
+                        },
+                        {
+                            "id": "tests",
+                            "name": {
+                                "value": "tests"
+                            }
+                        },
+                        {
+                            "id": "our job interview",
+                            "name": {
+                                "value": "our job interview"
+                            }
+                        },
+                        {
+                            "id": "my test results",
+                            "name": {
+                                "value": "my test results"
+                            }
+                        },
+                        {
+                            "id": "new car",
+                            "name": {
+                                "value": "new car"
+                            }
+                        },
+                        {
+                            "id": "my baby",
+                            "name": {
+                                "value": "my baby"
+                            }
+                        },
+                        {
+                            "id": "the fourth",
+                            "name": {
+                                "value": "the fourth"
+                            }
+                        },
+                        {
+                            "id": "our test",
+                            "name": {
+                                "value": "our test"
+                            }
+                        },
+                        {
+                            "id": "the concert",
+                            "name": {
+                                "value": "the concert"
+                            }
+                        },
+                        {
+                            "id": "party",
+                            "name": {
+                                "value": "party"
+                            }
+                        },
+                        {
+                            "id": "our roadtrip",
+                            "name": {
+                                "value": "our roadtrip"
+                            }
+                        },
+                        {
+                            "id": "Easter",
+                            "name": {
+                                "value": "Easter"
+                            }
+                        },
+                        {
+                            "id": "my roadtrip",
+                            "name": {
+                                "value": "my roadtrip"
+                            }
+                        },
+                        {
+                            "id": "Christmas",
+                            "name": {
+                                "value": "Christmas"
+                            }
+                        },
+                        {
+                            "id": "the last day of work",
+                            "name": {
+                                "value": "the last day of work"
+                            }
+                        },
+                        {
+                            "id": "my surgery",
+                            "name": {
+                                "value": "my surgery"
+                            }
+                        },
+                        {
+                            "id": "house",
+                            "name": {
+                                "value": "house"
+                            }
+                        },
+                        {
+                            "id": "Kwanzaa",
+                            "name": {
+                                "value": "Kwanzaa"
+                            }
+                        },
+                        {
+                            "id": "the car",
+                            "name": {
+                                "value": "the car"
+                            }
+                        },
+                        {
+                            "id": "our car",
+                            "name": {
+                                "value": "our car"
+                            }
+                        },
+                        {
+                            "id": "Christmas Eve",
+                            "name": {
+                                "value": "Christmas Eve"
+                            }
+                        },
+                        {
+                            "id": "my exams",
+                            "name": {
+                                "value": "my exams"
+                            }
+                        },
+                        {
+                            "id": "baby is born",
+                            "name": {
+                                "value": "baby is born"
+                            }
+                        },
+                        {
+                            "id": "the retirement",
+                            "name": {
+                                "value": "the retirement"
+                            }
+                        },
+                        {
+                            "id": "the inauguration",
+                            "name": {
+                                "value": "the inauguration"
+                            }
+                        },
+                        {
+                            "id": "new job",
+                            "name": {
+                                "value": "new job"
+                            }
+                        },
+                        {
+                            "id": "our bachelorette party",
+                            "name": {
+                                "value": "our bachelorette party"
+                            }
+                        },
+                        {
+                            "id": "the dance",
+                            "name": {
+                                "value": "the dance"
+                            }
+                        },
+                        {
+                            "id": "our new baby is born",
+                            "name": {
+                                "value": "our new baby is born"
+                            }
+                        },
+                        {
+                            "id": "fourth of July",
+                            "name": {
+                                "value": "fourth of July"
+                            }
+                        },
+                        {
+                            "id": "election",
+                            "name": {
+                                "value": "election"
+                            }
+                        },
+                        {
+                            "id": "the payday",
+                            "name": {
+                                "value": "the payday"
+                            }
+                        },
+                        {
+                            "id": "our wedding",
+                            "name": {
+                                "value": "our wedding"
+                            }
+                        },
+                        {
+                            "id": "bachelor party",
+                            "name": {
+                                "value": "bachelor party"
+                            }
+                        },
+                        {
+                            "id": "my performance",
+                            "name": {
+                                "value": "my performance"
+                            }
+                        },
+                        {
+                            "id": "my flight",
+                            "name": {
+                                "value": "my flight"
+                            }
+                        },
+                        {
+                            "id": "my payday",
+                            "name": {
+                                "value": "my payday"
+                            }
+                        },
+                        {
+                            "id": "my test result",
+                            "name": {
+                                "value": "my test result"
+                            }
+                        },
+                        {
+                            "id": "our retirement party",
+                            "name": {
+                                "value": "our retirement party"
+                            }
+                        },
+                        {
+                            "id": "our speech",
+                            "name": {
+                                "value": "our speech"
+                            }
+                        },
+                        {
+                            "id": "baby",
+                            "name": {
+                                "value": "baby"
+                            }
+                        },
+                        {
+                            "id": "my vacation",
+                            "name": {
+                                "value": "my vacation"
+                            }
+                        },
+                        {
+                            "id": "our graduation",
+                            "name": {
+                                "value": "our graduation"
+                            }
+                        },
+                        {
+                            "id": "my test",
+                            "name": {
+                                "value": "my test"
+                            }
+                        },
+                        {
+                            "id": "the baby",
+                            "name": {
+                                "value": "the baby"
+                            }
+                        },
+                        {
+                            "id": "the election",
+                            "name": {
+                                "value": "the election"
+                            }
+                        },
+                        {
+                            "id": "the test",
+                            "name": {
+                                "value": "the test"
+                            }
+                        },
+                        {
+                            "id": "our tests",
+                            "name": {
+                                "value": "our tests"
+                            }
+                        },
+                        {
+                            "id": "our baby is born",
+                            "name": {
+                                "value": "our baby is born"
+                            }
+                        },
+                        {
+                            "id": "my apartment",
+                            "name": {
+                                "value": "my apartment"
+                            }
+                        },
+                        {
+                            "id": "lunar eclipse",
+                            "name": {
+                                "value": "lunar eclipse"
+                            }
+                        },
+                        {
+                            "id": "our new season",
+                            "name": {
+                                "value": "our new season"
+                            }
+                        },
+                        {
+                            "id": "Thanksgiving",
+                            "name": {
+                                "value": "Thanksgiving"
+                            }
+                        },
+                        {
+                            "id": "the wedding",
+                            "name": {
+                                "value": "the wedding"
+                            }
+                        },
+                        {
+                            "id": "our test result",
+                            "name": {
+                                "value": "our test result"
+                            }
+                        },
+                        {
+                            "id": "first day of spring",
+                            "name": {
+                                "value": "first day of spring"
+                            }
+                        },
+                        {
+                            "id": "the last day of school",
+                            "name": {
+                                "value": "the last day of school"
+                            }
+                        },
+                        {
+                            "id": "the get together",
+                            "name": {
+                                "value": "the get together"
+                            }
+                        },
+                        {
+                            "id": "the flight",
+                            "name": {
+                                "value": "the flight"
+                            }
+                        },
+                        {
+                            "id": "the eclipse",
+                            "name": {
+                                "value": "the eclipse"
+                            }
+                        },
+                        {
+                            "id": "new moon",
+                            "name": {
+                                "value": "new moon"
+                            }
+                        },
+                        {
+                            "id": "test result",
+                            "name": {
+                                "value": "test result"
+                            }
+                        },
+                        {
+                            "id": "classes are done",
+                            "name": {
+                                "value": "classes are done"
+                            }
+                        },
+                        {
+                            "id": "new apartment",
+                            "name": {
+                                "value": "new apartment"
+                            }
+                        },
+                        {
+                            "id": "my retirement",
+                            "name": {
+                                "value": "my retirement"
+                            }
+                        },
+                        {
+                            "id": "our finals",
+                            "name": {
+                                "value": "our finals"
+                            }
+                        },
+                        {
+                            "id": "my time off",
+                            "name": {
+                                "value": "my time off"
+                            }
+                        },
+                        {
+                            "id": "our bachelor party",
+                            "name": {
+                                "value": "our bachelor party"
+                            }
+                        },
+                        {
+                            "id": "new baby is born",
+                            "name": {
+                                "value": "new baby is born"
+                            }
+                        },
+                        {
+                            "id": "July four",
+                            "name": {
+                                "value": "July four"
+                            }
+                        },
+                        {
+                            "id": "first day of school",
+                            "name": {
+                                "value": "first day of school"
+                            }
+                        },
+                        {
+                            "id": "my get together",
+                            "name": {
+                                "value": "my get together"
+                            }
+                        },
+                        {
+                            "id": "the speech",
+                            "name": {
+                                "value": "the speech"
+                            }
+                        },
+                        {
+                            "id": "the honey moon",
+                            "name": {
+                                "value": "the honey moon"
+                            }
+                        },
+                        {
+                            "id": "the anniversary",
+                            "name": {
+                                "value": "the anniversary"
+                            }
+                        },
+                        {
+                            "id": "my holidays",
+                            "name": {
+                                "value": "my holidays"
+                            }
+                        },
+                        {
+                            "id": "my holiday",
+                            "name": {
+                                "value": "my holiday"
+                            }
+                        },
+                        {
+                            "id": "school's done",
+                            "name": {
+                                "value": "school's done"
+                            }
+                        },
+                        {
+                            "id": "first day of winter",
+                            "name": {
+                                "value": "first day of winter"
+                            }
+                        },
+                        {
+                            "id": "our big game",
+                            "name": {
+                                "value": "our big game"
+                            }
+                        },
+                        {
+                            "id": "big game",
+                            "name": {
+                                "value": "big game"
+                            }
+                        },
+                        {
+                            "id": "Ash Wednesday",
+                            "name": {
+                                "value": "Ash Wednesday"
+                            }
+                        },
+                        {
+                            "id": "my new car",
+                            "name": {
+                                "value": "my new car"
+                            }
+                        },
+                        {
+                            "id": "holiday",
+                            "name": {
+                                "value": "holiday"
+                            }
+                        },
+                        {
+                            "id": "summer",
+                            "name": {
+                                "value": "summer"
+                            }
+                        },
+                        {
+                            "id": "my reunion",
+                            "name": {
+                                "value": "my reunion"
+                            }
+                        },
+                        {
+                            "id": "honey moon",
+                            "name": {
+                                "value": "honey moon"
+                            }
+                        },
+                        {
+                            "id": "solar eclipse",
+                            "name": {
+                                "value": "solar eclipse"
+                            }
+                        },
+                        {
+                            "id": "our new job",
+                            "name": {
+                                "value": "our new job"
+                            }
+                        },
+                        {
+                            "id": "fall",
+                            "name": {
+                                "value": "fall"
+                            }
+                        },
+                        {
+                            "id": "my bachelorette party",
+                            "name": {
+                                "value": "my bachelorette party"
+                            }
+                        },
+                        {
+                            "id": "vacation",
+                            "name": {
+                                "value": "vacation"
+                            }
+                        },
+                        {
+                            "id": "payday",
+                            "name": {
+                                "value": "payday"
+                            }
+                        },
+                        {
+                            "id": "my honey moon",
+                            "name": {
+                                "value": "my honey moon"
+                            }
+                        },
+                        {
+                            "id": "Independence Day",
+                            "name": {
+                                "value": "Independence Day"
+                            }
+                        },
+                        {
+                            "id": "event",
+                            "name": {
+                                "value": "event"
+                            }
+                        },
+                        {
+                            "id": "our birthday",
+                            "name": {
+                                "value": "our birthday"
+                            }
+                        },
+                        {
+                            "id": "the surgery",
+                            "name": {
+                                "value": "the surgery"
+                            }
+                        },
+                        {
+                            "id": "full moon",
+                            "name": {
+                                "value": "full moon"
+                            }
+                        },
+                        {
+                            "id": "the house",
+                            "name": {
+                                "value": "the house"
+                            }
+                        },
+                        {
+                            "id": "the time off",
+                            "name": {
+                                "value": "the time off"
+                            }
+                        },
+                        {
+                            "id": "my new job",
+                            "name": {
+                                "value": "my new job"
+                            }
+                        },
+                        {
+                            "id": "inauguration",
+                            "name": {
+                                "value": "inauguration"
+                            }
+                        },
+                        {
+                            "id": "the bachelorette party",
+                            "name": {
+                                "value": "the bachelorette party"
+                            }
+                        },
+                        {
+                            "id": "our reunion",
+                            "name": {
+                                "value": "our reunion"
+                            }
+                        },
+                        {
+                            "id": "the baby is born",
+                            "name": {
+                                "value": "the baby is born"
+                            }
+                        },
+                        {
+                            "id": "Halloween",
+                            "name": {
+                                "value": "Halloween"
+                            }
+                        },
+                        {
+                            "id": "President's Day",
+                            "name": {
+                                "value": "President's Day"
+                            }
+                        },
+                        {
+                            "id": "our baby",
+                            "name": {
+                                "value": "our baby"
+                            }
+                        },
+                        {
+                            "id": "school ends",
+                            "name": {
+                                "value": "school ends"
+                            }
+                        },
+                        {
+                            "id": "classes start",
+                            "name": {
+                                "value": "classes start"
+                            }
+                        },
+                        {
+                            "id": "my last day of work",
+                            "name": {
+                                "value": "my last day of work"
+                            }
+                        },
+                        {
+                            "id": "class starts",
+                            "name": {
+                                "value": "class starts"
+                            }
+                        },
+                        {
+                            "id": "Canadian Thanksgiving",
+                            "name": {
+                                "value": "Canadian Thanksgiving"
+                            }
+                        },
+                        {
+                            "id": "the first day of school",
+                            "name": {
+                                "value": "the first day of school"
+                            }
+                        },
+                        {
+                            "id": "New Year's",
+                            "name": {
+                                "value": "New Year's"
+                            }
+                        },
+                        {
+                            "id": "birthday party",
+                            "name": {
+                                "value": "birthday party"
+                            }
+                        },
+                        {
+                            "id": "time off",
+                            "name": {
+                                "value": "time off"
+                            }
+                        },
+                        {
+                            "id": "appointment",
+                            "name": {
+                                "value": "appointment"
+                            }
+                        },
+                        {
+                            "id": "retirement",
+                            "name": {
+                                "value": "retirement"
+                            }
+                        },
+                        {
+                            "id": "our performance",
+                            "name": {
+                                "value": "our performance"
+                            }
+                        },
+                        {
+                            "id": "our apartment",
+                            "name": {
+                                "value": "our apartment"
+                            }
+                        },
+                        {
+                            "id": "my game",
+                            "name": {
+                                "value": "my game"
+                            }
+                        },
+                        {
+                            "id": "our payday",
+                            "name": {
+                                "value": "our payday"
+                            }
+                        },
+                        {
+                            "id": "the holidays",
+                            "name": {
+                                "value": "the holidays"
+                            }
+                        },
+                        {
+                            "id": "my house",
+                            "name": {
+                                "value": "my house"
+                            }
+                        },
+                        {
+                            "id": "the trip",
+                            "name": {
+                                "value": "the trip"
+                            }
+                        },
+                        {
+                            "id": "our birthday party",
+                            "name": {
+                                "value": "our birthday party"
+                            }
+                        },
+                        {
+                            "id": "the event",
+                            "name": {
+                                "value": "the event"
+                            }
+                        },
+                        {
+                            "id": "our flight",
+                            "name": {
+                                "value": "our flight"
+                            }
+                        },
+                        {
+                            "id": "retirement party",
+                            "name": {
+                                "value": "retirement party"
+                            }
+                        },
+                        {
+                            "id": "my new house",
+                            "name": {
+                                "value": "my new house"
+                            }
+                        },
+                        {
+                            "id": "New Year's party",
+                            "name": {
+                                "value": "New Year's party"
+                            }
+                        },
+                        {
+                            "id": "the game",
+                            "name": {
+                                "value": "the game"
+                            }
+                        },
+                        {
+                            "id": "new season",
+                            "name": {
+                                "value": "new season"
+                            }
+                        },
+                        {
+                            "id": "D-Day",
+                            "name": {
+                                "value": "D-Day"
+                            }
+                        },
+                        {
+                            "id": "the new baby",
+                            "name": {
+                                "value": "the new baby"
+                            }
+                        },
+                        {
+                            "id": "my baby is born",
+                            "name": {
+                                "value": "my baby is born"
+                            }
+                        },
+                        {
+                            "id": "eclipse",
+                            "name": {
+                                "value": "eclipse"
+                            }
+                        },
+                        {
+                            "id": "our interview",
+                            "name": {
+                                "value": "our interview"
+                            }
+                        },
+                        {
+                            "id": "the bachelor party",
+                            "name": {
+                                "value": "the bachelor party"
+                            }
+                        },
+                        {
+                            "id": "my move",
+                            "name": {
+                                "value": "my move"
+                            }
+                        },
+                        {
+                            "id": "the exam",
+                            "name": {
+                                "value": "the exam"
+                            }
+                        },
+                        {
+                            "id": "finals",
+                            "name": {
+                                "value": "finals"
+                            }
+                        },
+                        {
+                            "id": "my gala",
+                            "name": {
+                                "value": "my gala"
+                            }
+                        },
+                        {
+                            "id": "our dance",
+                            "name": {
+                                "value": "our dance"
+                            }
+                        },
+                        {
+                            "id": "our playoffs",
+                            "name": {
+                                "value": "our playoffs"
+                            }
+                        },
+                        {
+                            "id": "school's out",
+                            "name": {
+                                "value": "school's out"
+                            }
+                        },
+                        {
+                            "id": "Good Friday",
+                            "name": {
+                                "value": "Good Friday"
+                            }
+                        },
+                        {
+                            "id": "our new car",
+                            "name": {
+                                "value": "our new car"
+                            }
+                        },
+                        {
+                            "id": "birthday",
+                            "name": {
+                                "value": "birthday"
+                            }
+                        },
+                        {
+                            "id": "classes finish",
+                            "name": {
+                                "value": "classes finish"
+                            }
+                        },
+                        {
+                            "id": "the move",
+                            "name": {
+                                "value": "the move"
+                            }
+                        },
+                        {
+                            "id": "game",
+                            "name": {
+                                "value": "game"
+                            }
+                        },
+                        {
+                            "id": "my dance",
+                            "name": {
+                                "value": "my dance"
+                            }
+                        },
+                        {
+                            "id": "the gala",
+                            "name": {
+                                "value": "the gala"
+                            }
+                        },
+                        {
+                            "id": "winter",
+                            "name": {
+                                "value": "winter"
+                            }
+                        },
+                        {
+                            "id": "last day of work",
+                            "name": {
+                                "value": "last day of work"
+                            }
+                        },
+                        {
+                            "id": "my birthday party",
+                            "name": {
+                                "value": "my birthday party"
+                            }
+                        },
+                        {
+                            "id": "our new baby",
+                            "name": {
+                                "value": "our new baby"
+                            }
+                        },
+                        {
+                            "id": "my first day of work",
+                            "name": {
+                                "value": "my first day of work"
+                            }
+                        },
+                        {
+                            "id": "the tests",
+                            "name": {
+                                "value": "the tests"
+                            }
+                        },
+                        {
+                            "id": "new baby",
+                            "name": {
+                                "value": "new baby"
+                            }
+                        },
+                        {
+                            "id": "I move",
+                            "name": {
+                                "value": "I move"
+                            }
+                        },
+                        {
+                            "id": "the test results",
+                            "name": {
+                                "value": "the test results"
+                            }
+                        },
+                        {
+                            "id": "my finals",
+                            "name": {
+                                "value": "my finals"
+                            }
+                        },
+                        {
+                            "id": "my retirement party",
+                            "name": {
+                                "value": "my retirement party"
+                            }
+                        },
+                        {
+                            "id": "car",
+                            "name": {
+                                "value": "car"
+                            }
+                        },
+                        {
+                            "id": "my party",
+                            "name": {
+                                "value": "my party"
+                            }
+                        },
+                        {
+                            "id": "my car",
+                            "name": {
+                                "value": "my car"
+                            }
+                        },
+                        {
+                            "id": "first day of fall",
+                            "name": {
+                                "value": "first day of fall"
+                            }
+                        },
+                        {
+                            "id": "our concert",
+                            "name": {
+                                "value": "our concert"
+                            }
+                        },
+                        {
+                            "id": "the new moon",
+                            "name": {
+                                "value": "the new moon"
+                            }
+                        },
+                        {
+                            "id": "the test result",
+                            "name": {
+                                "value": "the test result"
+                            }
+                        },
+                        {
+                            "id": "Election Day",
+                            "name": {
+                                "value": "Election Day"
+                            }
+                        },
+                        {
+                            "id": "the vacation",
+                            "name": {
+                                "value": "the vacation"
+                            }
+                        },
+                        {
+                            "id": "Maundy Thursday",
+                            "name": {
+                                "value": "Maundy Thursday"
+                            }
+                        },
+                        {
+                            "id": "the birthday",
+                            "name": {
+                                "value": "the birthday"
+                            }
+                        },
+                        {
+                            "id": "move",
+                            "name": {
+                                "value": "move"
+                            }
+                        },
+                        {
+                            "id": "my job interview",
+                            "name": {
+                                "value": "my job interview"
+                            }
+                        },
+                        {
+                            "id": "our appointment",
+                            "name": {
+                                "value": "our appointment"
+                            }
+                        },
+                        {
+                            "id": "our house",
+                            "name": {
+                                "value": "our house"
+                            }
+                        },
+                        {
+                            "id": "Labor Day",
+                            "name": {
+                                "value": "Labor Day"
+                            }
+                        },
+                        {
+                            "id": "our holiday",
+                            "name": {
+                                "value": "our holiday"
+                            }
+                        },
+                        {
+                            "id": "my interview",
+                            "name": {
+                                "value": "my interview"
+                            }
+                        },
+                        {
+                            "id": "the job interview",
+                            "name": {
+                                "value": "the job interview"
+                            }
+                        },
+                        {
+                            "id": "the reunion",
+                            "name": {
+                                "value": "the reunion"
+                            }
+                        },
+                        {
+                            "id": "the appointment",
+                            "name": {
+                                "value": "the appointment"
+                            }
+                        },
+                        {
+                            "id": "school starts",
+                            "name": {
+                                "value": "school starts"
+                            }
+                        },
+                        {
+                            "id": "exams",
+                            "name": {
+                                "value": "exams"
+                            }
+                        },
+                        {
+                            "id": "performance",
+                            "name": {
+                                "value": "performance"
+                            }
+                        },
+                        {
+                            "id": "the finals",
+                            "name": {
+                                "value": "the finals"
+                            }
+                        },
+                        {
+                            "id": "reunion",
+                            "name": {
+                                "value": "reunion"
+                            }
+                        },
+                        {
+                            "id": "my big game",
+                            "name": {
+                                "value": "my big game"
+                            }
+                        },
+                        {
+                            "id": "the apartment",
+                            "name": {
+                                "value": "the apartment"
+                            }
+                        },
+                        {
+                            "id": "my new baby is born",
+                            "name": {
+                                "value": "my new baby is born"
+                            }
+                        },
+                        {
+                            "id": "apartment",
+                            "name": {
+                                "value": "apartment"
+                            }
+                        },
+                        {
+                            "id": "first day of summer",
+                            "name": {
+                                "value": "first day of summer"
+                            }
+                        },
+                        {
+                            "id": "gala",
+                            "name": {
+                                "value": "gala"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "invocationName": "days until"
         }
-      ],
-      "types": [
-        {
-          "name": "EventType",
-          "values": [
-            {
-              "id": "my new season",
-              "name": {
-                "value": "my new season"
-              }
-            },
-            {
-              "id": "my new apartment",
-              "name": {
-                "value": "my new apartment"
-              }
-            },
-            {
-              "id": "concert",
-              "name": {
-                "value": "concert"
-              }
-            },
-            {
-              "id": "the new job",
-              "name": {
-                "value": "the new job"
-              }
-            },
-            {
-              "id": "the new house",
-              "name": {
-                "value": "the new house"
-              }
-            },
-            {
-              "id": "my birthday",
-              "name": {
-                "value": "my birthday"
-              }
-            },
-            {
-              "id": "the new season",
-              "name": {
-                "value": "the new season"
-              }
-            },
-            {
-              "id": "our game",
-              "name": {
-                "value": "our game"
-              }
-            },
-            {
-              "id": "the playoffs",
-              "name": {
-                "value": "the playoffs"
-              }
-            },
-            {
-              "id": "roadtrip",
-              "name": {
-                "value": "roadtrip"
-              }
-            },
-            {
-              "id": "trip",
-              "name": {
-                "value": "trip"
-              }
-            },
-            {
-              "id": "our time off",
-              "name": {
-                "value": "our time off"
-              }
-            },
-            {
-              "id": "graduation",
-              "name": {
-                "value": "graduation"
-              }
-            },
-            {
-              "id": "school's over",
-              "name": {
-                "value": "school's over"
-              }
-            },
-            {
-              "id": "the holiday",
-              "name": {
-                "value": "the holiday"
-              }
-            },
-            {
-              "id": "American Thanksgiving",
-              "name": {
-                "value": "American Thanksgiving"
-              }
-            },
-            {
-              "id": "Superbowl",
-              "name": {
-                "value": "Superbowl"
-              }
-            },
-            {
-              "id": "our party",
-              "name": {
-                "value": "our party"
-              }
-            },
-            {
-              "id": "dance",
-              "name": {
-                "value": "dance"
-              }
-            },
-            {
-              "id": "our exams",
-              "name": {
-                "value": "our exams"
-              }
-            },
-            {
-              "id": "our new house",
-              "name": {
-                "value": "our new house"
-              }
-            },
-            {
-              "id": "playoffs",
-              "name": {
-                "value": "playoffs"
-              }
-            },
-            {
-              "id": "Valentine's Day",
-              "name": {
-                "value": "Valentine's Day"
-              }
-            },
-            {
-              "id": "July fourth",
-              "name": {
-                "value": "July fourth"
-              }
-            },
-            {
-              "id": "job interview",
-              "name": {
-                "value": "job interview"
-              }
-            },
-            {
-              "id": "test results",
-              "name": {
-                "value": "test results"
-              }
-            },
-            {
-              "id": "Groundhog Day",
-              "name": {
-                "value": "Groundhog Day"
-              }
-            },
-            {
-              "id": "our trip",
-              "name": {
-                "value": "our trip"
-              }
-            },
-            {
-              "id": "our exam",
-              "name": {
-                "value": "our exam"
-              }
-            },
-            {
-              "id": "the new car",
-              "name": {
-                "value": "the new car"
-              }
-            },
-            {
-              "id": "my bachelor party",
-              "name": {
-                "value": "my bachelor party"
-              }
-            },
-            {
-              "id": "last day of school",
-              "name": {
-                "value": "last day of school"
-              }
-            },
-            {
-              "id": "get together",
-              "name": {
-                "value": "get together"
-              }
-            },
-            {
-              "id": "the performance",
-              "name": {
-                "value": "the performance"
-              }
-            },
-            {
-              "id": "exam",
-              "name": {
-                "value": "exam"
-              }
-            },
-            {
-              "id": "our holidays",
-              "name": {
-                "value": "our holidays"
-              }
-            },
-            {
-              "id": "the birthday party",
-              "name": {
-                "value": "the birthday party"
-              }
-            },
-            {
-              "id": "the party",
-              "name": {
-                "value": "the party"
-              }
-            },
-            {
-              "id": "my wedding",
-              "name": {
-                "value": "my wedding"
-              }
-            },
-            {
-              "id": "the lunar eclipse",
-              "name": {
-                "value": "the lunar eclipse"
-              }
-            },
-            {
-              "id": "Boxing Day",
-              "name": {
-                "value": "Boxing Day"
-              }
-            },
-            {
-              "id": "first day of work",
-              "name": {
-                "value": "first day of work"
-              }
-            },
-            {
-              "id": "my speech",
-              "name": {
-                "value": "my speech"
-              }
-            },
-            {
-              "id": "New Year's Eve",
-              "name": {
-                "value": "New Year's Eve"
-              }
-            },
-            {
-              "id": "New Year's Eve party",
-              "name": {
-                "value": "New Year's Eve party"
-              }
-            },
-            {
-              "id": "our anniversary",
-              "name": {
-                "value": "our anniversary"
-              }
-            },
-            {
-              "id": "my concert",
-              "name": {
-                "value": "my concert"
-              }
-            },
-            {
-              "id": "flight",
-              "name": {
-                "value": "flight"
-              }
-            },
-            {
-              "id": "the solar eclipse",
-              "name": {
-                "value": "the solar eclipse"
-              }
-            },
-            {
-              "id": "our test results",
-              "name": {
-                "value": "our test results"
-              }
-            },
-            {
-              "id": "classes end",
-              "name": {
-                "value": "classes end"
-              }
-            },
-            {
-              "id": "Martin Luther King Jr. Day",
-              "name": {
-                "value": "Martin Luther King Jr. Day"
-              }
-            },
-            {
-              "id": "the roadtrip",
-              "name": {
-                "value": "the roadtrip"
-              }
-            },
-            {
-              "id": "classes are out",
-              "name": {
-                "value": "classes are out"
-              }
-            },
-            {
-              "id": "Christmas Party",
-              "name": {
-                "value": "Christmas Party"
-              }
-            },
-            {
-              "id": "the Superbowl",
-              "name": {
-                "value": "the Superbowl"
-              }
-            },
-            {
-              "id": "wedding",
-              "name": {
-                "value": "wedding"
-              }
-            },
-            {
-              "id": "our honey moon",
-              "name": {
-                "value": "our honey moon"
-              }
-            },
-            {
-              "id": "bachelorette party",
-              "name": {
-                "value": "bachelorette party"
-              }
-            },
-            {
-              "id": "my trip",
-              "name": {
-                "value": "my trip"
-              }
-            },
-            {
-              "id": "our vacation",
-              "name": {
-                "value": "our vacation"
-              }
-            },
-            {
-              "id": "Canada Day",
-              "name": {
-                "value": "Canada Day"
-              }
-            },
-            {
-              "id": "my exam",
-              "name": {
-                "value": "my exam"
-              }
-            },
-            {
-              "id": "the new baby is born",
-              "name": {
-                "value": "the new baby is born"
-              }
-            },
-            {
-              "id": "new house",
-              "name": {
-                "value": "new house"
-              }
-            },
-            {
-              "id": "the exams",
-              "name": {
-                "value": "the exams"
-              }
-            },
-            {
-              "id": "my tests",
-              "name": {
-                "value": "my tests"
-              }
-            },
-            {
-              "id": "the new apartment",
-              "name": {
-                "value": "the new apartment"
-              }
-            },
-            {
-              "id": "the New Year's party",
-              "name": {
-                "value": "the New Year's party"
-              }
-            },
-            {
-              "id": "our gala",
-              "name": {
-                "value": "our gala"
-              }
-            },
-            {
-              "id": "speech",
-              "name": {
-                "value": "speech"
-              }
-            },
-            {
-              "id": "the retirement party",
-              "name": {
-                "value": "the retirement party"
-              }
-            },
-            {
-              "id": "my new baby",
-              "name": {
-                "value": "my new baby"
-              }
-            },
-            {
-              "id": "our retirement",
-              "name": {
-                "value": "our retirement"
-              }
-            },
-            {
-              "id": "interview",
-              "name": {
-                "value": "interview"
-              }
-            },
-            {
-              "id": "the interview",
-              "name": {
-                "value": "the interview"
-              }
-            },
-            {
-              "id": "anniversary",
-              "name": {
-                "value": "anniversary"
-              }
-            },
-            {
-              "id": "our move",
-              "name": {
-                "value": "our move"
-              }
-            },
-            {
-              "id": "surgery",
-              "name": {
-                "value": "surgery"
-              }
-            },
-            {
-              "id": "the full moon",
-              "name": {
-                "value": "the full moon"
-              }
-            },
-            {
-              "id": "our get together",
-              "name": {
-                "value": "our get together"
-              }
-            },
-            {
-              "id": "Black Friday",
-              "name": {
-                "value": "Black Friday"
-              }
-            },
-            {
-              "id": "the big move",
-              "name": {
-                "value": "the big move"
-              }
-            },
-            {
-              "id": "my appointment",
-              "name": {
-                "value": "my appointment"
-              }
-            },
-            {
-              "id": "spring",
-              "name": {
-                "value": "spring"
-              }
-            },
-            {
-              "id": "the New Year",
-              "name": {
-                "value": "the New Year"
-              }
-            },
-            {
-              "id": "New Year",
-              "name": {
-                "value": "New Year"
-              }
-            },
-            {
-              "id": "holidays",
-              "name": {
-                "value": "holidays"
-              }
-            },
-            {
-              "id": "school",
-              "name": {
-                "value": "school"
-              }
-            },
-            {
-              "id": "Christmas Day",
-              "name": {
-                "value": "Christmas Day"
-              }
-            },
-            {
-              "id": "my anniversary",
-              "name": {
-                "value": "my anniversary"
-              }
-            },
-            {
-              "id": "the graduation",
-              "name": {
-                "value": "the graduation"
-              }
-            },
-            {
-              "id": "my playoffs",
-              "name": {
-                "value": "my playoffs"
-              }
-            },
-            {
-              "id": "our last day of work",
-              "name": {
-                "value": "our last day of work"
-              }
-            },
-            {
-              "id": "the first day of work",
-              "name": {
-                "value": "the first day of work"
-              }
-            },
-            {
-              "id": "test",
-              "name": {
-                "value": "test"
-              }
-            },
-            {
-              "id": "our first day of work",
-              "name": {
-                "value": "our first day of work"
-              }
-            },
-            {
-              "id": "the big game",
-              "name": {
-                "value": "the big game"
-              }
-            },
-            {
-              "id": "the New Year's Eve party",
-              "name": {
-                "value": "the New Year's Eve party"
-              }
-            },
-            {
-              "id": "Inauguration Day",
-              "name": {
-                "value": "Inauguration Day"
-              }
-            },
-            {
-              "id": "my graduation",
-              "name": {
-                "value": "my graduation"
-              }
-            },
-            {
-              "id": "Easter Sunday",
-              "name": {
-                "value": "Easter Sunday"
-              }
-            },
-            {
-              "id": "our new apartment",
-              "name": {
-                "value": "our new apartment"
-              }
-            },
-            {
-              "id": "tests",
-              "name": {
-                "value": "tests"
-              }
-            },
-            {
-              "id": "our job interview",
-              "name": {
-                "value": "our job interview"
-              }
-            },
-            {
-              "id": "my test results",
-              "name": {
-                "value": "my test results"
-              }
-            },
-            {
-              "id": "new car",
-              "name": {
-                "value": "new car"
-              }
-            },
-            {
-              "id": "my baby",
-              "name": {
-                "value": "my baby"
-              }
-            },
-            {
-              "id": "the fourth",
-              "name": {
-                "value": "the fourth"
-              }
-            },
-            {
-              "id": "our test",
-              "name": {
-                "value": "our test"
-              }
-            },
-            {
-              "id": "the concert",
-              "name": {
-                "value": "the concert"
-              }
-            },
-            {
-              "id": "party",
-              "name": {
-                "value": "party"
-              }
-            },
-            {
-              "id": "our roadtrip",
-              "name": {
-                "value": "our roadtrip"
-              }
-            },
-            {
-              "id": "Easter",
-              "name": {
-                "value": "Easter"
-              }
-            },
-            {
-              "id": "my roadtrip",
-              "name": {
-                "value": "my roadtrip"
-              }
-            },
-            {
-              "id": "Christmas",
-              "name": {
-                "value": "Christmas"
-              }
-            },
-            {
-              "id": "the last day of work",
-              "name": {
-                "value": "the last day of work"
-              }
-            },
-            {
-              "id": "my surgery",
-              "name": {
-                "value": "my surgery"
-              }
-            },
-            {
-              "id": "house",
-              "name": {
-                "value": "house"
-              }
-            },
-            {
-              "id": "Kwanzaa",
-              "name": {
-                "value": "Kwanzaa"
-              }
-            },
-            {
-              "id": "the car",
-              "name": {
-                "value": "the car"
-              }
-            },
-            {
-              "id": "our car",
-              "name": {
-                "value": "our car"
-              }
-            },
-            {
-              "id": "Christmas Eve",
-              "name": {
-                "value": "Christmas Eve"
-              }
-            },
-            {
-              "id": "my exams",
-              "name": {
-                "value": "my exams"
-              }
-            },
-            {
-              "id": "baby is born",
-              "name": {
-                "value": "baby is born"
-              }
-            },
-            {
-              "id": "the retirement",
-              "name": {
-                "value": "the retirement"
-              }
-            },
-            {
-              "id": "the inauguration",
-              "name": {
-                "value": "the inauguration"
-              }
-            },
-            {
-              "id": "new job",
-              "name": {
-                "value": "new job"
-              }
-            },
-            {
-              "id": "our bachelorette party",
-              "name": {
-                "value": "our bachelorette party"
-              }
-            },
-            {
-              "id": "the dance",
-              "name": {
-                "value": "the dance"
-              }
-            },
-            {
-              "id": "our new baby is born",
-              "name": {
-                "value": "our new baby is born"
-              }
-            },
-            {
-              "id": "fourth of July",
-              "name": {
-                "value": "fourth of July"
-              }
-            },
-            {
-              "id": "election",
-              "name": {
-                "value": "election"
-              }
-            },
-            {
-              "id": "the payday",
-              "name": {
-                "value": "the payday"
-              }
-            },
-            {
-              "id": "our wedding",
-              "name": {
-                "value": "our wedding"
-              }
-            },
-            {
-              "id": "bachelor party",
-              "name": {
-                "value": "bachelor party"
-              }
-            },
-            {
-              "id": "my performance",
-              "name": {
-                "value": "my performance"
-              }
-            },
-            {
-              "id": "my flight",
-              "name": {
-                "value": "my flight"
-              }
-            },
-            {
-              "id": "my payday",
-              "name": {
-                "value": "my payday"
-              }
-            },
-            {
-              "id": "my test result",
-              "name": {
-                "value": "my test result"
-              }
-            },
-            {
-              "id": "our retirement party",
-              "name": {
-                "value": "our retirement party"
-              }
-            },
-            {
-              "id": "our speech",
-              "name": {
-                "value": "our speech"
-              }
-            },
-            {
-              "id": "baby",
-              "name": {
-                "value": "baby"
-              }
-            },
-            {
-              "id": "my vacation",
-              "name": {
-                "value": "my vacation"
-              }
-            },
-            {
-              "id": "our graduation",
-              "name": {
-                "value": "our graduation"
-              }
-            },
-            {
-              "id": "my test",
-              "name": {
-                "value": "my test"
-              }
-            },
-            {
-              "id": "the baby",
-              "name": {
-                "value": "the baby"
-              }
-            },
-            {
-              "id": "the election",
-              "name": {
-                "value": "the election"
-              }
-            },
-            {
-              "id": "the test",
-              "name": {
-                "value": "the test"
-              }
-            },
-            {
-              "id": "our tests",
-              "name": {
-                "value": "our tests"
-              }
-            },
-            {
-              "id": "our baby is born",
-              "name": {
-                "value": "our baby is born"
-              }
-            },
-            {
-              "id": "my apartment",
-              "name": {
-                "value": "my apartment"
-              }
-            },
-            {
-              "id": "lunar eclipse",
-              "name": {
-                "value": "lunar eclipse"
-              }
-            },
-            {
-              "id": "our new season",
-              "name": {
-                "value": "our new season"
-              }
-            },
-            {
-              "id": "Thanksgiving",
-              "name": {
-                "value": "Thanksgiving"
-              }
-            },
-            {
-              "id": "the wedding",
-              "name": {
-                "value": "the wedding"
-              }
-            },
-            {
-              "id": "our test result",
-              "name": {
-                "value": "our test result"
-              }
-            },
-            {
-              "id": "first day of spring",
-              "name": {
-                "value": "first day of spring"
-              }
-            },
-            {
-              "id": "the last day of school",
-              "name": {
-                "value": "the last day of school"
-              }
-            },
-            {
-              "id": "the get together",
-              "name": {
-                "value": "the get together"
-              }
-            },
-            {
-              "id": "the flight",
-              "name": {
-                "value": "the flight"
-              }
-            },
-            {
-              "id": "the eclipse",
-              "name": {
-                "value": "the eclipse"
-              }
-            },
-            {
-              "id": "new moon",
-              "name": {
-                "value": "new moon"
-              }
-            },
-            {
-              "id": "test result",
-              "name": {
-                "value": "test result"
-              }
-            },
-            {
-              "id": "classes are done",
-              "name": {
-                "value": "classes are done"
-              }
-            },
-            {
-              "id": "new apartment",
-              "name": {
-                "value": "new apartment"
-              }
-            },
-            {
-              "id": "my retirement",
-              "name": {
-                "value": "my retirement"
-              }
-            },
-            {
-              "id": "our finals",
-              "name": {
-                "value": "our finals"
-              }
-            },
-            {
-              "id": "my time off",
-              "name": {
-                "value": "my time off"
-              }
-            },
-            {
-              "id": "our bachelor party",
-              "name": {
-                "value": "our bachelor party"
-              }
-            },
-            {
-              "id": "new baby is born",
-              "name": {
-                "value": "new baby is born"
-              }
-            },
-            {
-              "id": "July four",
-              "name": {
-                "value": "July four"
-              }
-            },
-            {
-              "id": "first day of school",
-              "name": {
-                "value": "first day of school"
-              }
-            },
-            {
-              "id": "my get together",
-              "name": {
-                "value": "my get together"
-              }
-            },
-            {
-              "id": "the speech",
-              "name": {
-                "value": "the speech"
-              }
-            },
-            {
-              "id": "the honey moon",
-              "name": {
-                "value": "the honey moon"
-              }
-            },
-            {
-              "id": "the anniversary",
-              "name": {
-                "value": "the anniversary"
-              }
-            },
-            {
-              "id": "my holidays",
-              "name": {
-                "value": "my holidays"
-              }
-            },
-            {
-              "id": "my holiday",
-              "name": {
-                "value": "my holiday"
-              }
-            },
-            {
-              "id": "school's done",
-              "name": {
-                "value": "school's done"
-              }
-            },
-            {
-              "id": "first day of winter",
-              "name": {
-                "value": "first day of winter"
-              }
-            },
-            {
-              "id": "our big game",
-              "name": {
-                "value": "our big game"
-              }
-            },
-            {
-              "id": "big game",
-              "name": {
-                "value": "big game"
-              }
-            },
-            {
-              "id": "Ash Wednesday",
-              "name": {
-                "value": "Ash Wednesday"
-              }
-            },
-            {
-              "id": "my new car",
-              "name": {
-                "value": "my new car"
-              }
-            },
-            {
-              "id": "holiday",
-              "name": {
-                "value": "holiday"
-              }
-            },
-            {
-              "id": "summer",
-              "name": {
-                "value": "summer"
-              }
-            },
-            {
-              "id": "my reunion",
-              "name": {
-                "value": "my reunion"
-              }
-            },
-            {
-              "id": "honey moon",
-              "name": {
-                "value": "honey moon"
-              }
-            },
-            {
-              "id": "solar eclipse",
-              "name": {
-                "value": "solar eclipse"
-              }
-            },
-            {
-              "id": "our new job",
-              "name": {
-                "value": "our new job"
-              }
-            },
-            {
-              "id": "fall",
-              "name": {
-                "value": "fall"
-              }
-            },
-            {
-              "id": "my bachelorette party",
-              "name": {
-                "value": "my bachelorette party"
-              }
-            },
-            {
-              "id": "vacation",
-              "name": {
-                "value": "vacation"
-              }
-            },
-            {
-              "id": "payday",
-              "name": {
-                "value": "payday"
-              }
-            },
-            {
-              "id": "my honey moon",
-              "name": {
-                "value": "my honey moon"
-              }
-            },
-            {
-              "id": "Independence Day",
-              "name": {
-                "value": "Independence Day"
-              }
-            },
-            {
-              "id": "event",
-              "name": {
-                "value": "event"
-              }
-            },
-            {
-              "id": "our birthday",
-              "name": {
-                "value": "our birthday"
-              }
-            },
-            {
-              "id": "the surgery",
-              "name": {
-                "value": "the surgery"
-              }
-            },
-            {
-              "id": "full moon",
-              "name": {
-                "value": "full moon"
-              }
-            },
-            {
-              "id": "the house",
-              "name": {
-                "value": "the house"
-              }
-            },
-            {
-              "id": "the time off",
-              "name": {
-                "value": "the time off"
-              }
-            },
-            {
-              "id": "my new job",
-              "name": {
-                "value": "my new job"
-              }
-            },
-            {
-              "id": "inauguration",
-              "name": {
-                "value": "inauguration"
-              }
-            },
-            {
-              "id": "the bachelorette party",
-              "name": {
-                "value": "the bachelorette party"
-              }
-            },
-            {
-              "id": "our reunion",
-              "name": {
-                "value": "our reunion"
-              }
-            },
-            {
-              "id": "the baby is born",
-              "name": {
-                "value": "the baby is born"
-              }
-            },
-            {
-              "id": "Halloween",
-              "name": {
-                "value": "Halloween"
-              }
-            },
-            {
-              "id": "President's Day",
-              "name": {
-                "value": "President's Day"
-              }
-            },
-            {
-              "id": "our baby",
-              "name": {
-                "value": "our baby"
-              }
-            },
-            {
-              "id": "school ends",
-              "name": {
-                "value": "school ends"
-              }
-            },
-            {
-              "id": "classes start",
-              "name": {
-                "value": "classes start"
-              }
-            },
-            {
-              "id": "my last day of work",
-              "name": {
-                "value": "my last day of work"
-              }
-            },
-            {
-              "id": "class starts",
-              "name": {
-                "value": "class starts"
-              }
-            },
-            {
-              "id": "Canadian Thanksgiving",
-              "name": {
-                "value": "Canadian Thanksgiving"
-              }
-            },
-            {
-              "id": "the first day of school",
-              "name": {
-                "value": "the first day of school"
-              }
-            },
-            {
-              "id": "New Year's",
-              "name": {
-                "value": "New Year's"
-              }
-            },
-            {
-              "id": "birthday party",
-              "name": {
-                "value": "birthday party"
-              }
-            },
-            {
-              "id": "time off",
-              "name": {
-                "value": "time off"
-              }
-            },
-            {
-              "id": "appointment",
-              "name": {
-                "value": "appointment"
-              }
-            },
-            {
-              "id": "retirement",
-              "name": {
-                "value": "retirement"
-              }
-            },
-            {
-              "id": "our performance",
-              "name": {
-                "value": "our performance"
-              }
-            },
-            {
-              "id": "our apartment",
-              "name": {
-                "value": "our apartment"
-              }
-            },
-            {
-              "id": "my game",
-              "name": {
-                "value": "my game"
-              }
-            },
-            {
-              "id": "our payday",
-              "name": {
-                "value": "our payday"
-              }
-            },
-            {
-              "id": "the holidays",
-              "name": {
-                "value": "the holidays"
-              }
-            },
-            {
-              "id": "my house",
-              "name": {
-                "value": "my house"
-              }
-            },
-            {
-              "id": "the trip",
-              "name": {
-                "value": "the trip"
-              }
-            },
-            {
-              "id": "our birthday party",
-              "name": {
-                "value": "our birthday party"
-              }
-            },
-            {
-              "id": "the event",
-              "name": {
-                "value": "the event"
-              }
-            },
-            {
-              "id": "our flight",
-              "name": {
-                "value": "our flight"
-              }
-            },
-            {
-              "id": "retirement party",
-              "name": {
-                "value": "retirement party"
-              }
-            },
-            {
-              "id": "my new house",
-              "name": {
-                "value": "my new house"
-              }
-            },
-            {
-              "id": "New Year's party",
-              "name": {
-                "value": "New Year's party"
-              }
-            },
-            {
-              "id": "the game",
-              "name": {
-                "value": "the game"
-              }
-            },
-            {
-              "id": "new season",
-              "name": {
-                "value": "new season"
-              }
-            },
-            {
-              "id": "D-Day",
-              "name": {
-                "value": "D-Day"
-              }
-            },
-            {
-              "id": "the new baby",
-              "name": {
-                "value": "the new baby"
-              }
-            },
-            {
-              "id": "my baby is born",
-              "name": {
-                "value": "my baby is born"
-              }
-            },
-            {
-              "id": "eclipse",
-              "name": {
-                "value": "eclipse"
-              }
-            },
-            {
-              "id": "our interview",
-              "name": {
-                "value": "our interview"
-              }
-            },
-            {
-              "id": "the bachelor party",
-              "name": {
-                "value": "the bachelor party"
-              }
-            },
-            {
-              "id": "my move",
-              "name": {
-                "value": "my move"
-              }
-            },
-            {
-              "id": "the exam",
-              "name": {
-                "value": "the exam"
-              }
-            },
-            {
-              "id": "finals",
-              "name": {
-                "value": "finals"
-              }
-            },
-            {
-              "id": "my gala",
-              "name": {
-                "value": "my gala"
-              }
-            },
-            {
-              "id": "our dance",
-              "name": {
-                "value": "our dance"
-              }
-            },
-            {
-              "id": "our playoffs",
-              "name": {
-                "value": "our playoffs"
-              }
-            },
-            {
-              "id": "school's out",
-              "name": {
-                "value": "school's out"
-              }
-            },
-            {
-              "id": "Good Friday",
-              "name": {
-                "value": "Good Friday"
-              }
-            },
-            {
-              "id": "our new car",
-              "name": {
-                "value": "our new car"
-              }
-            },
-            {
-              "id": "birthday",
-              "name": {
-                "value": "birthday"
-              }
-            },
-            {
-              "id": "classes finish",
-              "name": {
-                "value": "classes finish"
-              }
-            },
-            {
-              "id": "the move",
-              "name": {
-                "value": "the move"
-              }
-            },
-            {
-              "id": "game",
-              "name": {
-                "value": "game"
-              }
-            },
-            {
-              "id": "my dance",
-              "name": {
-                "value": "my dance"
-              }
-            },
-            {
-              "id": "the gala",
-              "name": {
-                "value": "the gala"
-              }
-            },
-            {
-              "id": "winter",
-              "name": {
-                "value": "winter"
-              }
-            },
-            {
-              "id": "last day of work",
-              "name": {
-                "value": "last day of work"
-              }
-            },
-            {
-              "id": "my birthday party",
-              "name": {
-                "value": "my birthday party"
-              }
-            },
-            {
-              "id": "our new baby",
-              "name": {
-                "value": "our new baby"
-              }
-            },
-            {
-              "id": "my first day of work",
-              "name": {
-                "value": "my first day of work"
-              }
-            },
-            {
-              "id": "the tests",
-              "name": {
-                "value": "the tests"
-              }
-            },
-            {
-              "id": "new baby",
-              "name": {
-                "value": "new baby"
-              }
-            },
-            {
-              "id": "I move",
-              "name": {
-                "value": "I move"
-              }
-            },
-            {
-              "id": "the test results",
-              "name": {
-                "value": "the test results"
-              }
-            },
-            {
-              "id": "my finals",
-              "name": {
-                "value": "my finals"
-              }
-            },
-            {
-              "id": "my retirement party",
-              "name": {
-                "value": "my retirement party"
-              }
-            },
-            {
-              "id": "car",
-              "name": {
-                "value": "car"
-              }
-            },
-            {
-              "id": "my party",
-              "name": {
-                "value": "my party"
-              }
-            },
-            {
-              "id": "my car",
-              "name": {
-                "value": "my car"
-              }
-            },
-            {
-              "id": "first day of fall",
-              "name": {
-                "value": "first day of fall"
-              }
-            },
-            {
-              "id": "our concert",
-              "name": {
-                "value": "our concert"
-              }
-            },
-            {
-              "id": "the new moon",
-              "name": {
-                "value": "the new moon"
-              }
-            },
-            {
-              "id": "the test result",
-              "name": {
-                "value": "the test result"
-              }
-            },
-            {
-              "id": "Election Day",
-              "name": {
-                "value": "Election Day"
-              }
-            },
-            {
-              "id": "the vacation",
-              "name": {
-                "value": "the vacation"
-              }
-            },
-            {
-              "id": "Maundy Thursday",
-              "name": {
-                "value": "Maundy Thursday"
-              }
-            },
-            {
-              "id": "the birthday",
-              "name": {
-                "value": "the birthday"
-              }
-            },
-            {
-              "id": "move",
-              "name": {
-                "value": "move"
-              }
-            },
-            {
-              "id": "my job interview",
-              "name": {
-                "value": "my job interview"
-              }
-            },
-            {
-              "id": "our appointment",
-              "name": {
-                "value": "our appointment"
-              }
-            },
-            {
-              "id": "our house",
-              "name": {
-                "value": "our house"
-              }
-            },
-            {
-              "id": "Labor Day",
-              "name": {
-                "value": "Labor Day"
-              }
-            },
-            {
-              "id": "our holiday",
-              "name": {
-                "value": "our holiday"
-              }
-            },
-            {
-              "id": "my interview",
-              "name": {
-                "value": "my interview"
-              }
-            },
-            {
-              "id": "the job interview",
-              "name": {
-                "value": "the job interview"
-              }
-            },
-            {
-              "id": "the reunion",
-              "name": {
-                "value": "the reunion"
-              }
-            },
-            {
-              "id": "the appointment",
-              "name": {
-                "value": "the appointment"
-              }
-            },
-            {
-              "id": "school starts",
-              "name": {
-                "value": "school starts"
-              }
-            },
-            {
-              "id": "exams",
-              "name": {
-                "value": "exams"
-              }
-            },
-            {
-              "id": "performance",
-              "name": {
-                "value": "performance"
-              }
-            },
-            {
-              "id": "the finals",
-              "name": {
-                "value": "the finals"
-              }
-            },
-            {
-              "id": "reunion",
-              "name": {
-                "value": "reunion"
-              }
-            },
-            {
-              "id": "my big game",
-              "name": {
-                "value": "my big game"
-              }
-            },
-            {
-              "id": "the apartment",
-              "name": {
-                "value": "the apartment"
-              }
-            },
-            {
-              "id": "my new baby is born",
-              "name": {
-                "value": "my new baby is born"
-              }
-            },
-            {
-              "id": "apartment",
-              "name": {
-                "value": "apartment"
-              }
-            },
-            {
-              "id": "first day of summer",
-              "name": {
-                "value": "first day of summer"
-              }
-            },
-            {
-              "id": "gala",
-              "name": {
-                "value": "gala"
-              }
-            }
-          ]
-        }
-      ],
-      "invocationName": "days until"
     }
-  }
 }

@@ -1,99 +1,99 @@
 {
-  "manifest": {
-    "publishingInformation": {
-      "locales": {
-        "en-US": {
-          "summary": "Sample Short Description",
-          "examplePhrases": [
-            "Alexa open hello world",
-            "hello",
-            "help"
-          ],
-          "name": "Days Until",
-          "description": "Sample Full Description"
+    "manifest": {
+        "publishingInformation": {
+            "locales": {
+                "en-US": {
+                    "summary": "Sample Short Description",
+                    "examplePhrases": [
+                        "Alexa open hello world",
+                        "hello",
+                        "help"
+                    ],
+                    "name": "Days Until",
+                    "description": "Sample Full Description"
+                },
+                "en-CA": {
+                    "summary": "Sample Short Description",
+                    "examplePhrases": [
+                        "Alexa open hello world",
+                        "hello",
+                        "help"
+                    ],
+                    "name": "Days Until",
+                    "description": "Sample Full Description"
+                },
+                "en-GB": {
+                    "summary": "Sample Short Description",
+                    "examplePhrases": [
+                        "Alexa open hello world",
+                        "hello",
+                        "help"
+                    ],
+                    "name": "Days Until",
+                    "description": "Sample Full Description"
+                },
+                "en-AU": {
+                    "summary": "Sample Short Description",
+                    "examplePhrases": [
+                        "Alexa open hello world",
+                        "hello",
+                        "help"
+                    ],
+                    "name": "Days Until",
+                    "description": "Sample Full Description"
+                },
+                "en-IN": {
+                    "summary": "Sample Short Description",
+                    "examplePhrases": [
+                        "Alexa open hello world",
+                        "hello",
+                        "help"
+                    ],
+                    "name": "Days Until",
+                    "description": "Sample Full Description"
+                }
+            },
+            "isAvailableWorldwide": true,
+            "testingInstructions": "Sample Testing Instructions.",
+            "category": "KNOWLEDGE_AND_TRIVIA",
+            "distributionCountries": []
         },
-        "en-CA": {
-          "summary": "Sample Short Description",
-          "examplePhrases": [
-            "Alexa open hello world",
-            "hello",
-            "help"
-          ],
-          "name": "Days Until",
-          "description": "Sample Full Description"
+        "privacyAndCompliance": {
+            "allowsPurchases": false,
+            "usesPersonalInfo": false,
+            "isChildDirected": false,
+            "isExportCompliant": true,
+            "containsAds": false,
+            "locales": {
+                "en-US": {
+                    "privacyPolicyUrl": "https://gitlab.com/nfriend/days-until/blob/master/privacy-policy.md",
+                    "termsOfUseUrl": "https://gitlab.com/nfriend/days-until/blob/master/terms-of-use.md"
+                },
+                "en-CA": {
+                    "privacyPolicyUrl": "https://gitlab.com/nfriend/days-until/blob/master/privacy-policy.md",
+                    "termsOfUseUrl": "https://gitlab.com/nfriend/days-until/blob/master/terms-of-use.md"
+                },
+                "en-GB": {
+                    "privacyPolicyUrl": "https://gitlab.com/nfriend/days-until/blob/master/privacy-policy.md",
+                    "termsOfUseUrl": "https://gitlab.com/nfriend/days-until/blob/master/terms-of-use.md"
+                },
+                "en-AU": {
+                    "privacyPolicyUrl": "https://gitlab.com/nfriend/days-until/blob/master/privacy-policy.md",
+                    "termsOfUseUrl": "https://gitlab.com/nfriend/days-until/blob/master/terms-of-use.md"
+                },
+                "en-IN": {
+                    "privacyPolicyUrl": "https://gitlab.com/nfriend/days-until/blob/master/privacy-policy.md",
+                    "termsOfUseUrl": "https://gitlab.com/nfriend/days-until/blob/master/terms-of-use.md"
+                }
+            }
         },
-        "en-GB": {
-          "summary": "Sample Short Description",
-          "examplePhrases": [
-            "Alexa open hello world",
-            "hello",
-            "help"
-          ],
-          "name": "Days Until",
-          "description": "Sample Full Description"
+        "apis": {
+            "custom": {
+                "endpoint": {
+                    "uri": "arn:aws:lambda:us-east-1:641962070086:function:ask-DaysUntil-default-skillStac-AlexaSkillFunction-1JZKTGLSX8D11"
+                }
+            }
         },
-        "en-AU": {
-          "summary": "Sample Short Description",
-          "examplePhrases": [
-            "Alexa open hello world",
-            "hello",
-            "help"
-          ],
-          "name": "Days Until",
-          "description": "Sample Full Description"
-        },
-        "en-IN": {
-          "summary": "Sample Short Description",
-          "examplePhrases": [
-            "Alexa open hello world",
-            "hello",
-            "help"
-          ],
-          "name": "Days Until",
-          "description": "Sample Full Description"
-        }
-      },
-      "isAvailableWorldwide": true,
-      "testingInstructions": "Sample Testing Instructions.",
-      "category": "KNOWLEDGE_AND_TRIVIA",
-      "distributionCountries": []
-    },
-    "privacyAndCompliance": {
-      "allowsPurchases": false,
-      "usesPersonalInfo": false,
-      "isChildDirected": false,
-      "isExportCompliant": true,
-      "containsAds": false,
-      "locales": {
-        "en-US": {
-          "privacyPolicyUrl": "https://gitlab.com/nfriend/days-until/blob/master/privacy-policy.md",
-          "termsOfUseUrl": "https://gitlab.com/nfriend/days-until/blob/master/terms-of-use.md"
-        },
-        "en-CA": {
-          "privacyPolicyUrl": "https://gitlab.com/nfriend/days-until/blob/master/privacy-policy.md",
-          "termsOfUseUrl": "https://gitlab.com/nfriend/days-until/blob/master/terms-of-use.md"
-        },
-        "en-GB": {
-          "privacyPolicyUrl": "https://gitlab.com/nfriend/days-until/blob/master/privacy-policy.md",
-          "termsOfUseUrl": "https://gitlab.com/nfriend/days-until/blob/master/terms-of-use.md"
-        },
-        "en-AU": {
-          "privacyPolicyUrl": "https://gitlab.com/nfriend/days-until/blob/master/privacy-policy.md",
-          "termsOfUseUrl": "https://gitlab.com/nfriend/days-until/blob/master/terms-of-use.md"
-        },
-        "en-IN": {
-          "privacyPolicyUrl": "https://gitlab.com/nfriend/days-until/blob/master/privacy-policy.md",
-          "termsOfUseUrl": "https://gitlab.com/nfriend/days-until/blob/master/terms-of-use.md"
-        }
-      }
-    },
-    "apis": {
-      "custom": {
-        "endpoint": {
-          "uri": "arn:aws:lambda:us-east-1:641962070086:function:ask-DaysUntil-default-skillStac-AlexaSkillFunction-1JZKTGLSX8D11"
-        }
-      }
-    },
-    "manifestVersion": "1.0"
-  }
+        "manifestVersion": "1.0"
+    }
 }
