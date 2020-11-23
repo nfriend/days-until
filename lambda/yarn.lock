@@ -1181,7 +1181,22 @@ aws-profile-handler@2.0.3:
   resolved "https://registry.yarnpkg.com/aws-profile-handler/-/aws-profile-handler-2.0.3.tgz#c1547d3183e6267faa409f908da0b5c27e6ecba9"
   integrity sha512-CDArk54zuHtbB13OKXgiwaCGyyH8TJlh+24lI3vw8dD3DpRQtg7uJDjIDZplqIOQqQ6/qdynHf0EjkXdrV1GuA==
 
-aws-sdk@2.797.0, aws-sdk@^2.163.0:
+aws-sdk@2.798.0:
+  version "2.798.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.798.0.tgz#fd108e0569d7210816003fc8cc0c995b39854ad6"
+  integrity sha512-7BMCH90yFpMmCF5uxZiiKMMzIAFibZz8b6CLGw/92FgMd86ZedpNqDyaikcGv1yOVtOlNCCnXN6OglC8/vwm4Q==
+  dependencies:
+    buffer "4.9.2"
+    events "1.1.1"
+    ieee754 "1.1.13"
+    jmespath "0.15.0"
+    querystring "0.2.0"
+    sax "1.2.1"
+    url "0.10.3"
+    uuid "3.3.2"
+    xml2js "0.4.19"
+
+aws-sdk@^2.163.0:
   version "2.797.0"
   resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.797.0.tgz#e9510a582606a580e7bbb686f01da28476599a2d"
   integrity sha512-fFc/2Xr7NkSXlZ9+2rCOFovA9NO1OnIyEaJFVwMM9gaqzucwRAfNNT0Pa1Kua5dhWrcf/mX0Z4mCDnTBf0/5mA==
