@@ -579,15 +579,6 @@
           "name": "EventType",
           "values": [
             {
-              "id": "",
-              "name": {
-                "value": "",
-                "synonyms": [
-                  ""
-                ]
-              }
-            },
-            {
               "id": "my new season",
               "name": {
                 "value": "my new season"
