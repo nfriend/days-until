@@ -1,5 +1,37 @@
 {
   "interactionModel": {
+    "dialog": {
+      "delegationStrategy": "ALWAYS",
+      "intents": [
+        {
+          "name": "StartCountdownIntent",
+          "confirmationRequired": true,
+          "prompts": {
+            "confirm": "confirm-countdown"
+          },
+          "slots": [
+            {
+              "name": "CountdownEvent",
+              "type": "EventType",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "what-event"
+              }
+            },
+            {
+              "name": "EventDate",
+              "type": "AMAZON.DATE",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "what-date"
+              }
+            }
+          ]
+        }
+      ]
+    },
     "prompts": [
       {
         "id": "confirm-countdown",
@@ -53,38 +85,6 @@
         ]
       }
     ],
-    "dialog": {
-      "delegationStrategy": "ALWAYS",
-      "intents": [
-        {
-          "name": "StartCountdownIntent",
-          "confirmationRequired": true,
-          "prompts": {
-            "confirm": "confirm-countdown"
-          },
-          "slots": [
-            {
-              "name": "CountdownEvent",
-              "type": "EventType",
-              "elicitationRequired": true,
-              "confirmationRequired": false,
-              "prompts": {
-                "elicitation": "what-event"
-              }
-            },
-            {
-              "name": "EventDate",
-              "type": "AMAZON.DATE",
-              "elicitationRequired": true,
-              "confirmationRequired": false,
-              "prompts": {
-                "elicitation": "what-date"
-              }
-            }
-          ]
-        }
-      ]
-    },
     "languageModel": {
       "intents": [
         {
