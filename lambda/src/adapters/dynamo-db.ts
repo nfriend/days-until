@@ -1,5 +1,6 @@
 import * as Adapter from 'ask-sdk-dynamodb-persistence-adapter';
 import { RequestEnvelope } from 'ask-sdk-model';
+import _ from 'lodash';
 
 export const adapter = new Adapter.DynamoDbPersistenceAdapter({
   tableName: 'DaysUntilV2SkillData',
@@ -8,6 +9,12 @@ export const adapter = new Adapter.DynamoDbPersistenceAdapter({
 
 export interface DaysUntilAttributes {
   lastLaunch?: string;
+  events?: {
+    [eventKey: string]: {
+      eventName?: string;
+      eventDate?: string;
+    };
+  };
 }
 
 export const db = {
@@ -21,10 +28,7 @@ export const db = {
     values: DaysUntilAttributes,
   ): Promise<void> {
     const attrs = await adapter.getAttributes(requestEnvelope);
-    await adapter.saveAttributes(requestEnvelope, {
-      ...attrs,
-      ...values,
-    });
+    await adapter.saveAttributes(requestEnvelope, _.merge({}, attrs, values));
   },
 
   /**

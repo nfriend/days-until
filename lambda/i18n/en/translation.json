@@ -1,5 +1,6 @@
 {
   "<say-as interpret-as=\"interjection\">{{interjection}}!</say-as>": "<say-as interpret-as=\"interjection\">{{interjection}}!</say-as>",
+  "Done. To check on this countdown, just say, \"Ask Days Until, how long until {{eventName}}?\"": "Done. To check on this countdown, just say, \"Ask Days Until, how long until {{eventName}}?\"",
   "Hello again!": "Hello again!",
   "Hello!": "Hello!",
   "Hey there!": "Hey there!",
