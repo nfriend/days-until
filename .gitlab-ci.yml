@@ -60,6 +60,7 @@ deploy:
   stage: deploy
   script:
     - yarn install --prod --frozen-lockfile --cache-folder $CI_PROJECT_DIR/.yarn
+    - 'echo node_modules size: $(du -hs node_modules)'
     - cd $CI_PROJECT_DIR
     - apt-get update
     - apt-get --yes install moreutils gettext
