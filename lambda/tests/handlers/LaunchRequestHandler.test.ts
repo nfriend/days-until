@@ -1,9 +1,9 @@
 import { createAlexaEvent } from './create-alexa-event';
 import { executeLambda } from './execute-lambda';
-import { db, DaysUntilAttributes } from '../../src/adapters/dynamo-db';
+import { db, DaysUntilAttributes } from '~/adapters/dynamo-db';
 
-jest.mock('../../src/util/choose-one');
-jest.mock('../../src/adapters/dynamo-db');
+jest.mock('~/util/choose-one');
+jest.mock('~/adapters/dynamo-db');
 
 describe('LaunchRequestHandler', () => {
   let userAttributes: DaysUntilAttributes;

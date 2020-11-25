@@ -1,5 +1,5 @@
 import * as Alexa from 'ask-sdk-core';
-import { db } from '../adapters/dynamo-db';
+import { db } from '~/adapters/dynamo-db';
 
 export class FirstLaunchInterceptor implements Alexa.RequestInterceptor {
   async process(input: Alexa.HandlerInput) {

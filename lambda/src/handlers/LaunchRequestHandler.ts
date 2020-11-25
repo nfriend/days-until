@@ -1,7 +1,7 @@
 import * as Alexa from 'ask-sdk-core';
 import { Response } from 'ask-sdk-model';
 import i18n from 'i18next';
-import { chooseOne } from '../util/choose-one';
+import { chooseOne } from '~/util/choose-one';
 
 export class LaunchRequestHandler implements Alexa.RequestHandler {
   canHandle(input: Alexa.HandlerInput): boolean | Promise<boolean> {

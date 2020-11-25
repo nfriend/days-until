@@ -1,4 +1,4 @@
-import { LocalizationInterceptor } from '../src/interceptors/LocalizationInterceptor';
+import { LocalizationInterceptor } from '~/interceptors/LocalizationInterceptor';
 
 beforeAll(async () => {
   await new LocalizationInterceptor().process({

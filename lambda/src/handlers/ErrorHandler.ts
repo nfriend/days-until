@@ -1,8 +1,8 @@
 import * as Alexa from 'ask-sdk-core';
 import * as Sentry from '@sentry/node';
 import i18n from 'i18next';
-import { chooseOne } from '../util/choose-one';
-import { getFailureInterjection } from '../util/get-failure-interjection';
+import { chooseOne } from '~/util/choose-one';
+import { getFailureInterjection } from '~/util/get-failure-interjection';
 
 export class ErrorHandler implements Alexa.ErrorHandler {
   canHandle() {
