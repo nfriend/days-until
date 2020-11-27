@@ -22,7 +22,11 @@ cat ask-resources.json
 yarn global add ask-cli --cache-folder "$CI_PROJECT_DIR/.yarn"
 ask deploy
 
-# Commit any changes and push the result back to the default branch
+# Undo changes to ask-resources.json
+git restore ask-resources.json
+
+# Commit any changes to .ask/ask-states.json
+# and push the result back to the default branch
 if [[ -n $(git status -s) ]]; then
   echo "Found the following changes:"
   git status
@@ -33,13 +37,12 @@ if [[ -n $(git status -s) ]]; then
   REPO_URL="${CI_SERVER_PROTOCOL}://${COMMITTER_USER}:${COMMITTER_TOKEN}@${CI_SERVER_URL#http*//}/${CI_PROJECT_PATH}.git"
   git remote set-url --push origin "${REPO_URL}"
 
-  echo "Commiting changes and pushing to ${REPO_URL}..."
+  echo "Commiting changes to .ask/ask-states.json and pushing to ${REPO_URL}..."
   git add .ask/ask-states.json
-  git add ask-resources.json
-  git commit -m 'Update deployment state'
-  git push origin "HEAD:${CI_DEFAULT_BRANCH}" -o ci.skip
+  git commit -m 'Update deployment state [skip ci]'
+  git push origin "HEAD:${CI_DEFAULT_BRANCH}"
 else
-  echo "No changes detected to deployment state"
+  echo "No changes to .ask/ask-states.json detected"
 fi
 
 popd || exit
