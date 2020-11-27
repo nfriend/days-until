@@ -19,7 +19,7 @@
           "awsRegion": "us-east-1",
           "cfn": {
             "parameters": {
-              "SentryReleaseVersion": "$SENTRY_RELEASE_VERSION"
+              "SentryReleaseVersion": "124"
             }
           }
         }
