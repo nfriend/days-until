@@ -12,6 +12,6 @@
     "sourceRoot": "/var/task/build/",
     "mapRoot": "/var/task/build/"
   },
-  "include": ["src", "types", "tests"],
+  "include": ["src", "types"],
   "exclude": ["**/__mocks__/**"]
 }

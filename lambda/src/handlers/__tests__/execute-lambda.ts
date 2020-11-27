@@ -4,6 +4,6 @@ import * as lambdaLocal from 'lambda-local';
 export const executeLambda = async (event: any) => {
   return await lambdaLocal.execute({
     event,
-    lambdaPath: path.join(__dirname, '../../src/index.ts'),
+    lambdaPath: path.join(__dirname, '../../../src/index.ts'),
   });
 };

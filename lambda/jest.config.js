@@ -131,9 +131,9 @@ module.exports = {
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
   setupFilesAfterEnv: [
-    './tests/setup-i18n.ts',
-    './tests/setup-time.ts',
-    './tests/setup-custom-matchers.ts',
+    './src/test-setup/setup-i18n.ts',
+    './src/test-setup/setup-time.ts',
+    './src/test-setup/setup-custom-matchers.ts',
   ],
 
   // A list of paths to snapshot serializer modules Jest should use for snapshot testing
@@ -149,10 +149,7 @@ module.exports = {
   // testLocationInResults: false,
 
   // The glob patterns Jest uses to detect test files
-  // testMatch: [
-  //   "**/__tests__/**/*.[jt]s?(x)",
-  //   "**/?(*.)+(spec|test).[tj]s?(x)"
-  // ],
+  testMatch: ['**/__tests__/**/*.test.ts'],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   testPathIgnorePatterns: ['/node_modules/', '/build/'],
