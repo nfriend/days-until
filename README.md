@@ -123,15 +123,14 @@ alt="GitLab build status"></a>
 
 The GitLab pipeline relies on a few environment variables:
 
-| Variable name         | Description                                                                       |
-| --------------------- | --------------------------------------------------------------------------------- |
-| AWS_ACCESS_KEY_ID     | The AWS access key ID of the IAM user that executes the deployment                |
-| AWS_SECRET_ACCESS_KEY | The AWS secret access key of the user mentioned above                             |
-| ASK_VENDOR_ID         | The ASK vendor ID associated with the Alexa Developer account that owns the skill |
-| ASK_REFRESH_TOKEN     | The OAuth 2.0 refresh token of the Alexa Developer account mentioned above        |
-| SENTRY_AUTH_TOKEN     | The Sentry API token used to upload sourcemaps to [Sentry](https://sentry.io/)    |
-| COMMITTER_USER        | Name of the Git user that will commit any changes inside the pipeline             |
-| COMMITTER_TOKEN       | Token used to commit and push changes back to GitLab inside the pipeline          |
+| Variable name           | Description                                                                                                                                         |
+| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `AWS_ACCESS_KEY_ID`     | The AWS access key ID of the IAM user that executes the deployment                                                                                  |
+| `AWS_SECRET_ACCESS_KEY` | The AWS secret access key of the user mentioned above                                                                                               |
+| `ASK_VENDOR_ID`         | The ASK vendor ID associated with the Alexa Developer account that owns the skill                                                                   |
+| `ASK_REFRESH_TOKEN`     | The OAuth 2.0 refresh token of the Alexa Developer account mentioned above                                                                          |
+| `SENTRY_AUTH_TOKEN`     | The Sentry API token used to upload sourcemaps to [Sentry](https://sentry.io/)                                                                      |
+| `PROJECT_TOKEN`         | Token used to commit and push changes back to GitLab inside the pipeline. A project-level access token with `write_repository` scope is sufficient. |
 
 More info on these variables and how to generate their values can be found [in
 this blog

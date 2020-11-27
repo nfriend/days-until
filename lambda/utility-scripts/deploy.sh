@@ -34,7 +34,7 @@ if [[ -n $(git status -s) ]]; then
   git config user.name "days-until-bot"
   git config user.email "days-until-bot@nathanfriend.io"
 
-  REPO_URL="${CI_SERVER_PROTOCOL}://${COMMITTER_USER}:${COMMITTER_TOKEN}@${CI_SERVER_URL#http*//}/${CI_PROJECT_PATH}.git"
+  REPO_URL="${CI_SERVER_PROTOCOL}://project-token:${PROJECT_TOKEN}@${CI_SERVER_URL#http*//}/${CI_PROJECT_PATH}.git"
   git remote set-url --push origin "${REPO_URL}"
 
   echo "Commiting changes to .ask/ask-states.json and pushing to ${REPO_URL}..."
