@@ -22,24 +22,24 @@ cat ask-resources.json
 yarn global add ask-cli --cache-folder "$CI_PROJECT_DIR/.yarn"
 ask deploy
 
-# Commit any changes made to infrastructure/cfn-deployer/skill-stack.yaml
-# and push the result back to the default branch
+# Commit any changes and push the result back to the default branch
 if [[ -n $(git status -s) ]]; then
-  echo "Found the following changes in infrastructure/cfn-deployer/skill-stack.yaml:"
+  echo "Found the following changes:"
   git status
 
   git config user.name "days-until-bot"
   git config user.email "days-until-bot@nathanfriend.io"
 
   REPO_URL="${CI_SERVER_PROTOCOL}://${COMMITTER_USER}:${COMMITTER_TOKEN}@${CI_SERVER_URL#http*//}/${CI_PROJECT_PATH}.git"
-  echo "Pushing to ${REPO_URL}..."
   git remote set-url --push origin "${REPO_URL}"
 
-  git add infrastructure/cfn-deployer/skill-stack.yaml
-  git commit -m 'Update some stuff automatically'
+  echo "Commiting changes and pushing to ${REPO_URL}..."
+  git add .ask/ask-states.json
+  git add ask-resources.json
+  git commit -m 'Update deployment state'
   git push origin "HEAD:${CI_DEFAULT_BRANCH}" -o ci.skip
 else
-  echo "No changes detected to infrastructure/cfn-deployer/skill-stack.yaml"
+  echo "No changes detected to deployment state"
 fi
 
 popd || exit
