@@ -80,7 +80,7 @@ export class StartCountdownIntentHandler implements Alexa.RequestHandler {
         i18n.t('Done!'),
         i18n.t("You're all set!"),
         i18n.t('Got it!'),
-        i18n.t('Okay'),
+        i18n.t('Okay!'),
         i18n.t('Great!'),
         i18n.t('Perfect.'),
       ),
@@ -88,7 +88,7 @@ export class StartCountdownIntentHandler implements Alexa.RequestHandler {
 
     speeches.push(
       i18n.t(
-        'To check on this countdown, just say, "Ask Days Until, how long until {{eventName}}?"',
+        'To check on this countdown, just say, <break strength="strong"/> <prosody pitch="+10%">"Ask Days Until, how long until {{eventName}}?"</prosody>',
         { eventName },
       ),
     );
