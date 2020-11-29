@@ -97,8 +97,10 @@ export class StartCountdownIntentHandler implements Alexa.RequestHandler {
     );
 
     console.log(
-      `supported interfaces: ${Alexa.getSupportedInterfaces(
-        handlerInput.requestEnvelope,
+      `supported interfaces: ${JSON.stringify(
+        Alexa.getSupportedInterfaces(handlerInput.requestEnvelope),
+        null,
+        2,
       )}`,
     );
 
@@ -112,13 +114,15 @@ export class StartCountdownIntentHandler implements Alexa.RequestHandler {
         token: 'token',
         document: startCountdownApl,
         datasources: {
-          headerTitle: i18n.t('Days Until'),
-          countdownStatusText: i18n.t('{{days}} days until {{ eventName }}', {
-            days: 15,
-            eventName,
-          }),
-          eventImageSrc:
-            'https://d1qqbfelg1beem.cloudfront.net/images/haircut.png',
+          data: {
+            headerTitle: i18n.t('Days Until'),
+            countdownStatusText: i18n.t('{{days}} days until {{ eventName }}', {
+              days: 15,
+              eventName,
+            }),
+            eventImageSrc:
+              'https://d1qqbfelg1beem.cloudfront.net/images/haircut.png',
+          },
         },
       });
     }

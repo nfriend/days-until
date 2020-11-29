@@ -16,6 +16,7 @@
   "commands": {},
   "layouts": {},
   "mainTemplate": {
+    "parameters": ["data"],
     "item": [
       {
         "type": "Container",
@@ -32,7 +33,7 @@
             "items": [
               {
                 "type": "AlexaHeader",
-                "headerTitle": "${headerTitle}",
+                "headerTitle": "${data.headerTitle}",
                 "headerAttributionImage": "https://d1qqbfelg1beem.cloudfront.net/images/wall-calendar-with-logo.png"
               },
               {
@@ -54,7 +55,7 @@
                     "items": [
                       {
                         "type": "AlexaImage",
-                        "imageSource": "${eventImageSrc}",
+                        "imageSource": "${data.eventImageSrc}",
                         "imageAlignment": "center",
                         "imageAspectRatio": "standard_landscape",
                         "imageWidth": "100%",
@@ -83,7 +84,7 @@
                         "grow": 1,
                         "textAlign": "center",
                         "textAlignVertical": "center",
-                        "text": "${countdownStatusText}",
+                        "text": "${data.countdownStatusText}",
                         "fontStyle": "normal"
                       }
                     ],
