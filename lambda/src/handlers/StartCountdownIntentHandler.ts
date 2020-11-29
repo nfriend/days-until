@@ -8,14 +8,16 @@ import i18n from 'i18next';
 import { chooseOne } from '~/util/choose-one';
 
 export class StartCountdownIntentHandler implements Alexa.RequestHandler {
-  canHandle(input: Alexa.HandlerInput): boolean | Promise<boolean> {
+  canHandle(handlerInput: Alexa.HandlerInput): boolean | Promise<boolean> {
     return (
-      Alexa.getRequestType(input.requestEnvelope) === 'IntentRequest' &&
-      Alexa.getIntentName(input.requestEnvelope) === 'StartCountdownIntent'
+      Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' &&
+      Alexa.getIntentName(handlerInput.requestEnvelope) ===
+        'StartCountdownIntent'
     );
   }
-  async handle(input: Alexa.HandlerInput): Promise<Response> {
-    const slots = (input.requestEnvelope.request as IntentRequest).intent.slots;
+  async handle(handlerInput: Alexa.HandlerInput): Promise<Response> {
+    const slots = (handlerInput.requestEnvelope.request as IntentRequest).intent
+      .slots;
 
     const eventDateSlotValue = slots.EventDate.value;
     const countdownEventSlotValue = slots.CountdownEvent.value;
@@ -24,7 +26,7 @@ export class StartCountdownIntentHandler implements Alexa.RequestHandler {
     const eventName = capitalize.words(countdownEventSlotValue);
     const eventKey = getEventKey(eventName);
 
-    await db.put(input.requestEnvelope, {
+    await db.put(handlerInput.requestEnvelope, {
       events: {
         [eventKey]: {
           eventName,
@@ -93,7 +95,33 @@ export class StartCountdownIntentHandler implements Alexa.RequestHandler {
       ),
     );
 
-    return input.responseBuilder
+    if (
+      Alexa.getSupportedInterfaces(handlerInput.requestEnvelope)[
+        'Alexa.Presentation.APL'
+      ]
+    ) {
+      handlerInput.responseBuilder.addDirective({
+        type: 'Alexa.Presentation.APL.RenderDocument',
+        token: 'token',
+        document: {
+          type: 'Link',
+          src: 'doc://alexa/apl/documents/start-countdown-visual',
+        },
+        datasources: {
+          payload: {
+            headerTitle: i18n.t('Days Until'),
+            countdownStatusText: i18n.t('{{days}} days until {{ eventName }}', {
+              days: 15,
+              eventName,
+            }),
+            eventImageSrc:
+              'https://d1qqbfelg1beem.cloudfront.net/images/haircut.png',
+          },
+        },
+      });
+    }
+
+    return handlerInput.responseBuilder
       .speak(speeches.join(' '))
       .withShouldEndSession(true)
       .getResponse();
