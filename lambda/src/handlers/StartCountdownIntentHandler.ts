@@ -112,15 +112,13 @@ export class StartCountdownIntentHandler implements Alexa.RequestHandler {
         token: 'token',
         document: startCountdownApl,
         datasources: {
-          payload: {
-            headerTitle: i18n.t('Days Until'),
-            countdownStatusText: i18n.t('{{days}} days until {{ eventName }}', {
-              days: 15,
-              eventName,
-            }),
-            eventImageSrc:
-              'https://d1qqbfelg1beem.cloudfront.net/images/haircut.png',
-          },
+          headerTitle: i18n.t('Days Until'),
+          countdownStatusText: i18n.t('{{days}} days until {{ eventName }}', {
+            days: 15,
+            eventName,
+          }),
+          eventImageSrc:
+            'https://d1qqbfelg1beem.cloudfront.net/images/haircut.png',
         },
       });
     }
