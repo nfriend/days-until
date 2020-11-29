@@ -7,6 +7,7 @@ import { getEventKey } from '~/util/get-event-key';
 import i18n from 'i18next';
 import { chooseOne } from '~/util/choose-one';
 import startCountdownApl from '~/apl/start-countdown.json';
+import { getImageForEvent } from '~/util/get-image-for-event';
 
 export class StartCountdownIntentHandler implements Alexa.RequestHandler {
   canHandle(handlerInput: Alexa.HandlerInput): boolean | Promise<boolean> {
@@ -120,8 +121,7 @@ export class StartCountdownIntentHandler implements Alexa.RequestHandler {
               days: 15,
               eventName,
             }),
-            eventImageSrc:
-              'https://d1qqbfelg1beem.cloudfront.net/images/haircut.png',
+            eventImageSrc: getImageForEvent(eventName),
           },
         },
       });

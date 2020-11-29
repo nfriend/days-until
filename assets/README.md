@@ -4,6 +4,9 @@ Assets in this directory are not auto-uploaded as part of the deploy process.
 Any new or updated images must be manually uploaded to the `days-until-assets`
 S3 bucket before they can be used by this skill.
 
+When possible, both PNG and SVG versions of each file are uploaded to allow the
+PNGs to be regenerated at a higher resolution if necessary in the future.
+
 Assets are accessed through [AWS
 CloudFront](https://aws.amazon.com/cloudfront/). The domain name of the current
 distribution is `d1qqbfelg1beem.cloudfront.net`.

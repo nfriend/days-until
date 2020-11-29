@@ -1,0 +1,38 @@
+{
+  "type": "APLA",
+  "version": "0.9",
+  "description": "An audio congratulation after a user successfully creates a countdown.",
+  "compositions": {},
+  "resources": [],
+  "mainTemplate": {
+    "parameters": ["data"],
+    "item": {
+      "type": "Mixer",
+      "items": [
+        {
+          "type": "Speech",
+          "contentType": "SSML",
+          "content": "${data.ssml}"
+        },
+        {
+          "type": "Audio",
+          "source": "${data.backgroundAudio}",
+          "filters": [
+            {
+              "type": "Volume",
+              "amount": "40%"
+            },
+            {
+              "type": "FadeIn",
+              "duration": 300
+            },
+            {
+              "type": "FadeOut",
+              "duration": 300
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
