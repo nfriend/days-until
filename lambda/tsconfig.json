@@ -10,7 +10,8 @@
     "sourceMap": true,
     "inlineSources": true,
     "sourceRoot": "/var/task/build/",
-    "mapRoot": "/var/task/build/"
+    "mapRoot": "/var/task/build/",
+    "resolveJsonModule": true
   },
   "include": ["src", "types"],
   "exclude": ["**/__mocks__/**"]

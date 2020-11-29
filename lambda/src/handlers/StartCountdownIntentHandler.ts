@@ -6,6 +6,7 @@ import { db } from '~/adapters/dynamo-db';
 import { getEventKey } from '~/util/get-event-key';
 import i18n from 'i18next';
 import { chooseOne } from '~/util/choose-one';
+import startCountdownApl from '~/apl/start-countdown.json';
 
 export class StartCountdownIntentHandler implements Alexa.RequestHandler {
   canHandle(handlerInput: Alexa.HandlerInput): boolean | Promise<boolean> {
@@ -109,10 +110,7 @@ export class StartCountdownIntentHandler implements Alexa.RequestHandler {
       handlerInput.responseBuilder.addDirective({
         type: 'Alexa.Presentation.APL.RenderDocument',
         token: 'token',
-        document: {
-          type: 'Link',
-          src: 'doc://alexa/apl/documents/start-countdown-visual',
-        },
+        document: startCountdownApl,
         datasources: {
           payload: {
             headerTitle: i18n.t('Days Until'),

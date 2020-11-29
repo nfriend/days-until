@@ -34,7 +34,7 @@
               {
                 "type": "AlexaHeader",
                 "headerTitle": "${payload.headerTitle}",
-                "headerAttributionImage": "${payload.logoImageSrc}"
+                "headerAttributionImage": "https://d1qqbfelg1beem.cloudfront.net/images/wall-calendar-with-logo.png"
               },
               {
                 "type": "Container",
