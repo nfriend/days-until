@@ -8,6 +8,7 @@
   "<audio src=\"soundbank://soundlibrary/telephones/movement/movement_08\"/>": "<audio src=\"soundbank://soundlibrary/telephones/movement/movement_08\"/>",
   "<audio src=\"soundbank://soundlibrary/wood/hits/hits_10\"/>": "<audio src=\"soundbank://soundlibrary/wood/hits/hits_10\"/>",
   "<say-as interpret-as=\"interjection\">{{interjection}}!</say-as>": "<say-as interpret-as=\"interjection\">{{interjection}}!</say-as>",
+  "Days Until": "Days Until",
   "Done!": "Done!",
   "Got it!": "Got it!",
   "Great!": "Great!",
@@ -113,5 +114,6 @@
   "yowza": "yowza",
   "yowzer": "yowzer",
   "yuck": "yuck",
-  "zap": "zap"
+  "zap": "zap",
+  "{{days}} days until {{ eventName }}": "{{days}} days until {{ eventName }}"
 }
