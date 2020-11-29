@@ -95,6 +95,12 @@ export class StartCountdownIntentHandler implements Alexa.RequestHandler {
       ),
     );
 
+    console.log(
+      `supported devices: ${Alexa.getSupportedInterfaces(
+        handlerInput.requestEnvelope,
+      )}`,
+    );
+
     if (
       Alexa.getSupportedInterfaces(handlerInput.requestEnvelope)[
         'Alexa.Presentation.APL'
