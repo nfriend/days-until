@@ -98,14 +98,6 @@ export class StartCountdownIntentHandler implements Alexa.RequestHandler {
       ),
     );
 
-    console.log(
-      `supported interfaces: ${JSON.stringify(
-        Alexa.getSupportedInterfaces(handlerInput.requestEnvelope),
-        null,
-        2,
-      )}`,
-    );
-
     if (
       Alexa.getSupportedInterfaces(handlerInput.requestEnvelope)[
         'Alexa.Presentation.APL'
