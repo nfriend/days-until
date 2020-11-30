@@ -7,6 +7,7 @@ import { getEventKey } from '~/util/get-event-key';
 import i18n from 'i18next';
 import { chooseOne } from '~/util/choose-one';
 import startCountdownApl from '~/apl/start-countdown.json';
+import startCountdownApla from '~/apla/start-countdown.json';
 import { getImageForEvent } from '~/util/get-image-for-event';
 import { getDaysUntil } from '~/util/get-days-until';
 
@@ -118,7 +119,18 @@ export class StartCountdownIntentHandler implements Alexa.RequestHandler {
     }
 
     return handlerInput.responseBuilder
-      .speak(speeches.join(' '))
+      .addDirective({
+        type: 'Alexa.Presentation.APLA.RenderDocument',
+        token: 'token',
+        document: startCountdownApla,
+        datasources: {
+          myData: {
+            ssml: speeches.join(' '),
+            backgroundAudio:
+              'soundbank://soundlibrary/human/amzn_sfx_crowd_cheer_med_01',
+          },
+        },
+      })
       .withShouldEndSession(true)
       .getResponse();
   }
