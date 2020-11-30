@@ -11,3 +11,5 @@ lambda/build
 test-report.xml
 
 init-env-vars-for-development.sh
+
+tmp
