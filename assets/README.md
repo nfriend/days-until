@@ -12,7 +12,8 @@ CloudFront](https://aws.amazon.com/cloudfront/). The domain name of the current
 distribution is `d1qqbfelg1beem.cloudfront.net`.
 
 See the [**Acknowledgements** section in
-README.md](../../README.md#acknowledgements) for image attributions.
+README.md](../../README.md#acknowledgements) for image attributions. Remember to
+add to this list if any new icons are added.
 
 ## Notes
 

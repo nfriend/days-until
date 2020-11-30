@@ -138,6 +138,9 @@ post](https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2020/06/us
 
 ## Acknowledgements
 
-Icons made by [Freepik](http://www.freepik.com) from
-[www.flaticon.com](https://www.flaticon.com/) is licensed by [CC 3.0
-BY](http://creativecommons.org/licenses/by/3.0/).
+Icons from [www.flaticon.com](https://www.flaticon.com/) were made by the
+following authors:
+
+- [Freepik](https://www.flaticon.com/authors/freepik)
+- [Eucalyp](https://www.flaticon.com/authors/eucalyp)
+- [mangsaabguru](https://www.flaticon.com/authors/mangsaabguru)
