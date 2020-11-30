@@ -38,7 +38,7 @@
   "Sorry, I didn't quite catch that. What would you like to do?": "Sorry, I didn't quite catch that. What would you like to do?",
   "Sorry, I missed that. How can I help?": "Sorry, I missed that. How can I help?",
   "There are no days left - it's today!": "There are no days left - it's today!",
-  "To check on this countdown, just say, <break strength=\"strong\"/> <prosody pitch=\"+10%\">Ask Days Until, how long until {{eventName}}?</prosody>": "To check on this countdown, just say, <break strength=\"strong\"/> <prosody pitch=\"+10%\">Ask Days Until, how long until {{eventName}}?</prosody>",
+  "To check on this countdown, just say: <break strength=\"strong\"/> Ask Days Until, how long until {{eventName}}?": "To check on this countdown, just say: <break strength=\"strong\"/> Ask Days Until, how long until {{eventName}}?",
   "To get started, say <break strength=\"strong\"/> <prosody pitch=\"+10%\">\"start a new countdown.\"</prosody>": "To get started, say <break strength=\"strong\"/> <prosody pitch=\"+10%\">\"start a new countdown.\"</prosody>",
   "Today is the day - 0 days!": "Today is the day - 0 days!",
   "Tomorrow's the day!": "Tomorrow's the day!",
