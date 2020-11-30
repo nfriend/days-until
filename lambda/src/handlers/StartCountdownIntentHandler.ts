@@ -50,7 +50,7 @@ export class StartCountdownIntentHandler implements Alexa.RequestHandler {
         i18n.t('Awesome!'),
         i18n.t('Great!'),
         i18n.t('Perfect.'),
-        ...getSuccessInterjection(),
+        getSuccessInterjection(),
       ),
     );
 
