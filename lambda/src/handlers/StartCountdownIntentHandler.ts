@@ -111,7 +111,7 @@ export class StartCountdownIntentHandler implements Alexa.RequestHandler {
         datasources: {
           data: {
             headerTitle: i18n.t('Days Until'),
-            countdownStatusText: getDaysUntil(eventDate, eventName),
+            countdownStatusText: getDaysUntil(eventDate, eventName).visual,
             eventImageSrc: getImageForEvent(eventName),
           },
         },
