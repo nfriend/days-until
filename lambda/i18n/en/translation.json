@@ -1,13 +1,5 @@
 {
   "0 days - today is the day!": "0 days - today is the day!",
-  "<audio src=\"soundbank://soundlibrary/clocks/watches/watches_06\"/>": "<audio src=\"soundbank://soundlibrary/clocks/watches/watches_06\"/>",
-  "<audio src=\"soundbank://soundlibrary/computers/screens/screens_10\"/>": "<audio src=\"soundbank://soundlibrary/computers/screens/screens_10\"/>",
-  "<audio src=\"soundbank://soundlibrary/foley/amzn_sfx_glasses_clink_02\"/>": "<audio src=\"soundbank://soundlibrary/foley/amzn_sfx_glasses_clink_02\"/>",
-  "<audio src=\"soundbank://soundlibrary/foley/amzn_sfx_swoosh_fast_1x_01\"/>": "<audio src=\"soundbank://soundlibrary/foley/amzn_sfx_swoosh_fast_1x_01\"/>",
-  "<audio src=\"soundbank://soundlibrary/glass/hits/hits_06\"/>": "<audio src=\"soundbank://soundlibrary/glass/hits/hits_06\"/>",
-  "<audio src=\"soundbank://soundlibrary/office/amzn_sfx_typing_short_02\"/>": "<audio src=\"soundbank://soundlibrary/office/amzn_sfx_typing_short_02\"/>",
-  "<audio src=\"soundbank://soundlibrary/telephones/movement/movement_08\"/>": "<audio src=\"soundbank://soundlibrary/telephones/movement/movement_08\"/>",
-  "<audio src=\"soundbank://soundlibrary/wood/hits/hits_10\"/>": "<audio src=\"soundbank://soundlibrary/wood/hits/hits_10\"/>",
   "<say-as interpret-as=\"interjection\">{{interjection}}!</say-as>": "<say-as interpret-as=\"interjection\">{{interjection}}!</say-as>",
   "Days Until": "Days Until",
   "Done!": "Done!",

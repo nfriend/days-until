@@ -84,7 +84,7 @@ export class StartCountdownIntentHandler implements Alexa.RequestHandler {
         token: 'token',
         document: startCountdownApla,
         datasources: {
-          myData: {
+          data: {
             ssml: speeches.join(' '),
             backgroundAudio:
               'soundbank://soundlibrary/human/amzn_sfx_crowd_cheer_med_01',

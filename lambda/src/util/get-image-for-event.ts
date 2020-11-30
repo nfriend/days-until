@@ -17,6 +17,19 @@ export const getImageForEvent = (eventName: string): string => {
       substrings: ['birthday', 'birth day'],
       image: 'birthday-cake.png',
     },
+    {
+      substrings: [
+        'wedding',
+        'marriage',
+        'married',
+        'marry',
+        'marries',
+        'matrimony',
+        'nuptials',
+        'wedlock',
+      ],
+      image: 'wedding-rings.png',
+    },
   ];
 
   const defaultImage = 'calendar-check.png';

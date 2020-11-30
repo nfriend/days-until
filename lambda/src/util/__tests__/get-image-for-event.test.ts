@@ -8,6 +8,7 @@ describe('~/util/get-image-for-event.ts', () => {
     ${'my chair'}           | ${'calendar-check.png'}
     ${'my birthday'}        | ${'birthday-cake.png'}
     ${'my birth day party'} | ${'birthday-cake.png'}
+    ${'my wedding'}         | ${'wedding-rings.png'}
     ${'unknown'}            | ${'calendar-check.png'}
     ${''}                   | ${'calendar-check.png'}
     ${null}                 | ${'calendar-check.png'}
