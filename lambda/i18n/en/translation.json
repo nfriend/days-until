@@ -1,6 +1,7 @@
 {
   "0 days - today is the day!": "0 days - today is the day!",
   "<say-as interpret-as=\"interjection\">{{interjection}}!</say-as>": "<say-as interpret-as=\"interjection\">{{interjection}}!</say-as>",
+  "Awesome!": "Awesome!",
   "Days Until": "Days Until",
   "Done!": "Done!",
   "Got it!": "Got it!",
@@ -19,7 +20,6 @@
   "It's today!": "It's today!",
   "Just 1 day!": "Just 1 day!",
   "Looks like this is your first visit!": "Looks like this is your first visit!",
-  "Okay!": "Okay!",
   "One day until {{ eventName }}": "One day until {{ eventName }}",
   "Only 1 day to go!": "Only 1 day to go!",
   "Only 1 day!": "Only 1 day!",

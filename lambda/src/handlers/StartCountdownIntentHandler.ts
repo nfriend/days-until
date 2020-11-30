@@ -10,6 +10,7 @@ import startCountdownApl from '~/apl/start-countdown.json';
 import startCountdownApla from '~/apla/start-countdown.json';
 import { getImageForEvent } from '~/util/get-image-for-event';
 import { getDaysUntil } from '~/util/get-days-until';
+import { getSuccessInterjection } from '~/util/get-success-interjection';
 
 export class StartCountdownIntentHandler implements Alexa.RequestHandler {
   canHandle(handlerInput: Alexa.HandlerInput): boolean | Promise<boolean> {
@@ -46,9 +47,10 @@ export class StartCountdownIntentHandler implements Alexa.RequestHandler {
         i18n.t('Done!'),
         i18n.t("You're all set!"),
         i18n.t('Got it!'),
-        i18n.t('Okay!'),
+        i18n.t('Awesome!'),
         i18n.t('Great!'),
         i18n.t('Perfect.'),
+        ...getSuccessInterjection(),
       ),
     );
 
