@@ -8,6 +8,7 @@ import i18n from 'i18next';
 import { chooseOne } from '~/util/choose-one';
 import startCountdownApl from '~/apl/start-countdown.json';
 import { getImageForEvent } from '~/util/get-image-for-event';
+import { getDaysUntil } from '~/util/get-days-until';
 
 export class StartCountdownIntentHandler implements Alexa.RequestHandler {
   canHandle(handlerInput: Alexa.HandlerInput): boolean | Promise<boolean> {
@@ -92,7 +93,7 @@ export class StartCountdownIntentHandler implements Alexa.RequestHandler {
 
     speeches.push(
       i18n.t(
-        'To check on this countdown, just say, <break strength="strong"/> <prosody pitch="+10%">"Ask Days Until, how long until {{eventName}}?"</prosody>',
+        'To check on this countdown, just say, <break strength="strong"/> <prosody pitch="+10%">Ask Days Until, how long until {{eventName}}?</prosody>',
         { eventName },
       ),
     );
@@ -117,10 +118,7 @@ export class StartCountdownIntentHandler implements Alexa.RequestHandler {
         datasources: {
           data: {
             headerTitle: i18n.t('Days Until'),
-            countdownStatusText: i18n.t('{{days}} days until {{ eventName }}', {
-              days: 15,
-              eventName,
-            }),
+            countdownStatusText: getDaysUntil(eventDate, eventName),
             eventImageSrc: getImageForEvent(eventName),
           },
         },

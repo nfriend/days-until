@@ -20,7 +20,8 @@
     "model": "yarn generate-model && yarn merge-model && yarn copy-english-files",
     "generate-model": "cd ../skill-package/interactionModels/custom && java -jar alexa-generate.jar ./en-US.grammar ./en-US.json && cd -",
     "merge-model": "node utility-scripts/merge-model.js",
-    "copy-english-files": "node utility-scripts/copy-english-files.js"
+    "copy-english-files": "node utility-scripts/copy-english-files.js",
+    "prepush": "yarn build && yarn lint && yarn test && yarn translate && yarn model"
   },
   "dependencies": {
     "@nfriend/amazon.date-normalizer": "1.2.0",
@@ -56,6 +57,7 @@
     "jest-diff": "26.6.2",
     "jest-junit-reporter": "1.1.0",
     "lambda-local": "1.7.4",
+    "mockdate": "^3.0.2",
     "prettier": "2.2.0",
     "ts-jest": "26.4.4",
     "typescript": "4.1.2"

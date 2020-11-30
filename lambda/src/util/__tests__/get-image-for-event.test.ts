@@ -1,6 +1,6 @@
 import { getImageForEvent, baseUrl } from '../get-image-for-event';
 
-describe('lambda/src/util/get-image-for-event.ts', () => {
+describe('~/util/get-image-for-event.ts', () => {
   it.each`
     eventName               | imageUrl
     ${'my haircut'}         | ${'haircut.png'}
