@@ -29,6 +29,10 @@ describe('~/util/get-image-for-event.ts', () => {
     ${'camping trip'}         | ${'camping-tent.png'}
     ${'my party'}             | ${'confetti.png'}
     ${'great wolf lodge'}     | ${'waterpark.png'}
+    ${'thanksgiving'}         | ${'thanksgiving.png'}
+    ${'election day'}         | ${'vote.png'}
+    ${'my due date'}          | ${'baby.png'}
+    ${'my concert'}           | ${'spotlight.png'}
     ${'my haircut'}           | ${'haircut.png'}
     ${'my hair cut'}          | ${'haircut.png'}
     ${'my chair'}             | ${'calendar-check.png'}

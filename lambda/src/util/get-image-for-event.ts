@@ -101,6 +101,10 @@ export const getImageForEvent = (eventName: string): string => {
       image: 'mickey-mouse.png',
     },
     {
+      substrings: ['thanksgiving'],
+      image: 'thanksgiving.png',
+    },
+    {
       substrings: ['cruise'],
       image: 'cruise.png',
     },
@@ -186,6 +190,18 @@ export const getImageForEvent = (eventName: string): string => {
       image: 'new-year.png',
     },
     {
+      substrings: ['election', 'vote'],
+      image: 'vote.png',
+    },
+    {
+      substrings: ['baby', 'birth', 'due date'],
+      image: 'baby.png',
+    },
+    {
+      substrings: ['concert', 'performance', 'show'],
+      image: 'spotlight.png',
+    },
+    {
       substrings: [
         'july 4',
         'july four',
@@ -235,7 +251,7 @@ export const getImageForEvent = (eventName: string): string => {
       ),
     },
     {
-      substrings: ['party'],
+      substrings: ['party', 'fiesta', 'celebration', 'reunion', 'fun'],
       image: chooseOne('confetti.png'),
     },
   ];
