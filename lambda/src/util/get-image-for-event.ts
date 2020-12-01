@@ -252,7 +252,7 @@ export const getImageForEvent = (eventName: string): string => {
     },
     {
       substrings: ['party', 'fiesta', 'celebration', 'reunion', 'fun'],
-      image: chooseOne('confetti.png'),
+      image: 'confetti.png',
     },
   ];
 
