@@ -144,3 +144,4 @@ following authors:
 - [Freepik](https://www.flaticon.com/authors/freepik)
 - [Eucalyp](https://www.flaticon.com/authors/eucalyp)
 - [mangsaabguru](https://www.flaticon.com/authors/mangsaabguru)
+- [Good Ware](https://www.flaticon.com/authors/good-ware)

@@ -20,6 +20,7 @@ export const getImageForEvent = (eventName: string): string => {
         'birthday-cake-2.png',
         'birthday-cake-3.png',
         'birthday-banner.png',
+        'cupcake.png',
       ),
     },
     {
@@ -86,6 +87,45 @@ export const getImageForEvent = (eventName: string): string => {
     },
     {
       substrings: [
+        'disney',
+        'disneyland',
+        'disney land',
+        'disneyworld',
+        'disney world',
+        'disneysea',
+        'epcot',
+        'magic kingdom',
+        'animal kingdom',
+        'hollywood studios',
+      ],
+      image: 'mickey-mouse.png',
+    },
+    {
+      substrings: ['cruise'],
+      image: 'cruise.png',
+    },
+    {
+      substrings: [
+        'school',
+        'university',
+        'college',
+        'class',
+        'classes',
+        'exam',
+        'exams',
+      ],
+      image: 'school.png',
+    },
+    {
+      substrings: ['retire', 'retirement'],
+      image: 'sunbed.png',
+    },
+    {
+      substrings: ['halloween', 'october 31', 'october 31st'],
+      image: 'halloween-candy.png',
+    },
+    {
+      substrings: [
         'wedding',
         'marriage',
         'married',
@@ -98,24 +138,52 @@ export const getImageForEvent = (eventName: string): string => {
       image: 'wedding-rings.png',
     },
     {
-      substrings: [
-        'vacation',
-        'trip',
-        'holiday',
-        'florida',
-        'beach',
-        'cancun',
-        'hawaii',
-        'jamaica',
-        'bahamas',
-      ],
-      image: chooseOne(
-        'beach.png',
-        'beach-2.png',
-        'sunbed.png',
-        'summertime.png',
-        'suitcases.png',
-      ),
+      substrings: ['vegas'],
+      image: 'las-vegas.png',
+    },
+    {
+      substrings: ['camp', 'camping'],
+      image: 'camping-tent.png',
+    },
+    {
+      substrings: ['great wolf', 'waterpark', 'water slide'],
+      image: 'waterpark.png',
+    },
+    {
+      substrings: ['graduation', 'graduate', 'alumni', 'alumnus', 'diploma'],
+      image: 'mortarboard.png',
+    },
+    {
+      substrings: ['moving', 'move'],
+      image: 'open-box.png',
+    },
+    {
+      substrings: ['anniversary'],
+      image: 'anniversary.png',
+    },
+    {
+      substrings: ['easter'],
+      image: chooseOne('easter-day.png', 'jesus.png'),
+    },
+    {
+      substrings: ['valentine', 'valentines'],
+      image: 'hearts.png',
+    },
+    {
+      substrings: ['summer'],
+      image: 'summertime.png',
+    },
+    {
+      substrings: ['father', 'dad', 'daddy', 'dada'],
+      image: 'father.png',
+    },
+    {
+      substrings: ['mother', 'mom', 'mommy', 'mum', 'mummy', 'mama'],
+      image: 'maternity.png',
+    },
+    {
+      substrings: ['new year', 'new years'],
+      image: 'new-year.png',
     },
     {
       substrings: [
@@ -139,6 +207,36 @@ export const getImageForEvent = (eventName: string): string => {
     {
       substrings: ['hair', 'haircut'],
       image: 'haircut.png',
+    },
+    {
+      substrings: [
+        'vacation',
+        'trip',
+        'holiday',
+        'florida',
+        'beach',
+        'cancun',
+        'mexico',
+        'hawaii',
+        'jamaica',
+        'bahamas',
+        'aruba',
+        'cuba',
+        'spring break',
+        'honeymoon',
+        'honey moon',
+      ],
+      image: chooseOne(
+        'beach.png',
+        'beach-2.png',
+        'sunbed.png',
+        'summertime.png',
+        'suitcases.png',
+      ),
+    },
+    {
+      substrings: ['party'],
+      image: chooseOne('confetti.png'),
     },
   ];
 
