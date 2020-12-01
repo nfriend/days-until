@@ -80,6 +80,14 @@ export class StartCountdownIntentHandler implements Alexa.RequestHandler {
       });
     }
 
+    const backgroundAudio = chooseOne(
+      'soundbank://soundlibrary/human/amzn_sfx_crowd_cheer_med_01',
+      'soundbank://soundlibrary/human/amzn_sfx_large_crowd_cheer_02',
+      'soundbank://soundlibrary/human/amzn_sfx_large_crowd_cheer_03',
+      'soundbank://soundlibrary/human/amzn_sfx_crowd_applause_01',
+      'soundbank://soundlibrary/human/amzn_sfx_crowd_applause_02',
+    );
+
     return handlerInput.responseBuilder
       .addDirective({
         type: 'Alexa.Presentation.APLA.RenderDocument',
@@ -88,8 +96,7 @@ export class StartCountdownIntentHandler implements Alexa.RequestHandler {
         datasources: {
           data: {
             ssml: speeches.join(' '),
-            backgroundAudio:
-              'soundbank://soundlibrary/human/amzn_sfx_crowd_cheer_med_01',
+            backgroundAudio,
           },
         },
       })
