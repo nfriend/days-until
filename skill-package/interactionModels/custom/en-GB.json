@@ -1,7 +1,7 @@
 {
   "interactionModel": {
     "dialog": {
-      "delegationStrategy": "ALWAYS",
+      "delegationStrategy": "SKILL_RESPONSE",
       "intents": [
         {
           "name": "StartCountdownIntent",
