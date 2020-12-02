@@ -38,15 +38,7 @@
         "variations": [
           {
             "type": "PlainText",
-            "value": "I'll create a new countdown for {CountdownEvent} on {EventDate}.  Does that sound right?"
-          },
-          {
-            "type": "PlainText",
-            "value": "Okay, I'll start a countdown for {CountdownEvent} on {EventDate}.  Did I get that right?"
-          },
-          {
-            "type": "PlainText",
-            "value": "I'll create a new countdown for {CountdownEvent} on {EventDate}.  Is that right?"
+            "value": "Placeholder"
           }
         ]
       },
@@ -55,15 +47,7 @@
         "variations": [
           {
             "type": "PlainText",
-            "value": "What's the event?"
-          },
-          {
-            "type": "PlainText",
-            "value": "Okay, what's the event?"
-          },
-          {
-            "type": "PlainText",
-            "value": "Sure.  What event would you like to track?"
+            "value": "Placeholder"
           }
         ]
       },
@@ -72,15 +56,7 @@
         "variations": [
           {
             "type": "PlainText",
-            "value": "Sure, when will it take place?"
-          },
-          {
-            "type": "PlainText",
-            "value": "Okay, when will it take place?"
-          },
-          {
-            "type": "PlainText",
-            "value": "When will it take place?"
+            "value": "Placeholder"
           }
         ]
       }
