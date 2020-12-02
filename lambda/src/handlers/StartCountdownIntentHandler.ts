@@ -22,10 +22,10 @@ export class StartCountdownIntentHandler implements Alexa.RequestHandler {
     );
   }
   async handle(handlerInput: Alexa.HandlerInput): Promise<Response> {
-    const slots = (handlerInput.requestEnvelope.request as IntentRequest).intent
-      .slots;
+    const intent = (handlerInput.requestEnvelope.request as IntentRequest)
+      .intent;
 
-    const countdownEventSlotValue = slots.CountdownEvent.value;
+    const countdownEventSlotValue = intent.slots.CountdownEvent.value;
 
     if (!countdownEventSlotValue) {
       // The user has not yet provided an event name
@@ -65,7 +65,7 @@ export class StartCountdownIntentHandler implements Alexa.RequestHandler {
         .getResponse();
     }
 
-    const eventDateSlotValue = slots.EventDate.value;
+    const eventDateSlotValue = intent.slots.EventDate.value;
 
     if (!eventDateSlotValue) {
       // The user has not yet provided an event date
@@ -88,6 +88,42 @@ export class StartCountdownIntentHandler implements Alexa.RequestHandler {
 
     const eventDate = normalize(eventDateSlotValue);
     const eventName = capitalize.words(countdownEventSlotValue);
+
+    if (intent.confirmationStatus !== 'CONFIRMED') {
+      // The user has not yet confirmed everything is correct
+
+      const i18nData = {
+        eventName,
+        eventDate: eventDate.format('YYYY-MM-DD'),
+      };
+
+      return handlerInput.responseBuilder
+        .speak(
+          chooseOne(
+            i18n.t(
+              "I'll create a new countdown for {{eventName}} on {{eventDate}}. Does that sound right?",
+              i18nData,
+            ),
+            i18n.t(
+              "Okay, I'll start a countdown for {{eventName}} on {{eventDate}}. Did I get that right?",
+              i18nData,
+            ),
+            i18n.t(
+              "I'll create a new countdown for {{eventName}} on {{eventDate}}. Is that right?",
+              i18nData,
+            ),
+          ),
+        )
+        .reprompt(
+          i18n.t(
+            "Sorry, I didn't catch that. Should I go ahead and create the countdown?",
+          ),
+          i18n.t("Sorry, I didn't catch that. Should I create the countdown?"),
+        )
+        .addConfirmIntentDirective()
+        .getResponse();
+    }
+
     const eventKey = getEventKey(eventName);
 
     await db.put(handlerInput.requestEnvelope, {

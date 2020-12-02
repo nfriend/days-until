@@ -1,8 +1,5 @@
 {
   "interactionModel": {
-    "dialog": {
-      "delegationStrategy": "SKILL_RESPONSE"
-    },
     "languageModel": {
       "intents": [
         {
