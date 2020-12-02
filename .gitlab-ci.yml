@@ -5,7 +5,6 @@ default:
     - yarn install --frozen-lockfile --cache-folder $CI_PROJECT_DIR/.yarn
   cache:
     paths:
-      - lambda/node_modules/
       - $CI_PROJECT_DIR/.yarn
 
 workflow:
