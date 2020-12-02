@@ -1,5 +1,28 @@
 {
   "interactionModel": {
+    "dialog": {
+      "delegationStrategy": "SKILL_RESPONSE",
+      "intents": [
+        {
+          "name": "StartCountdownIntent",
+          "confirmationRequired": true,
+          "slots": [
+            {
+              "name": "CountdownEvent",
+              "type": "EventType",
+              "confirmationRequired": false,
+              "elicitationRequired": true
+            },
+            {
+              "name": "EventDate",
+              "type": "AMAZON.DATE",
+              "confirmationRequired": false,
+              "elicitationRequired": true
+            }
+          ]
+        }
+      ]
+    },
     "languageModel": {
       "intents": [
         {
