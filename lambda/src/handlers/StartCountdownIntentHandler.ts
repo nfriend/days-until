@@ -52,15 +52,15 @@ export class StartCountdownIntentHandler implements Alexa.RequestHandler {
       return handlerInput.responseBuilder
         .speak(
           chooseOne(
-            i18n.t("What's the event?"),
-            i18n.t("Okay, What's the event?"),
-            i18n.t('Sure. What event would you like to track?'),
+            i18n.t("Testing! What's the event?"),
+            i18n.t("Testing! Okay, What's the event?"),
+            i18n.t('Testing! Sure. What event would you like to track?'),
           ),
         )
         .reprompt(
           chooseOne(
-            i18n.t("Sorry, what's the event?"),
-            i18n.t('Sorry, what event would you like to track?'),
+            i18n.t("Testing! Sorry, what's the event?"),
+            i18n.t('Testing! Sorry, what event would you like to track?'),
           ),
         )
         .addElicitSlotDirective('CountdownEvent')
@@ -75,15 +75,15 @@ export class StartCountdownIntentHandler implements Alexa.RequestHandler {
       return handlerInput.responseBuilder
         .speak(
           chooseOne(
-            i18n.t('Sure, when will it take place?'),
-            i18n.t('Okay, when will it take place?'),
-            i18n.t('When will it take place?'),
+            i18n.t('Testing! Sure, when will it take place?'),
+            i18n.t('Testing! Okay, when will it take place?'),
+            i18n.t('Testing! When will it take place?'),
           ),
         )
         .reprompt(
           chooseOne(
-            i18n.t('Sorry, when will it take place?'),
-            i18n.t('Sorry, when will the event take place?'),
+            i18n.t('Testing! Sorry, when will it take place?'),
+            i18n.t('Testing! Sorry, when will the event take place?'),
           ),
         )
         .addElicitSlotDirective('EventDate')
@@ -105,15 +105,15 @@ export class StartCountdownIntentHandler implements Alexa.RequestHandler {
         .speak(
           chooseOne(
             i18n.t(
-              "I'll create a new countdown for {{eventName}} on {{eventDate}}. Does that sound right?",
+              "Testing! I'll create a new countdown for {{eventName}} on {{eventDate}}. Does that sound right?",
               i18nData,
             ),
             i18n.t(
-              "Okay, I'll start a countdown for {{eventName}} on {{eventDate}}. Did I get that right?",
+              "Testing! Okay, I'll start a countdown for {{eventName}} on {{eventDate}}. Did I get that right?",
               i18nData,
             ),
             i18n.t(
-              "I'll create a new countdown for {{eventName}} on {{eventDate}}. Is that right?",
+              "Testing! I'll create a new countdown for {{eventName}} on {{eventDate}}. Is that right?",
               i18nData,
             ),
           ),
@@ -121,10 +121,10 @@ export class StartCountdownIntentHandler implements Alexa.RequestHandler {
         .reprompt(
           chooseOne(
             i18n.t(
-              "Sorry, I didn't catch that. Should I go ahead and create the countdown?",
+              "Testing! Sorry, I didn't catch that. Should I go ahead and create the countdown?",
             ),
             i18n.t(
-              "Sorry, I didn't catch that. Should I create the countdown?",
+              "Testing! Sorry, I didn't catch that. Should I create the countdown?",
             ),
           ),
         )
