@@ -6,8 +6,8 @@ import { db } from '~/adapters/dynamo-db';
 import { getEventKey } from '~/util/get-event-key';
 import i18n from 'i18next';
 import { chooseOne } from '~/util/choose-one';
-import startCountdownApl from '~/apl/start-countdown.json';
-import startCountdownApla from '~/apla/start-countdown.json';
+import startCountdownSuccessApl from '~/apl/start-countdown-success.json';
+import startCountdownSuccessApla from '~/apla/start-countdown-success.json';
 import { getImageForEvent } from '~/util/get-image-for-event';
 import { getDaysUntil } from '~/util/get-days-until';
 import { getAllSuccessInterjections } from '~/util/get-all-success-interjections';
@@ -25,8 +25,66 @@ export class StartCountdownIntentHandler implements Alexa.RequestHandler {
     const slots = (handlerInput.requestEnvelope.request as IntentRequest).intent
       .slots;
 
-    const eventDateSlotValue = slots.EventDate.value;
     const countdownEventSlotValue = slots.CountdownEvent.value;
+
+    if (!countdownEventSlotValue) {
+      // The user has not yet provided an event name
+
+      if (
+        Alexa.getSupportedInterfaces(handlerInput.requestEnvelope)[
+          'Alexa.Presentation.APL'
+        ]
+      ) {
+        handlerInput.responseBuilder.addDirective({
+          type: 'Alexa.Presentation.APL.RenderDocument',
+          token: 'token',
+          document: startCountdownSuccessApl,
+          datasources: {
+            data: {
+              headerTitle: i18n.t('Testing!'),
+              countdownStatusText: 'testing!',
+              eventImageSrc: getImageForEvent('testing christmas'),
+            },
+          },
+        });
+      }
+
+      return handlerInput.responseBuilder
+        .speak(
+          chooseOne(
+            i18n.t("What's the event?"),
+            i18n.t("Okay, What's the event?"),
+            i18n.t('Sure. What event would you like to track?'),
+          ),
+        )
+        .reprompt(
+          i18n.t("Sorry, what's the event?"),
+          i18n.t('Sorry, what event would you like to track?'),
+        )
+        .addElicitSlotDirective('CountdownEvent')
+        .getResponse();
+    }
+
+    const eventDateSlotValue = slots.EventDate.value;
+
+    if (!eventDateSlotValue) {
+      // The user has not yet provided an event date
+
+      return handlerInput.responseBuilder
+        .speak(
+          chooseOne(
+            i18n.t('Sure, when will it take place?'),
+            i18n.t('Okay, when will it take place?'),
+            i18n.t('When will it take place?'),
+          ),
+        )
+        .reprompt(
+          i18n.t('Sorry, when will it take place?'),
+          i18n.t('Sorry, when will the event take place?'),
+        )
+        .addElicitSlotDirective('EventDate')
+        .getResponse();
+    }
 
     const eventDate = normalize(eventDateSlotValue);
     const eventName = capitalize.words(countdownEventSlotValue);
@@ -70,7 +128,7 @@ export class StartCountdownIntentHandler implements Alexa.RequestHandler {
       handlerInput.responseBuilder.addDirective({
         type: 'Alexa.Presentation.APL.RenderDocument',
         token: 'token',
-        document: startCountdownApl,
+        document: startCountdownSuccessApl,
         datasources: {
           data: {
             headerTitle: i18n.t('Days Until'),
@@ -93,7 +151,7 @@ export class StartCountdownIntentHandler implements Alexa.RequestHandler {
       .addDirective({
         type: 'Alexa.Presentation.APLA.RenderDocument',
         token: 'token',
-        document: startCountdownApla,
+        document: startCountdownSuccessApla,
         datasources: {
           data: {
             ssml: speeches.join(' '),
