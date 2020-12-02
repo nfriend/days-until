@@ -10,6 +10,7 @@ import { LocalizationInterceptor } from './interceptors/LocalizationInterceptor'
 import { SentryInterceptor } from './interceptors/SentryInterceptor';
 
 export const handler = Alexa.SkillBuilders.custom()
+  .withSkillId(process.env.SKILL_ID)
   .addRequestHandlers(
     new LaunchRequestHandler(),
     new StartCountdownIntentHandler(),
