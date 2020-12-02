@@ -72,3 +72,10 @@ upload source maps:
     - yarn sentry-cli releases files $SENTRY_RELEASE_VERSION upload src --url-prefix="/var/task/build/"
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+upload assets:
+  stage: deploy
+  script:
+    - utility-scripts/upload-assets-to-s3.js
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH

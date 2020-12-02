@@ -1,4 +1,5 @@
-import { getImageForEvent, baseUrl } from '../get-image-for-event';
+import { ASSETS_BASE_URL } from '~/constants';
+import { getImageForEvent } from '../get-image-for-event';
 
 jest.mock('~/util/choose-one');
 
@@ -41,9 +42,11 @@ describe('~/util/get-image-for-event.ts', () => {
     ${null}                   | ${'calendar-check.png'}
     ${undefined}              | ${'calendar-check.png'}
   `(
-    `when the event name is $eventName, returns ${baseUrl}$imageUrl`,
+    `when the event name is $eventName, returns ${ASSETS_BASE_URL}/images/$imageUrl`,
     ({ eventName, imageUrl }) => {
-      expect(getImageForEvent(eventName)).toBe(baseUrl + imageUrl);
+      expect(getImageForEvent(eventName)).toBe(
+        `${ASSETS_BASE_URL}/images/${imageUrl}`,
+      );
     },
   );
 });

@@ -131,6 +131,7 @@ The GitLab pipeline relies on a few environment variables:
 | `ASK_REFRESH_TOKEN`     | The OAuth 2.0 refresh token of the Alexa Developer account mentioned above                                                                          |
 | `SENTRY_AUTH_TOKEN`     | The Sentry API token used to upload sourcemaps to [Sentry](https://sentry.io/)                                                                      |
 | `PROJECT_TOKEN`         | Token used to commit and push changes back to GitLab inside the pipeline. A project-level access token with `write_repository` scope is sufficient. |
+| `ASSETS_BUCKET_NAME`    | Name of the AWS S3 bucket that stores and hosts assets (e.g. images, sound effects) used by the skill                                               |
 
 More info on these variables and how to generate their values can be found [in
 this blog

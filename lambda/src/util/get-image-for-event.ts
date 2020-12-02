@@ -1,6 +1,5 @@
+import { ASSETS_BASE_URL } from '~/constants';
 import { chooseOne } from './choose-one';
-
-export const baseUrl = 'https://d1qqbfelg1beem.cloudfront.net/images/';
 
 /**
  * Tries to pick an image that matches an event.
@@ -265,5 +264,5 @@ export const getImageForEvent = (eventName: string): string => {
       });
     })?.image || defaultImage;
 
-  return baseUrl + image;
+  return `${ASSETS_BASE_URL}/images/${image}`;
 };

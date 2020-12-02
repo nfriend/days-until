@@ -1,8 +1,11 @@
 # Days Until assets
 
-Assets in this directory are not auto-uploaded as part of the deploy process.
-Any new or updated images must be manually uploaded to the `days-until-assets`
-S3 bucket before they can be used by this skill.
+Assets in this directory are auto-uploaded to the S3 bucket as part of the
+`upload assets` job in the deployment pipeline. This bucket is not currently
+managed by CloudFormation - it must be created/managed manually before the
+pipeline runs in order for the upload to succeed.
+
+## Images
 
 When possible, both PNG and SVG versions of each file are uploaded to allow the
 PNGs to be regenerated at a higher resolution if necessary in the future.
@@ -14,6 +17,11 @@ distribution is `d1qqbfelg1beem.cloudfront.net`.
 See the [**Acknowledgements** section in
 README.md](../../README.md#acknowledgements) for image attributions. Remember to
 add to this list if any new icons are added.
+
+## Audio
+
+Similar to the images, audio files should be converted into a small format
+(`*.mp3`), but the uncompressed version should be stored as well for later use.
 
 ## Notes
 

@@ -11,6 +11,7 @@ import startCountdownApla from '~/apla/start-countdown.json';
 import { getImageForEvent } from '~/util/get-image-for-event';
 import { getDaysUntil } from '~/util/get-days-until';
 import { getAllSuccessInterjections } from '~/util/get-all-success-interjections';
+import { ASSETS_BASE_URL } from '~/constants';
 
 export class StartCountdownIntentHandler implements Alexa.RequestHandler {
   canHandle(handlerInput: Alexa.HandlerInput): boolean | Promise<boolean> {
@@ -82,10 +83,10 @@ export class StartCountdownIntentHandler implements Alexa.RequestHandler {
 
     const backgroundAudio = chooseOne(
       'soundbank://soundlibrary/human/amzn_sfx_crowd_cheer_med_01',
-      'soundbank://soundlibrary/human/amzn_sfx_large_crowd_cheer_02',
-      'soundbank://soundlibrary/human/amzn_sfx_large_crowd_cheer_03',
-      'soundbank://soundlibrary/human/amzn_sfx_crowd_applause_01',
-      'soundbank://soundlibrary/human/amzn_sfx_crowd_applause_02',
+      `${ASSETS_BASE_URL}/audio/333404__jayfrosting__cheer-2.mp3`,
+      `${ASSETS_BASE_URL}/audio/400587__misjoc__medium-crowd-cheering-01.mp3`,
+      `${ASSETS_BASE_URL}/audio/277019__sandermotions__applause-4.mp3`,
+      `${ASSETS_BASE_URL}/audio/462362__breviceps__small-applause.mp3`,
     );
 
     return handlerInput.responseBuilder
