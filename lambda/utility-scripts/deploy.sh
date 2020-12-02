@@ -23,13 +23,13 @@ yarn global add ask-cli --cache-folder "$CI_PROJECT_DIR/.yarn"
 ask deploy
 
 # Undo changes to ask-resources.json
-git restore ask-resources.json
+git checkout ask-resources.json
 
 # Commit any changes to .ask/ask-states.json
 # and push the result back to the default branch
 if [[ -n $(git status -s) ]]; then
   echo "Found the following changes:"
-  git status
+  git diff
 
   git config user.name "days-until-bot"
   git config user.email "days-until-bot@nathanfriend.io"
