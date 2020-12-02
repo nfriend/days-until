@@ -58,8 +58,10 @@ export class StartCountdownIntentHandler implements Alexa.RequestHandler {
           ),
         )
         .reprompt(
-          i18n.t("Sorry, what's the event?"),
-          i18n.t('Sorry, what event would you like to track?'),
+          chooseOne(
+            i18n.t("Sorry, what's the event?"),
+            i18n.t('Sorry, what event would you like to track?'),
+          ),
         )
         .addElicitSlotDirective('CountdownEvent')
         .getResponse();
@@ -79,8 +81,10 @@ export class StartCountdownIntentHandler implements Alexa.RequestHandler {
           ),
         )
         .reprompt(
-          i18n.t('Sorry, when will it take place?'),
-          i18n.t('Sorry, when will the event take place?'),
+          chooseOne(
+            i18n.t('Sorry, when will it take place?'),
+            i18n.t('Sorry, when will the event take place?'),
+          ),
         )
         .addElicitSlotDirective('EventDate')
         .getResponse();
@@ -115,10 +119,14 @@ export class StartCountdownIntentHandler implements Alexa.RequestHandler {
           ),
         )
         .reprompt(
-          i18n.t(
-            "Sorry, I didn't catch that. Should I go ahead and create the countdown?",
+          chooseOne(
+            i18n.t(
+              "Sorry, I didn't catch that. Should I go ahead and create the countdown?",
+            ),
+            i18n.t(
+              "Sorry, I didn't catch that. Should I create the countdown?",
+            ),
           ),
-          i18n.t("Sorry, I didn't catch that. Should I create the countdown?"),
         )
         .addConfirmIntentDirective()
         .getResponse();
