@@ -1,33 +1,33 @@
 import * as Alexa from 'ask-sdk-core';
 import { adapter } from './adapters/dynamo-db';
-import { ButtonPressedHandler } from './handlers/ButtonPressedHandler';
-import { ErrorHandler } from './handlers/ErrorHandler';
-import { IntentReflectorHandler } from './handlers/IntentReflectorHandler';
-import { LaunchRequestHandler } from './handlers/LaunchRequestHandler';
-import { SessionEndedRequestHandler } from './handlers/SessionEndedRequestHandler';
-import { StartCountdownIntentHandler } from './handlers/StartCountdownIntentHandler';
-import { FirstLaunchInterceptor } from './interceptors/FirstLaunchInterceptor';
-import { LocalizationInterceptor } from './interceptors/LocalizationInterceptor';
-import { SentryInterceptor } from './interceptors/SentryInterceptor';
+import { buttonPressedHandler } from './handlers/button-pressed-handler';
+import { errorHandler } from './handlers/error-handler';
+import { intentReflectorHandler } from './handlers/intent-reflector-handler';
+import { launchRequestHandler } from './handlers/launch-request-handler';
+import { sessionEndedRequestHandler } from './handlers/session-ended-request-handler';
+import { startCountdownIntentHandler } from './handlers/start-countdown-intent-handler';
+import { firstLaunchInterceptor } from './interceptors/first-launch-interceptor';
+import { localizationInterceptor } from './interceptors/localization-interceptor';
+import { sentryInterceptor } from './interceptors/sentry-interceptor';
 
 export const handler = Alexa.SkillBuilders.custom()
   .withSkillId(process.env.SKILL_ID)
   .addRequestHandlers(
-    new LaunchRequestHandler(),
-    new StartCountdownIntentHandler(),
-    new SessionEndedRequestHandler(),
+    launchRequestHandler,
+    startCountdownIntentHandler,
+    sessionEndedRequestHandler,
 
-    new ButtonPressedHandler(),
+    buttonPressedHandler,
 
     // IntentReflectorHandler needs to be last so that it doesn't
     // override any custom intent handlers
-    new IntentReflectorHandler(),
+    intentReflectorHandler,
   )
   .addRequestInterceptors(
-    new SentryInterceptor(),
-    new FirstLaunchInterceptor(),
-    new LocalizationInterceptor(),
+    sentryInterceptor,
+    firstLaunchInterceptor,
+    localizationInterceptor,
   )
-  .addErrorHandlers(new ErrorHandler())
+  .addErrorHandlers(errorHandler)
   .withPersistenceAdapter(adapter)
   .lambda();

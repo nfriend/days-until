@@ -13,14 +13,14 @@ import { getDaysUntil } from '~/util/get-days-until';
 import { getAllSuccessInterjections } from '~/util/get-all-success-interjections';
 import { ASSETS_BASE_URL } from '~/constants';
 
-export class StartCountdownIntentHandler implements Alexa.RequestHandler {
+export const startCountdownIntentHandler: Alexa.RequestHandler = {
   canHandle(handlerInput: Alexa.HandlerInput): boolean | Promise<boolean> {
     return (
       Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' &&
       Alexa.getIntentName(handlerInput.requestEnvelope) ===
         'StartCountdownIntent'
     );
-  }
+  },
   async handle(handlerInput: Alexa.HandlerInput): Promise<Response> {
     const intent = (handlerInput.requestEnvelope.request as IntentRequest)
       .intent;
@@ -207,5 +207,5 @@ export class StartCountdownIntentHandler implements Alexa.RequestHandler {
       })
       .withShouldEndSession(true)
       .getResponse();
-  }
-}
+  },
+};

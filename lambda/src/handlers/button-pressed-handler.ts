@@ -1,15 +1,16 @@
 import * as Alexa from 'ask-sdk-core';
 
 import { Response } from 'ask-sdk-model';
+import { startCountdownIntentHandler } from './start-countdown-intent-handler';
 
-export class ButtonPressedHandler implements Alexa.RequestHandler {
+export const buttonPressedHandler: Alexa.RequestHandler = {
   canHandle(handlerInput: Alexa.HandlerInput): boolean | Promise<boolean> {
     return (
       Alexa.getRequestType(handlerInput.requestEnvelope) ===
         'Alexa.Presentation.APL.UserEvent' &&
       (handlerInput.requestEnvelope.request as any).source.id === 'testButtonId'
     );
-  }
+  },
   handle(handlerInput: Alexa.HandlerInput): Response | Promise<Response> {
     console.log(
       'arguments:',
@@ -20,12 +21,7 @@ export class ButtonPressedHandler implements Alexa.RequestHandler {
       ),
     );
 
-    return handlerInput.responseBuilder
-      .addDelegateDirective({
-        name: 'StartCountdownIntent',
-        confirmationStatus: 'NONE',
-        slots: {},
-      })
-      .getResponse();
-  }
-}
+    // Redirect to StartCountdownIntent
+    return startCountdownIntentHandler.handle(handlerInput);
+  },
+};

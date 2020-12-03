@@ -5,12 +5,12 @@ import i18n from 'i18next';
  * A debugging tool that echos back the name of intents that
  * are triggered but not yet implemented.
  */
-export class IntentReflectorHandler implements Alexa.RequestHandler {
+export const intentReflectorHandler: Alexa.RequestHandler = {
   canHandle(handlerInput: Alexa.HandlerInput) {
     return (
       Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
     );
-  }
+  },
   handle(handlerInput: Alexa.HandlerInput) {
     const intentName = Alexa.getIntentName(handlerInput.requestEnvelope);
     const speakOutput = i18n.t(
@@ -19,5 +19,5 @@ export class IntentReflectorHandler implements Alexa.RequestHandler {
     );
 
     return handlerInput.responseBuilder.speak(speakOutput).getResponse();
-  }
-}
+  },
+};

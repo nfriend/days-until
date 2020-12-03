@@ -5,7 +5,7 @@ import { db, DaysUntilAttributes } from '~/adapters/dynamo-db';
 jest.mock('~/util/choose-one');
 jest.mock('~/adapters/dynamo-db');
 
-describe('LaunchRequestHandler', () => {
+describe('launchRequestHandler', () => {
   let userAttributes: DaysUntilAttributes;
 
   const event = createAlexaEvent({

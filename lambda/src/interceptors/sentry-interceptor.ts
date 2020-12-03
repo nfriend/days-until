@@ -1,7 +1,7 @@
 import * as Alexa from 'ask-sdk-core';
 import * as Sentry from '@sentry/node';
 
-export class SentryInterceptor implements Alexa.RequestInterceptor {
+export const sentryInterceptor: Alexa.RequestInterceptor = {
   async process() {
     Sentry.init({
       dsn:
@@ -9,5 +9,5 @@ export class SentryInterceptor implements Alexa.RequestInterceptor {
       tracesSampleRate: 1.0,
       release: process.env.SENTRY_RELEASE_VERSION,
     });
-  }
-}
+  },
+};

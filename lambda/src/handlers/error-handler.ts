@@ -4,10 +4,10 @@ import i18n from 'i18next';
 import { chooseOne } from '~/util/choose-one';
 import { getFailureInterjection } from '~/util/get-failure-interjection';
 
-export class ErrorHandler implements Alexa.ErrorHandler {
+export const errorHandler: Alexa.ErrorHandler = {
   canHandle() {
     return true;
-  }
+  },
   handle(handlerInput: Alexa.HandlerInput, error: Error) {
     console.log(`~~~~ error:`, error);
     console.log(`~~~~ handlerInput:`, handlerInput);
@@ -35,5 +35,5 @@ export class ErrorHandler implements Alexa.ErrorHandler {
       .speak(speech)
       .reprompt(speech)
       .getResponse();
-  }
-}
+  },
+};

@@ -1,7 +1,7 @@
-import { LocalizationInterceptor } from '~/interceptors/LocalizationInterceptor';
+import { localizationInterceptor } from '~/interceptors/localization-interceptor';
 
 beforeAll(async () => {
-  await new LocalizationInterceptor().process({
+  await localizationInterceptor.process({
     requestEnvelope: {
       request: {
         locale: 'en',

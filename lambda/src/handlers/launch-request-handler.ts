@@ -4,10 +4,10 @@ import i18n from 'i18next';
 import { chooseOne } from '~/util/choose-one';
 import launchApl from '~/apl/launch.json';
 
-export class LaunchRequestHandler implements Alexa.RequestHandler {
+export const launchRequestHandler: Alexa.RequestHandler = {
   canHandle(input: Alexa.HandlerInput): boolean | Promise<boolean> {
     return Alexa.getRequestType(input.requestEnvelope) === 'LaunchRequest';
-  }
+  },
   handle(handlerInput: Alexa.HandlerInput): Response | Promise<Response> {
     const isFirstLaunch: boolean = handlerInput.attributesManager.getRequestAttributes()
       .isFirstLaunch;
@@ -80,5 +80,5 @@ export class LaunchRequestHandler implements Alexa.RequestHandler {
         ),
       )
       .getResponse();
-  }
-}
+  },
+};
