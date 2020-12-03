@@ -93,7 +93,7 @@ export class StartCountdownIntentHandler implements Alexa.RequestHandler {
     const eventDate = normalize(eventDateSlotValue);
     const eventName = capitalize.words(countdownEventSlotValue);
 
-    if (intent.confirmationStatus !== 'CONFIRMED') {
+    if (intent.confirmationStatus === 'NONE') {
       // The user has not yet confirmed everything is correct
 
       const i18nData = {
@@ -130,6 +130,8 @@ export class StartCountdownIntentHandler implements Alexa.RequestHandler {
         )
         .addConfirmIntentDirective()
         .getResponse();
+    } else if (intent.confirmationStatus === 'DENIED') {
+      // TODO: handle confirmation denied here
     }
 
     const eventKey = getEventKey(eventName);

@@ -1,0 +1,67 @@
+{
+  "type": "APL",
+  "version": "1.4",
+  "description": "A visual interface that allows the user to either create a new countdown or report on an existing one.",
+  "settings": {},
+  "import": [
+    {
+      "name": "alexa-layouts",
+      "version": "1.2.0"
+    }
+  ],
+  "resources": [],
+  "styles": {},
+  "onMount": [],
+  "graphics": {},
+  "commands": {},
+  "layouts": {},
+  "mainTemplate": {
+    "parameters": ["data"],
+    "item": [
+      {
+        "type": "Container",
+        "height": "100vh",
+        "items": [
+          {
+            "type": "AlexaBackground",
+            "backgroundScale": "best-fill"
+          },
+          {
+            "type": "Container",
+            "height": "100vh",
+            "width": "100vw",
+            "items": [
+              {
+                "type": "AlexaHeader",
+                "headerTitle": "${data.headerTitle}",
+                "headerAttributionImage": "https://d1qqbfelg1beem.cloudfront.net/images/wall-calendar-with-logo.png"
+              },
+              {
+                "type": "Container",
+                "width": "100%",
+                "height": "70%",
+                "paddingLeft": "@marginHorizontal",
+                "paddingRight": "@marginHorizontal",
+                "justifyContent": "start",
+                "alignItems": "stretch",
+                "items": [
+                  {
+                    "type": "AlexaButton",
+                    "buttonText": "Create a new countdown",
+                    "primaryAction": {
+                      "type": "SendEvent",
+                      "arguments": ["testing!"]
+                    },
+                    "buttonStyle": "ingress",
+                    "id": "testButtonId"
+                  }
+                ],
+                "direction": "row"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -2,13 +2,14 @@ import * as Alexa from 'ask-sdk-core';
 import { Response } from 'ask-sdk-model';
 import i18n from 'i18next';
 import { chooseOne } from '~/util/choose-one';
+import launchApl from '~/apl/launch.json';
 
 export class LaunchRequestHandler implements Alexa.RequestHandler {
   canHandle(input: Alexa.HandlerInput): boolean | Promise<boolean> {
     return Alexa.getRequestType(input.requestEnvelope) === 'LaunchRequest';
   }
-  handle(input: Alexa.HandlerInput): Response | Promise<Response> {
-    const isFirstLaunch: boolean = input.attributesManager.getRequestAttributes()
+  handle(handlerInput: Alexa.HandlerInput): Response | Promise<Response> {
+    const isFirstLaunch: boolean = handlerInput.attributesManager.getRequestAttributes()
       .isFirstLaunch;
 
     const speeches = [];
@@ -27,6 +28,23 @@ export class LaunchRequestHandler implements Alexa.RequestHandler {
         ),
       );
     } else {
+      if (
+        Alexa.getSupportedInterfaces(handlerInput.requestEnvelope)[
+          'Alexa.Presentation.APL'
+        ]
+      ) {
+        handlerInput.responseBuilder.addDirective({
+          type: 'Alexa.Presentation.APL.RenderDocument',
+          token: 'token',
+          document: launchApl,
+          datasources: {
+            data: {
+              headerTitle: i18n.t('Testing buttons...'),
+            },
+          },
+        });
+      }
+
       speeches.push(
         chooseOne(
           i18n.t('Hello again!'),
@@ -50,7 +68,7 @@ export class LaunchRequestHandler implements Alexa.RequestHandler {
       );
     }
 
-    return input.responseBuilder
+    return handlerInput.responseBuilder
       .speak(speeches.join(' '))
       .reprompt(
         chooseOne(
