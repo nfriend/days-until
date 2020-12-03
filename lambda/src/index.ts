@@ -1,5 +1,6 @@
 import * as Alexa from 'ask-sdk-core';
 import { adapter } from './adapters/dynamo-db';
+import { ButtonPressedHandler } from './handlers/ButtonPressedHandler';
 import { ErrorHandler } from './handlers/ErrorHandler';
 import { IntentReflectorHandler } from './handlers/IntentReflectorHandler';
 import { LaunchRequestHandler } from './handlers/LaunchRequestHandler';
@@ -15,6 +16,8 @@ export const handler = Alexa.SkillBuilders.custom()
     new LaunchRequestHandler(),
     new StartCountdownIntentHandler(),
     new SessionEndedRequestHandler(),
+
+    new ButtonPressedHandler(),
 
     // IntentReflectorHandler needs to be last so that it doesn't
     // override any custom intent handlers
