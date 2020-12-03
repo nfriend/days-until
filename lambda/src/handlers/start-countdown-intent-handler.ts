@@ -17,19 +17,28 @@ const INTENT_NAME = 'StartCountdownIntent';
 
 export const startCountdownIntentHandler: Alexa.RequestHandler = {
   canHandle(handlerInput: Alexa.HandlerInput): boolean | Promise<boolean> {
-    return (
+    const wasCreateButtonPushed =
+      Alexa.getRequestType(handlerInput.requestEnvelope) ===
+        'Alexa.Presentation.APL.UserEvent' &&
+      (handlerInput.requestEnvelope.request as any).source.id ===
+        'createNewButton';
+
+    const wasCreateIntentRequested =
       Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' &&
-      Alexa.getIntentName(handlerInput.requestEnvelope) === INTENT_NAME
-    );
+      Alexa.getIntentName(handlerInput.requestEnvelope) === INTENT_NAME;
+
+    return wasCreateButtonPushed || wasCreateIntentRequested;
   },
   async handle(handlerInput: Alexa.HandlerInput): Promise<Response> {
     const intent = (handlerInput.requestEnvelope.request as IntentRequest)
       .intent;
 
-    // It's possible intent may not be provided since we manually
-    // redirect to this handler when a button is pressed
+    // It's possible intent may not be provided since this handler
+    // also handles the "Create a new countdown" button press
     const countdownEventSlotValue = intent?.slots.CountdownEvent.value;
 
+    // Again, because it's possible we're not currently inside an IntentRequest,
+    // we need to makes sure we explicitly elicit slots for _this_ intent.
     const updatedIntent: Intent = intent || {
       name: INTENT_NAME,
       confirmationStatus: 'NONE',
@@ -51,6 +60,7 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
           datasources: {
             data: {
               headerTitle: i18n.t('Testing!'),
+              headerImage: `${ASSETS_BASE_URL}/images/wall-calendar-with-logo.png`,
               countdownStatusText: 'testing!',
               eventImageSrc: getImageForEvent('testing christmas'),
             },
@@ -187,6 +197,7 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
         datasources: {
           data: {
             headerTitle: i18n.t('Days Until'),
+            headerImage: `${ASSETS_BASE_URL}/images/wall-calendar-with-logo.png`,
             countdownStatusText: getDaysUntil(eventDate, eventName).visual,
             eventImageSrc: getImageForEvent(eventName),
           },

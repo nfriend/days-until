@@ -34,7 +34,7 @@
               {
                 "type": "AlexaHeader",
                 "headerTitle": "${data.headerTitle}",
-                "headerAttributionImage": "https://d1qqbfelg1beem.cloudfront.net/images/wall-calendar-with-logo.png"
+                "headerAttributionImage": "${data.headerImage}"
               },
               {
                 "type": "Container",
@@ -42,21 +42,45 @@
                 "height": "70%",
                 "paddingLeft": "@marginHorizontal",
                 "paddingRight": "@marginHorizontal",
-                "justifyContent": "start",
-                "alignItems": "stretch",
+                "justifyContent": "center",
+                "alignItems": "center",
                 "items": [
                   {
-                    "type": "AlexaButton",
-                    "buttonText": "Create a new countdown",
-                    "primaryAction": {
-                      "type": "SendEvent",
-                      "arguments": ["testing!"]
-                    },
-                    "buttonStyle": "ingress",
-                    "id": "testButtonId"
+                    "type": "Text",
+                    "paddingTop": "12dp",
+                    "paddingBottom": "12dp",
+                    "text": "${data.welcomeMessage}",
+                    "textAlign": "center"
+                  },
+                  {
+                    "type": "Container",
+                    "display": "${@viewportProfile == @hubRoundSmall ? 'none' : 'normal' }",
+                    "paddingTop": "16dp",
+                    "paddingLeft": "16dp",
+                    "paddingRight": "16dp",
+                    "paddingBottom": "16dp",
+                    "items": [
+                      {
+                        "type": "AlexaButton",
+                        "buttonText": "${data.createNewButtonText}",
+                        "primaryAction": {
+                          "type": "SendEvent"
+                        },
+                        "id": "createNewButton"
+                      },
+                      {
+                        "type": "AlexaButton",
+                        "buttonText": "${data.checkExistingButtonText}",
+                        "primaryAction": {
+                          "type": "SendEvent"
+                        },
+                        "id": "checkExistingButton"
+                      }
+                    ],
+                    "direction": "row"
                   }
                 ],
-                "direction": "row"
+                "direction": "column"
               }
             ]
           }

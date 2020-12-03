@@ -8,7 +8,8 @@ export const buttonPressedHandler: Alexa.RequestHandler = {
     return (
       Alexa.getRequestType(handlerInput.requestEnvelope) ===
         'Alexa.Presentation.APL.UserEvent' &&
-      (handlerInput.requestEnvelope.request as any).source.id === 'testButtonId'
+      (handlerInput.requestEnvelope.request as any).source.id ===
+        'createNewButton'
     );
   },
   handle(handlerInput: Alexa.HandlerInput): Response | Promise<Response> {

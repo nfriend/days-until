@@ -3,6 +3,7 @@ import { Response } from 'ask-sdk-model';
 import i18n from 'i18next';
 import { chooseOne } from '~/util/choose-one';
 import launchApl from '~/apl/launch.json';
+import { ASSETS_BASE_URL } from '~/constants';
 
 export const launchRequestHandler: Alexa.RequestHandler = {
   canHandle(input: Alexa.HandlerInput): boolean | Promise<boolean> {
@@ -39,7 +40,11 @@ export const launchRequestHandler: Alexa.RequestHandler = {
           document: launchApl,
           datasources: {
             data: {
-              headerTitle: i18n.t('Testing buttons...'),
+              headerTitle: i18n.t('Days Until'),
+              headerImage: `${ASSETS_BASE_URL}/images/wall-calendar-with-logo.png`,
+              welcomeMessage: i18n.t('Welcome! What would you like to do?'),
+              checkExistingButtonText: i18n.t('Check an existing countdown'),
+              createNewButtonText: i18n.t('Create a new countdown'),
             },
           },
         });
