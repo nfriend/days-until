@@ -1,7 +1,7 @@
 {
   "type": "APL",
   "version": "1.4",
-  "description": "A visual interface that allows the user to either create a new countdown or report on an existing one.",
+  "description": "A visual congratulation after a user successfully creates a countdown.",
   "settings": {},
   "import": [
     {
@@ -42,16 +42,9 @@
                 "height": "70%",
                 "paddingLeft": "@marginHorizontal",
                 "paddingRight": "@marginHorizontal",
-                "justifyContent": "center",
-                "alignItems": "center",
+                "justifyContent": "start",
+                "alignItems": "stretch",
                 "items": [
-                  {
-                    "type": "Text",
-                    "paddingTop": "12dp",
-                    "paddingBottom": "12dp",
-                    "text": "${data.welcomeMessage}",
-                    "textAlign": "center"
-                  },
                   {
                     "type": "Container",
                     "display": "${@viewportProfile == @hubRoundSmall ? 'none' : 'normal' }",
@@ -61,26 +54,46 @@
                     "paddingBottom": "16dp",
                     "items": [
                       {
-                        "type": "AlexaButton",
-                        "buttonText": "${data.createNewButtonText}",
-                        "primaryAction": {
-                          "type": "SendEvent"
-                        },
-                        "id": "createNewButton"
-                      },
-                      {
-                        "type": "AlexaButton",
-                        "buttonText": "${data.checkExistingButtonText}",
-                        "primaryAction": {
-                          "type": "SendEvent"
-                        },
-                        "id": "checkExistingButton"
+                        "type": "AlexaImage",
+                        "imageSource": "${data.eventImageSrc}",
+                        "imageAlignment": "center",
+                        "imageAspectRatio": "standard_landscape",
+                        "imageWidth": "100%",
+                        "imageHeight": "100%",
+                        "imageRoundedCorner": true,
+                        "imageScale": "best-fill-down",
+                        "grow": "${@viewportProfile == @hubRoundSmall ? 0 : 1}",
+                        "items": []
                       }
                     ],
-                    "direction": "row"
+                    "grow": 1,
+                    "direction": "row",
+                    "shrink": 1
+                  },
+                  {
+                    "type": "Container",
+                    "paddingTop": "16dp",
+                    "paddingLeft": "16dp",
+                    "paddingRight": "16dp",
+                    "paddingBottom": "16dp",
+                    "items": [
+                      {
+                        "type": "Text",
+                        "paddingTop": "12dp",
+                        "paddingBottom": "12dp",
+                        "grow": 1,
+                        "textAlign": "center",
+                        "textAlignVertical": "center",
+                        "text": "${data.countdownStatusText}",
+                        "fontStyle": "normal"
+                      }
+                    ],
+                    "grow": 1,
+                    "direction": "row",
+                    "shrink": 1
                   }
                 ],
-                "direction": "column"
+                "direction": "row"
               }
             ]
           }
