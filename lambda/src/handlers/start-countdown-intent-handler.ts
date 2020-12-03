@@ -1,6 +1,6 @@
 import * as Alexa from 'ask-sdk-core';
 import * as capitalize from 'capitalize';
-import { IntentRequest, Response } from 'ask-sdk-model';
+import { Intent, IntentRequest, Response } from 'ask-sdk-model';
 import { normalize } from '@nfriend/amazon.date-normalizer';
 import { db } from '~/adapters/dynamo-db';
 import { getEventKey } from '~/util/get-event-key';
@@ -13,19 +13,28 @@ import { getDaysUntil } from '~/util/get-days-until';
 import { getAllSuccessInterjections } from '~/util/get-all-success-interjections';
 import { ASSETS_BASE_URL } from '~/constants';
 
+const INTENT_NAME = 'StartCountdownIntent';
+
 export const startCountdownIntentHandler: Alexa.RequestHandler = {
   canHandle(handlerInput: Alexa.HandlerInput): boolean | Promise<boolean> {
     return (
       Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' &&
-      Alexa.getIntentName(handlerInput.requestEnvelope) ===
-        'StartCountdownIntent'
+      Alexa.getIntentName(handlerInput.requestEnvelope) === INTENT_NAME
     );
   },
   async handle(handlerInput: Alexa.HandlerInput): Promise<Response> {
     const intent = (handlerInput.requestEnvelope.request as IntentRequest)
       .intent;
 
-    const countdownEventSlotValue = intent.slots.CountdownEvent.value;
+    // It's possible intent may not be provided since we manually
+    // redirect to this handler when a button is pressed
+    const countdownEventSlotValue = intent?.slots.CountdownEvent.value;
+
+    const updatedIntent: Intent = intent || {
+      name: INTENT_NAME,
+      confirmationStatus: 'NONE',
+      slots: {},
+    };
 
     if (!countdownEventSlotValue) {
       // The user has not yet provided an event name
@@ -63,7 +72,7 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
             i18n.t('Sorry, what event would you like to track?'),
           ),
         )
-        .addElicitSlotDirective('CountdownEvent')
+        .addElicitSlotDirective('CountdownEvent', updatedIntent)
         .getResponse();
     }
 
@@ -86,7 +95,7 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
             i18n.t('Sorry, when will the event take place?'),
           ),
         )
-        .addElicitSlotDirective('EventDate')
+        .addElicitSlotDirective('EventDate', updatedIntent)
         .getResponse();
     }
 
@@ -128,7 +137,7 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
             ),
           ),
         )
-        .addConfirmIntentDirective()
+        .addConfirmIntentDirective(updatedIntent)
         .getResponse();
     } else if (intent.confirmationStatus === 'DENIED') {
       // TODO: handle confirmation denied here
