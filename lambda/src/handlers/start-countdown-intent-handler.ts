@@ -50,7 +50,13 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
       // The user has not yet provided an event name
 
       const text = i18n.t('What is the event?');
-      const eventImageSrc = `${ASSETS_BASE_URL}/images/faq.png`;
+      const imageName = chooseOne(
+        `faq.png`,
+        `question.png`,
+        `conversation.png`,
+        `interview.png`,
+      );
+      const eventImageSrc = `${ASSETS_BASE_URL}/images/${imageName}`;
 
       if (
         Alexa.getSupportedInterfaces(handlerInput.requestEnvelope)[
@@ -97,7 +103,17 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
       // The user has not yet provided an event date
 
       const text = i18n.t('When is the event?');
-      const eventImageSrc = `${ASSETS_BASE_URL}/images/faq.png`;
+      const imageName = chooseOne(
+        '001-calendar.png',
+        '002-calendar-1.png',
+        '011-calendar-10.png',
+        '012-calendar-11.png',
+        '015-calendar-14.png',
+        '016-calendar-15.png',
+        '017-calendar-16.png',
+        '024-calendar-22.png',
+      );
+      const eventImageSrc = `${ASSETS_BASE_URL}/images/${imageName}`;
 
       if (
         Alexa.getSupportedInterfaces(handlerInput.requestEnvelope)[
