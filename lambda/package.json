@@ -9,7 +9,7 @@
     "email": "hello@nathanfriend.io",
     "url": "https://nathanfriend.io"
   },
-  "license": "MIT",
+  "license": "Apache License 2.0 with Common Clause Restriction",
   "private": true,
   "scripts": {
     "build": "tsc",
