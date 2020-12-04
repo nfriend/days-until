@@ -27,7 +27,7 @@ describe('launchRequestHandler', () => {
     const expected = [
       'Welcome to Days Until!',
       'Looks like this is your first visit!',
-      'To get started, say <break strength="strong"/> <prosody pitch="+10%">"start a new countdown."</prosody>',
+      'To get started, say <break strength="strong"/> <prosody pitch="+10%">"create a new countdown."</prosody>',
     ].join(' ');
 
     expect(result).toSpeek(expected);

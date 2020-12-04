@@ -4,6 +4,7 @@ import i18n from 'i18next';
 import { chooseOne } from '~/util/choose-one';
 import launchApl from '~/apl/launch.json';
 import { ASSETS_BASE_URL } from '~/constants';
+import textWithImage from '~/apl/text-with-image.json';
 
 export const launchRequestHandler: Alexa.RequestHandler = {
   canHandle(input: Alexa.HandlerInput): boolean | Promise<boolean> {
@@ -13,9 +14,37 @@ export const launchRequestHandler: Alexa.RequestHandler = {
     const isFirstLaunch: boolean = handlerInput.attributesManager.getRequestAttributes()
       .isFirstLaunch;
 
+    let text;
+    const eventImageSrc = chooseOne(
+      `${ASSETS_BASE_URL}/images/waving-hand.png`,
+      `${ASSETS_BASE_URL}/images/waving-hand-2.png`,
+    );
+
     const speeches = [];
 
     if (isFirstLaunch) {
+      text = i18n.t('Trying saying, "Create a new countdown."');
+
+      if (
+        Alexa.getSupportedInterfaces(handlerInput.requestEnvelope)[
+          'Alexa.Presentation.APL'
+        ]
+      ) {
+        handlerInput.responseBuilder.addDirective({
+          type: 'Alexa.Presentation.APL.RenderDocument',
+          token: 'token',
+          document: textWithImage,
+          datasources: {
+            data: {
+              headerTitle: i18n.t('Days Until'),
+              headerImage: `${ASSETS_BASE_URL}/images/wall-calendar-with-logo.png`,
+              text,
+              eventImageSrc,
+            },
+          },
+        });
+      }
+
       speeches.push(
         chooseOne(
           i18n.t('Welcome to Days Until!'),
@@ -25,10 +54,12 @@ export const launchRequestHandler: Alexa.RequestHandler = {
         ),
         i18n.t('Looks like this is your first visit!'),
         i18n.t(
-          'To get started, say <break strength="strong"/> <prosody pitch="+10%">"start a new countdown."</prosody>',
+          'To get started, say <break strength="strong"/> <prosody pitch="+10%">"create a new countdown."</prosody>',
         ),
       );
     } else {
+      text = i18n.t('What would you like to do?');
+
       if (
         Alexa.getSupportedInterfaces(handlerInput.requestEnvelope)[
           'Alexa.Presentation.APL'
@@ -84,6 +115,7 @@ export const launchRequestHandler: Alexa.RequestHandler = {
           i18n.t('Sorry, I missed that. How can I help?'),
         ),
       )
+      .withStandardCard(i18n.t('Welcome!'), text, eventImageSrc)
       .getResponse();
   },
 };
