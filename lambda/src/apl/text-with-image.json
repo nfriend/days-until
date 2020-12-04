@@ -1,7 +1,7 @@
 {
   "type": "APL",
   "version": "1.4",
-  "description": "A visual congratulation after a user successfully creates a countdown.",
+  "description": "A generic template that shows some text next to an image",
   "settings": {},
   "import": [
     {
@@ -84,7 +84,7 @@
                         "grow": 1,
                         "textAlign": "center",
                         "textAlignVertical": "center",
-                        "text": "${data.countdownStatusText}",
+                        "text": "${data.text}",
                         "fontStyle": "normal"
                       }
                     ],

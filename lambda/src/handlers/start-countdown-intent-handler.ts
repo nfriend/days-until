@@ -6,8 +6,8 @@ import { db } from '~/adapters/dynamo-db';
 import { getEventKey } from '~/util/get-event-key';
 import i18n from 'i18next';
 import { chooseOne } from '~/util/choose-one';
-import startCountdownSuccessApl from '~/apl/start-countdown-success.json';
-import startCountdownSuccessApla from '~/apla/start-countdown-success.json';
+import textWithImage from '~/apl/text-with-image.json';
+import soundEffectWithSsml from '~/apla/sound-effect-with-ssml.json';
 import { getImageForEvent } from '~/util/get-image-for-event';
 import { getDaysUntil } from '~/util/get-days-until';
 import { getAllSuccessInterjections } from '~/util/get-all-success-interjections';
@@ -49,6 +49,9 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
     if (!countdownEventSlotValue) {
       // The user has not yet provided an event name
 
+      const text = i18n.t("What's the event?");
+      const eventImageSrc = `${ASSETS_BASE_URL}/images/faq.png`;
+
       if (
         Alexa.getSupportedInterfaces(handlerInput.requestEnvelope)[
           'Alexa.Presentation.APL'
@@ -57,13 +60,13 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
         handlerInput.responseBuilder.addDirective({
           type: 'Alexa.Presentation.APL.RenderDocument',
           token: 'token',
-          document: startCountdownSuccessApl,
+          document: textWithImage,
           datasources: {
             data: {
-              headerTitle: i18n.t('Testing!'),
+              headerTitle: i18n.t('Days Until'),
               headerImage: `${ASSETS_BASE_URL}/images/wall-calendar-with-logo.png`,
-              countdownStatusText: 'testing!',
-              eventImageSrc: getImageForEvent('testing christmas'),
+              text,
+              eventImageSrc,
             },
           },
         });
@@ -83,6 +86,7 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
             i18n.t('Sorry, what event would you like to track?'),
           ),
         )
+        .withStandardCard(i18n.t('Create a new countdown'), text, eventImageSrc)
         .addElicitSlotDirective('CountdownEvent', updatedIntent)
         .getResponse();
     }
@@ -91,6 +95,29 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
 
     if (!eventDateSlotValue) {
       // The user has not yet provided an event date
+
+      const text = i18n.t("When's the event?");
+      const eventImageSrc = `${ASSETS_BASE_URL}/images/faq.png`;
+
+      if (
+        Alexa.getSupportedInterfaces(handlerInput.requestEnvelope)[
+          'Alexa.Presentation.APL'
+        ]
+      ) {
+        handlerInput.responseBuilder.addDirective({
+          type: 'Alexa.Presentation.APL.RenderDocument',
+          token: 'token',
+          document: textWithImage,
+          datasources: {
+            data: {
+              headerTitle: i18n.t('Days Until'),
+              headerImage: `${ASSETS_BASE_URL}/images/wall-calendar-with-logo.png`,
+              text,
+              eventImageSrc,
+            },
+          },
+        });
+      }
 
       return handlerInput.responseBuilder
         .speak(
@@ -106,6 +133,7 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
             i18n.t('Sorry, when will the event take place?'),
           ),
         )
+        .withStandardCard(i18n.t('Create a new countdown'), text, eventImageSrc)
         .addElicitSlotDirective('EventDate', updatedIntent)
         .getResponse();
     }
@@ -120,6 +148,31 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
         eventName,
         eventDate: eventDate.format('YYYY-MM-DD'),
       };
+
+      const text = i18n.t(
+        '{{eventName}} on {{eventDate}} - does this look right?',
+      );
+      const eventImageSrc = `${ASSETS_BASE_URL}/images/faq.png`;
+
+      if (
+        Alexa.getSupportedInterfaces(handlerInput.requestEnvelope)[
+          'Alexa.Presentation.APL'
+        ]
+      ) {
+        handlerInput.responseBuilder.addDirective({
+          type: 'Alexa.Presentation.APL.RenderDocument',
+          token: 'token',
+          document: textWithImage,
+          datasources: {
+            data: {
+              headerTitle: i18n.t('Days Until'),
+              headerImage: `${ASSETS_BASE_URL}/images/wall-calendar-with-logo.png`,
+              text,
+              eventImageSrc,
+            },
+          },
+        });
+      }
 
       return handlerInput.responseBuilder
         .speak(
@@ -148,9 +201,33 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
             ),
           ),
         )
+        .withStandardCard(i18n.t('Create a new countdown'), text, eventImageSrc)
         .addConfirmIntentDirective(updatedIntent)
         .getResponse();
     } else if (intent.confirmationStatus === 'DENIED') {
+      const text = i18n.t('Sorry about that!');
+      const eventImageSrc = `${ASSETS_BASE_URL}/images/sad.png`;
+
+      if (
+        Alexa.getSupportedInterfaces(handlerInput.requestEnvelope)[
+          'Alexa.Presentation.APL'
+        ]
+      ) {
+        handlerInput.responseBuilder.addDirective({
+          type: 'Alexa.Presentation.APL.RenderDocument',
+          token: 'token',
+          document: textWithImage,
+          datasources: {
+            data: {
+              headerTitle: i18n.t('Days Until'),
+              headerImage: `${ASSETS_BASE_URL}/images/wall-calendar-with-logo.png`,
+              text,
+              eventImageSrc,
+            },
+          },
+        });
+      }
+
       const speeches = [];
 
       speeches.push(getFailureInterjection());
@@ -170,6 +247,7 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
             i18n.t('Sorry, what event would you like to track?'),
           ),
         )
+        .withStandardCard(i18n.t('Create a new countdown'), text, eventImageSrc)
         .addConfirmIntentDirective({
           name: ASSETS_BASE_URL,
           confirmationStatus: 'NONE',
@@ -211,7 +289,7 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
     );
 
     const eventImageSrc = getImageForEvent(eventName);
-    const countdownStatusText = getDaysUntil(eventDate, eventName).visual;
+    const text = getDaysUntil(eventDate, eventName).visual;
 
     if (
       Alexa.getSupportedInterfaces(handlerInput.requestEnvelope)[
@@ -221,12 +299,12 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
       handlerInput.responseBuilder.addDirective({
         type: 'Alexa.Presentation.APL.RenderDocument',
         token: 'token',
-        document: startCountdownSuccessApl,
+        document: textWithImage,
         datasources: {
           data: {
             headerTitle: i18n.t('Days Until'),
             headerImage: `${ASSETS_BASE_URL}/images/wall-calendar-with-logo.png`,
-            countdownStatusText,
+            text,
             eventImageSrc,
           },
         },
@@ -245,7 +323,7 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
       .addDirective({
         type: 'Alexa.Presentation.APLA.RenderDocument',
         token: 'token',
-        document: startCountdownSuccessApla,
+        document: soundEffectWithSsml,
         datasources: {
           data: {
             ssml: speeches.join(' '),
@@ -253,7 +331,7 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
           },
         },
       })
-      .withStandardCard(eventName, countdownStatusText, eventImageSrc)
+      .withStandardCard(eventName, text, eventImageSrc)
       .withShouldEndSession(true)
       .getResponse();
   },

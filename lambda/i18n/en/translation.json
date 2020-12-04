@@ -36,6 +36,7 @@
   "Perfect.": "Perfect.",
   "Something went wrong - sorry about that! Can you try again?": "Something went wrong - sorry about that! Can you try again?",
   "Something went wrong. Can you try again?": "Something went wrong. Can you try again?",
+  "Sorry about that!": "Sorry about that!",
   "Sorry, I didn't catch that. Should I create the countdown?": "Sorry, I didn't catch that. Should I create the countdown?",
   "Sorry, I didn't catch that. Should I go ahead and create the countdown?": "Sorry, I didn't catch that. Should I go ahead and create the countdown?",
   "Sorry, I didn't quite catch that. What would you like to do?": "Sorry, I didn't quite catch that. What would you like to do?",
@@ -46,7 +47,6 @@
   "Sorry, when will the event take place?": "Sorry, when will the event take place?",
   "Sure, when will it take place?": "Sure, when will it take place?",
   "Sure. What event would you like to track?": "Sure. What event would you like to track?",
-  "Testing!": "Testing!",
   "There are no days left - it's today!": "There are no days left - it's today!",
   "To check on this countdown, just say: <break strength=\"strong\"/> Ask Days Until, how long until {{eventName}}?": "To check on this countdown, just say: <break strength=\"strong\"/> Ask Days Until, how long until {{eventName}}?",
   "To get started, say <break strength=\"strong\"/> <prosody pitch=\"+10%\">\"start a new countdown.\"</prosody>": "To get started, say <break strength=\"strong\"/> <prosody pitch=\"+10%\">\"start a new countdown.\"</prosody>",
@@ -56,6 +56,7 @@
   "Welcome! What would you like to do?": "Welcome! What would you like to do?",
   "What's the event?": "What's the event?",
   "When will it take place?": "When will it take place?",
+  "When's the event?": "When's the event?",
   "Would you like to begin a new countdown or check an existing countdown?": "Would you like to begin a new countdown or check an existing countdown?",
   "Would you like to create a new countdown or check an existing one?": "Would you like to create a new countdown or check an existing one?",
   "Would you like to start a new countdown or check an existing one?": "Would you like to start a new countdown or check an existing one?",
@@ -147,5 +148,6 @@
   "{{ eventName }} is tomorrow": "{{ eventName }} is tomorrow",
   "{{ eventName }} was one day ago": "{{ eventName }} was one day ago",
   "{{ eventName }} was yesterday": "{{ eventName }} was yesterday",
-  "{{ eventName }} was {{ diff }} days ago": "{{ eventName }} was {{ diff }} days ago"
+  "{{ eventName }} was {{ diff }} days ago": "{{ eventName }} was {{ diff }} days ago",
+  "{{eventName}} on {{eventDate}} - does this look right?": "{{eventName}} on {{eventDate}} - does this look right?"
 }
