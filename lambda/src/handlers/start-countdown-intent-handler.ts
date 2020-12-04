@@ -274,7 +274,18 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
         .addElicitSlotDirective('CountdownEvent', {
           name: INTENT_NAME,
           confirmationStatus: 'NONE',
-          slots: {},
+          slots: {
+            // Why are these required to be explicitly called out here but not above?
+            // ¯\_(ツ)_/¯
+            EventDate: {
+              name: 'EventDate',
+              confirmationStatus: 'NONE',
+            },
+            CountdownEvent: {
+              name: 'EventDate',
+              confirmationStatus: 'NONE',
+            },
+          },
         })
         .getResponse();
     }
