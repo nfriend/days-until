@@ -48,6 +48,7 @@
                   {
                     "type": "Container",
                     "display": "${@viewportProfile == @hubRoundSmall ? 'none' : 'normal' }",
+                    "width": "50%",
                     "paddingTop": "16dp",
                     "paddingLeft": "16dp",
                     "paddingRight": "16dp",
@@ -72,6 +73,7 @@
                   },
                   {
                     "type": "Container",
+                    "width": "50%",
                     "paddingTop": "16dp",
                     "paddingLeft": "16dp",
                     "paddingRight": "16dp",
