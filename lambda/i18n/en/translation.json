@@ -1,10 +1,12 @@
 {
   "0 days - today is the day!": "0 days - today is the day!",
+  "<b>{{eventName}}: {{eventDate}}</b><br><br>": "<b>{{eventName}}: {{eventDate}}</b><br><br>",
   "<say-as interpret-as=\"interjection\">{{interjection}}!</say-as>": "<say-as interpret-as=\"interjection\">{{interjection}}!</say-as>",
   "Awesome!": "Awesome!",
   "Check an existing countdown": "Check an existing countdown",
   "Create a new countdown": "Create a new countdown",
   "Days Until": "Days Until",
+  "Does this look right?": "Does this look right?",
   "Done!": "Done!",
   "Got it!": "Got it!",
   "Great!": "Great!",
@@ -14,6 +16,7 @@
   "Hi again!": "Hi again!",
   "Hi there!": "Hi there!",
   "Hi!": "Hi!",
+  "How does this look?": "How does this look?",
   "I didn't catch that - can you repeat what you'd like to do?": "I didn't catch that - can you repeat what you'd like to do?",
   "I had trouble doing what you asked. Please try again.": "I had trouble doing what you asked. Please try again.",
   "I'll create a new countdown for {{eventName}} on {{eventDate}}. Does that sound right?": "I'll create a new countdown for {{eventName}} on {{eventDate}}. Does that sound right?",
@@ -25,6 +28,7 @@
   "Just 1 day!": "Just 1 day!",
   "Let's give it another try. What's the event?": "Let's give it another try. What's the event?",
   "Let's try again. What's the name of the event?": "Let's try again. What's the name of the event?",
+  "Look good?": "Look good?",
   "Looks like this is your first visit!": "Looks like this is your first visit!",
   "Okay, I'll start a countdown for {{eventName}} on {{eventDate}}. Did I get that right?": "Okay, I'll start a countdown for {{eventName}} on {{eventDate}}. Did I get that right?",
   "Okay, What's the event?": "Okay, What's the event?",
@@ -152,6 +156,5 @@
   "{{ eventName }} is tomorrow": "{{ eventName }} is tomorrow",
   "{{ eventName }} was one day ago": "{{ eventName }} was one day ago",
   "{{ eventName }} was yesterday": "{{ eventName }} was yesterday",
-  "{{ eventName }} was {{ diff }} days ago": "{{ eventName }} was {{ diff }} days ago",
-  "{{eventName}} on {{eventDate}} - does this look right?": "{{eventName}} on {{eventDate}} - does this look right?"
+  "{{ eventName }} was {{ diff }} days ago": "{{ eventName }} was {{ diff }} days ago"
 }

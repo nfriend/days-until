@@ -90,7 +90,7 @@
                     ],
                     "grow": 1,
                     "direction": "row",
-                    "shrink": 1
+                    "shrink": 0
                   }
                 ],
                 "direction": "row"

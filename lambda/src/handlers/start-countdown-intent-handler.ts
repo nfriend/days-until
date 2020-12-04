@@ -51,7 +51,6 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
 
       const text = i18n.t('What is the event?');
       const imageName = chooseOne(
-        `faq.png`,
         `question.png`,
         `conversation.png`,
         `interview.png`,
@@ -160,15 +159,17 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
     if (intent.confirmationStatus === 'NONE') {
       // The user has not yet confirmed everything is correct
 
-      const i18nData = {
-        eventName,
-        eventDate: eventDate.format('YYYY-MM-DD'),
-      };
-
-      const text = i18n.t(
-        '{{eventName}} on {{eventDate}} - does this look right?',
-        i18nData,
-      );
+      const text = [
+        i18n.t('<b>{{eventName}}: {{eventDate}}</b><br><br>', {
+          eventName,
+          eventDate: eventDate.format('MMMM D, YYYY'),
+        }),
+        chooseOne(
+          i18n.t('Does this look right?'),
+          i18n.t('How does this look?'),
+          i18n.t('Look good?'),
+        ),
+      ].join(' ');
       const eventImageSrc = `${ASSETS_BASE_URL}/images/faq.png`;
 
       if (
@@ -190,6 +191,11 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
           },
         });
       }
+
+      const i18nData = {
+        eventName,
+        eventDate: eventDate.format('YYYY-MM-DD'),
+      };
 
       return handlerInput.responseBuilder
         .speak(
