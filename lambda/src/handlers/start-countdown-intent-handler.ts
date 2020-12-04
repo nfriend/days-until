@@ -282,7 +282,7 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
               confirmationStatus: 'NONE',
             },
             CountdownEvent: {
-              name: 'EventDate',
+              name: 'CountdownEvent',
               confirmationStatus: 'NONE',
             },
           },
