@@ -272,7 +272,7 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
         )
         .withStandardCard(i18n.t('Create a new countdown'), text, eventImageSrc)
         .addElicitSlotDirective('CountdownEvent', {
-          name: ASSETS_BASE_URL,
+          name: INTENT_NAME,
           confirmationStatus: 'NONE',
           slots: {},
         })
