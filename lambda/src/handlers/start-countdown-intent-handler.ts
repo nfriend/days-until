@@ -185,6 +185,9 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
       ),
     );
 
+    const eventImageSrc = getImageForEvent(eventName);
+    const countdownStatusText = getDaysUntil(eventDate, eventName).visual;
+
     if (
       Alexa.getSupportedInterfaces(handlerInput.requestEnvelope)[
         'Alexa.Presentation.APL'
@@ -198,8 +201,8 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
           data: {
             headerTitle: i18n.t('Days Until'),
             headerImage: `${ASSETS_BASE_URL}/images/wall-calendar-with-logo.png`,
-            countdownStatusText: getDaysUntil(eventDate, eventName).visual,
-            eventImageSrc: getImageForEvent(eventName),
+            countdownStatusText,
+            eventImageSrc,
           },
         },
       });
@@ -225,6 +228,7 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
           },
         },
       })
+      .withStandardCard(eventName, countdownStatusText, eventImageSrc)
       .withShouldEndSession(true)
       .getResponse();
   },
