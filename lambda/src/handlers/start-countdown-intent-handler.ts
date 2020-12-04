@@ -49,7 +49,7 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
     if (!countdownEventSlotValue) {
       // The user has not yet provided an event name
 
-      const text = i18n.t("What's the event?");
+      const text = i18n.t('What is the event?');
       const eventImageSrc = `${ASSETS_BASE_URL}/images/faq.png`;
 
       if (
@@ -96,7 +96,7 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
     if (!eventDateSlotValue) {
       // The user has not yet provided an event date
 
-      const text = i18n.t("When's the event?");
+      const text = i18n.t('When is the event?');
       const eventImageSrc = `${ASSETS_BASE_URL}/images/faq.png`;
 
       if (
@@ -151,6 +151,7 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
 
       const text = i18n.t(
         '{{eventName}} on {{eventDate}} - does this look right?',
+        i18nData,
       );
       const eventImageSrc = `${ASSETS_BASE_URL}/images/faq.png`;
 
