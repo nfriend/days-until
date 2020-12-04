@@ -255,39 +255,65 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
 
       speeches.push(getFailureInterjection());
 
+      // Retrying is not currently possible due to https://forums.developer.amazon.com/questions/221321/intent-confirmationstatus-cannot-be-changed-with-d.html
+      // speeches.push(
+      //   chooseOne(
+      //     i18n.t("Let's try again. What's the name of the event?"),
+      //     i18n.t("Let's give it another try. What's the event?"),
+      //   ),
+      // );
+
       speeches.push(
         chooseOne(
-          i18n.t("Let's try again. What's the name of the event?"),
-          i18n.t("Let's give it another try. What's the event?"),
+          i18n.t(
+            'Sorry about that! Try saying "create a new countdown" again.',
+          ),
+          i18n.t(
+            'Sorry! Say "start a new countdown" to give me another chance.',
+          ),
         ),
       );
 
-      return handlerInput.responseBuilder
-        .speak(speeches.join(' '))
-        .reprompt(
-          chooseOne(
-            i18n.t("Sorry, what's the event?"),
-            i18n.t('Sorry, what event would you like to track?'),
-          ),
-        )
-        .withStandardCard(i18n.t('Create a new countdown'), text, eventImageSrc)
-        .addElicitSlotDirective('CountdownEvent', {
-          name: INTENT_NAME,
-          confirmationStatus: 'NONE',
-          slots: {
-            // Why are these required to be explicitly called out here but not above?
-            // ¯\_(ツ)_/¯
-            EventDate: {
-              name: 'EventDate',
-              confirmationStatus: 'NONE',
-            },
-            CountdownEvent: {
-              name: 'CountdownEvent',
-              confirmationStatus: 'NONE',
-            },
-          },
-        })
-        .getResponse();
+      return (
+        handlerInput.responseBuilder
+          .speak(speeches.join(' '))
+          // .reprompt(
+          //   chooseOne(
+          //     i18n.t("Sorry, what's the event?"),
+          //     i18n.t('Sorry, what event would you like to track?'),
+          //   ),
+          // )
+          .reprompt(
+            i18n.t(
+              'If you\'d like to try again, just say "create a new countdown".',
+            ),
+          )
+          .withStandardCard(
+            i18n.t('Create a new countdown'),
+            text,
+            eventImageSrc,
+          )
+
+          // Commenting out until there is a solution to the problem linked above
+          // .addElicitSlotDirective('CountdownEvent', {
+          //   name: INTENT_NAME,
+          //   confirmationStatus: 'NONE',
+          //   slots: {
+          //     // Why are these required to be explicitly called out here but not above?
+          //     // ¯\_(ツ)_/¯
+          //     EventDate: {
+          //       name: 'EventDate',
+          //       confirmationStatus: 'NONE',
+          //     },
+          //     CountdownEvent: {
+          //       name: 'CountdownEvent',
+          //       confirmationStatus: 'NONE',
+          //     },
+          //   },
+          // })
+
+          .getResponse()
+      );
     }
 
     const eventKey = getEventKey(eventName);
