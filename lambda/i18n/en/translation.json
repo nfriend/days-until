@@ -23,6 +23,8 @@
   "It was {{ diff }} days ago.": "It was {{ diff }} days ago.",
   "It's today!": "It's today!",
   "Just 1 day!": "Just 1 day!",
+  "Let's give it another try. What's the event?": "Let's give it another try. What's the event?",
+  "Let's try again. What's the name of the event?": "Let's try again. What's the name of the event?",
   "Looks like this is your first visit!": "Looks like this is your first visit!",
   "Okay, I'll start a countdown for {{eventName}} on {{eventDate}}. Did I get that right?": "Okay, I'll start a countdown for {{eventName}} on {{eventDate}}. Did I get that right?",
   "Okay, What's the event?": "Okay, What's the event?",

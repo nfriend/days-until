@@ -12,6 +12,7 @@ import { getImageForEvent } from '~/util/get-image-for-event';
 import { getDaysUntil } from '~/util/get-days-until';
 import { getAllSuccessInterjections } from '~/util/get-all-success-interjections';
 import { ASSETS_BASE_URL } from '~/constants';
+import { getFailureInterjection } from '~/util/get-failure-interjection';
 
 const INTENT_NAME = 'StartCountdownIntent';
 
@@ -150,7 +151,31 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
         .addConfirmIntentDirective(updatedIntent)
         .getResponse();
     } else if (intent.confirmationStatus === 'DENIED') {
-      // TODO: handle confirmation denied here
+      const speeches = [];
+
+      speeches.push(getFailureInterjection());
+
+      speeches.push(
+        chooseOne(
+          i18n.t("Let's try again. What's the name of the event?"),
+          i18n.t("Let's give it another try. What's the event?"),
+        ),
+      );
+
+      return handlerInput.responseBuilder
+        .speak(speeches.join(' '))
+        .reprompt(
+          chooseOne(
+            i18n.t("Sorry, what's the event?"),
+            i18n.t('Sorry, what event would you like to track?'),
+          ),
+        )
+        .addConfirmIntentDirective({
+          name: ASSETS_BASE_URL,
+          confirmationStatus: 'NONE',
+          slots: {},
+        })
+        .getResponse();
     }
 
     const eventKey = getEventKey(eventName);
