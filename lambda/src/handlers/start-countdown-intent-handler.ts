@@ -16,18 +16,98 @@ import { getFailureInterjection } from '~/util/get-failure-interjection';
 
 const INTENT_NAME = 'StartCountdownIntent';
 
+interface BuildResponseParams {
+  /** The handler input object */
+  handlerInput: Alexa.HandlerInput;
+
+  /** The text to speak */
+  speak?: string;
+
+  /** The reprompt text */
+  reprompt?: string;
+
+  /** URL to the image that should be shown */
+  eventImageSrc: string;
+
+  /** Text that will be shown visually */
+  visualText: string;
+
+  /**
+   * Text to be shown as the card's title,
+   * if different from the default
+   */
+  cardTitle?: string;
+}
+
+/**
+ * Creates a response that includes an APL template
+ * (text + an image), a standard card, and speech.
+ * Used to eliminate some duplication below since
+ * almost every turn in the conversation uses this pattern.
+ */
+const buildResponse = ({
+  handlerInput,
+  speak,
+  reprompt,
+  eventImageSrc,
+  visualText,
+  cardTitle,
+}: BuildResponseParams) => {
+  const responseBuilder = handlerInput.responseBuilder;
+
+  if (
+    Alexa.getSupportedInterfaces(handlerInput.requestEnvelope)[
+      'Alexa.Presentation.APL'
+    ]
+  ) {
+    responseBuilder.addDirective({
+      type: 'Alexa.Presentation.APL.RenderDocument',
+      token: 'token',
+      document: textWithImage,
+      datasources: {
+        data: {
+          headerTitle: i18n.t('Days Until'),
+          headerImage: `${ASSETS_BASE_URL}/images/wall-calendar-with-logo.png`,
+          text: visualText,
+          eventImageSrc,
+        },
+      },
+    });
+  }
+
+  if (speak) {
+    responseBuilder.speak(speak);
+  }
+
+  if (reprompt) {
+    responseBuilder.reprompt(reprompt);
+  }
+
+  responseBuilder.withStandardCard(
+    cardTitle || i18n.t('Create a new countdown'),
+    visualText,
+    eventImageSrc,
+  );
+
+  return responseBuilder;
+};
+
 export const startCountdownIntentHandler: Alexa.RequestHandler = {
   canHandle(handlerInput: Alexa.HandlerInput): boolean | Promise<boolean> {
+    // If the user pressed a "Create a new countdown" button
     const wasCreateButtonPushed =
       Alexa.getRequestType(handlerInput.requestEnvelope) ===
         'Alexa.Presentation.APL.UserEvent' &&
       (handlerInput.requestEnvelope.request as any).source.id ===
         'createNewButton';
 
+    // If the intent was triggered normally, e.g. when the user
+    // says "Create a new countdown"
     const wasCreateIntentRequested =
       Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' &&
       Alexa.getIntentName(handlerInput.requestEnvelope) === INTENT_NAME;
 
+    // This handler handles both
     return wasCreateButtonPushed || wasCreateIntentRequested;
   },
   async handle(handlerInput: Alexa.HandlerInput): Promise<Response> {
@@ -49,7 +129,7 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
     if (!countdownEventSlotValue) {
       // The user has not yet provided an event name
 
-      const text = i18n.t('What is the event?');
+      const visualText = i18n.t('What is the event?');
       const imageName = chooseOne(
         `question.png`,
         `conversation.png`,
@@ -57,41 +137,24 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
       );
       const eventImageSrc = `${ASSETS_BASE_URL}/images/${imageName}`;
 
-      if (
-        Alexa.getSupportedInterfaces(handlerInput.requestEnvelope)[
-          'Alexa.Presentation.APL'
-        ]
-      ) {
-        handlerInput.responseBuilder.addDirective({
-          type: 'Alexa.Presentation.APL.RenderDocument',
-          token: 'token',
-          document: textWithImage,
-          datasources: {
-            data: {
-              headerTitle: i18n.t('Days Until'),
-              headerImage: `${ASSETS_BASE_URL}/images/wall-calendar-with-logo.png`,
-              text,
-              eventImageSrc,
-            },
-          },
-        });
-      }
+      const speak = chooseOne(
+        i18n.t("What's the event?"),
+        i18n.t("Okay, What's the event?"),
+        i18n.t('Sure. What event would you like to track?'),
+      );
 
-      return handlerInput.responseBuilder
-        .speak(
-          chooseOne(
-            i18n.t("What's the event?"),
-            i18n.t("Okay, What's the event?"),
-            i18n.t('Sure. What event would you like to track?'),
-          ),
-        )
-        .reprompt(
-          chooseOne(
-            i18n.t("Sorry, what's the event?"),
-            i18n.t('Sorry, what event would you like to track?'),
-          ),
-        )
-        .withStandardCard(i18n.t('Create a new countdown'), text, eventImageSrc)
+      const reprompt = chooseOne(
+        i18n.t("Sorry, what's the event?"),
+        i18n.t('Sorry, what event would you like to track?'),
+      );
+
+      return buildResponse({
+        handlerInput,
+        visualText,
+        eventImageSrc,
+        speak,
+        reprompt,
+      })
         .addElicitSlotDirective('CountdownEvent', updatedIntent)
         .getResponse();
     }
@@ -101,7 +164,7 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
     if (!eventDateSlotValue) {
       // The user has not yet provided an event date
 
-      const text = i18n.t('When is the event?');
+      const visualText = i18n.t('When is the event?');
       const imageName = chooseOne(
         '001-calendar.png',
         '002-calendar-1.png',
@@ -114,41 +177,24 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
       );
       const eventImageSrc = `${ASSETS_BASE_URL}/images/${imageName}`;
 
-      if (
-        Alexa.getSupportedInterfaces(handlerInput.requestEnvelope)[
-          'Alexa.Presentation.APL'
-        ]
-      ) {
-        handlerInput.responseBuilder.addDirective({
-          type: 'Alexa.Presentation.APL.RenderDocument',
-          token: 'token',
-          document: textWithImage,
-          datasources: {
-            data: {
-              headerTitle: i18n.t('Days Until'),
-              headerImage: `${ASSETS_BASE_URL}/images/wall-calendar-with-logo.png`,
-              text,
-              eventImageSrc,
-            },
-          },
-        });
-      }
+      const speak = chooseOne(
+        i18n.t('Sure, when will it take place?'),
+        i18n.t('Okay, when will it take place?'),
+        i18n.t('When will it take place?'),
+      );
 
-      return handlerInput.responseBuilder
-        .speak(
-          chooseOne(
-            i18n.t('Sure, when will it take place?'),
-            i18n.t('Okay, when will it take place?'),
-            i18n.t('When will it take place?'),
-          ),
-        )
-        .reprompt(
-          chooseOne(
-            i18n.t('Sorry, when will it take place?'),
-            i18n.t('Sorry, when will the event take place?'),
-          ),
-        )
-        .withStandardCard(i18n.t('Create a new countdown'), text, eventImageSrc)
+      const reprompt = chooseOne(
+        i18n.t('Sorry, when will it take place?'),
+        i18n.t('Sorry, when will the event take place?'),
+      );
+
+      return buildResponse({
+        handlerInput,
+        visualText,
+        eventImageSrc,
+        speak,
+        reprompt,
+      })
         .addElicitSlotDirective('EventDate', updatedIntent)
         .getResponse();
     }
@@ -159,7 +205,7 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
     if (intent.confirmationStatus === 'NONE') {
       // The user has not yet confirmed everything is correct
 
-      const text = [
+      const visualText = [
         i18n.t('<b>{{eventName}}: {{eventDate}}</b><br><br>', {
           eventName,
           eventDate: eventDate.format('MMMM D, YYYY'),
@@ -172,98 +218,57 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
       ].join(' ');
       const eventImageSrc = `${ASSETS_BASE_URL}/images/faq.png`;
 
-      if (
-        Alexa.getSupportedInterfaces(handlerInput.requestEnvelope)[
-          'Alexa.Presentation.APL'
-        ]
-      ) {
-        handlerInput.responseBuilder.addDirective({
-          type: 'Alexa.Presentation.APL.RenderDocument',
-          token: 'token',
-          document: textWithImage,
-          datasources: {
-            data: {
-              headerTitle: i18n.t('Days Until'),
-              headerImage: `${ASSETS_BASE_URL}/images/wall-calendar-with-logo.png`,
-              text,
-              eventImageSrc,
-            },
-          },
-        });
-      }
-
       const i18nData = {
         eventName,
         eventDate: eventDate.format('YYYY-MM-DD'),
       };
 
-      return handlerInput.responseBuilder
-        .speak(
-          chooseOne(
-            i18n.t(
-              "I'll create a new countdown for {{eventName}} on {{eventDate}}. Does that sound right?",
-              i18nData,
-            ),
-            i18n.t(
-              "Okay, I'll start a countdown for {{eventName}} on {{eventDate}}. Did I get that right?",
-              i18nData,
-            ),
-            i18n.t(
-              "I'll create a new countdown for {{eventName}} on {{eventDate}}. Is that right?",
-              i18nData,
-            ),
-          ),
-        )
-        .reprompt(
-          chooseOne(
-            i18n.t(
-              "Sorry, I didn't catch that. Should I go ahead and create the countdown?",
-            ),
-            i18n.t(
-              "Sorry, I didn't catch that. Should I create the countdown?",
-            ),
-          ),
-        )
-        .withStandardCard(i18n.t('Create a new countdown'), text, eventImageSrc)
+      const speak = chooseOne(
+        i18n.t(
+          "I'll create a new countdown for {{eventName}} on {{eventDate}}. Does that sound right?",
+          i18nData,
+        ),
+        i18n.t(
+          "Okay, I'll start a countdown for {{eventName}} on {{eventDate}}. Did I get that right?",
+          i18nData,
+        ),
+        i18n.t(
+          "I'll create a new countdown for {{eventName}} on {{eventDate}}. Is that right?",
+          i18nData,
+        ),
+      );
+
+      const reprompt = chooseOne(
+        i18n.t(
+          "Sorry, I didn't catch that. Should I go ahead and create the countdown?",
+        ),
+        i18n.t("Sorry, I didn't catch that. Should I create the countdown?"),
+      );
+
+      return buildResponse({
+        handlerInput,
+        visualText,
+        eventImageSrc,
+        speak,
+        reprompt,
+      })
         .addConfirmIntentDirective(updatedIntent)
         .getResponse();
     } else if (intent.confirmationStatus === 'DENIED') {
-      const text = i18n.t('Sorry about that!');
+      // The user has told us something is wrong with what we heard
+
+      // Ideally, we would automatically restart this dialog, but the SDK
+      // appears to have a bug where restarting an intent
+      // does _not_ reset its `confirmationStatus`:
+      // https://forums.developer.amazon.com/questions/221321/intent-confirmationstatus-cannot-be-changed-with-d.html
+      // So, for now, we just ask the user to "manually" retrigger
+      // this intent by promping them with the correct text.
+
+      const visualText = i18n.t('Sorry about that!');
       const eventImageSrc = `${ASSETS_BASE_URL}/images/sad.png`;
 
-      if (
-        Alexa.getSupportedInterfaces(handlerInput.requestEnvelope)[
-          'Alexa.Presentation.APL'
-        ]
-      ) {
-        handlerInput.responseBuilder.addDirective({
-          type: 'Alexa.Presentation.APL.RenderDocument',
-          token: 'token',
-          document: textWithImage,
-          datasources: {
-            data: {
-              headerTitle: i18n.t('Days Until'),
-              headerImage: `${ASSETS_BASE_URL}/images/wall-calendar-with-logo.png`,
-              text,
-              eventImageSrc,
-            },
-          },
-        });
-      }
-
-      const speeches = [];
-
-      speeches.push(getFailureInterjection());
-
-      // Retrying is not currently possible due to https://forums.developer.amazon.com/questions/221321/intent-confirmationstatus-cannot-be-changed-with-d.html
-      // speeches.push(
-      //   chooseOne(
-      //     i18n.t("Let's try again. What's the name of the event?"),
-      //     i18n.t("Let's give it another try. What's the event?"),
-      //   ),
-      // );
-
-      speeches.push(
+      const speak = [
+        getFailureInterjection(),
         chooseOne(
           i18n.t(
             'Sorry about that! Try saying "create a new countdown" again.',
@@ -272,48 +277,19 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
             'Sorry! Say "start a new countdown" to give me another chance.',
           ),
         ),
+      ].join(' ');
+
+      const reprompt = i18n.t(
+        'If you\'d like to try again, just say "create a new countdown".',
       );
 
-      return (
-        handlerInput.responseBuilder
-          .speak(speeches.join(' '))
-          // .reprompt(
-          //   chooseOne(
-          //     i18n.t("Sorry, what's the event?"),
-          //     i18n.t('Sorry, what event would you like to track?'),
-          //   ),
-          // )
-          .reprompt(
-            i18n.t(
-              'If you\'d like to try again, just say "create a new countdown".',
-            ),
-          )
-          .withStandardCard(
-            i18n.t('Create a new countdown'),
-            text,
-            eventImageSrc,
-          )
-
-          // Commenting out until there is a solution to the problem linked above
-          // .addElicitSlotDirective('CountdownEvent', {
-          //   name: INTENT_NAME,
-          //   confirmationStatus: 'NONE',
-          //   slots: {
-          //     // Why are these required to be explicitly called out here but not above?
-          //     // ¯\_(ツ)_/¯
-          //     EventDate: {
-          //       name: 'EventDate',
-          //       confirmationStatus: 'NONE',
-          //     },
-          //     CountdownEvent: {
-          //       name: 'CountdownEvent',
-          //       confirmationStatus: 'NONE',
-          //     },
-          //   },
-          // })
-
-          .getResponse()
-      );
+      return buildResponse({
+        handlerInput,
+        visualText,
+        eventImageSrc,
+        speak,
+        reprompt,
+      }).getResponse();
     }
 
     const eventKey = getEventKey(eventName);
@@ -349,27 +325,7 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
     );
 
     const eventImageSrc = getImageForEvent(eventName);
-    const text = getDaysUntil(eventDate, eventName).visual;
-
-    if (
-      Alexa.getSupportedInterfaces(handlerInput.requestEnvelope)[
-        'Alexa.Presentation.APL'
-      ]
-    ) {
-      handlerInput.responseBuilder.addDirective({
-        type: 'Alexa.Presentation.APL.RenderDocument',
-        token: 'token',
-        document: textWithImage,
-        datasources: {
-          data: {
-            headerTitle: i18n.t('Days Until'),
-            headerImage: `${ASSETS_BASE_URL}/images/wall-calendar-with-logo.png`,
-            text,
-            eventImageSrc,
-          },
-        },
-      });
-    }
+    const visualText = getDaysUntil(eventDate, eventName).visual;
 
     const backgroundAudio = chooseOne(
       'soundbank://soundlibrary/human/amzn_sfx_crowd_cheer_med_01',
@@ -379,7 +335,12 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
       `${ASSETS_BASE_URL}/audio/462362__breviceps__small-applause.mp3`,
     );
 
-    return handlerInput.responseBuilder
+    return buildResponse({
+      handlerInput,
+      visualText,
+      eventImageSrc,
+      cardTitle: eventName,
+    })
       .addDirective({
         type: 'Alexa.Presentation.APLA.RenderDocument',
         token: 'token',
@@ -391,7 +352,6 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
           },
         },
       })
-      .withStandardCard(eventName, text, eventImageSrc)
       .withShouldEndSession(true)
       .getResponse();
   },
