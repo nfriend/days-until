@@ -24,7 +24,7 @@
     "prepush": "yarn build && yarn lint && yarn test && yarn translate && yarn model"
   },
   "dependencies": {
-    "@nfriend/amazon.date-normalizer": "1.2.0",
+    "@nfriend/amazon.date-normalizer": "^1.2.3",
     "@sentry/node": "5.27.6",
     "@sentry/tracing": "5.27.6",
     "@types/jest": "26.0.15",

@@ -498,10 +498,10 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@nfriend/amazon.date-normalizer@1.2.0":
-  version "1.2.0"
-  resolved "https://gitlab.com/api/v4/projects/22654375/packages/npm/@nfriend/amazon.date-normalizer/-/@nfriend/amazon.date-normalizer-1.2.0.tgz#aea8e5a8b2f507d07255f3dc1135905342e92a39"
-  integrity sha1-rqjlqLL1B9ByVfPcETWQU0LpKjk=
+"@nfriend/amazon.date-normalizer@^1.2.3":
+  version "1.2.3"
+  resolved "https://gitlab.com/api/v4/projects/22654375/packages/npm/@nfriend/amazon.date-normalizer/-/@nfriend/amazon.date-normalizer-1.2.3.tgz#f149b16dd806db4db2a5e48f0f3aa8285e8f80ae"
+  integrity sha1-8UmxbdgG202ypeSPDzqoKF6PgK4=
   dependencies:
     lodash.isstring "^4.0.1"
     moment "2.29.1"
