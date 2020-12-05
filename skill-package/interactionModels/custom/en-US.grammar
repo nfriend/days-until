@@ -9,6 +9,14 @@ StartCountdownIntent:
 {start|can you start|create|begin|how about|i want|} a {|new} {countdown|count down|one} {on|in} {{EventDate:AMAZON.DATE}} for {{CountdownEvent:EventType}}
 {start|can you start|create|begin|how about|i want|} a {|new} {countdown|count down|one} for {{CountdownEvent:EventType}} {on|in} {{EventDate:AMAZON.DATE}}
 
+ReportCountdownIntent:
+{can you tell me|tell me|} how {many days|long|much time|much longer} {it is|} {to|till|until} {{CountdownEvent:EventType}} {happen|happens|start|starts|begin|begins|}
+{when is|when's} {{CountdownEvent:EventType}} {going to happen|gonna happen|going to start|gonna start|going to begin|gonna begin|}
+{what is|what's} the wait for {{CountdownEvent:EventType}}
+{when's|when does|when will} {{CountdownEvent:EventType}} {happen|happens|start|begin|be|}
+{can you tell me|tell me|} when {{CountdownEvent:EventType}} {is|will be}
+{{CountdownEvent:EventType}} {how much longer|how soon|how many days|how long|how much more time}
+
 AMAZON.CancelIntent:
 AMAZON.HelpIntent:
 AMAZON.StopIntent:
