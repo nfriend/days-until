@@ -4,6 +4,7 @@ import { buttonPressedHandler } from './handlers/button-pressed-handler';
 import { errorHandler } from './handlers/error-handler';
 import { intentReflectorHandler } from './handlers/intent-reflector-handler';
 import { launchRequestHandler } from './handlers/launch-request-handler';
+import { reportCountdownIntentHandler } from './handlers/report-countdown-intent-handler';
 import { sessionEndedRequestHandler } from './handlers/session-ended-request-handler';
 import { startCountdownIntentHandler } from './handlers/start-countdown-intent-handler';
 import { firstLaunchInterceptor } from './interceptors/first-launch-interceptor';
@@ -15,6 +16,7 @@ export const handler = Alexa.SkillBuilders.custom()
   .addRequestHandlers(
     launchRequestHandler,
     startCountdownIntentHandler,
+    reportCountdownIntentHandler,
     sessionEndedRequestHandler,
 
     buttonPressedHandler,
