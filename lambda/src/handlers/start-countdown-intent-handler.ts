@@ -1,96 +1,21 @@
 import * as Alexa from 'ask-sdk-core';
 import * as capitalize from 'capitalize';
+import moment from 'moment';
 import { Intent, IntentRequest, Response } from 'ask-sdk-model';
+import i18n from 'i18next';
 import { normalize } from '@nfriend/amazon.date-normalizer';
 import { db } from '~/adapters/dynamo-db';
 import { getEventKey } from '~/util/get-event-key';
-import i18n from 'i18next';
 import { chooseOne } from '~/util/choose-one';
-import textWithImage from '~/apl/text-with-image.json';
 import soundEffectWithSsml from '~/apla/sound-effect-with-ssml.json';
 import { getImageForEvent } from '~/util/get-image-for-event';
 import { getDaysUntil } from '~/util/get-days-until';
 import { getAllSuccessInterjections } from '~/util/get-all-success-interjections';
-import { ASSETS_BASE_URL } from '~/constants';
 import { getFailureInterjection } from '~/util/get-failure-interjection';
+import { buildResponse } from '~/util/build-response';
+import { ASSETS_BASE_URL } from '~/constants';
 
 const INTENT_NAME = 'StartCountdownIntent';
-
-interface BuildResponseParams {
-  /** The handler input object */
-  handlerInput: Alexa.HandlerInput;
-
-  /** The text to speak */
-  speak?: string;
-
-  /** The reprompt text */
-  reprompt?: string;
-
-  /** URL to the image that should be shown */
-  eventImageSrc: string;
-
-  /** Text that will be shown visually */
-  visualText: string;
-
-  /**
-   * Text to be shown as the card's title,
-   * if different from the default
-   */
-  cardTitle?: string;
-}
-
-/**
- * Creates a response that includes an APL template
- * (text + an image), a standard card, and speech.
- * Used to eliminate some duplication below since
- * almost every turn in the conversation uses this pattern.
- */
-const buildResponse = ({
-  handlerInput,
-  speak,
-  reprompt,
-  eventImageSrc,
-  visualText,
-  cardTitle,
-}: BuildResponseParams) => {
-  const responseBuilder = handlerInput.responseBuilder;
-
-  if (
-    Alexa.getSupportedInterfaces(handlerInput.requestEnvelope)[
-      'Alexa.Presentation.APL'
-    ]
-  ) {
-    responseBuilder.addDirective({
-      type: 'Alexa.Presentation.APL.RenderDocument',
-      token: 'token',
-      document: textWithImage,
-      datasources: {
-        data: {
-          headerTitle: i18n.t('Days Until'),
-          headerImage: `${ASSETS_BASE_URL}/images/wall-calendar-with-logo.png`,
-          text: visualText,
-          eventImageSrc,
-        },
-      },
-    });
-  }
-
-  if (speak) {
-    responseBuilder.speak(speak);
-  }
-
-  if (reprompt) {
-    responseBuilder.reprompt(reprompt);
-  }
-
-  responseBuilder.withStandardCard(
-    cardTitle || i18n.t('Create a new countdown'),
-    visualText,
-    eventImageSrc,
-  );
-
-  return responseBuilder;
-};
 
 export const startCountdownIntentHandler: Alexa.RequestHandler = {
   canHandle(handlerInput: Alexa.HandlerInput): boolean | Promise<boolean> {
@@ -110,6 +35,7 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
     // This handler handles both
     return wasCreateButtonPushed || wasCreateIntentRequested;
   },
+
   async handle(handlerInput: Alexa.HandlerInput): Promise<Response> {
     const intent = (handlerInput.requestEnvelope.request as IntentRequest)
       .intent;
@@ -125,6 +51,8 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
       confirmationStatus: 'NONE',
       slots: {},
     };
+
+    const cardTitle = i18n.t('Create a new countdown');
 
     if (!countdownEventSlotValue) {
       // The user has not yet provided an event name
@@ -151,6 +79,7 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
       return buildResponse({
         handlerInput,
         visualText,
+        cardTitle,
         eventImageSrc,
         speak,
         reprompt,
@@ -194,6 +123,7 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
         eventImageSrc,
         speak,
         reprompt,
+        cardTitle,
       })
         .addElicitSlotDirective('EventDate', updatedIntent)
         .getResponse();
@@ -248,6 +178,7 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
       return buildResponse({
         handlerInput,
         visualText,
+        cardTitle,
         eventImageSrc,
         speak,
         reprompt,
@@ -286,6 +217,7 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
       return buildResponse({
         handlerInput,
         visualText,
+        cardTitle,
         eventImageSrc,
         speak,
         reprompt,
@@ -299,6 +231,7 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
         [eventKey]: {
           eventName,
           eventDate: eventDate.toISOString(),
+          createdOn: moment().utc().toISOString(),
         },
       },
     });

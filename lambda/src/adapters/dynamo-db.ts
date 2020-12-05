@@ -13,6 +13,7 @@ export interface DaysUntilAttributes {
     [eventKey: string]: {
       eventName?: string;
       eventDate?: string;
+      createdOn?: string;
     };
   };
 }
