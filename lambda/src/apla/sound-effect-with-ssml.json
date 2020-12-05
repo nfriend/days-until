@@ -1,7 +1,7 @@
 {
   "type": "APLA",
   "version": "0.9",
-  "description": "An audio congratulation after a user successfully creates a countdown.",
+  "description": "SSML with a sound effect in the background",
   "compositions": {},
   "resources": [],
   "mainTemplate": {

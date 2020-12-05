@@ -1,5 +1,4 @@
 import diff from 'jest-diff';
-import { has, isString } from 'lodash';
 
 expect.extend({
   toSpeek(lambdaResult: any, speech: string) {
@@ -9,18 +8,30 @@ expect.extend({
       promise: (this as any).promise,
     };
 
-    const ssmlExists = has(lambdaResult, 'response.outputSpeech.ssml');
-    const ssmlIsString = isString(lambdaResult.response.outputSpeech.ssml);
+    const outputSpeechSsml = lambdaResult.response.outputSpeech?.ssml;
+
+    let aplaSpeechSsml = lambdaResult.response.directives?.find(
+      (d: any) => d.type === 'Alexa.Presentation.APLA.RenderDocument',
+    )?.datasources.data.ssml;
+
+    // The way we're testing for APLA SSML gets the "raw" value
+    // of the speech without any <speak></speak> tags added.
+    // To allow us to test this in the same was as outputSpeech
+    // below, add the <speak> tags here.
+    if (aplaSpeechSsml) {
+      aplaSpeechSsml = `<speak>${aplaSpeechSsml.trim()}</speak>`;
+    }
+
+    const ssml = outputSpeechSsml || aplaSpeechSsml;
 
     let ssmlMatches = false;
     let ssmlWithoutTags = '';
-    if (ssmlExists && ssmlIsString) {
-      const ssml: string = lambdaResult.response.outputSpeech.ssml.trim();
-      ssmlMatches = ssml === `<speak>${speech}</speak>`;
-      ssmlWithoutTags = ssml.replace(/<\/?speak>/g, '');
+    if (ssml) {
+      ssmlMatches = ssml.trim() === `<speak>${speech}</speak>`;
+      ssmlWithoutTags = ssml.trim().replace(/<\/?speak>/g, '');
     }
 
-    const pass = ssmlExists && ssmlIsString && ssmlMatches;
+    const pass = ssml && ssmlMatches;
 
     const message = pass
       ? () =>
