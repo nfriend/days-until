@@ -14,6 +14,7 @@ import { getAllSuccessInterjections } from '~/util/get-all-success-interjections
 import { getFailureInterjection } from '~/util/get-failure-interjection';
 import { buildResponse } from '~/util/build-response';
 import { ASSETS_BASE_URL } from '~/constants';
+import { YesIntentQuestion } from './yes-intent-handler';
 
 const INTENT_NAME = 'StartCountdownIntent';
 
@@ -236,6 +237,11 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
       },
     });
 
+    handlerInput.attributesManager.setSessionAttributes({
+      YesIntentQuestion: YesIntentQuestion.ShouldCreateReminder,
+      eventName,
+    });
+
     const speeches = [];
 
     speeches.push(
@@ -255,6 +261,10 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
         'To check on this countdown, just say: <break strength="strong"/> Ask Days Until, how long until {{eventName}}?',
         { eventName },
       ),
+    );
+
+    speeches.push(
+      i18n.t('Would you like to create a daily reminder for this countdown?'),
     );
 
     const eventImageSrc = getImageForEvent(eventName);
@@ -285,7 +295,6 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
           },
         },
       })
-      .withShouldEndSession(true)
       .getResponse();
   },
 };
