@@ -19,6 +19,17 @@ how {many days|long|much time|much longer} {is it|} {to|till|until} {{CountdownE
 {can you tell me|tell me|} {when's|when does|when will|when} {{CountdownEvent:EventType}} {is|will be|happen|happens|start|starts|begin|begins|be|is|}
 {{CountdownEvent:EventType}} {how much longer|how soon|how many days|how long|how much more time}
 
+CreateReminderIntent:
+{add|create|begin|start|} {a|} {new|} {daily|} {reminder|notification|alert}
+{add|create|begin|start|} {a|} {new|} {daily|} {reminder|notification|alert} for {{CountdownEvent:EventType}} at {{ReminderTime:AMAZON.TIME}}
+{add|create|begin|start|} {a|} {new|} {daily|} {reminder|notification|alert} at {{ReminderTime:AMAZON.TIME}} for {{CountdownEvent:EventType}}
+{remind|alert|notify} {me|}
+{remind|alert|notify} {me|} at {{ReminderTime:AMAZON.TIME}}
+{remind|alert|notify} {me|} at {{ReminderTime:AMAZON.TIME}} {for|about} {{CountdownEvent:EventType}}
+{remind|alert|notify} {me|} {for|about} {{CountdownEvent:EventType}}
+{remind|alert|notify} {me|} {for|about} {{CountdownEvent:EventType}} at {{ReminderTime:AMAZON.TIME}}
+
+
 AMAZON.CancelIntent:
 AMAZON.HelpIntent:
 AMAZON.StopIntent:

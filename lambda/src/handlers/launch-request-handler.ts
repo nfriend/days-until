@@ -54,7 +54,7 @@ export const launchRequestHandler: Alexa.RequestHandler = {
         ),
         i18n.t('Looks like this is your first visit!'),
         i18n.t(
-          'To get started, say <break strength="strong"/> <prosody pitch="+10%">"create a new countdown."</prosody>',
+          'To get started, say <break strength="strong"/> "create a new countdown."',
         ),
       );
     } else {
