@@ -25,9 +25,9 @@ export const createReminderIntentHandler: Alexa.RequestHandler = {
     } = handlerInput.attributesManager.getSessionAttributes();
     const intent = (handlerInput.requestEnvelope.request as IntentRequest)
       .intent;
-    const reminderTimeSlotValue = intent.slots.ReminderTime?.value;
+    const reminderTimeSlotValue = intent.slots?.ReminderTime?.value;
     const countdownEventSlotValue =
-      eventNameFromSession || intent.slots.CountdownEvent?.value;
+      eventNameFromSession || intent.slots?.CountdownEvent?.value;
 
     // Because it's possible we manually redirected to this intent from another,
     // we need to makes sure we explicitly elicit slots for _this_ intent.
