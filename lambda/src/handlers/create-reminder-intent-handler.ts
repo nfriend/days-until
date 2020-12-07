@@ -40,9 +40,12 @@ export const createReminderIntentHandler: Alexa.RequestHandler = {
 
     // Check to see if the user has granted permissions for reminder skills
     const remindersApiClient = handlerInput.serviceClientFactory.getReminderManagementServiceClient();
-    const { permissions } = handlerInput.requestEnvelope.context.System.user;
+    const remindersPermissions =
+      handlerInput.requestEnvelope.context.System.user.permissions?.scopes?.[
+        'alexa::alerts:reminders:skill:readwrite'
+      ];
 
-    if (!permissions) {
+    if (!remindersPermissions) {
       const speak = [
         i18n.t(
           "It looks like you haven't yet enabled reminders permissions. You can enable them in the Amazon Alexa app.",

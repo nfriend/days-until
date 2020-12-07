@@ -47,7 +47,11 @@ describe('createReminderIntentHandler', () => {
           context: {
             System: {
               user: {
-                permissions: {},
+                permissions: {
+                  scopes: {
+                    'alexa::alerts:reminders:skill:readwrite': {},
+                  },
+                },
               },
             },
           },
