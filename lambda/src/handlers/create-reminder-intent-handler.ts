@@ -43,7 +43,7 @@ export const createReminderIntentHandler: Alexa.RequestHandler = {
     const remindersPermissions =
       handlerInput.requestEnvelope.context.System.user.permissions?.scopes?.[
         'alexa::alerts:reminders:skill:readwrite'
-      ];
+      ]?.status === 'GRANTED';
 
     if (!remindersPermissions) {
       const speak = [
