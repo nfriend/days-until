@@ -10,7 +10,7 @@ import * as capitalize from 'capitalize';
 import { DaysUntilAttributes, db } from '~/adapters/dynamo-db';
 import { getReminderRequests } from '~/util/get-reminder-requests';
 
-const INTENT_NAME = 'CreateReminderIntent';
+export const INTENT_NAME = 'CreateReminderIntent';
 
 export const createReminderIntentHandler: Alexa.RequestHandler = {
   canHandle(handlerInput: Alexa.HandlerInput): boolean | Promise<boolean> {
@@ -55,6 +55,19 @@ export const createReminderIntentHandler: Alexa.RequestHandler = {
     );
 
     if (!remindersPermissions) {
+      // Save any current slot values we have so that they can be
+      // retrieved later after permissions have been granted.
+      handlerInput.attributesManager.setSessionAttributes({
+        slots: {
+          ReminderTime: {
+            value: reminderTimeSlotValue,
+          },
+          CountdownEvent: {
+            value: countdownEventSlotValue,
+          },
+        },
+      });
+
       return handlerInput.responseBuilder
         .addDirective({
           type: 'Connections.SendRequest',

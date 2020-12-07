@@ -1,6 +1,10 @@
 import * as Alexa from 'ask-sdk-core';
-import { Response } from 'ask-sdk-model';
+import { IntentRequest, Response } from 'ask-sdk-model';
 import { REMINDERS_PERMISSIONS_TOKEN } from '~/constants';
+import {
+  createReminderIntentHandler,
+  INTENT_NAME as CREATE_REMINDER_INTENT_NAME,
+} from './create-reminder-intent-handler';
 
 export const connectionsResponseHandler: Alexa.RequestHandler = {
   canHandle(handlerInput: Alexa.HandlerInput): boolean | Promise<boolean> {
@@ -12,9 +16,12 @@ export const connectionsResponseHandler: Alexa.RequestHandler = {
     );
   },
   async handle(handlerInput: Alexa.HandlerInput): Promise<Response> {
-    return handlerInput.responseBuilder
-      .speak('Not implemented!')
-      .withShouldEndSession(true)
-      .getResponse();
+    (handlerInput.requestEnvelope.request as IntentRequest).intent = {
+      name: CREATE_REMINDER_INTENT_NAME,
+      slots: handlerInput.attributesManager.getSessionAttributes().slots,
+      confirmationStatus: 'NONE',
+    };
+
+    return createReminderIntentHandler.handle(handlerInput);
   },
 };
