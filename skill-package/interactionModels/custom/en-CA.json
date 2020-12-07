@@ -7,7 +7,7 @@
           "name": "StartCountdownIntent",
           "confirmationRequired": true,
           "prompts": {
-            "confirmation": "confirm-countdown"
+            "confirmation": "placeholder"
           },
           "slots": [
             {
@@ -16,7 +16,7 @@
               "elicitationRequired": true,
               "confirmationRequired": false,
               "prompts": {
-                "elicitation": "what-event"
+                "elicitation": "placeholder"
               }
             },
             {
@@ -25,7 +25,52 @@
               "elicitationRequired": true,
               "confirmationRequired": false,
               "prompts": {
-                "elicitation": "what-date"
+                "elicitation": "placeholder"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ReportCountdownIntent",
+          "confirmationRequired": false,
+          "prompts": {
+            "confirmation": "placeholder"
+          },
+          "slots": [
+            {
+              "name": "CountdownEvent",
+              "type": "EventType",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "placeholder"
+              }
+            }
+          ]
+        },
+        {
+          "name": "CreateReminderIntent",
+          "confirmationRequired": false,
+          "prompts": {
+            "confirmation": "placeholder"
+          },
+          "slots": [
+            {
+              "name": "CountdownEvent",
+              "type": "EventType",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "placeholder"
+              }
+            },
+            {
+              "name": "ReminderTime",
+              "type": "AMAZON.TIME",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "placeholder"
               }
             }
           ]
@@ -34,25 +79,7 @@
     },
     "prompts": [
       {
-        "id": "confirm-countdown",
-        "variations": [
-          {
-            "type": "PlainText",
-            "value": "Placeholder"
-          }
-        ]
-      },
-      {
-        "id": "what-event",
-        "variations": [
-          {
-            "type": "PlainText",
-            "value": "Placeholder"
-          }
-        ]
-      },
-      {
-        "id": "what-date",
+        "id": "placeholder",
         "variations": [
           {
             "type": "PlainText",
