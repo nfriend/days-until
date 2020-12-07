@@ -45,6 +45,15 @@ export const createReminderIntentHandler: Alexa.RequestHandler = {
         'alexa::alerts:reminders:skill:readwrite'
       ]?.status === 'GRANTED';
 
+    console.log(
+      'user permissions:',
+      JSON.stringify(
+        handlerInput.requestEnvelope.context.System.user.permissions,
+        null,
+        2,
+      ),
+    );
+
     if (!remindersPermissions) {
       const speak = [
         i18n.t(
