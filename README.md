@@ -62,6 +62,10 @@ at the lakehouse", try "the retirement party", or even just "the party".
 See the `scripts` section of [`lambda/package.json`](lambda/package.json) for a
 complete list of commands that can be used during development.
 
+The `yarn prepush` script runs _all_ prerequisite scripts necessary for the
+pipeline to succeed. It is recommended to run this script before pushing to
+`master`.
+
 Additionally, this project uses the [ASK
 CLI](https://developer.amazon.com/en-US/docs/alexa/smapi/ask-cli-intro.html) for
 deployment and testing. You can install the CLI globally using `yarn global add ask-cli`, and then run CLI commands at the root of this project, e.g. `ask dialog`. See ASK CLI's documentation for a complete list of available commands.

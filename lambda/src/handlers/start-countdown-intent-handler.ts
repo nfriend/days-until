@@ -266,16 +266,16 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
     const eventIsAtLeast2DaysAway = eventDate
       .clone()
       .subtract(1, 'day')
-      .isAfter(moment.utc());
+      .isAfter(moment.utc(), 'day');
 
     if (eventIsAtLeast2DaysAway) {
       speeches.push(
         chooseOne(
           i18n.t(
-            'Would you like to create a daily reminder for this countdown starting ten days before the event?',
+            'Also, would you like to create a daily reminder for this countdown starting ten days before the event?',
           ),
           i18n.t(
-            'Would you like daily reminders during the ten days leading up to this event?',
+            'Also, would you like daily reminders during the ten days leading up to this event?',
           ),
         ),
       );
@@ -292,27 +292,24 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
       `${ASSETS_BASE_URL}/audio/462362__breviceps__small-applause.mp3`,
     );
 
-    const response = buildResponse({
+    return buildResponse({
       handlerInput,
       visualText,
       eventImageSrc,
       cardTitle: eventName,
-    }).addDirective({
-      type: 'Alexa.Presentation.APLA.RenderDocument',
-      token: 'token',
-      document: soundEffectWithSsml,
-      datasources: {
-        data: {
-          ssml: speeches.join(' '),
-          backgroundAudio,
+    })
+      .addDirective({
+        type: 'Alexa.Presentation.APLA.RenderDocument',
+        token: 'token',
+        document: soundEffectWithSsml,
+        datasources: {
+          data: {
+            ssml: speeches.join(' '),
+            backgroundAudio,
+          },
         },
-      },
-    });
-
-    if (!eventIsAtLeast2DaysAway) {
-      response.withShouldEndSession(true);
-    }
-
-    return response.getResponse();
+      })
+      .withShouldEndSession(!eventIsAtLeast2DaysAway)
+      .getResponse();
   },
 };

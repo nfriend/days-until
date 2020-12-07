@@ -65,7 +65,7 @@ describe('reportCountdownIntentHandler', () => {
       const result = await executeLambda(event);
 
       expect(result).toSpeek(
-        'Done! To check on this countdown, just say: <break strength="strong"/> Ask Days Until, how long until My Birthday? Would you like to create a daily reminder for this countdown starting ten days before the event?',
+        'Done! To check on this countdown, just say: <break strength="strong"/> Ask Days Until, how long until My Birthday? Also, would you like to create a daily reminder for this countdown starting ten days before the event?',
       );
     });
   });
