@@ -182,7 +182,7 @@ export const createReminderIntentHandler: Alexa.RequestHandler = {
         reprompt,
         cardTitle,
       })
-        .addElicitSlotDirective('RemiderTime', updatedIntent)
+        .addElicitSlotDirective('ReminderTime', updatedIntent)
         .getResponse();
     }
 
