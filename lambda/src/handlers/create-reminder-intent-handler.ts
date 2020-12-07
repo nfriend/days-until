@@ -3,7 +3,7 @@ import i18n from 'i18next';
 import moment from 'moment';
 import { Intent, IntentRequest, Response } from 'ask-sdk-model';
 import { chooseOne } from '~/util/choose-one';
-import { ASSETS_BASE_URL } from '~/constants';
+import { ASSETS_BASE_URL, REMINDERS_PERMISSIONS_TOKEN } from '~/constants';
 import { buildResponse } from '~/util/build-response';
 import { getEventKey } from '~/util/get-event-key';
 import * as capitalize from 'capitalize';
@@ -55,37 +55,20 @@ export const createReminderIntentHandler: Alexa.RequestHandler = {
     );
 
     if (!remindersPermissions) {
-      const speak = [
-        i18n.t(
-          "It looks like you haven't yet enabled reminders permissions. You can enable them in the Amazon Alexa app.",
-        ),
-        i18n.t(
-          'After you\'ve done this, you can say: <break strength="strong"/> "Ask Days Until to create a new reminder."',
-        ),
-      ].join(' ');
+      return handlerInput.responseBuilder
+        .addDirective({
+          type: 'Connections.SendRequest',
+          name: 'AskFor',
+          payload: {
+            '@type': 'AskForPermissionsConsentRequest',
+            '@version': '1',
+            permissionScope: 'alexa::alerts:reminders:skill:readwrite',
+          },
+          token: REMINDERS_PERMISSIONS_TOKEN,
+        })
 
-      return (
-        handlerInput.responseBuilder
-          .speak(speak)
-
-          // Not sure if both of these are needed...
-          .withAskForPermissionsConsentCard([
-            'alexa::alerts:reminders:skill:readwrite',
-          ])
-          .addDirective({
-            type: 'Connections.SendRequest',
-            name: 'AskFor',
-            payload: {
-              '@type': 'AskForPermissionsConsentRequest',
-              '@version': '1',
-              permissionScope: 'alexa::alerts:reminders:skill:readwrite',
-            },
-            token: 'token',
-          })
-
-          .withShouldEndSession(true)
-          .getResponse()
-      );
+        .withShouldEndSession(true)
+        .getResponse();
     }
 
     if (!countdownEventSlotValue) {

@@ -100,11 +100,13 @@ describe('createReminderIntentHandler', () => {
     });
 
     test('directs the user to enable permissions in the Alexa app', async () => {
-      const result = await executeLambda(event);
+      const result: any = await executeLambda(event);
 
-      expect(result).toSpeek(
-        'It looks like you haven\'t yet enabled reminders permissions. You can enable them in the Amazon Alexa app. After you\'ve done this, you can say: <break strength="strong"/> "Ask Days Until to create a new reminder."',
-      );
+      expect(
+        result.response.directives.some(
+          (d: any) => d.type === 'Connections.SendRequest',
+        ),
+      ).toBe(true);
     });
   });
 
