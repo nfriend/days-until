@@ -42,7 +42,7 @@ describe('reportCountdownIntentHandler', () => {
   });
 
   test('saves a new countdown to the database', async () => {
-    const result = await executeLambda(event);
+    await executeLambda(event);
 
     expect(((db.put as unknown) as jest.SpyInstance).mock.calls[1]).toEqual([
       expect.anything(),
@@ -56,9 +56,29 @@ describe('reportCountdownIntentHandler', () => {
         },
       }),
     ]);
+  });
 
-    expect(result).toSpeek(
-      'Done! To check on this countdown, just say: <break strength="strong"/> Ask Days Until, how long until My Birthday?',
-    );
+  describe('when the event is at least two days away', () => {
+    it('prompts the user to create dailys reminders', async () => {
+      MockDate.set(new Date(Date.UTC(2001, 1, 3)));
+
+      const result = await executeLambda(event);
+
+      expect(result).toSpeek(
+        'Done! To check on this countdown, just say: <break strength="strong"/> Ask Days Until, how long until My Birthday? Would you like to create a daily reminder for this countdown starting ten days before the event?',
+      );
+    });
+  });
+
+  describe('when the event is tomorrow or earlier', () => {
+    it('does not prompt the user to create dailys reminders', async () => {
+      MockDate.set(new Date(Date.UTC(2001, 1, 4)));
+
+      const result = await executeLambda(event);
+
+      expect(result).toSpeek(
+        'Done! To check on this countdown, just say: <break strength="strong"/> Ask Days Until, how long until My Birthday?',
+      );
+    });
   });
 });

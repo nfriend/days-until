@@ -1,5 +1,6 @@
 import * as Alexa from 'ask-sdk-core';
 import { adapter } from './adapters/dynamo-db';
+import { getDefaultApiClient } from './api-clients/get-default-api-client';
 import { buttonPressedHandler } from './handlers/button-pressed-handler';
 import { createReminderIntentHandler } from './handlers/create-reminder-intent-handler';
 import { errorHandler } from './handlers/error-handler';
@@ -35,4 +36,5 @@ export const handler = Alexa.SkillBuilders.custom()
   )
   .addErrorHandlers(errorHandler)
   .withPersistenceAdapter(adapter)
+  .withApiClient(getDefaultApiClient())
   .lambda();

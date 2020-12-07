@@ -7,7 +7,8 @@ import { ASSETS_BASE_URL } from '~/constants';
 import { buildResponse } from '~/util/build-response';
 import { getEventKey } from '~/util/get-event-key';
 import * as capitalize from 'capitalize';
-import { db } from '~/adapters/dynamo-db';
+import { DaysUntilAttributes, db } from '~/adapters/dynamo-db';
+import { getReminderRequests } from '~/util/get-reminder-requests';
 
 const INTENT_NAME = 'CreateReminderIntent';
 
@@ -186,6 +187,11 @@ export const createReminderIntentHandler: Alexa.RequestHandler = {
     const eventName = capitalize.words(countdownEventSlotValue);
     const eventKey = getEventKey(eventName);
 
+    const attributes: DaysUntilAttributes = await db.get(
+      handlerInput.requestEnvelope,
+    );
+    const eventDate = moment.utc(attributes.events[eventKey].eventDate);
+
     await db.put(handlerInput.requestEnvelope, {
       events: {
         [eventKey]: {
@@ -194,45 +200,46 @@ export const createReminderIntentHandler: Alexa.RequestHandler = {
       },
     });
 
-    const currentTime = moment.utc();
-    const [reminderHours, reminderMinutes] = dailyReminderAt.split(':');
-    const reminderRequest: any = {
-      requestTime: currentTime.format('YYYY-MM-DDTHH:mm:ss'),
-      trigger: {
-        type: 'SCHEDULED_ABSOLUTE',
-        scheduledTime: currentTime
-          .set({
-            hour: parseInt(reminderHours, 10),
-            minute: parseInt(reminderMinutes, 10),
-            second: 0,
-          })
-          .format('YYYY-MM-DDTHH:mm:ss'),
-        recurrence: {
-          freq: 'DAILY',
-        },
-      },
-      alertInfo: {
-        spokenInfo: {
-          content: [
-            {
-              locale: 'en-US',
+    const upsServiceClient = handlerInput.serviceClientFactory.getUpsServiceClient();
+    const userTimeZone = await upsServiceClient.getSystemTimeZone(
+      handlerInput.requestEnvelope.context.System.device.deviceId,
+    );
 
-              // TODO: Apparently Alexa doesn't support dynamic reminders?
-              // This removes most of the value for this use-case.
-              // To do this correctly, we'd need a cron job that would run
-              // every hour and update every reminder with its new value
-              // (and delete old reminders).
-              text:
-                'Time to get yo daily banana. You better go before the banistas pack up.',
-            },
-          ],
-        },
-      },
-      pushNotification: {
-        status: 'ENABLED',
-      },
-    };
+    console.log('userTimeZone', userTimeZone);
 
-    await remindersApiClient.createReminder(reminderRequest);
+    const reminderRequests = getReminderRequests(
+      eventDate,
+      eventName,
+      dailyReminderAt,
+      userTimeZone,
+    );
+
+    reminderRequests.map((request) =>
+      remindersApiClient.createReminder(request),
+    );
+
+    await Promise.all(reminderRequests);
+
+    const visualText = i18n.t('Reminder saved!');
+    const eventImageSrc = `${ASSETS_BASE_URL}/images/calendar_reminder.png`;
+
+    const speak = chooseOne(
+      i18n.t(
+        "Done! You'll get a daily reminder starting ten days before your event.",
+      ),
+      i18n.t(
+        "You're all set! I'll send you a daily reminder during the ten days before your event.",
+      ),
+    );
+
+    return buildResponse({
+      handlerInput,
+      visualText,
+      cardTitle,
+      eventImageSrc,
+      speak,
+    })
+      .withShouldEndSession(true)
+      .getResponse();
   },
 };
