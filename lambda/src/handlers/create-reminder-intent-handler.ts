@@ -40,21 +40,10 @@ export const createReminderIntentHandler: Alexa.RequestHandler = {
 
     // Check to see if the user has granted permissions for reminder skills
     const remindersApiClient = handlerInput.serviceClientFactory.getReminderManagementServiceClient();
-    const remindersPermissions =
-      handlerInput.requestEnvelope.context.System.user.permissions?.scopes?.[
-        'alexa::alerts:reminders:skill:readwrite'
-      ]?.status === 'GRANTED';
+    const permissions =
+      handlerInput.requestEnvelope.context.System.user.permissions;
 
-    console.log(
-      'user permissions:',
-      JSON.stringify(
-        handlerInput.requestEnvelope.context.System.user.permissions,
-        null,
-        2,
-      ),
-    );
-
-    if (!remindersPermissions) {
+    if (!permissions) {
       // Save any current slot values we have so that they can be
       // retrieved later after permissions have been granted.
       handlerInput.attributesManager.setSessionAttributes({

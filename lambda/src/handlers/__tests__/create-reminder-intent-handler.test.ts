@@ -48,11 +48,7 @@ describe('createReminderIntentHandler', () => {
             System: {
               user: {
                 permissions: {
-                  scopes: {
-                    'alexa::alerts:reminders:skill:readwrite': {
-                      status: 'GRANTED',
-                    },
-                  },
+                  consentToken: '<consent-token-here>',
                 },
               },
             },
@@ -86,13 +82,7 @@ describe('createReminderIntentHandler', () => {
         context: {
           System: {
             user: {
-              permissions: {
-                scopes: {
-                  'alexa::alerts:reminders:skill:readwrite': {
-                    status: 'DENIED',
-                  },
-                },
-              },
+              permissions: null,
             },
           },
         },
