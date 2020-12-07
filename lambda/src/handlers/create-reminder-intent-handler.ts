@@ -64,13 +64,28 @@ export const createReminderIntentHandler: Alexa.RequestHandler = {
         ),
       ].join(' ');
 
-      return handlerInput.responseBuilder
-        .speak(speak)
-        .withAskForPermissionsConsentCard([
-          'alexa::alerts:reminders:skill:readwrite',
-        ])
-        .withShouldEndSession(true)
-        .getResponse();
+      return (
+        handlerInput.responseBuilder
+          .speak(speak)
+
+          // Not sure if both of these are needed...
+          .withAskForPermissionsConsentCard([
+            'alexa::alerts:reminders:skill:readwrite',
+          ])
+          .addDirective({
+            type: 'Connections.SendRequest',
+            name: 'AskFor',
+            payload: {
+              '@type': 'AskForPermissionsConsentRequest',
+              '@version': '1',
+              permissionScope: 'alexa::alerts:reminders:skill:readwrite',
+            },
+            token: 'token',
+          })
+
+          .withShouldEndSession(true)
+          .getResponse()
+      );
     }
 
     if (!countdownEventSlotValue) {
