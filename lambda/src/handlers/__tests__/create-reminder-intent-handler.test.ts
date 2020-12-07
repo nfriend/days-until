@@ -116,6 +116,31 @@ describe('createReminderIntentHandler', () => {
       );
     });
 
+    test('creates reminders with the right speech', async () => {
+      await executeLambda(event);
+
+      const allSpeeches = ((getDefaultApiClient()
+        .invoke as unknown) as jest.SpyInstance).mock.calls
+        .slice(1)
+        .map((call) => {
+          return JSON.parse(call[0].body).alertInfo.spokenInfo.content[0].text;
+        });
+
+      expect(allSpeeches).toEqual([
+        '10 days until My Birthday',
+        '9 days until My Birthday',
+        '8 days until My Birthday',
+        '7 days until My Birthday',
+        '6 days until My Birthday',
+        '5 days until My Birthday',
+        '4 days until My Birthday',
+        '3 days until My Birthday',
+        '2 days until My Birthday',
+        'My Birthday is tomorrow!',
+        'My Birthday is today!',
+      ]);
+    });
+
     test('speaks a confirmation that the reminder has been set', async () => {
       const result = await executeLambda(event);
 
@@ -146,6 +171,7 @@ describe('createReminderIntentHandler', () => {
           '2001-03-02T13:30:00',
           '2001-03-03T13:30:00',
           '2001-03-04T13:30:00',
+          '2001-03-05T13:30:00',
         ]);
       });
     });
@@ -167,25 +193,9 @@ describe('createReminderIntentHandler', () => {
           '2001-03-02T13:30:00',
           '2001-03-03T13:30:00',
           '2001-03-04T13:30:00',
+          '2001-03-05T13:30:00',
         ]);
       });
-    });
-  });
-
-  describe('when the event is today', () => {
-    beforeEach(() => {
-      createEvent();
-    });
-
-    test('does not create any reminders', async () => {
-      MockDate.set(new Date(Date.UTC(2001, 2, 5)));
-
-      await executeLambda(event);
-
-      expect(
-        ((getDefaultApiClient()
-          .invoke as unknown) as jest.SpyInstance).mock.calls.slice(1),
-      ).toEqual([]);
     });
   });
 

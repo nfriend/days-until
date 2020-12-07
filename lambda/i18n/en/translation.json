@@ -48,6 +48,7 @@
   "Only 1 day to go!": "Only 1 day to go!",
   "Only 1 day!": "Only 1 day!",
   "Only one day until {{ eventName }}": "Only one day until {{ eventName }}",
+  "Only one day until {{eventName}}!": "Only one day until {{eventName}}!",
   "Perfect.": "Perfect.",
   "Reminder saved!": "Reminder saved!",
   "Something went wrong - sorry about that! Can you try again?": "Something went wrong - sorry about that! Can you try again?",
@@ -77,6 +78,7 @@
   "To check on this countdown, just say: <break strength=\"strong\"/> Ask Days Until, how long until {{eventName}}?": "To check on this countdown, just say: <break strength=\"strong\"/> Ask Days Until, how long until {{eventName}}?",
   "To get started, say <break strength=\"strong\"/> \"create a new countdown.\"": "To get started, say <break strength=\"strong\"/> \"create a new countdown.\"",
   "Today is the day - 0 days!": "Today is the day - 0 days!",
+  "Today is {{eventName}}!": "Today is {{eventName}}!",
   "Tomorrow's the day!": "Tomorrow's the day!",
   "Trying saying, \"Create a new countdown.\"": "Trying saying, \"Create a new countdown.\"",
   "Welcome to Days Until!": "Welcome to Days Until!",
@@ -186,6 +188,8 @@
   "{{ eventName }} was yesterday": "{{ eventName }} was yesterday",
   "{{ eventName }} was {{ diff }} days ago": "{{ eventName }} was {{ diff }} days ago",
   "{{daysUntil}} days until {{eventName}}": "{{daysUntil}} days until {{eventName}}",
+  "{{eventName}} is today!": "{{eventName}} is today!",
+  "{{eventName}} is tomorrow!": "{{eventName}} is tomorrow!",
   "{{eventName}} is {{daysUntil}} days away": "{{eventName}} is {{daysUntil}} days away",
   "{{eventName}} wasn't found": "{{eventName}} wasn't found"
 }
