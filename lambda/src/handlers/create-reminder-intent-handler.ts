@@ -185,20 +185,12 @@ export const createReminderIntentHandler: Alexa.RequestHandler = {
       } as any)[reminderTimeSlotValue] || reminderTimeSlotValue;
 
     const eventName = capitalize.words(countdownEventSlotValue);
-    const eventKey = getEventKey(eventName);
 
+    const eventKey = getEventKey(eventName);
     const attributes: DaysUntilAttributes = await db.get(
       handlerInput.requestEnvelope,
     );
     const eventDate = moment.utc(attributes.events[eventKey].eventDate);
-
-    await db.put(handlerInput.requestEnvelope, {
-      events: {
-        [eventKey]: {
-          dailyReminderAt,
-        },
-      },
-    });
 
     const upsServiceClient = handlerInput.serviceClientFactory.getUpsServiceClient();
     const userTimeZone = await upsServiceClient.getSystemTimeZone(
@@ -214,11 +206,20 @@ export const createReminderIntentHandler: Alexa.RequestHandler = {
       userTimeZone,
     );
 
-    reminderRequests.map((request) =>
-      remindersApiClient.createReminder(request),
-    );
+    reminderRequests.map(async (request) => {
+      (await remindersApiClient.createReminder(request)).alertToken;
+    });
 
-    await Promise.all(reminderRequests);
+    const reminderIds = await Promise.all(reminderRequests);
+
+    await db.put(handlerInput.requestEnvelope, {
+      events: {
+        [eventKey]: {
+          dailyReminderAt,
+          reminderIds,
+        },
+      },
+    });
 
     const visualText = i18n.t('Reminder saved!');
     const eventImageSrc = `${ASSETS_BASE_URL}/images/calendar_reminder.png`;

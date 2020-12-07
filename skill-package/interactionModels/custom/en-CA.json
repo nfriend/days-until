@@ -73,6 +73,9 @@
           "name": "AMAZON.StopIntent"
         },
         {
+          "name": "AMAZON.YesIntent"
+        },
+        {
           "name": "CreateReminderIntent",
           "samples": [
             "a alert",

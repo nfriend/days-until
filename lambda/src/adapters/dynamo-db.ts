@@ -15,6 +15,7 @@ export interface DaysUntilAttributes {
       eventDate?: string;
       createdOn?: string;
       dailyReminderAt?: string;
+      reminderIds?: string[];
     };
   };
 }

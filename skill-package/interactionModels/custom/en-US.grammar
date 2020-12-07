@@ -29,7 +29,7 @@ CreateReminderIntent:
 {remind|alert|notify} {me|} {for|about} {{CountdownEvent:EventType}}
 {remind|alert|notify} {me|} {for|about} {{CountdownEvent:EventType}} at {{ReminderTime:AMAZON.TIME}}
 
-
+AMAZON.YesIntent:
 AMAZON.CancelIntent:
 AMAZON.HelpIntent:
 AMAZON.StopIntent:
