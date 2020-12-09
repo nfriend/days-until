@@ -4,11 +4,11 @@ import { createAlexaEvent } from './create-alexa-event';
 import { executeLambda } from './execute-lambda';
 import { db, DaysUntilAttributes } from '~/adapters/dynamo-db';
 import MockDate from 'mockdate';
-import { getDefaultApiClient } from '~/api-clients/get-default-api-client';
+import { getDefaultApiClient } from '~/util/get-default-api-client';
 
 jest.mock('~/util/choose-one');
 jest.mock('~/adapters/dynamo-db');
-jest.mock('~/api-clients/get-default-api-client');
+jest.mock('~/util/get-default-api-client');
 
 describe('createReminderIntentHandler', () => {
   const eventDate = moment.utc('2001-03-05', 'YYYY-MM-DD');

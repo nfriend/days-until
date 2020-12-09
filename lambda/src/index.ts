@@ -1,12 +1,13 @@
 import * as Alexa from 'ask-sdk-core';
 import { adapter } from './adapters/dynamo-db';
-import { getDefaultApiClient } from './api-clients/get-default-api-client';
+import { getDefaultApiClient } from './util/get-default-api-client';
 import { buttonPressedHandler } from './handlers/button-pressed-handler';
 import { connectionsResponseHandler } from './handlers/connections-response-handler';
 import { createReminderIntentHandler } from './handlers/create-reminder-intent-handler';
 import { errorHandler } from './handlers/error-handler';
 import { intentReflectorHandler } from './handlers/intent-reflector-handler';
 import { launchRequestHandler } from './handlers/launch-request-handler';
+import { noIntentHandler } from './handlers/no-intent-handler';
 import { reportCountdownIntentHandler } from './handlers/report-countdown-intent-handler';
 import { sessionEndedRequestHandler } from './handlers/session-ended-request-handler';
 import { startCountdownIntentHandler } from './handlers/start-countdown-intent-handler';
@@ -22,6 +23,7 @@ export const handler = Alexa.SkillBuilders.custom()
     startCountdownIntentHandler,
     reportCountdownIntentHandler,
     yesIntentHandler,
+    noIntentHandler,
     createReminderIntentHandler,
     sessionEndedRequestHandler,
     buttonPressedHandler,

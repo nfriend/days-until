@@ -1,0 +1,64 @@
+import { createAlexaEvent } from './create-alexa-event';
+import { executeLambda } from './execute-lambda';
+import { db, DaysUntilAttributes } from '~/adapters/dynamo-db';
+import { YesNoIntentQuestion } from '../yes-no-intent-question';
+
+let mockSessionAttributes = {};
+
+jest.mock('~/util/choose-one');
+jest.mock('~/adapters/dynamo-db');
+jest.mock('~/util/get-sessions-attributes', () => ({
+  getSessionAttributes: () => mockSessionAttributes,
+}));
+
+describe('noIntentHandler', () => {
+  const userAttributes: DaysUntilAttributes = {};
+
+  const event = createAlexaEvent({
+    request: {
+      type: 'IntentRequest',
+      intent: {
+        name: 'AMAZON.NoIntent',
+        slots: {},
+      },
+    },
+  });
+
+  jest
+    .spyOn(db, 'get')
+    .mockImplementation(() => Promise.resolve(userAttributes));
+  jest.spyOn(db, 'put').mockResolvedValue();
+
+  describe('when the user is respond "no" to "would you like to create a daily reminder?"', () => {
+    test('prompts the user if they would like to opt out of future reminder requests', async () => {
+      mockSessionAttributes = {
+        YesNoIntentQuestion: YesNoIntentQuestion.ShouldCreateReminder,
+      };
+
+      const result = await executeLambda(event);
+
+      expect(result).toSpeek(
+        'No problem, would you like me to stop prompting you to create reminders in the future?',
+      );
+    });
+  });
+
+  describe('when the user is respond "no" to "would you like to stop being prompted for reminders?"', () => {
+    test('saves this preference in the database as doNotPromptForReminders and responds with a confirmation', async () => {
+      mockSessionAttributes = {
+        YesNoIntentQuestion:
+          YesNoIntentQuestion.ShouldStopPromptingForReminders,
+      };
+
+      const result = await executeLambda(event);
+
+      expect(db.put).toHaveBeenCalledWith(expect.anything(), {
+        doNotPromptForReminders: false,
+      });
+
+      expect(result).toSpeek(
+        "Great, I'll continue to ask when you make countdowns in the future.",
+      );
+    });
+  });
+});

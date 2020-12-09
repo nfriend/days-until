@@ -14,7 +14,7 @@ import { getAllSuccessInterjections } from '~/util/get-all-success-interjections
 import { getFailureInterjection } from '~/util/get-failure-interjection';
 import { buildResponse } from '~/util/build-response';
 import { ASSETS_BASE_URL } from '~/constants';
-import { YesIntentQuestion } from './yes-intent-handler';
+import { YesNoIntentQuestion } from './yes-no-intent-question';
 
 const INTENT_NAME = 'StartCountdownIntent';
 
@@ -238,7 +238,7 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
     });
 
     handlerInput.attributesManager.setSessionAttributes({
-      YesIntentQuestion: YesIntentQuestion.ShouldCreateReminder,
+      YesNoIntentQuestion: YesNoIntentQuestion.ShouldCreateReminder,
       eventName,
     });
 
@@ -268,7 +268,11 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
       .subtract(1, 'day')
       .isAfter(moment.utc(), 'day');
 
-    if (eventIsAtLeast2DaysAway) {
+    const { doNotPromptForReminders } = await db.get(
+      handlerInput.requestEnvelope,
+    );
+
+    if (!doNotPromptForReminders && eventIsAtLeast2DaysAway) {
       speeches.push(
         chooseOne(
           i18n.t(

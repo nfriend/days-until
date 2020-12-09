@@ -1,6 +1,7 @@
 import * as Alexa from 'ask-sdk-core';
 import { IntentRequest, Response } from 'ask-sdk-model';
 import { REMINDERS_PERMISSIONS_TOKEN } from '~/constants';
+import { getSessionAttributes } from '~/util/get-sessions-attributes';
 import {
   createReminderIntentHandler,
   INTENT_NAME as CREATE_REMINDER_INTENT_NAME,
@@ -18,7 +19,7 @@ export const connectionsResponseHandler: Alexa.RequestHandler = {
   async handle(handlerInput: Alexa.HandlerInput): Promise<Response> {
     (handlerInput.requestEnvelope.request as IntentRequest).intent = {
       name: CREATE_REMINDER_INTENT_NAME,
-      slots: handlerInput.attributesManager.getSessionAttributes().slots,
+      slots: getSessionAttributes(handlerInput).slots,
       confirmationStatus: 'NONE',
     };
 

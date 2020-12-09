@@ -8,7 +8,7 @@ jest.mock('~/util/choose-one');
 jest.mock('~/adapters/dynamo-db');
 
 describe('reportCountdownIntentHandler', () => {
-  const userAttributes: DaysUntilAttributes = {};
+  let userAttributes: DaysUntilAttributes;
 
   const event = createAlexaEvent({
     request: {
@@ -35,6 +35,7 @@ describe('reportCountdownIntentHandler', () => {
 
   beforeEach(() => {
     MockDate.set(new Date(Date.UTC(2001, 1, 3)));
+    userAttributes = {};
   });
 
   afterEach(() => {
@@ -58,27 +59,47 @@ describe('reportCountdownIntentHandler', () => {
     ]);
   });
 
-  describe('when the event is at least two days away', () => {
-    it('prompts the user to create dailys reminders', async () => {
-      MockDate.set(new Date(Date.UTC(2001, 1, 3)));
-
-      const result = await executeLambda(event);
-
-      expect(result).toSpeek(
-        'Done! To check on this countdown, just say: <break strength="strong"/> Ask Days Until, how long until My Birthday? Also, would you like to create a daily reminder for this countdown starting ten days before the event?',
-      );
-    });
-  });
-
-  describe('when the event is tomorrow or earlier', () => {
+  const expectNotToPromptForReminders = () => {
     it('does not prompt the user to create dailys reminders', async () => {
-      MockDate.set(new Date(Date.UTC(2001, 1, 4)));
-
       const result = await executeLambda(event);
 
       expect(result).toSpeek(
         'Done! To check on this countdown, just say: <break strength="strong"/> Ask Days Until, how long until My Birthday?',
       );
     });
+  };
+
+  describe('when the event is at least two days away', () => {
+    beforeEach(() => {
+      MockDate.set(new Date(Date.UTC(2001, 1, 3)));
+    });
+
+    describe('when the user has previously asked not to be prompted to create reminders', () => {
+      beforeEach(() => {
+        userAttributes = {
+          doNotPromptForReminders: true,
+        };
+      });
+
+      expectNotToPromptForReminders();
+    });
+
+    describe('when the user has not asked not to be prompted to create reminders', () => {
+      it('prompts the user to create dailys reminders', async () => {
+        const result = await executeLambda(event);
+
+        expect(result).toSpeek(
+          'Done! To check on this countdown, just say: <break strength="strong"/> Ask Days Until, how long until My Birthday? Also, would you like to create a daily reminder for this countdown starting ten days before the event?',
+        );
+      });
+    });
+  });
+
+  describe('when the event is tomorrow or earlier', () => {
+    beforeEach(() => {
+      MockDate.set(new Date(Date.UTC(2001, 1, 4)));
+    });
+
+    expectNotToPromptForReminders();
   });
 });

@@ -9,6 +9,7 @@ import { getEventKey } from '~/util/get-event-key';
 import * as capitalize from 'capitalize';
 import { DaysUntilAttributes, db } from '~/adapters/dynamo-db';
 import { getReminderRequests } from '~/util/get-reminder-requests';
+import { getSessionAttributes } from '~/util/get-sessions-attributes';
 
 export const INTENT_NAME = 'CreateReminderIntent';
 
@@ -20,9 +21,9 @@ export const createReminderIntentHandler: Alexa.RequestHandler = {
     );
   },
   async handle(handlerInput: Alexa.HandlerInput): Promise<Response> {
-    const {
-      eventName: eventNameFromSession,
-    } = handlerInput.attributesManager.getSessionAttributes();
+    const { eventName: eventNameFromSession } = getSessionAttributes(
+      handlerInput,
+    );
     const intent = (handlerInput.requestEnvelope.request as IntentRequest)
       .intent;
     const reminderTimeSlotValue = intent.slots?.ReminderTime?.value;
@@ -208,8 +209,6 @@ export const createReminderIntentHandler: Alexa.RequestHandler = {
     const userTimeZone = await upsServiceClient.getSystemTimeZone(
       handlerInput.requestEnvelope.context.System.device.deviceId,
     );
-
-    console.log('userTimeZone', userTimeZone);
 
     const reminderRequests = getReminderRequests(
       eventDate,

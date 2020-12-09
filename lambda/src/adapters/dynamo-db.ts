@@ -9,6 +9,7 @@ export const adapter = new Adapter.DynamoDbPersistenceAdapter({
 
 export interface DaysUntilAttributes {
   lastLaunch?: string;
+  doNotPromptForReminders?: boolean;
   events?: {
     [eventKey: string]: {
       eventName?: string;

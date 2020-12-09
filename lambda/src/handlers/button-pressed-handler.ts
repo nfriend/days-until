@@ -13,15 +13,6 @@ export const buttonPressedHandler: Alexa.RequestHandler = {
     );
   },
   handle(handlerInput: Alexa.HandlerInput): Response | Promise<Response> {
-    console.log(
-      'arguments:',
-      JSON.stringify(
-        (handlerInput.requestEnvelope.request as any).arguments,
-        null,
-        2,
-      ),
-    );
-
     // Redirect to StartCountdownIntent
     return startCountdownIntentHandler.handle(handlerInput);
   },

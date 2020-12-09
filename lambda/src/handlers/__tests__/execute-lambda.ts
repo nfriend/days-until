@@ -5,5 +5,6 @@ export const executeLambda = async (event: any) => {
   return await lambdaLocal.execute({
     event,
     lambdaPath: path.join(__dirname, '../../../src/index.ts'),
+    verboseLevel: 0,
   });
 };
