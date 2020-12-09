@@ -19,7 +19,7 @@ interface BuildResponseParams {
   /** Text that will be shown visually */
   visualText: string;
 
-  /** Text to be shown as the card's title. Will be stripped of any HTML. */
+  /** Text to be shown as the card's title. */
   cardTitle: string;
 }
 
@@ -67,11 +67,15 @@ export const buildResponse = ({
     responseBuilder.reprompt(reprompt);
   }
 
-  // HTML stripping function from https://stackoverflow.com/a/5002161/1063392
-  const strippedCardTitle = cardTitle.replace(/<\/?[^>]+(>|$)/g, '');
+  const strippedVisualText = visualText
+    // Replace <br> with \n
+    .replace(/<br\s?\/?>/g, '\n')
+    // Strip all other HTML
+    // HTML stripping function from https://stackoverflow.com/a/5002161/1063392
+    .replace(/<\/?[^>]+(>|$)/g, '');
   responseBuilder.withStandardCard(
-    strippedCardTitle,
-    visualText,
+    cardTitle,
+    strippedVisualText,
     eventImageSrc,
   );
 

@@ -273,7 +273,10 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
       handlerInput.requestEnvelope,
     );
 
-    if (!doNotPromptForReminders && eventIsAtLeast2DaysAway) {
+    const shouldPromptForReminder =
+      !doNotPromptForReminders && eventIsAtLeast2DaysAway;
+
+    if (shouldPromptForReminder) {
       speeches.push(
         chooseOne(
           i18n.t(
@@ -314,7 +317,7 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
           },
         },
       })
-      .withShouldEndSession(!eventIsAtLeast2DaysAway)
+      .withShouldEndSession(!shouldPromptForReminder)
       .getResponse();
   },
 };
