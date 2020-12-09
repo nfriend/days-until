@@ -182,7 +182,7 @@
   "yowzer": "yowzer",
   "yuck": "yuck",
   "zap": "zap",
-  "{{ diff }} day until {{ eventName }}": "{{ diff }} day until {{ eventName }}",
+  "{{ diff }} days until {{ eventName }}": "{{ diff }} days until {{ eventName }}",
   "{{ diff }} days.": "{{ diff }} days.",
   "{{ eventName }} is in {{ diff }} days": "{{ eventName }} is in {{ diff }} days",
   "{{ eventName }} is today": "{{ eventName }} is today",

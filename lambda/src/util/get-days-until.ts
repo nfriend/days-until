@@ -43,7 +43,7 @@ export const getDaysUntil = (
 
       visual = chooseOne(
         i18n.t('{{ eventName }} is in {{ diff }} days', i18nParams),
-        i18n.t('{{ diff }} day until {{ eventName }}', i18nParams),
+        i18n.t('{{ diff }} days until {{ eventName }}', i18nParams),
       );
 
       speech = i18n.t('{{ diff }} days.', i18nParams);
