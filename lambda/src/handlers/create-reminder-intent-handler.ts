@@ -37,7 +37,19 @@ export const createReminderIntentHandler: Alexa.RequestHandler = {
     // we need to makes sure we explicitly elicit slots for _this_ intent.
     const updatedIntent: Intent = {
       name: INTENT_NAME,
-      ...intent,
+      confirmationStatus: 'NONE',
+      slots: {
+        ReminderTime: {
+          name: 'ReminderTime',
+          value: reminderTimeSlotValue,
+          confirmationStatus: 'NONE',
+        },
+        CountdownEvent: {
+          name: 'CountdownEvent',
+          value: countdownEventSlotValue,
+          confirmationStatus: 'NONE',
+        },
+      },
     };
 
     const cardTitle = i18n.t('Add a daily reminder');
