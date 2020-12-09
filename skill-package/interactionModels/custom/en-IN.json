@@ -97,6 +97,9 @@
           "name": "AMAZON.HelpIntent"
         },
         {
+          "name": "AMAZON.NoIntent"
+        },
+        {
           "name": "AMAZON.StopIntent"
         },
         {

@@ -19,7 +19,9 @@ const mockApiClient = {
       });
     } else if (method === 'POST' && url.includes('alerts/reminders')) {
       return Promise.resolve({
-        body: JSON.stringify({}),
+        body: JSON.stringify({
+          alertToken: 'fakeAlertToken',
+        }),
         statusCode: 200,
         headers: [
           {

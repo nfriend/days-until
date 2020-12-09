@@ -118,6 +118,16 @@ describe('createReminderIntentHandler', () => {
       expect(allRequestTimes).toEqual(
         Array(allRequestTimes.length).fill('2001-02-03T00:00:00'),
       );
+
+      expect(db.put).toHaveBeenCalledWith(expect.anything(), {
+        doNotPromptForReminders: false,
+        events: {
+          'M BR0T': {
+            dailyReminderAt: '13:30',
+            reminderIds: Array(allRequestTimes.length).fill('fakeAlertToken'),
+          },
+        },
+      });
     });
 
     test('creates reminders with the right speech', async () => {

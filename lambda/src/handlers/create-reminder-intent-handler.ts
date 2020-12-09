@@ -217,13 +217,14 @@ export const createReminderIntentHandler: Alexa.RequestHandler = {
       userTimeZone,
     );
 
-    reminderRequests.map(async (request) => {
-      (await remindersApiClient.createReminder(request)).alertToken;
-    });
-
-    const reminderIds = await Promise.all(reminderRequests);
+    const reminderIds = await Promise.all(
+      reminderRequests.map(async (request) => {
+        return (await remindersApiClient.createReminder(request)).alertToken;
+      }),
+    );
 
     await db.put(handlerInput.requestEnvelope, {
+      doNotPromptForReminders: false,
       events: {
         [eventKey]: {
           dailyReminderAt,
