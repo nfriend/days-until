@@ -1,7 +1,7 @@
 import * as Alexa from 'ask-sdk-core';
 import { IntentRequest, Response } from 'ask-sdk-model';
 import { REMINDERS_PERMISSIONS_TOKEN } from '~/constants';
-import { getSessionAttributes } from '~/util/get-sessions-attributes';
+import { getSessionAttributes } from '~/util/session-attributes';
 import {
   createReminderIntentHandler,
   INTENT_NAME as CREATE_REMINDER_INTENT_NAME,

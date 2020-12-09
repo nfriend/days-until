@@ -13,7 +13,7 @@ jest.mock('~/handlers/create-reminder-intent-handler', () => ({
     handle: jest.fn(),
   },
 }));
-jest.mock('~/util/get-sessions-attributes', () => ({
+jest.mock('~/util/session-attributes', () => ({
   getSessionAttributes: () => mockSessionAttributes,
 }));
 

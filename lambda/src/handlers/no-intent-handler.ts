@@ -5,7 +5,10 @@ import { chooseOne } from '~/util/choose-one';
 import { ASSETS_BASE_URL } from '~/constants';
 import { buildResponse } from '~/util/build-response';
 import { db } from '~/adapters/dynamo-db';
-import { getSessionAttributes } from '~/util/get-sessions-attributes';
+import {
+  getSessionAttributes,
+  setSessionAttributes,
+} from '~/util/session-attributes';
 
 export const noIntentHandler: Alexa.RequestHandler = {
   canHandle(handlerInput: Alexa.HandlerInput) {
@@ -23,6 +26,11 @@ export const noIntentHandler: Alexa.RequestHandler = {
       .YesNoIntentQuestion;
 
     if (question === YesNoIntentQuestion.ShouldCreateReminder) {
+      setSessionAttributes(handlerInput, {
+        YesNoIntentQuestion:
+          YesNoIntentQuestion.ShouldStopPromptingForReminders,
+      });
+
       const cardTitle = i18n.t('Reminder preferences');
       const visualText = i18n.t(
         'Would you like stop being prompted for reminders?',

@@ -5,7 +5,7 @@ import { createReminderIntentHandler } from './create-reminder-intent-handler';
 import { YesNoIntentQuestion } from './yes-no-intent-question';
 import { ASSETS_BASE_URL } from '~/constants';
 import { buildResponse } from '~/util/build-response';
-import { getSessionAttributes } from '~/util/get-sessions-attributes';
+import { getSessionAttributes } from '~/util/session-attributes';
 
 export const yesIntentHandler: Alexa.RequestHandler = {
   canHandle(handlerInput: Alexa.HandlerInput) {

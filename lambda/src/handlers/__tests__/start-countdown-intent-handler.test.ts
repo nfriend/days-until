@@ -1,11 +1,16 @@
 import moment from 'moment';
+import MockDate from 'mockdate';
 import { createAlexaEvent } from './create-alexa-event';
 import { executeLambda } from './execute-lambda';
 import { db, DaysUntilAttributes } from '~/adapters/dynamo-db';
-import MockDate from 'mockdate';
+import { setSessionAttributes } from '~/util/session-attributes';
+import { YesNoIntentQuestion } from '../yes-no-intent-question';
 
 jest.mock('~/util/choose-one');
 jest.mock('~/adapters/dynamo-db');
+jest.mock('~/util/session-attributes', () => ({
+  setSessionAttributes: jest.fn(),
+}));
 
 describe('reportCountdownIntentHandler', () => {
   let userAttributes: DaysUntilAttributes;
@@ -87,6 +92,11 @@ describe('reportCountdownIntentHandler', () => {
     describe('when the user has not asked not to be prompted to create reminders', () => {
       it('prompts the user to create dailys reminders', async () => {
         const result = await executeLambda(event);
+
+        expect(setSessionAttributes).toHaveBeenCalledWith(expect.anything(), {
+          YesNoIntentQuestion: YesNoIntentQuestion.ShouldCreateReminder,
+          eventName: 'My Birthday',
+        });
 
         expect(result).toSpeek(
           'Done! To check on this countdown, just say: <break strength="strong"/> Ask Days Until, how long until My Birthday? Also, would you like to create a daily reminder for this countdown starting ten days before the event?',

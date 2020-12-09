@@ -9,7 +9,10 @@ import { getEventKey } from '~/util/get-event-key';
 import * as capitalize from 'capitalize';
 import { DaysUntilAttributes, db } from '~/adapters/dynamo-db';
 import { getReminderRequests } from '~/util/get-reminder-requests';
-import { getSessionAttributes } from '~/util/get-sessions-attributes';
+import {
+  getSessionAttributes,
+  setSessionAttributes,
+} from '~/util/session-attributes';
 
 export const INTENT_NAME = 'CreateReminderIntent';
 
@@ -47,7 +50,7 @@ export const createReminderIntentHandler: Alexa.RequestHandler = {
     if (!permissions) {
       // Save any current slot values we have so that they can be
       // retrieved later after permissions have been granted.
-      handlerInput.attributesManager.setSessionAttributes({
+      setSessionAttributes(handlerInput, {
         slots: {
           ReminderTime: {
             value: reminderTimeSlotValue,

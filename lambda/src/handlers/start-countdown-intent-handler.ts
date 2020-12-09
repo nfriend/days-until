@@ -15,6 +15,7 @@ import { getFailureInterjection } from '~/util/get-failure-interjection';
 import { buildResponse } from '~/util/build-response';
 import { ASSETS_BASE_URL } from '~/constants';
 import { YesNoIntentQuestion } from './yes-no-intent-question';
+import { setSessionAttributes } from '~/util/session-attributes';
 
 const INTENT_NAME = 'StartCountdownIntent';
 
@@ -237,7 +238,7 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
       },
     });
 
-    handlerInput.attributesManager.setSessionAttributes({
+    setSessionAttributes(handlerInput, {
       YesNoIntentQuestion: YesNoIntentQuestion.ShouldCreateReminder,
       eventName,
     });

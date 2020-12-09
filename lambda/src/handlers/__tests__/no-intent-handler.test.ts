@@ -2,13 +2,15 @@ import { createAlexaEvent } from './create-alexa-event';
 import { executeLambda } from './execute-lambda';
 import { db, DaysUntilAttributes } from '~/adapters/dynamo-db';
 import { YesNoIntentQuestion } from '../yes-no-intent-question';
+import { setSessionAttributes } from '~/util/session-attributes';
 
 let mockSessionAttributes = {};
 
 jest.mock('~/util/choose-one');
 jest.mock('~/adapters/dynamo-db');
-jest.mock('~/util/get-sessions-attributes', () => ({
+jest.mock('~/util/session-attributes', () => ({
   getSessionAttributes: () => mockSessionAttributes,
+  setSessionAttributes: jest.fn(),
 }));
 
 describe('noIntentHandler', () => {
@@ -36,6 +38,11 @@ describe('noIntentHandler', () => {
       };
 
       const result = await executeLambda(event);
+
+      expect(setSessionAttributes).toHaveBeenCalledWith(expect.anything(), {
+        YesNoIntentQuestion:
+          YesNoIntentQuestion.ShouldStopPromptingForReminders,
+      });
 
       expect(result).toSpeek(
         'No problem, would you like me to stop prompting you to create reminders in the future?',
