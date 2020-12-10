@@ -24,11 +24,11 @@
       },
       "skillId": "amzn1.ask.skill.bbc0e286-5827-4303-933c-21e84ec5baae",
       "skillMetadata": {
-        "lastDeployHash": "FmuVuwUL3F0zx8tb4bQrS1B9dw0="
+        "lastDeployHash": "+3hpZ5QBQ2Y5fsmVc1S8PxNNP2w="
       },
       "code": {
         "default": {
-          "lastDeployHash": "he8OLoD5cKB4eAydkonYfh0eZrw="
+          "lastDeployHash": "PxSTdZhnvid5Iys21qF9ehTONJ0="
         }
       }
     }
