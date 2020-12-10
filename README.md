@@ -104,6 +104,13 @@ script
 can be run to copy the appropriate `en-US` files/sections to `en-CA`, `en-GB`,
 `en-AU`, and `en-IN`.
 
+### Troubleshooting
+
+#### I get an error message like `"errorMessage": "lambdaFunc[lambdaHandler] is not a function"` when running tests
+
+This is most likely because of a compilation error when running the tests. Try
+running `yarn build` and make sure this succeeds.
+
 ### Linting
 
 This project uses [Prettier](https://prettier.io/) and

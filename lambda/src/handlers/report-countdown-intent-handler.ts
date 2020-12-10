@@ -13,7 +13,7 @@ import soundEffectWithSsml from '~/apla/sound-effect-with-ssml.json';
 import { getDaysUntil } from '~/util/get-days-until';
 import { getImageForEvent } from '~/util/get-image-for-event';
 
-const INTENT_NAME = 'ReportCountdownIntent';
+export const INTENT_NAME = 'ReportCountdownIntent';
 
 export const reportCountdownIntentHandler: Alexa.RequestHandler = {
   canHandle(handlerInput: Alexa.HandlerInput): boolean | Promise<boolean> {
