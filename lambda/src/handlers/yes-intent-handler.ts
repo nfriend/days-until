@@ -75,7 +75,7 @@ export const yesIntentHandler: Alexa.RequestHandler = {
         eventImageSrc,
         speak,
       })
-        .withShouldEndSession(true)
+        .withShouldEndSession(false)
         .getResponse();
     } else {
       throw new Error(
