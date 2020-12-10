@@ -68,4 +68,16 @@ describe('noIntentHandler', () => {
       );
     });
   });
+
+  describe('when the user is respond "no" to "would you like to create another reminder?"', () => {
+    test('responds with a confirmation that everything is done', async () => {
+      mockSessionAttributes = {
+        YesNoIntentQuestion: YesNoIntentQuestion.ShouldCreateAnotherReminder,
+      };
+
+      const result = await executeLambda(event);
+
+      expect(result).toSpeek('Sounds good!');
+    });
+  });
 });

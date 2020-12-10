@@ -62,6 +62,26 @@ export const noIntentHandler: Alexa.RequestHandler = {
       })
         .withShouldEndSession(false)
         .getResponse();
+    } else if (question === YesNoIntentQuestion.ShouldCreateAnotherReminder) {
+      const cardTitle = i18n.t('Create a new countdown');
+      const visualText = i18n.t('All done!');
+      const eventImageSrc = `${ASSETS_BASE_URL}/images/positive-vote.png`;
+
+      const speak = chooseOne(
+        i18n.t('Sounds good!'),
+        i18n.t('Okay, no problem.'),
+        i18n.t('Okay, sounds good.'),
+      );
+
+      return buildResponse({
+        handlerInput,
+        visualText,
+        cardTitle,
+        eventImageSrc,
+        speak,
+      })
+        .withShouldEndSession(true)
+        .getResponse();
     } else if (
       question === YesNoIntentQuestion.ShouldStopPromptingForReminders
     ) {

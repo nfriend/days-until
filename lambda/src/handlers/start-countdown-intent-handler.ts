@@ -44,7 +44,7 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
 
     // It's possible intent may not be provided since this handler
     // also handles the "Create a new countdown" button press
-    const countdownEventSlotValue = intent?.slots.CountdownEvent.value;
+    const countdownEventSlotValue = intent?.slots?.CountdownEvent.value;
 
     // Again, because it's possible we're not currently inside an IntentRequest,
     // we need to makes sure we explicitly elicit slots for _this_ intent.
