@@ -80,4 +80,16 @@ describe('noIntentHandler', () => {
       expect(result).toSpeek('Sounds good!');
     });
   });
+
+  describe('when the user is respond "no" to "would you like to do something else?"', () => {
+    test('redirects to the StopIntent handler', async () => {
+      mockSessionAttributes = {
+        YesNoIntentQuestion: YesNoIntentQuestion.ShouldDoSomethingElse,
+      };
+
+      const result = await executeLambda(event);
+
+      expect(result).toSpeek('Have a good one!');
+    });
+  });
 });

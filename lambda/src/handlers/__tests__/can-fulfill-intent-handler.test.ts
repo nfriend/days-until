@@ -54,8 +54,6 @@ describe('canFulfillIntentHandler', () => {
     it('responds with canFulfill === "NO"', async () => {
       const result: any = await executeLambda(event);
 
-      console.log('result.response:', result.response);
-
       expect(result.response.canFulfillIntent.canFulfill).toBe('NO');
     });
   };

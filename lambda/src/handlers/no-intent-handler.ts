@@ -9,6 +9,7 @@ import {
   getSessionAttributes,
   setSessionAttributes,
 } from '~/util/session-attributes';
+import { stopIntentHandler } from './stop-intent-handler';
 
 export const noIntentHandler: Alexa.RequestHandler = {
   canHandle(handlerInput: Alexa.HandlerInput) {
@@ -106,6 +107,8 @@ export const noIntentHandler: Alexa.RequestHandler = {
       })
         .withShouldEndSession(true)
         .getResponse();
+    } else if (question === YesNoIntentQuestion.ShouldDoSomethingElse) {
+      return stopIntentHandler.handle(handlerInput);
     } else {
       throw new Error(
         `Unhandled YesNoIntentQuestion in noIntentHandler: "${question}"`,

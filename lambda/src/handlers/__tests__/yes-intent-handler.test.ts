@@ -9,8 +9,8 @@ let mockSessionAttributes = {};
 
 jest.mock('~/util/choose-one');
 jest.mock('~/adapters/dynamo-db');
-jest.spyOn(createReminderIntentHandler, 'handle');
-jest.spyOn(startCountdownIntentHandler, 'handle');
+createReminderIntentHandler.handle = jest.fn();
+startCountdownIntentHandler.handle = jest.fn();
 jest.mock('~/util/session-attributes', () => ({
   getSessionAttributes: () => mockSessionAttributes,
 }));
@@ -71,6 +71,18 @@ describe('yesIntentHandler', () => {
       await executeLambda(event);
 
       expect(startCountdownIntentHandler.handle).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('when the user is respond "yes" to "would you like to do something else?"', () => {
+    test('redirects back to the startCountdownIntentHandler', async () => {
+      mockSessionAttributes = {
+        YesNoIntentQuestion: YesNoIntentQuestion.ShouldDoSomethingElse,
+      };
+
+      const result = await executeLambda(event);
+
+      expect(result).toSpeek('Okay, what would you like to do?');
     });
   });
 });

@@ -7,6 +7,7 @@ import { YesNoIntentQuestion } from './yes-no-intent-question';
 import { ASSETS_BASE_URL } from '~/constants';
 import { buildResponse } from '~/util/build-response';
 import { getSessionAttributes } from '~/util/session-attributes';
+import { chooseOne } from '~/util/choose-one';
 
 export const yesIntentHandler: Alexa.RequestHandler = {
   canHandle(handlerInput: Alexa.HandlerInput) {
@@ -42,6 +43,30 @@ export const yesIntentHandler: Alexa.RequestHandler = {
       const eventImageSrc = `${ASSETS_BASE_URL}/images/positive-vote.png`;
 
       const speak = i18n.t("Sounds good, I won't ask again!");
+
+      return buildResponse({
+        handlerInput,
+        visualText,
+        cardTitle,
+        eventImageSrc,
+        speak,
+      })
+        .withShouldEndSession(true)
+        .getResponse();
+    } else if (question === YesNoIntentQuestion.ShouldDoSomethingElse) {
+      const cardTitle = i18n.t('Days Until');
+      const visualText = i18n.t('What would you like to do?');
+      const imageName = chooseOne(
+        `question.png`,
+        `conversation.png`,
+        `interview.png`,
+      );
+      const eventImageSrc = `${ASSETS_BASE_URL}/images/${imageName}`;
+
+      const speak = chooseOne(
+        i18n.t('Okay, what would you like to do?'),
+        i18n.t('Sure, what would you like to do?'),
+      );
 
       return buildResponse({
         handlerInput,
