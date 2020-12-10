@@ -5,7 +5,7 @@ import { createReminderIntentHandler } from './create-reminder-intent-handler';
 import { startCountdownIntentHandler } from './start-countdown-intent-handler';
 import { YesNoIntentQuestion } from './yes-no-intent-question';
 import { ASSETS_BASE_URL } from '~/constants';
-import { buildResponse } from '~/util/build-response';
+import { buildRegularResponse } from '~/util/build-regular-response';
 import { getSessionAttributes } from '~/util/session-attributes';
 import { chooseOne } from '~/util/choose-one';
 
@@ -44,7 +44,7 @@ export const yesIntentHandler: Alexa.RequestHandler = {
 
       const speak = i18n.t("Sounds good, I won't ask again!");
 
-      return buildResponse({
+      return buildRegularResponse({
         handlerInput,
         visualText,
         cardTitle,
@@ -68,7 +68,7 @@ export const yesIntentHandler: Alexa.RequestHandler = {
         i18n.t('Sure, what would you like to do?'),
       );
 
-      return buildResponse({
+      return buildRegularResponse({
         handlerInput,
         visualText,
         cardTitle,

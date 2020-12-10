@@ -5,7 +5,7 @@ import { Intent, IntentRequest, Response } from 'ask-sdk-model';
 import moment from 'moment';
 import { chooseOne } from '~/util/choose-one';
 import { ASSETS_BASE_URL } from '~/constants';
-import { buildResponse } from '~/util/build-response';
+import { buildRegularResponse } from '~/util/build-regular-response';
 import { DaysUntilAttributes, db } from '~/adapters/dynamo-db';
 import { getEventKey } from '~/util/get-event-key';
 import { getFailureInterjection } from '~/util/get-failure-interjection';
@@ -74,7 +74,7 @@ export const reportCountdownIntentHandler: Alexa.RequestHandler = {
         i18n.t("Sorry, what's the name of the event?"),
       );
 
-      return buildResponse({
+      return buildRegularResponse({
         handlerInput,
         visualText,
         cardTitle,
@@ -108,7 +108,7 @@ export const reportCountdownIntentHandler: Alexa.RequestHandler = {
         `${ASSETS_BASE_URL}/audio/462362__breviceps__small-applause.mp3`,
       );
 
-      return buildResponse({
+      return buildRegularResponse({
         handlerInput,
         visualText: daysUntil.visual,
         cardTitle: eventName,
@@ -163,7 +163,7 @@ export const reportCountdownIntentHandler: Alexa.RequestHandler = {
         ),
       ].join(' ');
 
-      return buildResponse({
+      return buildRegularResponse({
         handlerInput,
         visualText,
         cardTitle,

@@ -2,7 +2,7 @@ import * as Alexa from 'ask-sdk-core';
 import { Response } from 'ask-sdk-model';
 import i18n from 'i18next';
 import { ASSETS_BASE_URL } from '~/constants';
-import { buildResponse } from '~/util/build-response';
+import { buildRegularResponse } from '~/util/build-regular-response';
 import { chooseOne } from '~/util/choose-one';
 
 export const INTENT_NAME = 'AMAZON.StopIntent';
@@ -29,7 +29,7 @@ export const stopIntentHandler: Alexa.RequestHandler = {
       i18n.t('See you!'),
     );
 
-    return buildResponse({
+    return buildRegularResponse({
       handlerInput,
       visualText,
       cardTitle,

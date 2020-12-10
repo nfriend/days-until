@@ -29,6 +29,13 @@ CreateReminderIntent:
 {remind|alert|notify} {me|} {for|about} {{CountdownEvent:EventType}}
 {remind|alert|notify} {me|} {for|about} {{CountdownEvent:EventType}} at {{ReminderTime:AMAZON.TIME}}
 
+ListAllCountdownsIntent:
+{show|show me|list|list me|tell|tell me|give|give me|} {all|} {of my countdowns|my countdowns}
+{show|show me|list|list me|tell|tell me|give|give me|} {a list|the list|everything|each one|all of them|every one|every countdown}
+{show|show me|list|list me|tell|tell me|give|give me|} {a list of|the list of|} {them all|all of them|all my countdowns}
+how many {of them|countdowns|} {do I have|are there|have I created|have I made|have I started}
+{full|complete} list {of countdowns|of all countdowns|}
+
 AMAZON.YesIntent:
 AMAZON.NoIntent:
 AMAZON.CancelIntent:

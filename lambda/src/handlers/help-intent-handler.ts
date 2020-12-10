@@ -2,7 +2,7 @@ import * as Alexa from 'ask-sdk-core';
 import { Response } from 'ask-sdk-model';
 import i18n from 'i18next';
 import { ASSETS_BASE_URL } from '~/constants';
-import { buildResponse } from '~/util/build-response';
+import { buildRegularResponse } from '~/util/build-regular-response';
 
 export const INTENT_NAME = 'AMAZON.HelpIntent';
 
@@ -36,7 +36,7 @@ export const helpIntentHandler: Alexa.RequestHandler = {
 
     const reprompt = i18n.t('Sorry, what would you like to do?');
 
-    return buildResponse({
+    return buildRegularResponse({
       handlerInput,
       visualText,
       cardTitle,

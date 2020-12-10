@@ -12,7 +12,7 @@ import { getImageForEvent } from '~/util/get-image-for-event';
 import { getDaysUntil } from '~/util/get-days-until';
 import { getAllSuccessInterjections } from '~/util/get-all-success-interjections';
 import { getFailureInterjection } from '~/util/get-failure-interjection';
-import { buildResponse } from '~/util/build-response';
+import { buildRegularResponse } from '~/util/build-regular-response';
 import { ASSETS_BASE_URL } from '~/constants';
 import { YesNoIntentQuestion } from './yes-no-intent-question';
 import { setSessionAttributes } from '~/util/session-attributes';
@@ -78,7 +78,7 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
         i18n.t('Sorry, what event would you like to track?'),
       );
 
-      return buildResponse({
+      return buildRegularResponse({
         handlerInput,
         visualText,
         cardTitle,
@@ -119,7 +119,7 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
         i18n.t('Sorry, when will the event take place?'),
       );
 
-      return buildResponse({
+      return buildRegularResponse({
         handlerInput,
         visualText,
         eventImageSrc,
@@ -177,7 +177,7 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
         i18n.t("Sorry, I didn't catch that. Should I create the countdown?"),
       );
 
-      return buildResponse({
+      return buildRegularResponse({
         handlerInput,
         visualText,
         cardTitle,
@@ -216,7 +216,7 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
         'If you\'d like to try again, just say "create a new countdown".',
       );
 
-      return buildResponse({
+      return buildRegularResponse({
         handlerInput,
         visualText,
         cardTitle,
@@ -316,7 +316,7 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
       `${ASSETS_BASE_URL}/audio/462362__breviceps__small-applause.mp3`,
     );
 
-    return buildResponse({
+    return buildRegularResponse({
       handlerInput,
       visualText,
       eventImageSrc,

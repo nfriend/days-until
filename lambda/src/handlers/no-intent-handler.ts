@@ -3,7 +3,7 @@ import { YesNoIntentQuestion } from './yes-no-intent-question';
 import i18n from 'i18next';
 import { chooseOne } from '~/util/choose-one';
 import { ASSETS_BASE_URL } from '~/constants';
-import { buildResponse } from '~/util/build-response';
+import { buildRegularResponse } from '~/util/build-regular-response';
 import { db } from '~/adapters/dynamo-db';
 import {
   getSessionAttributes,
@@ -53,7 +53,7 @@ export const noIntentHandler: Alexa.RequestHandler = {
         ),
       );
 
-      return buildResponse({
+      return buildRegularResponse({
         handlerInput,
         visualText,
         cardTitle,
@@ -74,7 +74,7 @@ export const noIntentHandler: Alexa.RequestHandler = {
         i18n.t('Okay, sounds good.'),
       );
 
-      return buildResponse({
+      return buildRegularResponse({
         handlerInput,
         visualText,
         cardTitle,
@@ -98,7 +98,7 @@ export const noIntentHandler: Alexa.RequestHandler = {
         "Great, I'll continue to ask when you make countdowns in the future.",
       );
 
-      return buildResponse({
+      return buildRegularResponse({
         handlerInput,
         visualText,
         cardTitle,

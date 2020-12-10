@@ -4,7 +4,7 @@ import moment from 'moment';
 import { Intent, IntentRequest, Response, Slot } from 'ask-sdk-model';
 import { chooseOne } from '~/util/choose-one';
 import { ASSETS_BASE_URL, REMINDERS_PERMISSIONS_TOKEN } from '~/constants';
-import { buildResponse } from '~/util/build-response';
+import { buildRegularResponse } from '~/util/build-regular-response';
 import { getEventKey } from '~/util/get-event-key';
 import * as capitalize from 'capitalize';
 import { DaysUntilAttributes, db } from '~/adapters/dynamo-db';
@@ -102,7 +102,7 @@ export const createReminderIntentHandler: Alexa.RequestHandler = {
         i18n.t('Sorry, what event would you like to be reminded about?'),
       );
 
-      return buildResponse({
+      return buildRegularResponse({
         handlerInput,
         visualText,
         cardTitle,
@@ -183,7 +183,7 @@ export const createReminderIntentHandler: Alexa.RequestHandler = {
         i18n.t('Sorry, what time of day would you like your reminder?'),
       );
 
-      return buildResponse({
+      return buildRegularResponse({
         handlerInput,
         visualText,
         eventImageSrc,
@@ -257,7 +257,7 @@ export const createReminderIntentHandler: Alexa.RequestHandler = {
       ),
     );
 
-    return buildResponse({
+    return buildRegularResponse({
       handlerInput,
       visualText,
       cardTitle,

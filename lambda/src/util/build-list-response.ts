@@ -1,9 +1,10 @@
 import * as Alexa from 'ask-sdk-core';
-import textWithImage from '~/apl/text-with-image.json';
+import listWithImages from '~/apl/list-with-images.json';
 import { ASSETS_BASE_URL } from '~/constants';
 import i18n from 'i18next';
+import { stripHtml } from './strip-html';
 
-interface BuildResponseParams {
+interface BuildListResponseParams {
   /** The handler input object */
   handlerInput: Alexa.HandlerInput;
 
@@ -21,22 +22,30 @@ interface BuildResponseParams {
 
   /** Text to be shown as the card's title. */
   cardTitle: string;
+
+  /** The list of items to render */
+  items: {
+    /** The items's text */
+    text: string;
+
+    /** URL to the image that will be rendered next to the text */
+    imageSrc: string;
+  }[];
 }
 
 /**
- * Creates a response that includes an APL template
- * (text + an image), a standard card, and speech.
- * Used to eliminate some duplication below since
- * almost every turn in the conversation uses this pattern.
+ * Similar to buildRegularResponse, except this one
+ * renders a list of items.
  */
-export const buildResponse = ({
+export const buildListResponse = ({
   handlerInput,
   speak,
   reprompt,
   eventImageSrc,
   visualText,
   cardTitle,
-}: BuildResponseParams) => {
+  items,
+}: BuildListResponseParams) => {
   const responseBuilder = handlerInput.responseBuilder;
 
   if (
@@ -47,13 +56,12 @@ export const buildResponse = ({
     responseBuilder.addDirective({
       type: 'Alexa.Presentation.APL.RenderDocument',
       token: 'token',
-      document: textWithImage,
+      document: listWithImages,
       datasources: {
         data: {
           headerTitle: i18n.t('Days Until'),
           headerImage: `${ASSETS_BASE_URL}/images/wall-calendar-with-logo.png`,
-          text: visualText,
-          eventImageSrc,
+          items,
         },
       },
     });
@@ -67,15 +75,9 @@ export const buildResponse = ({
     responseBuilder.reprompt(reprompt);
   }
 
-  const strippedVisualText = visualText
-    // Replace <br> with \n
-    .replace(/<br\s?\/?>/g, '\n')
-    // Strip all other HTML
-    // HTML stripping function from https://stackoverflow.com/a/5002161/1063392
-    .replace(/<\/?[^>]+(>|$)/g, '');
   responseBuilder.withStandardCard(
     cardTitle,
-    strippedVisualText,
+    stripHtml(visualText),
     eventImageSrc,
   );
 

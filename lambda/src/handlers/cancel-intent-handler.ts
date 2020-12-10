@@ -2,7 +2,7 @@ import * as Alexa from 'ask-sdk-core';
 import { Response } from 'ask-sdk-model';
 import i18n from 'i18next';
 import { ASSETS_BASE_URL } from '~/constants';
-import { buildResponse } from '~/util/build-response';
+import { buildRegularResponse } from '~/util/build-regular-response';
 import { chooseOne } from '~/util/choose-one';
 import { setSessionAttributes } from '~/util/session-attributes';
 import { YesNoIntentQuestion } from './yes-no-intent-question';
@@ -35,7 +35,7 @@ export const cancelIntentHandler: Alexa.RequestHandler = {
       i18n.t("Sure, no problem. Is there something else you'd like to do?"),
     );
 
-    return buildResponse({
+    return buildRegularResponse({
       handlerInput,
       visualText,
       cardTitle,
