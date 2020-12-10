@@ -1,7 +1,7 @@
 import * as Alexa from 'ask-sdk-core';
 import i18n from 'i18next';
 import moment from 'moment';
-import { Intent, IntentRequest, Response } from 'ask-sdk-model';
+import { Intent, IntentRequest, Response, Slot } from 'ask-sdk-model';
 import { chooseOne } from '~/util/choose-one';
 import { ASSETS_BASE_URL, REMINDERS_PERMISSIONS_TOKEN } from '~/constants';
 import { buildResponse } from '~/util/build-response';
@@ -33,12 +33,25 @@ export const createReminderIntentHandler: Alexa.RequestHandler = {
     const countdownEventSlotValue =
       eventNameFromSession || intent.slots?.CountdownEvent?.value;
 
+    const slots: { [key: string]: Slot } = {
+      ReminderTime: {
+        name: 'ReminderTime',
+        value: reminderTimeSlotValue,
+        confirmationStatus: 'NONE',
+      },
+      CountdownEvent: {
+        name: 'CountdownEvent',
+        value: countdownEventSlotValue,
+        confirmationStatus: 'NONE',
+      },
+    };
+
     // Because it's possible we manually redirected to this intent from another,
     // we need to makes sure we explicitly elicit slots for _this_ intent.
     const updatedIntent: Intent = {
       name: INTENT_NAME,
       confirmationStatus: 'NONE',
-      slots: {},
+      slots,
     };
 
     const cardTitle = i18n.t('Add a daily reminder');
@@ -51,16 +64,7 @@ export const createReminderIntentHandler: Alexa.RequestHandler = {
     if (!permissions) {
       // Save any current slot values we have so that they can be
       // retrieved later after permissions have been granted.
-      setSessionAttributes(handlerInput, {
-        slots: {
-          ReminderTime: {
-            value: reminderTimeSlotValue,
-          },
-          CountdownEvent: {
-            value: countdownEventSlotValue,
-          },
-        },
-      });
+      setSessionAttributes(handlerInput, { slots });
 
       return handlerInput.responseBuilder
         .addDirective({

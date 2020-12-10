@@ -42,7 +42,6 @@ export const getFailureInterjection = () => {
     mft('ugh'),
     mft('uh oh'),
     mft('wah wah'),
-    mft('watch out'),
     mft('well'),
     mft('whoa'),
     mft('whoops'),
