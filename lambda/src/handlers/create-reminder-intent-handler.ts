@@ -38,18 +38,7 @@ export const createReminderIntentHandler: Alexa.RequestHandler = {
     const updatedIntent: Intent = {
       name: INTENT_NAME,
       confirmationStatus: 'NONE',
-      slots: {
-        ReminderTime: {
-          name: 'ReminderTime',
-          value: reminderTimeSlotValue,
-          confirmationStatus: 'NONE',
-        },
-        CountdownEvent: {
-          name: 'CountdownEvent',
-          value: countdownEventSlotValue,
-          confirmationStatus: 'NONE',
-        },
-      },
+      slots: {},
     };
 
     const cardTitle = i18n.t('Add a daily reminder');
