@@ -3,9 +3,17 @@ import moment, { Moment } from 'moment';
 import { chooseOne } from './choose-one';
 
 interface DaysUntil {
+  /** The number of days away, relative to today */
   diff: number;
+
+  /** Text that describes the day difference, inteded to be shown visually */
   visual: string;
+
+  /** Text that describes the day difference, intended to be spoken */
   speech: string;
+
+  /** A predictable (i.e. no randomness) description of the day difference */
+  predictableDescription: string;
 }
 
 export const getDaysUntil = (
@@ -17,6 +25,7 @@ export const getDaysUntil = (
 
   let visual = '(Not yet implemented.)';
   let speech = '(Not yet implemented.)';
+  let predictableDescription = '(Not yet implemented.)';
 
   const i18nParams = { eventName, diff: Math.abs(diff) };
 
@@ -38,6 +47,11 @@ export const getDaysUntil = (
         i18n.t('Only 1 day!'),
         i18n.t('Just 1 day!'),
       );
+
+      predictableDescription = i18n.t(
+        '{{ eventName }} is tomorrow',
+        i18nParams,
+      );
     } else {
       // it's at least 2 days away
 
@@ -47,6 +61,11 @@ export const getDaysUntil = (
       );
 
       speech = i18n.t('{{ diff }} days.', i18nParams);
+
+      predictableDescription = i18n.t(
+        '{{ eventName }} is in {{ diff }} days',
+        i18nParams,
+      );
     }
   } else if (diff < 0) {
     // the event was in the past
@@ -60,12 +79,22 @@ export const getDaysUntil = (
       );
 
       speech = i18n.t('It was yesterday.');
+
+      predictableDescription = i18n.t(
+        '{{ eventName }} was yesterday',
+        i18nParams,
+      );
     } else {
       // the event was at least 2 days ago
 
       visual = i18n.t('{{ eventName }} was {{ diff }} days ago', i18nParams);
 
       speech = i18n.t('It was {{ diff }} days ago.', i18nParams);
+
+      predictableDescription = i18n.t(
+        '{{ eventName }} was {{ diff }} days ago',
+        i18nParams,
+      );
     }
   } else {
     // the event is today!
@@ -78,7 +107,9 @@ export const getDaysUntil = (
       i18n.t('0 days - today is the day!'),
       i18n.t('Today is the day - 0 days!'),
     );
+
+    predictableDescription = i18n.t('{{ eventName }} is today', i18nParams);
   }
 
-  return { diff, visual, speech };
+  return { diff, visual, speech, predictableDescription };
 };

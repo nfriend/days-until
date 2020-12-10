@@ -83,12 +83,13 @@ export const listAllCountdownsIntentHandler: Alexa.RequestHandler = {
       const eventImageSrc = `${ASSETS_BASE_URL}/images/${imageName}`;
 
       speeches.push(
-        // Using .visual here since .speech doesn't include the event name.
-        ...sortedUpcomingEvents.map((event) => `${event.daysUntil.visual}.`),
+        ...sortedUpcomingEvents.map(
+          (event) => `${event.daysUntil.predictableDescription}.`,
+        ),
       );
 
       const items = sortedUpcomingEvents.map((event) => ({
-        text: event.daysUntil.visual,
+        text: event.daysUntil.predictableDescription,
         imageSrc: getImageForEvent(event.eventName),
       }));
 
@@ -100,7 +101,7 @@ export const listAllCountdownsIntentHandler: Alexa.RequestHandler = {
         speak: speeches.join(' '),
         items,
       })
-        .withShouldEndSession(false)
+        .withShouldEndSession(true)
         .getResponse();
     } else {
       // the user hasn't yet created any events, or all their events have already passed
