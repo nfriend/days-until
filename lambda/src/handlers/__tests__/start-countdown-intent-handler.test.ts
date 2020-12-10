@@ -12,7 +12,7 @@ jest.mock('~/util/session-attributes', () => ({
   setSessionAttributes: jest.fn(),
 }));
 
-describe('reportCountdownIntentHandler', () => {
+describe('startCountdownIntentHandler', () => {
   let userAttributes: DaysUntilAttributes;
 
   const event = createAlexaEvent({

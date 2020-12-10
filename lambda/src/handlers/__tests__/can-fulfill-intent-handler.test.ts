@@ -7,7 +7,7 @@ jest.mock('~/util/choose-one');
 jest.mock('~/adapters/dynamo-db');
 jest.mock('~/util/get-failure-interjection');
 
-describe('reportCountdownIntentHandler', () => {
+describe('canFulfillIntentHandler', () => {
   let userAttributes: DaysUntilAttributes;
   let event: any;
 

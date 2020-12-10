@@ -4,16 +4,15 @@ import { executeLambda } from './execute-lambda';
 
 jest.mock('~/util/choose-one');
 jest.mock('~/adapters/dynamo-db');
-jest.mock('~/util/get-failure-interjection');
 
-describe('fallbackIntentHandler', () => {
+describe('cancelIntentHandler', () => {
   const userAttributes: DaysUntilAttributes = {};
 
   const event = createAlexaEvent({
     request: {
       type: 'IntentRequest',
       intent: {
-        name: 'AMAZON.FallbackIntent',
+        name: 'AMAZON.CancelIntent',
         confirmationStatus: 'NONE',
         slots: {},
       },
@@ -25,11 +24,9 @@ describe('fallbackIntentHandler', () => {
     .mockImplementation(() => Promise.resolve(userAttributes));
   jest.spyOn(db, 'put').mockResolvedValue();
 
-  test('responds with some instructions on how to use the skill', async () => {
+  test('prompts the user to try something else', async () => {
     const result = await executeLambda(event);
 
-    expect(result).toSpeek(
-      "Shoot! Sorry, but Days Until doesn't know how to do that! You can create, check, and delete countdowns, and also set countdown reminders. What would you like to do?",
-    );
+    expect(result).toSpeek('No problem. Would you like to do something else?');
   });
 });

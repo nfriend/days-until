@@ -17,6 +17,7 @@ import { localizationInterceptor } from './interceptors/localization-interceptor
 import { sentryInterceptor } from './interceptors/sentry-interceptor';
 import { fallbackIntentHandler } from './handlers/fallback-intent-handler';
 import { canFulfillIntentHandler } from './handlers/can-fulfill-intent-handler';
+import { cancelIntentHandler } from './handlers/cancel-intent-handler';
 
 export const handler = Alexa.SkillBuilders.custom()
   .withSkillId(process.env.SKILL_ID)
@@ -30,6 +31,7 @@ export const handler = Alexa.SkillBuilders.custom()
     sessionEndedRequestHandler,
     buttonPressedHandler,
     connectionsResponseHandler,
+    cancelIntentHandler,
     fallbackIntentHandler,
     canFulfillIntentHandler,
 
