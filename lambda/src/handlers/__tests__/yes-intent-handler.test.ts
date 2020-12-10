@@ -2,17 +2,15 @@ import { createAlexaEvent } from './create-alexa-event';
 import { executeLambda } from './execute-lambda';
 import { db, DaysUntilAttributes } from '~/adapters/dynamo-db';
 import { createReminderIntentHandler } from '~/handlers/create-reminder-intent-handler';
+import { startCountdownIntentHandler } from '~/handlers/start-countdown-intent-handler';
 import { YesNoIntentQuestion } from '../yes-no-intent-question';
 
 let mockSessionAttributes = {};
 
 jest.mock('~/util/choose-one');
 jest.mock('~/adapters/dynamo-db');
-jest.mock('~/handlers/create-reminder-intent-handler', () => ({
-  createReminderIntentHandler: {
-    handle: jest.fn(),
-  },
-}));
+jest.spyOn(createReminderIntentHandler, 'handle');
+jest.spyOn(startCountdownIntentHandler, 'handle');
 jest.mock('~/util/session-attributes', () => ({
   getSessionAttributes: () => mockSessionAttributes,
 }));
@@ -61,6 +59,18 @@ describe('yesIntentHandler', () => {
       });
 
       expect(result).toSpeek("Sounds good, I won't ask again!");
+    });
+  });
+
+  describe('when the user is respond "yes" to "would you like to create another countdown?"', () => {
+    test('redirects back to the startCountdownIntentHandler', async () => {
+      mockSessionAttributes = {
+        YesNoIntentQuestion: YesNoIntentQuestion.ShouldCreateAnotherReminder,
+      };
+
+      await executeLambda(event);
+
+      expect(startCountdownIntentHandler.handle).toHaveBeenCalledTimes(1);
     });
   });
 });

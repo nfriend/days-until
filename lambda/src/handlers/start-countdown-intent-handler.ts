@@ -238,11 +238,6 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
       },
     });
 
-    setSessionAttributes(handlerInput, {
-      YesNoIntentQuestion: YesNoIntentQuestion.ShouldCreateReminder,
-      eventName,
-    });
-
     const speeches = [];
 
     speeches.push(
@@ -277,6 +272,11 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
       !doNotPromptForReminders && eventIsAtLeast2DaysAway;
 
     if (shouldPromptForReminder) {
+      setSessionAttributes(handlerInput, {
+        YesNoIntentQuestion: YesNoIntentQuestion.ShouldCreateReminder,
+        eventName,
+      });
+
       speeches.push(
         chooseOne(
           i18n.t(
@@ -285,6 +285,22 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
           i18n.t(
             'Also, would you like daily reminders during the ten days leading up to this event?',
           ),
+        ),
+      );
+    } else {
+      // If we're not prompting to create a reminder, let's prompt
+      // to create another countdown instead.
+
+      setSessionAttributes(handlerInput, {
+        YesNoIntentQuestion: YesNoIntentQuestion.ShouldCreateAnotherReminder,
+      });
+
+      speeches.push(
+        chooseOne(
+          i18n.t('Would you like to create another countdown?'),
+          i18n.t('Would you like to create another one?'),
+          i18n.t('Want to create another one?'),
+          i18n.t('Want to create another countdown?'),
         ),
       );
     }
@@ -317,7 +333,7 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
           },
         },
       })
-      .withShouldEndSession(!shouldPromptForReminder)
+      .withShouldEndSession(false)
       .getResponse();
   },
 };

@@ -65,11 +65,15 @@ describe('reportCountdownIntentHandler', () => {
   });
 
   const expectNotToPromptForReminders = () => {
-    it('does not prompt the user to create dailys reminders', async () => {
+    it('does not prompt the user to create dailys reminders; prompts to create another countdown instead', async () => {
       const result = await executeLambda(event);
 
+      expect(setSessionAttributes).toHaveBeenCalledWith(expect.anything(), {
+        YesNoIntentQuestion: YesNoIntentQuestion.ShouldCreateAnotherReminder,
+      });
+
       expect(result).toSpeek(
-        'Done! To check on this countdown, just say: <break strength="strong"/> Ask Days Until, how long until My Birthday?',
+        'Done! To check on this countdown, just say: <break strength="strong"/> Ask Days Until, how long until My Birthday? Would you like to create another countdown?',
       );
     });
   };

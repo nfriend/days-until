@@ -2,6 +2,7 @@ import * as Alexa from 'ask-sdk-core';
 import { db } from '~/adapters/dynamo-db';
 import i18n from 'i18next';
 import { createReminderIntentHandler } from './create-reminder-intent-handler';
+import { startCountdownIntentHandler } from './start-countdown-intent-handler';
 import { YesNoIntentQuestion } from './yes-no-intent-question';
 import { ASSETS_BASE_URL } from '~/constants';
 import { buildResponse } from '~/util/build-response';
@@ -25,6 +26,8 @@ export const yesIntentHandler: Alexa.RequestHandler = {
 
     if (question === YesNoIntentQuestion.ShouldCreateReminder) {
       return createReminderIntentHandler.handle(handlerInput);
+    } else if (question === YesNoIntentQuestion.ShouldCreateAnotherReminder) {
+      return startCountdownIntentHandler.handle(handlerInput);
     } else if (
       question === YesNoIntentQuestion.ShouldStopPromptingForReminders
     ) {
