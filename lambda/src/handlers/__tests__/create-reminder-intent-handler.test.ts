@@ -159,7 +159,7 @@ describe('createReminderIntentHandler', () => {
       const result = await executeLambda(event);
 
       expect(result).toSpeek(
-        "Done! You'll get a daily reminder starting ten days before your event.",
+        "Done! You'll get a daily reminder starting ten days before My Birthday.",
       );
     });
 

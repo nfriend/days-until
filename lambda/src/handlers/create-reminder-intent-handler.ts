@@ -241,15 +241,19 @@ export const createReminderIntentHandler: Alexa.RequestHandler = {
       },
     });
 
-    const visualText = i18n.t('Reminder saved!');
+    const visualText = i18n.t('Reminder for {{eventName}} saved!', {
+      eventName,
+    });
     const eventImageSrc = `${ASSETS_BASE_URL}/images/calendar_reminder.png`;
 
     const speak = chooseOne(
       i18n.t(
-        "Done! You'll get a daily reminder starting ten days before your event.",
+        "Done! You'll get a daily reminder starting ten days before {{eventName}}.",
+        { eventName },
       ),
       i18n.t(
-        "You're all set! I'll send you a daily reminder during the ten days before your event.",
+        "You're all set! I'll send you a daily reminder during the ten days before {{eventName}}.",
+        { eventName },
       ),
     );
 

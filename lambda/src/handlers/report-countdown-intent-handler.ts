@@ -100,13 +100,31 @@ export const reportCountdownIntentHandler: Alexa.RequestHandler = {
       const eventImageSrc = getImageForEvent(eventName);
       const daysUntil = getDaysUntil(eventDate, eventName);
 
+      const backgroundAudio = chooseOne(
+        'soundbank://soundlibrary/human/amzn_sfx_crowd_cheer_med_01',
+        `${ASSETS_BASE_URL}/audio/333404__jayfrosting__cheer-2.mp3`,
+        `${ASSETS_BASE_URL}/audio/400587__misjoc__medium-crowd-cheering-01.mp3`,
+        `${ASSETS_BASE_URL}/audio/277019__sandermotions__applause-4.mp3`,
+        `${ASSETS_BASE_URL}/audio/462362__breviceps__small-applause.mp3`,
+      );
+
       return buildResponse({
         handlerInput,
         visualText: daysUntil.visual,
         cardTitle: eventName,
         eventImageSrc,
-        speak: daysUntil.speech,
       })
+        .addDirective({
+          type: 'Alexa.Presentation.APLA.RenderDocument',
+          token: 'token',
+          document: soundEffectWithSsml,
+          datasources: {
+            data: {
+              ssml: daysUntil.speech,
+              backgroundAudio,
+            },
+          },
+        })
         .withShouldEndSession(true)
         .getResponse();
     } else {
