@@ -26,7 +26,7 @@ export const helpIntentHandler: Alexa.RequestHandler = {
         'Once you\'ve created a countdown, you can check on its status by saying, "how many days until my birthday", for example.',
       ),
       i18n.t(
-        'Or, check all your countdowns by saying, "list all my countdowns".',
+        'Or, check all your countdowns by saying, "Ask Days Until to list all my countdowns".',
       ),
       i18n.t(
         'You can delete a countdown by saying, "Ask Days Until to delete a countdown".',
