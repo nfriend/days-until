@@ -2,6 +2,9 @@ import moment from 'moment';
 import { createAlexaEvent } from './create-alexa-event';
 import { executeLambda } from './execute-lambda';
 import { db, DaysUntilAttributes } from '~/adapters/dynamo-db';
+import { INTENT_NAME as REPORT_COUNTDOWN_INTENT_NAME } from '~/handlers/report-countdown-intent-handler';
+import { INTENT_NAME as LIST_ALL_COUNTDOWNS_INTENT_NAME } from '~/handlers/list-all-countdowns-intent-handler';
+import { INTENT_NAME as START_COUNTDOWN_INTENT_NAME } from '~/handlers/start-countdown-intent-handler';
 
 jest.mock('~/util/choose-one');
 jest.mock('~/adapters/dynamo-db');
@@ -30,7 +33,7 @@ describe('canFulfillIntentHandler', () => {
       request: {
         type: 'CanFulfillIntentRequest',
         intent: {
-          name: 'ReportCountdownIntent',
+          name: REPORT_COUNTDOWN_INTENT_NAME,
           confirmationStatus: 'NONE',
           slots: {
             CountdownEvent: {
@@ -47,6 +50,14 @@ describe('canFulfillIntentHandler', () => {
       const result: any = await executeLambda(event);
 
       expect(result.response.canFulfillIntent.canFulfill).toBe('YES');
+    });
+  };
+
+  const expectCanMaybeFulfill = () => {
+    it('responds with canFulfill === "MAYBE"', async () => {
+      const result: any = await executeLambda(event);
+
+      expect(result.response.canFulfillIntent.canFulfill).toBe('MAYBE');
     });
   };
 
@@ -100,6 +111,59 @@ describe('canFulfillIntentHandler', () => {
       });
 
       expectCannotFulfill();
+    });
+  });
+
+  describe('when the user is asking to list all countdowns', () => {
+    beforeEach(() => {
+      event.request.intent.name = LIST_ALL_COUNTDOWNS_INTENT_NAME;
+    });
+
+    describe('when the user ID exists', () => {
+      expectCanFulfill();
+    });
+
+    describe('when the user ID does not exist', () => {
+      beforeEach(() => {
+        event.context.System.user.userId = null;
+      });
+
+      expectCannotFulfill();
+    });
+  });
+
+  describe('when the user is asking to create a new countdown', () => {
+    beforeEach(() => {
+      event.request.intent.name = START_COUNTDOWN_INTENT_NAME;
+    });
+
+    describe('when all slot values are filled', () => {
+      beforeEach(() => {
+        event.request.intent.slots = {
+          CountdownEvent: {
+            value: 'My Birthday',
+          },
+          EventDate: {
+            value: '2015-01-01',
+          },
+        };
+      });
+
+      expectCanFulfill();
+    });
+
+    describe('when not all slot values are filled', () => {
+      beforeEach(() => {
+        event.context.System.user.userId = null;
+
+        event.request.intent.slots = {
+          CountdownEvent: {
+            value: 'My Birthday',
+          },
+        };
+      });
+
+      expectCanMaybeFulfill();
     });
   });
 

@@ -17,7 +17,7 @@ import { ASSETS_BASE_URL } from '~/constants';
 import { YesNoIntentQuestion } from './yes-no-intent-question';
 import { setSessionAttributes } from '~/util/session-attributes';
 
-const INTENT_NAME = 'StartCountdownIntent';
+export const INTENT_NAME = 'StartCountdownIntent';
 
 export const startCountdownIntentHandler: Alexa.RequestHandler = {
   canHandle(handlerInput: Alexa.HandlerInput): boolean | Promise<boolean> {
