@@ -34,7 +34,7 @@ describe('cancelIntentHandler', () => {
     const result = await executeLambda(event);
 
     expect(setSessionAttributes).toHaveBeenCalledWith(expect.anything(), {
-      YesNoIntentQuestion: YesNoIntentQuestion.ShouldStopPromptingForReminders,
+      YesNoIntentQuestion: YesNoIntentQuestion.ShouldDoSomethingElse,
     });
 
     expect(result).toSpeek('No problem. Would you like to do something else?');

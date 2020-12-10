@@ -18,7 +18,7 @@ export const cancelIntentHandler: Alexa.RequestHandler = {
   },
   async handle(handlerInput: Alexa.HandlerInput): Promise<Response> {
     setSessionAttributes(handlerInput, {
-      YesNoIntentQuestion: YesNoIntentQuestion.ShouldStopPromptingForReminders,
+      YesNoIntentQuestion: YesNoIntentQuestion.ShouldDoSomethingElse,
     });
 
     const cardTitle = i18n.t('Cancelled');
