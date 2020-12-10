@@ -4,6 +4,8 @@ import i18n from 'i18next';
 import { ASSETS_BASE_URL } from '~/constants';
 import { buildResponse } from '~/util/build-response';
 import { chooseOne } from '~/util/choose-one';
+import { setSessionAttributes } from '~/util/session-attributes';
+import { YesNoIntentQuestion } from './yes-no-intent-question';
 
 export const INTENT_NAME = 'AMAZON.CancelIntent';
 
@@ -15,6 +17,10 @@ export const cancelIntentHandler: Alexa.RequestHandler = {
     );
   },
   async handle(handlerInput: Alexa.HandlerInput): Promise<Response> {
+    setSessionAttributes(handlerInput, {
+      YesNoIntentQuestion: YesNoIntentQuestion.ShouldStopPromptingForReminders,
+    });
+
     const cardTitle = i18n.t('Cancelled');
     const visualText = i18n.t('What would you like to do?');
     const imageName = chooseOne(
