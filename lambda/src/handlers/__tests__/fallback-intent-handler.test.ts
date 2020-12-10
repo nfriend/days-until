@@ -4,6 +4,7 @@ import { executeLambda } from './execute-lambda';
 
 jest.mock('~/util/choose-one');
 jest.mock('~/adapters/dynamo-db');
+jest.mock('~/util/get-failure-interjection');
 
 describe('reportCountdownIntentHandler', () => {
   const userAttributes: DaysUntilAttributes = {};
@@ -24,9 +25,11 @@ describe('reportCountdownIntentHandler', () => {
     .mockImplementation(() => Promise.resolve(userAttributes));
   jest.spyOn(db, 'put').mockResolvedValue();
 
-  test('saves a new countdown to the database', async () => {
+  test('responds with some instructions on how to use the skill', async () => {
     const result = await executeLambda(event);
 
-    expect(result).toSpeek('inside the fallback handler');
+    expect(result).toSpeek(
+      "Shoot! Sorry, but Days Until doesn't know how to do that! You can create, check, and delete countdowns, and also set countdown reminders. What would you like to do?",
+    );
   });
 });
