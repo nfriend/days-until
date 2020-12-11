@@ -190,11 +190,7 @@ export const deleteCountdownIntentHandler: Alexa.RequestHandler = {
         .getResponse();
     }
 
-    await db.put(handlerInput.requestEnvelope, {
-      events: {
-        [eventKey]: null,
-      },
-    });
+    await db.delete(handlerInput.requestEnvelope, [`events.${eventKey}`]);
 
     const visualText = i18n.t('{{eventName}} has been deleted', i18nData);
     const eventImageSrc = `${ASSETS_BASE_URL}/images/calendar_with_red_x.png`;

@@ -48,15 +48,15 @@ export const db = {
   /**
    * Deletes one or more values from the database
    * @param requestEnvelope The current request envelope
-   * @param keys A list of keys to delete
+   * @param pathsToDelete A list of string property paths to delete.
    */
   async delete(
     requestEnvelope: RequestEnvelope,
-    keys: Array<keyof DaysUntilAttributes>,
+    pathsToDelete: string[],
   ): Promise<void> {
     const attrs = await adapter.getAttributes(requestEnvelope);
-    for (const key of keys) {
-      delete attrs[key];
+    for (const path of pathsToDelete) {
+      _.unset(attrs, path);
     }
     await adapter.saveAttributes(requestEnvelope, attrs);
   },
