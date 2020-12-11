@@ -123,6 +123,8 @@ const getAllItems = async (ddb, tableName) => {
     return update;
   });
 
+  const totalItemCount = updates.length;
+
   console.log('Computing batches...');
 
   const allBatchWrites = [];
@@ -160,4 +162,6 @@ const getAllItems = async (ddb, tableName) => {
       throw err;
     }
   }
+
+  console.log(`Done! Successfully uploaded ${totalItemCount} items.`);
 })();
