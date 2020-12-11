@@ -6,15 +6,24 @@ default:
   cache:
     paths:
       - $CI_PROJECT_DIR/.yarn
-  rules:
-    - if: $CI_COMMIT_BRANCH
-    - if: $CI_COMMIT_TAG
-    - if: '$CI_PIPELINE_SOURCE == "schedule"'
-      when: never
-    - when: never
 
 variables:
   SENTRY_RELEASE_VERSION: $CI_PIPELINE_IID
+
+.default_rules: &default_rules
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+      when: never
+    - if: $CI_COMMIT_BRANCH
+    - if: $CI_COMMIT_TAG
+    - when: never
+
+.deploy_rules: &deploy_rules
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+      when: never
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - when: never
 
 stages:
   - test
@@ -23,22 +32,26 @@ stages:
   - sync
 
 lint code:
+  <<: *default_rules
   stage: test
   script:
     - yarn lint
 
 lint translations:
+  <<: *default_rules
   stage: test
   script:
     - utility-scripts/check-for-new-translations.sh
 
 lint model:
+  <<: *default_rules
   image: nathanfriend/java-node-git:latest
   stage: test
   script:
     - utility-scripts/check-for-model-changes.sh
 
 jest:
+  <<: *default_rules
   stage: test
   script:
     - yarn test
@@ -49,6 +62,7 @@ jest:
       junit: lambda/test-report.xml
 
 build:
+  <<: *default_rules
   stage: build
   needs: []
   script:
@@ -58,37 +72,25 @@ build:
       - lambda/build/
 
 deploy:
+  <<: *deploy_rules
   stage: deploy
   script:
     - utility-scripts/deploy.sh
   environment:
     name: development
-  rules:
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-    - if: '$CI_PIPELINE_SOURCE == "schedule"'
-      when: never
-    - when: never
 
 upload source maps:
+  <<: *deploy_rules
   stage: deploy
   script:
     - yarn sentry-cli releases files $SENTRY_RELEASE_VERSION upload-sourcemaps build --url-prefix="/var/task/build/"
     - yarn sentry-cli releases files $SENTRY_RELEASE_VERSION upload src --url-prefix="/var/task/build/"
-  rules:
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-    - if: '$CI_PIPELINE_SOURCE == "schedule"'
-      when: never
-    - when: never
 
 upload assets:
+  <<: *deploy_rules
   stage: deploy
   script:
     - utility-scripts/upload-assets-to-s3.js
-  rules:
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-    - if: '$CI_PIPELINE_SOURCE == "schedule"'
-      when: never
-    - when: never
 
 sync:
   stage: sync
