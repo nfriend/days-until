@@ -17,8 +17,7 @@ export const stopIntentHandler: Alexa.RequestHandler = {
   async handle(handlerInput: Alexa.HandlerInput): Promise<Response> {
     const cardTitle = i18n.t('All done');
     const visualText = i18n.t('Have a great day!');
-    const imageName = chooseOne(`waving-hand.png`, `waving-hand-2.png`);
-    const eventImageSrc = `${ASSETS_BASE_URL}/images/${imageName}`;
+    const eventImageSrc = `${ASSETS_BASE_URL}/images/waving-hand.png`;
 
     const speak = chooseOne(
       i18n.t('Have a good one!'),

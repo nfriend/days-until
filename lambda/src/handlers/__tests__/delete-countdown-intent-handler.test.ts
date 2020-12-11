@@ -1,11 +1,14 @@
 import moment from 'moment';
+import _ from 'lodash';
 import { createAlexaEvent } from './create-alexa-event';
 import { executeLambda } from './execute-lambda';
 import { db, DaysUntilAttributes } from '~/adapters/dynamo-db';
+import { getDefaultApiClient } from '~/util/get-default-api-client';
 
 jest.mock('~/util/choose-one');
 jest.mock('~/adapters/dynamo-db');
 jest.mock('~/util/get-failure-interjection');
+jest.mock('~/util/get-default-api-client');
 
 describe('deleteCountdownIntentHandler', () => {
   let userAttributes: DaysUntilAttributes;
@@ -13,6 +16,8 @@ describe('deleteCountdownIntentHandler', () => {
   let event: any;
 
   beforeEach(() => {
+    jest.spyOn(getDefaultApiClient(), 'invoke');
+
     event = createAlexaEvent({
       request: {
         type: 'IntentRequest',
@@ -26,6 +31,13 @@ describe('deleteCountdownIntentHandler', () => {
           },
         },
       },
+      context: {
+        System: {
+          user: {
+            permissions: {},
+          },
+        },
+      },
     });
 
     userAttributes = {
@@ -36,6 +48,10 @@ describe('deleteCountdownIntentHandler', () => {
         },
       },
     };
+  });
+
+  afterEach(() => {
+    event = null;
   });
 
   jest
@@ -111,6 +127,49 @@ describe('deleteCountdownIntentHandler', () => {
           expectCountdownToHaveBeenDeleted();
 
           expect(result).toSpeek('Done! My Birthday has been deleted.');
+        });
+
+        describe('when the event had associated reminders', () => {
+          const reminderIds = ['a', 'b', 'c', 'd'];
+
+          beforeEach(() => {
+            userAttributes.events['M BR0T'].reminderIds = reminderIds;
+          });
+
+          describe('when the user has given reminder permissions to the skill', () => {
+            it('sends a DELETE request for each reminder', async () => {
+              await executeLambda(event);
+
+              // Each DELETE request is mado to a URL that looks like:
+              // https://api.amazonalexa.com/v1/alerts/reminders/<reminder ID>
+              const allDeletedIds = ((getDefaultApiClient()
+                .invoke as unknown) as jest.SpyInstance).mock.calls.map(
+                (call) => _.last(call[0].url.split('/')),
+              );
+
+              expect(allDeletedIds).toEqual(reminderIds);
+            });
+          });
+
+          describe('when the user has not given reminder permissions to the skill', () => {
+            beforeEach(() => {
+              event.context.System.user.permissions = null;
+            });
+
+            it('does not send any delete requests', async () => {
+              await executeLambda(event);
+
+              expect(getDefaultApiClient().invoke).not.toHaveBeenCalled();
+            });
+          });
+        });
+
+        describe('when the event did not have any reminders', () => {
+          it('does not send any delete requests', async () => {
+            await executeLambda(event);
+
+            expect(getDefaultApiClient().invoke).not.toHaveBeenCalled();
+          });
         });
       });
     });

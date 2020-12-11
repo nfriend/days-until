@@ -1,6 +1,6 @@
 interface InvokeParams {
   url: string;
-  method: 'GET' | 'POST';
+  method: 'GET' | 'POST' | 'DELETE';
   headers: any[];
 }
 
@@ -22,6 +22,17 @@ const mockApiClient = {
         body: JSON.stringify({
           alertToken: 'fakeAlertToken',
         }),
+        statusCode: 200,
+        headers: [
+          {
+            key: 'content-type',
+            value: 'application/json',
+          },
+        ],
+      });
+    } else if (method === 'DELETE' && url.includes('alerts/reminders')) {
+      return Promise.resolve({
+        body: JSON.stringify({}),
         statusCode: 200,
         headers: [
           {

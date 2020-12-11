@@ -190,6 +190,20 @@ export const deleteCountdownIntentHandler: Alexa.RequestHandler = {
         .getResponse();
     }
 
+    const { reminderIds } = attributes.events[eventKey];
+    const remindersApiClient = handlerInput.serviceClientFactory.getReminderManagementServiceClient();
+    const permissions =
+      handlerInput.requestEnvelope.context.System.user.permissions;
+
+    // Delete all associated reminders, if any, and if we (still) have permission
+    if (reminderIds?.length > 0 && permissions) {
+      await Promise.all(
+        reminderIds.map(async (idToDelete) => {
+          return await remindersApiClient.deleteReminder(idToDelete);
+        }),
+      );
+    }
+
     await db.delete(handlerInput.requestEnvelope, [`events.${eventKey}`]);
 
     const visualText = i18n.t('{{eventName}} has been deleted', i18nData);
@@ -197,10 +211,7 @@ export const deleteCountdownIntentHandler: Alexa.RequestHandler = {
 
     const speak = chooseOne(
       i18n.t('Done! {{eventName}} has been deleted.', i18nData),
-      i18n.t(
-        'All done! Your {{eventName}} countdown has been erased.',
-        i18nData,
-      ),
+      i18n.t('All done! {{eventName}} has been erased.', i18nData),
     );
 
     return buildRegularResponse({
