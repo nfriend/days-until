@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 
+// This is a temporary script that copies data from the
+// old Days Until database and merges it into the new database.
+
 const fs = require('fs');
 const _ = require('lodash');
 const moment = require('moment');
-
-// This is a temporary script that copies data from the
-// old Days Until database and merges it into the new database.
+const AWS = require('aws-sdk');
 
 const DEBUG = false;
 
@@ -41,9 +42,7 @@ const getAllItems = async (ddb, tableName) => {
 };
 
 (async () => {
-  const AWS = require('aws-sdk');
   AWS.config.update({ region: 'us-east-1' });
-
   const ddb = new AWS.DynamoDB({ apiVersion: '2012-08-10' });
 
   if (DEBUG) {
