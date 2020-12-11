@@ -74,6 +74,24 @@
               }
             }
           ]
+        },
+        {
+          "name": "DeleteCountdownIntent",
+          "confirmationRequired": true,
+          "prompts": {
+            "confirmation": "placeholder"
+          },
+          "slots": [
+            {
+              "name": "CountdownEvent",
+              "type": "EventType",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "placeholder"
+              }
+            }
+          ]
         }
       ]
     },
