@@ -6,11 +6,12 @@ default:
   cache:
     paths:
       - $CI_PROJECT_DIR/.yarn
-
-workflow:
   rules:
     - if: $CI_COMMIT_BRANCH
     - if: $CI_COMMIT_TAG
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+      when: never
+    - when: never
 
 variables:
   SENTRY_RELEASE_VERSION: $CI_PIPELINE_IID
@@ -19,6 +20,7 @@ stages:
   - test
   - build
   - deploy
+  - sync
 
 lint code:
   stage: test
@@ -63,6 +65,9 @@ deploy:
     name: development
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+      when: never
+    - when: never
 
 upload source maps:
   stage: deploy
@@ -71,6 +76,9 @@ upload source maps:
     - yarn sentry-cli releases files $SENTRY_RELEASE_VERSION upload src --url-prefix="/var/task/build/"
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+      when: never
+    - when: never
 
 upload assets:
   stage: deploy
@@ -78,3 +86,14 @@ upload assets:
     - utility-scripts/upload-assets-to-s3.js
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+      when: never
+    - when: never
+
+sync:
+  stage: sync
+  script:
+    - utility-scripts/merge-old-database-into-new-database.js
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+    - when: never

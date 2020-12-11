@@ -13,3 +13,5 @@ test-report.xml
 init-env-vars-for-development.sh
 
 tmp
+
+lambda/utility-scripts/*.json
