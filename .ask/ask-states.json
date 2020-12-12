@@ -2,26 +2,6 @@
   "askcliStatesVersion": "2020-03-31",
   "profiles": {
     "__ENVIRONMENT_ASK_PROFILE__": {
-      "skillInfrastructure": {
-        "@ask-cli/cfn-deployer": {
-          "deployState": {
-            "default": {
-              "s3": {
-                "bucket": "ask-days-until-default-useast1-1605104884000",
-                "key": "endpoint/build.zip"
-              },
-              "stackId": "arn:aws:cloudformation:us-east-1:641962070086:stack/ask-DaysUntil-default-skillStack-1605104884000/25743050-242a-11eb-9a23-0ed9163b6ca9",
-              "outputs": [
-                {
-                  "OutputKey": "SkillEndpoint",
-                  "OutputValue": "arn:aws:lambda:us-east-1:641962070086:function:ask-DaysUntil-default-skillStac-AlexaSkillFunction-1JZKTGLSX8D11",
-                  "Description": "LambdaARN for the regional endpoint"
-                }
-              ]
-            }
-          }
-        }
-      },
       "skillId": "amzn1.ask.skill.a904b878-9342-4031-9e86-a81ac29bddca"
     }
   }
