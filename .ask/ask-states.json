@@ -2,7 +2,35 @@
   "askcliStatesVersion": "2020-03-31",
   "profiles": {
     "__ENVIRONMENT_ASK_PROFILE__": {
-      "skillId": "amzn1.ask.skill.a904b878-9342-4031-9e86-a81ac29bddca"
+      "skillId": "amzn1.ask.skill.a904b878-9342-4031-9e86-a81ac29bddca",
+      "skillMetadata": {
+        "lastDeployHash": "gOsV0yPNwGUV4NqO2wQdSfoCRJA="
+      },
+      "code": {
+        "default": {
+          "lastDeployHash": "2YZkq5KSHA6QRvQSJUGTKUqYXH8="
+        }
+      },
+      "skillInfrastructure": {
+        "@ask-cli/cfn-deployer": {
+          "deployState": {
+            "default": {
+              "s3": {
+                "bucket": "ask-days-until-awscreden-useast1-1607803419350",
+                "key": "endpoint/build.zip"
+              },
+              "stackId": "arn:aws:cloudformation:us-east-1:641962070086:stack/ask-DaysUntil-default-skillStack-1607803419350/21583c70-3cb5-11eb-a67a-12dc044c8b8d",
+              "outputs": [
+                {
+                  "OutputKey": "SkillEndpoint",
+                  "OutputValue": "arn:aws:lambda:us-east-1:641962070086:function:ask-DaysUntil-default-skillStac-AlexaSkillFunction-FZ1S5MYCACV2",
+                  "Description": "LambdaARN for the regional endpoint"
+                }
+              ]
+            }
+          }
+        }
+      }
     }
   }
 }
