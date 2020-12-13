@@ -1,14 +1,19 @@
 import moment from 'moment';
 import _ from 'lodash';
+import MockDate from 'mockdate';
 import { createAlexaEvent } from './create-alexa-event';
 import { executeLambda } from './execute-lambda';
 import { db, DaysUntilAttributes } from '~/adapters/dynamo-db';
-import MockDate from 'mockdate';
+import { setSessionAttributes } from '~/util/session-attributes';
 import { getDefaultApiClient } from '~/util/get-default-api-client';
 
 jest.mock('~/util/choose-one');
 jest.mock('~/adapters/dynamo-db');
 jest.mock('~/util/get-default-api-client');
+jest.mock('~/util/session-attributes', () => ({
+  setSessionAttributes: jest.fn(),
+  getSessionAttributes: () => jest.fn(),
+}));
 
 describe('createReminderIntentHandler', () => {
   const eventDate = moment.utc('2001-03-05', 'YYYY-MM-DD');
@@ -91,6 +96,21 @@ describe('createReminderIntentHandler', () => {
 
     test('directs the user to enable permissions in the Alexa app', async () => {
       const result: any = await executeLambda(event);
+
+      expect(setSessionAttributes).toHaveBeenCalledWith(expect.anything(), {
+        slots: {
+          CountdownEvent: {
+            name: 'CountdownEvent',
+            value: 'My Birthday',
+            confirmationStatus: 'NONE',
+          },
+          ReminderTime: {
+            name: 'ReminderTime',
+            value: '13:30',
+            confirmationStatus: 'NONE',
+          },
+        },
+      });
 
       expect(
         result.response.directives.some(

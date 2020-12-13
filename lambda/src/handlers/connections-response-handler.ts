@@ -23,6 +23,15 @@ export const connectionsResponseHandler: Alexa.RequestHandler = {
       confirmationStatus: 'NONE',
     };
 
+    console.log(
+      'inside connectionsResponseHandler, about to redirect with intent:',
+      JSON.stringify(
+        (handlerInput.requestEnvelope.request as IntentRequest).intent,
+        null,
+        2,
+      ),
+    );
+
     return createReminderIntentHandler.handle(handlerInput);
   },
 };

@@ -33,6 +33,11 @@ export const createReminderIntentHandler: Alexa.RequestHandler = {
     const countdownEventSlotValue =
       eventNameFromSession || intent.slots?.CountdownEvent?.value;
 
+    console.log(
+      'Entering createReminderIntentHandler with slots:',
+      JSON.stringify(intent.slots, null, 2),
+    );
+
     const slots: { [key: string]: Slot } = {
       ReminderTime: {
         name: 'ReminderTime',
