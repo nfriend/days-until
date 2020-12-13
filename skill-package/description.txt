@@ -1,22 +1,97 @@
-Days Until helps you keep track of the number of days until special events. Set up a countdown with any of these:
+Days Until helps you keep track of the number of days until special events.
 
-- "Alexa, open Days Until"
-- "Alexa, ask Days Until to start a new countdown"
-- "Alexa, ask Days Until to create a countdown for the first day of school"
-- "Alexa, ask Days Until to create a new countdown for the first day of school on August 21"
+You: "Alexa, ask Days Until to create a new countdown for the birthday party on June 5th."
+Alexa: "Okay, I'll start a new countdown for the birthday party on June 5th. Does that sound right?"
+You: "Yes!"
 
-Alexa will then confirm the date with you before the countdown is saved.
+... later that day ...
+
+You: "Alexa, ask Days Until, how long until the birthday party?"
+Alexa: "12 days."
+
+Other examples of things you can do:
+
+You: "Alexa, ask Days Until to list all my countdowns."
+Alexa: "You have 3 countdowns. The birthday party is in 12 days. Christmas is in 25 days. Disney World is in 192 days."
+
+You: "Alexa, ask Days Until to set up daily reminders for Disney World."
+Alexa: "Okay, what time of day would you like to be reminded?"
+You: "3 PM."
+Alexa: "You're all set. I'll send you daily reminders during the 10 days before Disney World."
+
+CREATING A NEW COUNTDOWN
+------------------------
+
+Set up a countdown with any of these phrases:
+
+- "Alexa, open Days Until."
+- "Alexa, ask Days Until to start a new countdown."
+- "Alexa, ask Days Until to create a countdown for the first day of school."
+- "Alexa, ask Days Until to create a new countdown for the first day of school on August 21st."
+- "Alexa, tell Days Until to begin a new one on the 21st of August for the first day of school."
+
+Alexa will then confirm the event name and date before the countdown is saved.
+
+CHECKING A COUNTDOWN
+--------------------
 
 After you've created a countdown, you can ask Alexa how many days there are until the event:
 
 - "Alexa, ask Days Until, 'How many days until the first day of school?'"
 - "Alexa, ask Days Until, 'How long until the first day of school?'"
+- "Alexa, open Days Until and tell me how much time there is until the first day of school."
 
-Alexa will then calculate the number of days from today until the event's date and report back to you. If you have a video-enabled Echo device, Alexa will also show the result on the screen.
+Alexa will then calculate the number of days from today until the event's date and report back to you. If you have a video-enabled Alexa device, Alexa will also show the result on the screen.
+
+CHECKING ALL COUNTDOWNS
+-----------------------
+
+You can get a complete list of all your countdowns by asking:
+
+- "Alexa, ask Days Until to list all my countdowns."
+
+Video-enabled devices will show all countdowns on the screen.
+
+SETTING UP DAILY COUNTDOWN REMINDERS
+------------------------------------
+
+After creating a countdown, Alexa will prompt you to create daily reminders during the 10 days leading up to the event.
+
+You can also set up these reminders manually by saying:
+
+- "Alexa, ask Days Until to create daily reminders."
+- "Alexa, ask Days Until to set up reminders for my birthday."
+
+CORRECTING A COUNTDOWN
+----------------------
+
+If you create a countdown with the wrong date, simply recreate the event with the same name. The old countdown will be automatically replaced with the new countdown.
+
+DELETING A COUNTDOWN
+--------------------
+
+If you no longer want a countdown, just ask Alexa to delete it:
+
+- "Alexa, ask Days Until to delete a countdown."
+- "Alexa, ask Days Until to erase my birthday."
+
+Deleting a countdown will also delete any reminders for the event that were created by Days Until.
+
+TIPS AND TRICKS
+---------------
 
 If you're having trouble getting Alexa to recognize your event name, try something a bit simpler. For example, instead of "John Smith's retirement party at the lakehouse", try "the retirement party", or even just "the party".
 
-Icons from www.flaticon.com are licensed by CC 3.0 (http://creativecommons.org/licenses/by/3.0/) and were made by the following authors:
+In some cases, you may be able to leave out the skill name and just say:
+
+- "Alexa, how long until the first day of school?"
+
+Days Until also works great on video-enabled Alexa devices. Give it a try on your Echo Show or through your Amazon Fire TV Stick!
+
+ATTRIBUTIONS
+------------
+
+Icons from www.flaticon.com were made by the following authors:
 
 - Freepik (https://www.flaticon.com/authors/freepik)
 - Eucalyp (https://www.flaticon.com/authors/eucalyp)

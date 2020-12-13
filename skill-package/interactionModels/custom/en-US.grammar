@@ -1,13 +1,13 @@
 Invocation: days until
 
 StartCountdownIntent:
-{start|can you start|create|begin|how about|i want|} a {|new} {countdown|count down|one}
-{start|can you start|create|begin|how about|i want|} a {|new} {countdown|count down|one} for {{CountdownEvent:EventType}}
-{start|can you start|create|begin|how about|i want|} a {|new} {{CountdownEvent:EventType}} {countdown|count down|one}
-{start|can you start|create|begin|how about|i want|} a {|new} {countdown|count down|one} {on|in} {{EventDate:AMAZON.DATE}}
-{start|can you start|create|begin|how about|i want|} a {|new} {{CountdownEvent:EventType}} {countdown|count down|one} {on|in} {{EventDate:AMAZON.DATE}}
-{start|can you start|create|begin|how about|i want|} a {|new} {countdown|count down|one} {on|in} {{EventDate:AMAZON.DATE}} for {{CountdownEvent:EventType}}
-{start|can you start|create|begin|how about|i want|} a {|new} {countdown|count down|one} for {{CountdownEvent:EventType}} {on|in} {{EventDate:AMAZON.DATE}}
+{start|can you start|create|begin|set up|how about|i want|} a {|new} {countdown|count down|one}
+{start|can you start|create|begin|set up|how about|i want|} a {|new} {countdown|count down|one} for {{CountdownEvent:EventType}}
+{start|can you start|create|begin|set up|how about|i want|} a {|new} {{CountdownEvent:EventType}} {countdown|count down|one}
+{start|can you start|create|begin|set up|how about|i want|} a {|new} {countdown|count down|one} {on|in} {{EventDate:AMAZON.DATE}}
+{start|can you start|create|begin|set up|how about|i want|} a {|new} {{CountdownEvent:EventType}} {countdown|count down|one} {on|in} {{EventDate:AMAZON.DATE}}
+{start|can you start|create|begin|set up|how about|i want|} a {|new} {countdown|count down|one} {on|in} {{EventDate:AMAZON.DATE}} for {{CountdownEvent:EventType}}
+{start|can you start|create|begin|set up|how about|i want|} a {|new} {countdown|count down|one} for {{CountdownEvent:EventType}} {on|in} {{EventDate:AMAZON.DATE}}
 
 ReportCountdownIntent:
 {how about|can you|} {check|report|report} {on|} {a|an existing} {countdown|count down|one}
@@ -20,9 +20,12 @@ how {many days|long|much time|much longer} {is it|} {to|till|until} {{CountdownE
 {{CountdownEvent:EventType}} {how much longer|how soon|how many days|how long|how much more time}
 
 CreateReminderIntent:
-{add|create|begin|start|} {a|} {new|} {daily|} {reminder|notification|alert}
-{add|create|begin|start|} {a|} {new|} {daily|} {reminder|notification|alert} for {{CountdownEvent:EventType}} at {{ReminderTime:AMAZON.TIME}}
-{add|create|begin|start|} {a|} {new|} {daily|} {reminder|notification|alert} at {{ReminderTime:AMAZON.TIME}} for {{CountdownEvent:EventType}}
+{add|create|begin|start|set up|} {a|} {new|} {daily|} {reminder|notification|alert}
+{add|create|begin|start|set up|} {a|} {new|} {daily|} {reminder|notification|alert} for {{CountdownEvent:EventType}} at {{ReminderTime:AMAZON.TIME}}
+{add|create|begin|start|set up|} {a|} {new|} {daily|} {reminder|notification|alert} at {{ReminderTime:AMAZON.TIME}} for {{CountdownEvent:EventType}}
+{add|create|begin|start|set up|} {new|} {daily|} {reminders|notifications|alerts}
+{add|create|begin|start|set up|} {new|} {daily|} {reminders|notifications|alerts} for {{CountdownEvent:EventType}} at {{ReminderTime:AMAZON.TIME}}
+{add|create|begin|start|set up|} {new|} {daily|} {reminders|notifications|alerts} at {{ReminderTime:AMAZON.TIME}} for {{CountdownEvent:EventType}}
 {remind|alert|notify} {me|}
 {remind|alert|notify} {me|} at {{ReminderTime:AMAZON.TIME}}
 {remind|alert|notify} {me|} at {{ReminderTime:AMAZON.TIME}} {for|about} {{CountdownEvent:EventType}}

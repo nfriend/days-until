@@ -1,1 +1,25 @@
-TODO: Add description of updates here
+Days Until has learned some new tricks!
+
+You can now list all your countdowns by saying:
+
+- "Alexa, ask Days Until to list all my countdowns."
+- "Alexa, tell Days Until to show me all of them."
+
+You can delete a countdown with:
+
+- "Alexa, ask Days Until to delete a countdown."
+- "Alexa, ask Days Until to erase my birthday."
+
+You can receive daily reminders during the 10 days leading up to an event by saying:
+
+- "Alexa, ask Days Until to create daily reminders."
+- "Alexa, ask Days Until to set up reminders for my birthday."
+
+Other changes include:
+
+- Celebratory sound effects when checking a countdown
+- Bug fixes
+- Better event recognition
+- More flexible conversation patterns
+
+Days Until has also been updated to work great with video-enabled Alexa devices. Give it a try on your Echo Show or through your Amazon Fire TV Stick!

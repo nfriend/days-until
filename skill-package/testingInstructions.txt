@@ -1,0 +1,75 @@
+LAUNCH DAYS UNTIL
+-----------------
+
+- "Alexa, open Days Until."
+
+Alexa greets the user.
+
+The first time they have launched the skill, Alexa gives a brief explanation of how to use the skill.
+
+On subsequent launches, Alexa asks if they would like to create a new countdown or check an existing countdown.
+
+On video-enabled devices (except for small devices like the Spot), two buttons are shown on the screen allowing a user to either create a new countdown or check an existing countdown.
+
+CREATE A COUNTDOWN
+------------------
+
+- "Alexa, ask Days Until to create a new countdown."
+- "Alexa, ask Days Until to start a new one for my birthday."
+- "Alexa, ask Days Until to begin a new one for my birthday on June 5th."
+
+Alexa prompts to fill all slots (event name and event date), confirms that the countdown is correct, and creates the countdown (with celebratory sound effects).
+
+If the user has not asked to opt out of reminder prompts, Alexa will prompt the use to create daily reminders for the event. If the user says no, Alexa will ask if they would like to opt out of reminder prompts permanently.
+
+If the user has previously opted out of reminder prompts, they will instead be prompted to create another countdown.
+
+CHECK A COUNTDOWN
+-----------------
+
+- "Alexa, ask Days Until to check an existing countdown."
+- "Alexa, ask Days Until, 'how long until my birthday?'"
+
+Alexa will respond with the number of days until the event over top of fun sound effects.
+
+SHOW ALL COUNTDOWNS
+-------------------
+
+- "Alexa, ask Days Until to list all my countdowns."
+
+Alexa will read the total number of countdowns and list each with its current day count.
+
+Video-enabled devices will see all countdowns rendered on the screen.
+
+DELETE COUNTDOWN
+----------------
+
+- "Alexa, ask Days Until to delete a countdown."
+- "Alexa, ask Days Until to erase my Birthday."
+
+Alexa asks to confirm, and then deletes the countdown (and any associated reminders, if applicable).
+
+CREATE REMINDERS
+----------------
+
+Users are prompted to create reminders after creating a countdown unless they have previously opted out.
+
+Reminders can also be created manually:
+
+- "Alexa, ask Days Until to create daily reminders."
+- "Alexa, ask Days Until to set up reminders for my birthday."
+
+Alexa asks what time of day the user would like the reminders, and then creates reminders for the 10 days leading up to the event (including the day of the event itself).
+
+Reminders can be deleted by deleting the associated event.
+
+Creating a reminder undoes the reminder prompt opt-out mentioned above.
+
+MISCELLANEOUS
+-------------
+
+This skill implements `CanFulfillIntentRequest`, so in some cases the skill name can be omitted:
+
+- "Alexa, how many days until my retirement party?"
+
+However, this often clashes with a default Alexa response so it rarely works.
