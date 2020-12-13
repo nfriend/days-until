@@ -1,0 +1,24 @@
+Days Until helps you keep track of the number of days until special events. Set up a countdown with any of these:
+
+- "Alexa, open Days Until"
+- "Alexa, ask Days Until to start a new countdown"
+- "Alexa, ask Days Until to create a countdown for the first day of school"
+- "Alexa, ask Days Until to create a new countdown for the first day of school on August 21"
+
+Alexa will then confirm the date with you before the countdown is saved.
+
+After you've created a countdown, you can ask Alexa how many days there are until the event:
+
+- "Alexa, ask Days Until, 'How many days until the first day of school?'"
+- "Alexa, ask Days Until, 'How long until the first day of school?'"
+
+Alexa will then calculate the number of days from today until the event's date and report back to you. If you have a video-enabled Echo device, Alexa will also show the result on the screen.
+
+If you're having trouble getting Alexa to recognize your event name, try something a bit simpler. For example, instead of "John Smith's retirement party at the lakehouse", try "the retirement party", or even just "the party".
+
+Icons from www.flaticon.com are licensed by CC 3.0 (http://creativecommons.org/licenses/by/3.0/) and were made by the following authors:
+
+- Freepik (https://www.flaticon.com/authors/freepik)
+- Eucalyp (https://www.flaticon.com/authors/eucalyp)
+- mangsaabguru (https://www.flaticon.com/authors/mangsaabguru)
+- Good Ware (https://www.flaticon.com/authors/good-ware)

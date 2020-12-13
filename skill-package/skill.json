@@ -3,54 +3,139 @@
     "publishingInformation": {
       "locales": {
         "en-US": {
-          "summary": "Sample Short Description",
+          "summary": "Counts the number of days until special events.",
           "examplePhrases": [
-            "Alexa open hello world",
-            "hello",
-            "help"
+            "Alexa, start Days Until",
+            "Alexa, ask Days Until to create a new countdown for my birthday",
+            "Alexa, ask Days Until, 'How long until my birthday?'"
           ],
           "name": "Days Until",
-          "description": "Sample Full Description"
+          "keywords": [
+            "countdown",
+            "count down",
+            "how many days",
+            "days until",
+            "how long",
+            "how long until",
+            "duration",
+            "calculator",
+            "time calculator",
+            "duration calculator",
+            "days calculator",
+            "TODO: add more here"
+          ],
+          "description": "Days Until helps you keep track of the number of days until special events. Set up a countdown with any of these:\n\n- \"Alexa, open Days Until\"\n- \"Alexa, ask Days Until to start a new countdown\"\n- \"Alexa, ask Days Until to create a countdown for the first day of school\"\n- \"Alexa, ask Days Until to create a new countdown for the first day of school on August 21\"\n\nAlexa will then confirm the date with you before the countdown is saved.\n\nAfter you've created a countdown, you can ask Alexa how many days there are until the event:\n\n- \"Alexa, ask Days Until, 'How many days until the first day of school?'\"\n- \"Alexa, ask Days Until, 'How long until the first day of school?'\"\n\nAlexa will then calculate the number of days from today until the event's date and report back to you. If you have a video-enabled Echo device, Alexa will also show the result on the screen.\n\nIf you're having trouble getting Alexa to recognize your event name, try something a bit simpler. For example, instead of \"John Smith's retirement party at the lakehouse\", try \"the retirement party\", or even just \"the party\".\n\nIcons from www.flaticon.com are licensed by CC 3.0 (http://creativecommons.org/licenses/by/3.0/) and were made by the following authors:\n\n- Freepik (https://www.flaticon.com/authors/freepik)\n- Eucalyp (https://www.flaticon.com/authors/eucalyp)\n- mangsaabguru (https://www.flaticon.com/authors/mangsaabguru)\n- Good Ware (https://www.flaticon.com/authors/good-ware)\n",
+          "smallIconUri": "https://d1qqbfelg1beem.cloudfront.net/images/days-until-icon-108.png",
+          "largeIconUri": "https://d1qqbfelg1beem.cloudfront.net/images/days-until-icon-512.png",
+          "updatesDescription": "TODO: Add description of updates here\n"
         },
         "en-CA": {
-          "summary": "Sample Short Description",
+          "summary": "Counts the number of days until special events.",
           "examplePhrases": [
-            "Alexa open hello world",
-            "hello",
-            "help"
+            "Alexa, start Days Until",
+            "Alexa, ask Days Until to create a new countdown for my birthday",
+            "Alexa, ask Days Until, 'How long until my birthday?'"
           ],
           "name": "Days Until",
-          "description": "Sample Full Description"
+          "keywords": [
+            "countdown",
+            "count down",
+            "how many days",
+            "days until",
+            "how long",
+            "how long until",
+            "duration",
+            "calculator",
+            "time calculator",
+            "duration calculator",
+            "days calculator",
+            "TODO: add more here"
+          ],
+          "description": "Days Until helps you keep track of the number of days until special events. Set up a countdown with any of these:\n\n- \"Alexa, open Days Until\"\n- \"Alexa, ask Days Until to start a new countdown\"\n- \"Alexa, ask Days Until to create a countdown for the first day of school\"\n- \"Alexa, ask Days Until to create a new countdown for the first day of school on August 21\"\n\nAlexa will then confirm the date with you before the countdown is saved.\n\nAfter you've created a countdown, you can ask Alexa how many days there are until the event:\n\n- \"Alexa, ask Days Until, 'How many days until the first day of school?'\"\n- \"Alexa, ask Days Until, 'How long until the first day of school?'\"\n\nAlexa will then calculate the number of days from today until the event's date and report back to you. If you have a video-enabled Echo device, Alexa will also show the result on the screen.\n\nIf you're having trouble getting Alexa to recognize your event name, try something a bit simpler. For example, instead of \"John Smith's retirement party at the lakehouse\", try \"the retirement party\", or even just \"the party\".\n\nIcons from www.flaticon.com are licensed by CC 3.0 (http://creativecommons.org/licenses/by/3.0/) and were made by the following authors:\n\n- Freepik (https://www.flaticon.com/authors/freepik)\n- Eucalyp (https://www.flaticon.com/authors/eucalyp)\n- mangsaabguru (https://www.flaticon.com/authors/mangsaabguru)\n- Good Ware (https://www.flaticon.com/authors/good-ware)\n",
+          "smallIconUri": "https://d1qqbfelg1beem.cloudfront.net/images/days-until-icon-108.png",
+          "largeIconUri": "https://d1qqbfelg1beem.cloudfront.net/images/days-until-icon-512.png",
+          "updatesDescription": "TODO: Add description of updates here\n"
         },
         "en-GB": {
-          "summary": "Sample Short Description",
+          "summary": "Counts the number of days until special events.",
           "examplePhrases": [
-            "Alexa open hello world",
-            "hello",
-            "help"
+            "Alexa, start Days Until",
+            "Alexa, ask Days Until to create a new countdown for my birthday",
+            "Alexa, ask Days Until, 'How long until my birthday?'"
           ],
           "name": "Days Until",
-          "description": "Sample Full Description"
+          "keywords": [
+            "countdown",
+            "count down",
+            "how many days",
+            "days until",
+            "how long",
+            "how long until",
+            "duration",
+            "calculator",
+            "time calculator",
+            "duration calculator",
+            "days calculator",
+            "TODO: add more here"
+          ],
+          "description": "Days Until helps you keep track of the number of days until special events. Set up a countdown with any of these:\n\n- \"Alexa, open Days Until\"\n- \"Alexa, ask Days Until to start a new countdown\"\n- \"Alexa, ask Days Until to create a countdown for the first day of school\"\n- \"Alexa, ask Days Until to create a new countdown for the first day of school on August 21\"\n\nAlexa will then confirm the date with you before the countdown is saved.\n\nAfter you've created a countdown, you can ask Alexa how many days there are until the event:\n\n- \"Alexa, ask Days Until, 'How many days until the first day of school?'\"\n- \"Alexa, ask Days Until, 'How long until the first day of school?'\"\n\nAlexa will then calculate the number of days from today until the event's date and report back to you. If you have a video-enabled Echo device, Alexa will also show the result on the screen.\n\nIf you're having trouble getting Alexa to recognize your event name, try something a bit simpler. For example, instead of \"John Smith's retirement party at the lakehouse\", try \"the retirement party\", or even just \"the party\".\n\nIcons from www.flaticon.com are licensed by CC 3.0 (http://creativecommons.org/licenses/by/3.0/) and were made by the following authors:\n\n- Freepik (https://www.flaticon.com/authors/freepik)\n- Eucalyp (https://www.flaticon.com/authors/eucalyp)\n- mangsaabguru (https://www.flaticon.com/authors/mangsaabguru)\n- Good Ware (https://www.flaticon.com/authors/good-ware)\n",
+          "smallIconUri": "https://d1qqbfelg1beem.cloudfront.net/images/days-until-icon-108.png",
+          "largeIconUri": "https://d1qqbfelg1beem.cloudfront.net/images/days-until-icon-512.png",
+          "updatesDescription": "TODO: Add description of updates here\n"
         },
         "en-AU": {
-          "summary": "Sample Short Description",
+          "summary": "Counts the number of days until special events.",
           "examplePhrases": [
-            "Alexa open hello world",
-            "hello",
-            "help"
+            "Alexa, start Days Until",
+            "Alexa, ask Days Until to create a new countdown for my birthday",
+            "Alexa, ask Days Until, 'How long until my birthday?'"
           ],
           "name": "Days Until",
-          "description": "Sample Full Description"
+          "keywords": [
+            "countdown",
+            "count down",
+            "how many days",
+            "days until",
+            "how long",
+            "how long until",
+            "duration",
+            "calculator",
+            "time calculator",
+            "duration calculator",
+            "days calculator",
+            "TODO: add more here"
+          ],
+          "description": "Days Until helps you keep track of the number of days until special events. Set up a countdown with any of these:\n\n- \"Alexa, open Days Until\"\n- \"Alexa, ask Days Until to start a new countdown\"\n- \"Alexa, ask Days Until to create a countdown for the first day of school\"\n- \"Alexa, ask Days Until to create a new countdown for the first day of school on August 21\"\n\nAlexa will then confirm the date with you before the countdown is saved.\n\nAfter you've created a countdown, you can ask Alexa how many days there are until the event:\n\n- \"Alexa, ask Days Until, 'How many days until the first day of school?'\"\n- \"Alexa, ask Days Until, 'How long until the first day of school?'\"\n\nAlexa will then calculate the number of days from today until the event's date and report back to you. If you have a video-enabled Echo device, Alexa will also show the result on the screen.\n\nIf you're having trouble getting Alexa to recognize your event name, try something a bit simpler. For example, instead of \"John Smith's retirement party at the lakehouse\", try \"the retirement party\", or even just \"the party\".\n\nIcons from www.flaticon.com are licensed by CC 3.0 (http://creativecommons.org/licenses/by/3.0/) and were made by the following authors:\n\n- Freepik (https://www.flaticon.com/authors/freepik)\n- Eucalyp (https://www.flaticon.com/authors/eucalyp)\n- mangsaabguru (https://www.flaticon.com/authors/mangsaabguru)\n- Good Ware (https://www.flaticon.com/authors/good-ware)\n",
+          "smallIconUri": "https://d1qqbfelg1beem.cloudfront.net/images/days-until-icon-108.png",
+          "largeIconUri": "https://d1qqbfelg1beem.cloudfront.net/images/days-until-icon-512.png",
+          "updatesDescription": "TODO: Add description of updates here\n"
         },
         "en-IN": {
-          "summary": "Sample Short Description",
+          "summary": "Counts the number of days until special events.",
           "examplePhrases": [
-            "Alexa open hello world",
-            "hello",
-            "help"
+            "Alexa, start Days Until",
+            "Alexa, ask Days Until to create a new countdown for my birthday",
+            "Alexa, ask Days Until, 'How long until my birthday?'"
           ],
           "name": "Days Until",
-          "description": "Sample Full Description"
+          "keywords": [
+            "countdown",
+            "count down",
+            "how many days",
+            "days until",
+            "how long",
+            "how long until",
+            "duration",
+            "calculator",
+            "time calculator",
+            "duration calculator",
+            "days calculator",
+            "TODO: add more here"
+          ],
+          "description": "Days Until helps you keep track of the number of days until special events. Set up a countdown with any of these:\n\n- \"Alexa, open Days Until\"\n- \"Alexa, ask Days Until to start a new countdown\"\n- \"Alexa, ask Days Until to create a countdown for the first day of school\"\n- \"Alexa, ask Days Until to create a new countdown for the first day of school on August 21\"\n\nAlexa will then confirm the date with you before the countdown is saved.\n\nAfter you've created a countdown, you can ask Alexa how many days there are until the event:\n\n- \"Alexa, ask Days Until, 'How many days until the first day of school?'\"\n- \"Alexa, ask Days Until, 'How long until the first day of school?'\"\n\nAlexa will then calculate the number of days from today until the event's date and report back to you. If you have a video-enabled Echo device, Alexa will also show the result on the screen.\n\nIf you're having trouble getting Alexa to recognize your event name, try something a bit simpler. For example, instead of \"John Smith's retirement party at the lakehouse\", try \"the retirement party\", or even just \"the party\".\n\nIcons from www.flaticon.com are licensed by CC 3.0 (http://creativecommons.org/licenses/by/3.0/) and were made by the following authors:\n\n- Freepik (https://www.flaticon.com/authors/freepik)\n- Eucalyp (https://www.flaticon.com/authors/eucalyp)\n- mangsaabguru (https://www.flaticon.com/authors/mangsaabguru)\n- Good Ware (https://www.flaticon.com/authors/good-ware)\n",
+          "smallIconUri": "https://d1qqbfelg1beem.cloudfront.net/images/days-until-icon-108.png",
+          "largeIconUri": "https://d1qqbfelg1beem.cloudfront.net/images/days-until-icon-512.png",
+          "updatesDescription": "TODO: Add description of updates here\n"
         }
       },
       "isAvailableWorldwide": true,

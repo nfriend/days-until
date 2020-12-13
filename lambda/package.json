@@ -17,9 +17,10 @@
     "lint": "eslint . --ext .ts",
     "test": "jest",
     "test:watch": "jest --watch",
-    "model": "yarn generate-model && yarn merge-model && yarn copy-english-files",
+    "model": "yarn generate-model && yarn merge-model && yarn copy-descriptions && yarn copy-english-files",
     "generate-model": "cd ../skill-package/interactionModels/custom && java -jar alexa-generate.jar ./en-US.grammar ./en-US.json && cd -",
     "merge-model": "node utility-scripts/merge-model.js",
+    "copy-descriptions": "node utility-scripts/copy-descriptions.js",
     "copy-english-files": "node utility-scripts/copy-english-files.js",
     "prepush": "yarn build && yarn lint && yarn test && yarn translate && yarn model"
   },
