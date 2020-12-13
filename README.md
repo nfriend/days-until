@@ -148,6 +148,36 @@ More info on these variables and how to generate their values can be found [in
 this blog
 post](https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2020/06/using-the-ask-cli-v2-0-to-continuously-deploy-your-skill).
 
+#### IAM user permissions
+
+The IAM user used to execute the deploy must have an IAM policy like this
+applied:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "VisualEditor0",
+      "Effect": "Allow",
+      "Action": [
+        "iam:GetRole",
+        "iam:PassRole",
+        "s3:*",
+        "logs:*",
+        "lambda:*",
+        "iam:CreateRole",
+        "cloudformation:*",
+        "dynamodb:*",
+        "iam:AttachRolePolicy",
+        "iam:PutRolePolicy"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+```
+
 ## Acknowledgements
 
 Icons from [www.flaticon.com](https://www.flaticon.com/) were made by the
