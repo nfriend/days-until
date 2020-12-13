@@ -5,7 +5,7 @@
         "en-US": {
           "summary": "Counts the number of days until special events.",
           "examplePhrases": [
-            "Alexa, start Days Until",
+            "Alexa, open Days Until",
             "Alexa, ask Days Until to create a new countdown for my birthday",
             "Alexa, ask Days Until, 'How long until my birthday?'"
           ],
@@ -232,7 +232,16 @@
       "testingInstructions": "LAUNCH DAYS UNTIL\n-----------------\n\n- \"Alexa, open Days Until.\"\n\nAlexa greets the user.\n\nThe first time they have launched the skill, Alexa gives a brief explanation of how to use the skill.\n\nOn subsequent launches, Alexa asks if they would like to create a new countdown or check an existing countdown.\n\nOn video-enabled devices (except for small devices like the Spot), two buttons are shown on the screen allowing a user to either create a new countdown or check an existing countdown.\n\nCREATE A COUNTDOWN\n------------------\n\n- \"Alexa, ask Days Until to create a new countdown.\"\n- \"Alexa, ask Days Until to start a new one for my birthday.\"\n- \"Alexa, ask Days Until to begin a new one for my birthday on June 5th.\"\n\nAlexa prompts to fill all slots (event name and event date), confirms that the countdown is correct, and creates the countdown (with celebratory sound effects).\n\nIf the user has not asked to opt out of reminder prompts, Alexa will prompt the use to create daily reminders for the event. If the user says no, Alexa will ask if they would like to opt out of reminder prompts permanently.\n\nIf the user has previously opted out of reminder prompts, they will instead be prompted to create another countdown.\n\nCHECK A COUNTDOWN\n-----------------\n\n- \"Alexa, ask Days Until to check an existing countdown.\"\n- \"Alexa, ask Days Until, 'how long until my birthday?'\"\n\nAlexa will respond with the number of days until the event over top of fun sound effects.\n\nSHOW ALL COUNTDOWNS\n-------------------\n\n- \"Alexa, ask Days Until to list all my countdowns.\"\n\nAlexa will read the total number of countdowns and list each with its current day count.\n\nVideo-enabled devices will see all countdowns rendered on the screen.\n\nDELETE COUNTDOWN\n----------------\n\n- \"Alexa, ask Days Until to delete a countdown.\"\n- \"Alexa, ask Days Until to erase my Birthday.\"\n\nAlexa asks to confirm, and then deletes the countdown (and any associated reminders, if applicable).\n\nCREATE REMINDERS\n----------------\n\nUsers are prompted to create reminders after creating a countdown unless they have previously opted out.\n\nReminders can also be created manually:\n\n- \"Alexa, ask Days Until to create daily reminders.\"\n- \"Alexa, ask Days Until to set up reminders for my birthday.\"\n\nAlexa asks what time of day the user would like the reminders, and then creates reminders for the 10 days leading up to the event (including the day of the event itself).\n\nReminders can be deleted by deleting the associated event.\n\nCreating a reminder undoes the reminder prompt opt-out mentioned above.\n\nMISCELLANEOUS\n-------------\n\nThis skill implements `CanFulfillIntentRequest`, so in some cases the skill name can be omitted:\n\n- \"Alexa, how many days until my retirement party?\"\n\nHowever, this often clashes with a default Alexa response so it rarely works.\n",
       "category": "CALENDARS_AND_REMINDERS",
       "distributionCountries": [],
-      "distributionMode": "PUBLIC"
+      "distributionMode": "PUBLIC",
+      "automaticDistribution": {
+        "isActive": true,
+        "sourceLocaleForLanguages": [
+          {
+            "language": "en",
+            "sourceLocale": "en-US"
+          }
+        ]
+      }
     },
     "privacyAndCompliance": {
       "allowsPurchases": false,
