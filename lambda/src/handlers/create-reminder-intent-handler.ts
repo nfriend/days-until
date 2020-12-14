@@ -9,10 +9,7 @@ import { getEventKey } from '~/util/get-event-key';
 import * as capitalize from 'capitalize';
 import { DaysUntilAttributes, db } from '~/adapters/dynamo-db';
 import { getReminderRequests } from '~/util/get-reminder-requests';
-import {
-  getSessionAttributes,
-  setSessionAttributes,
-} from '~/util/session-attributes';
+import { getSessionAttributes } from '~/util/session-attributes';
 
 export const INTENT_NAME = 'CreateReminderIntent';
 
@@ -33,12 +30,7 @@ export const createReminderIntentHandler: Alexa.RequestHandler = {
     const countdownEventSlotValue =
       eventNameFromSession || intent.slots?.CountdownEvent?.value;
 
-    console.log(
-      'Entering createReminderIntentHandler with slots:',
-      JSON.stringify(intent.slots, null, 2),
-    );
-
-    const slots: { [key: string]: Slot } = {
+    const updatedSlots: { [key: string]: Slot } = {
       ReminderTime: {
         name: 'ReminderTime',
         value: reminderTimeSlotValue,
@@ -56,7 +48,7 @@ export const createReminderIntentHandler: Alexa.RequestHandler = {
     const updatedIntent: Intent = {
       name: INTENT_NAME,
       confirmationStatus: 'NONE',
-      slots,
+      slots: updatedSlots,
     };
 
     const cardTitle = i18n.t('Add a daily reminder');
@@ -67,15 +59,6 @@ export const createReminderIntentHandler: Alexa.RequestHandler = {
       handlerInput.requestEnvelope.context.System.user.permissions;
 
     if (!permissions) {
-      // Save any current slot values we have so that they can be
-      // retrieved later after permissions have been granted.
-      setSessionAttributes(handlerInput, { slots });
-
-      console.log(
-        'just set session attributes inside createReminderIntentHandler. sessionAttributes:',
-        getSessionAttributes(handlerInput),
-      );
-
       return handlerInput.responseBuilder
         .addDirective({
           type: 'Connections.SendRequest',
@@ -87,7 +70,7 @@ export const createReminderIntentHandler: Alexa.RequestHandler = {
           },
           token: REMINDERS_PERMISSIONS_TOKEN,
         })
-        .withShouldEndSession(false)
+        .withShouldEndSession(true)
         .getResponse();
     }
 
@@ -109,11 +92,6 @@ export const createReminderIntentHandler: Alexa.RequestHandler = {
       const reprompt = chooseOne(
         i18n.t("Sorry, what's the event?"),
         i18n.t('Sorry, what event would you like to be reminded about?'),
-      );
-
-      console.log(
-        'eliciting for CountdownEvent slot with the following updatedIntent:',
-        JSON.stringify(updatedIntent, null, 2),
       );
 
       return buildRegularResponse({

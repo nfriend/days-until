@@ -1,11 +1,9 @@
 import * as Alexa from 'ask-sdk-core';
-import { IntentRequest, Response } from 'ask-sdk-model';
-import { REMINDERS_PERMISSIONS_TOKEN } from '~/constants';
-import { getSessionAttributes } from '~/util/session-attributes';
-import {
-  createReminderIntentHandler,
-  INTENT_NAME as CREATE_REMINDER_INTENT_NAME,
-} from './create-reminder-intent-handler';
+import i18n from 'i18next';
+import { Response } from 'ask-sdk-model';
+import { ASSETS_BASE_URL, REMINDERS_PERMISSIONS_TOKEN } from '~/constants';
+import { chooseOne } from '~/util/choose-one';
+import { buildRegularResponse } from '~/util/build-regular-response';
 
 export const connectionsResponseHandler: Alexa.RequestHandler = {
   canHandle(handlerInput: Alexa.HandlerInput): boolean | Promise<boolean> {
@@ -18,25 +16,62 @@ export const connectionsResponseHandler: Alexa.RequestHandler = {
   },
   async handle(handlerInput: Alexa.HandlerInput): Promise<Response> {
     console.log(
-      'inside connectionsResponseHandler. sessionAttributes:',
-      getSessionAttributes(handlerInput),
+      'inside connectionsResponseHandler. request:',
+      JSON.stringify(handlerInput.requestEnvelope.request, null, 2),
     );
 
-    (handlerInput.requestEnvelope.request as IntentRequest).intent = {
-      name: CREATE_REMINDER_INTENT_NAME,
-      slots: getSessionAttributes(handlerInput).slots,
-      confirmationStatus: 'NONE',
-    };
+    if (
+      (handlerInput.requestEnvelope.request as any).payload.status ===
+      'ACCEPTED'
+    ) {
+      // the user has accepted our request for reminder permissions
 
-    console.log(
-      'inside connectionsResponseHandler, about to redirect with intent:',
-      JSON.stringify(
-        (handlerInput.requestEnvelope.request as IntentRequest).intent,
-        null,
-        2,
-      ),
-    );
+      const cardTitle = i18n.t('Permission granted');
+      const visualText = i18n.t(
+        'Now that Days Until has permission, try saying "set up daily reminders"',
+      );
+      const eventImageSrc = `${ASSETS_BASE_URL}/images/positive-vote.png`;
 
-    return createReminderIntentHandler.handle(handlerInput);
+      const speak = i18n.t(
+        'Now that I have your permission to create reminders, please say "set up daily reminders" to pick up where we left off.',
+      );
+
+      const reprompt = chooseOne(
+        i18n.t('Sorry, please say "set up daily reminders".'),
+      );
+
+      return buildRegularResponse({
+        handlerInput,
+        visualText,
+        cardTitle,
+        eventImageSrc,
+        speak,
+        reprompt,
+      })
+        .withShouldEndSession(false)
+        .getResponse();
+    } else {
+      // the user has not accepted our request for reminder permissions
+
+      const cardTitle = i18n.t('Permission denied');
+      const visualText = i18n.t(
+        "Days Until can't create reminders without permission.",
+      );
+      const eventImageSrc = `${ASSETS_BASE_URL}/images/sad.png`;
+
+      const speak = i18n.t(
+        'Unfortunately, I can\'t create reminders without permission. If you\'d like to grant permission, you can do this by opening up this skill in the Alexa app or by saying "ask Days Until to set up daily reminders."',
+      );
+
+      return buildRegularResponse({
+        handlerInput,
+        visualText,
+        cardTitle,
+        eventImageSrc,
+        speak,
+      })
+        .withShouldEndSession(true)
+        .getResponse();
+    }
   },
 };
