@@ -19,8 +19,8 @@ Alexa: "Okay, what time of day would you like to be reminded?"
 You: "3 PM."
 Alexa: "You're all set. I'll send you daily reminders during the 10 days before Disney World."
 
+
 CREATING A NEW COUNTDOWN
-------------------------
 
 Set up a countdown with any of these phrases:
 
@@ -32,8 +32,8 @@ Set up a countdown with any of these phrases:
 
 Alexa will then confirm the event name and date before the countdown is saved.
 
+
 CHECKING A COUNTDOWN
---------------------
 
 After you've created a countdown, you can ask Alexa how many days there are until the event:
 
@@ -43,8 +43,8 @@ After you've created a countdown, you can ask Alexa how many days there are unti
 
 Alexa will then calculate the number of days from today until the event's date and report back to you. If you have a video-enabled Alexa device, Alexa will also show the result on the screen.
 
+
 CHECKING ALL COUNTDOWNS
------------------------
 
 You can get a complete list of all your countdowns by asking:
 
@@ -52,8 +52,8 @@ You can get a complete list of all your countdowns by asking:
 
 Video-enabled devices will show all countdowns on the screen.
 
+
 SETTING UP DAILY COUNTDOWN REMINDERS
-------------------------------------
 
 After creating a countdown, Alexa will prompt you to create daily reminders during the 10 days leading up to the event.
 
@@ -62,13 +62,13 @@ You can also set up these reminders manually by saying:
 - "Alexa, ask Days Until to create daily reminders."
 - "Alexa, ask Days Until to set up reminders for my birthday."
 
+
 CORRECTING A COUNTDOWN
-----------------------
 
 If you create a countdown with the wrong date, simply recreate the event with the same name. The old countdown will be automatically replaced with the new countdown.
 
+
 DELETING A COUNTDOWN
---------------------
 
 If you no longer want a countdown, just ask Alexa to delete it:
 
@@ -77,8 +77,8 @@ If you no longer want a countdown, just ask Alexa to delete it:
 
 Deleting a countdown will also delete any reminders for the event that were created by Days Until.
 
+
 TIPS AND TRICKS
----------------
 
 If you're having trouble getting Alexa to recognize your event name, try something a bit simpler. For example, instead of "John Smith's retirement party at the lakehouse", try "the retirement party", or even just "the party".
 
@@ -88,8 +88,8 @@ In some cases, you may be able to leave out the skill name and just say:
 
 Days Until also works great on video-enabled Alexa devices. Give it a try on your Echo Show or through your Amazon Fire TV Stick!
 
+
 ATTRIBUTIONS
-------------
 
 Icons from www.flaticon.com were made by the following authors:
 
@@ -97,3 +97,8 @@ Icons from www.flaticon.com were made by the following authors:
 - Eucalyp (https://www.flaticon.com/authors/eucalyp)
 - mangsaabguru (https://www.flaticon.com/authors/mangsaabguru)
 - Good Ware (https://www.flaticon.com/authors/good-ware)
+
+
+SOURCE CODE
+
+Days Until's source code is hosted on GitLab.com: https://gitlab.com/nfriend/days-until
