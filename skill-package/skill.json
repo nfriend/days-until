@@ -50,7 +50,7 @@
         "en-CA": {
           "summary": "Counts the number of days until special events.",
           "examplePhrases": [
-            "Alexa, start Days Until",
+            "Alexa, open Days Until",
             "Alexa, ask Days Until to create a new countdown for my birthday",
             "Alexa, ask Days Until, 'How long until my birthday?'"
           ],
@@ -95,7 +95,7 @@
         "en-GB": {
           "summary": "Counts the number of days until special events.",
           "examplePhrases": [
-            "Alexa, start Days Until",
+            "Alexa, open Days Until",
             "Alexa, ask Days Until to create a new countdown for my birthday",
             "Alexa, ask Days Until, 'How long until my birthday?'"
           ],
@@ -140,7 +140,7 @@
         "en-AU": {
           "summary": "Counts the number of days until special events.",
           "examplePhrases": [
-            "Alexa, start Days Until",
+            "Alexa, open Days Until",
             "Alexa, ask Days Until to create a new countdown for my birthday",
             "Alexa, ask Days Until, 'How long until my birthday?'"
           ],
@@ -185,7 +185,7 @@
         "en-IN": {
           "summary": "Counts the number of days until special events.",
           "examplePhrases": [
-            "Alexa, start Days Until",
+            "Alexa, open Days Until",
             "Alexa, ask Days Until to create a new countdown for my birthday",
             "Alexa, ask Days Until, 'How long until my birthday?'"
           ],

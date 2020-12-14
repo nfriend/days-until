@@ -10,7 +10,7 @@ export const errorHandler: Alexa.ErrorHandler = {
   },
   handle(handlerInput: Alexa.HandlerInput, error: Error) {
     console.log(`~~~~ error:`, error);
-    console.log(`~~~~ handlerInput:`, handlerInput);
+    console.log(`~~~~ handlerInput:`, JSON.stringify(handlerInput, null, 2));
 
     Sentry.captureException(error);
 

@@ -17,6 +17,11 @@ export const connectionsResponseHandler: Alexa.RequestHandler = {
     );
   },
   async handle(handlerInput: Alexa.HandlerInput): Promise<Response> {
+    console.log(
+      'inside connectionsResponseHandler. sessionAttributes:',
+      getSessionAttributes(handlerInput),
+    );
+
     (handlerInput.requestEnvelope.request as IntentRequest).intent = {
       name: CREATE_REMINDER_INTENT_NAME,
       slots: getSessionAttributes(handlerInput).slots,

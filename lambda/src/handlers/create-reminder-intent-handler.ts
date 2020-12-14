@@ -71,6 +71,11 @@ export const createReminderIntentHandler: Alexa.RequestHandler = {
       // retrieved later after permissions have been granted.
       setSessionAttributes(handlerInput, { slots });
 
+      console.log(
+        'just set session attributes inside createReminderIntentHandler. sessionAttributes:',
+        getSessionAttributes(handlerInput),
+      );
+
       return handlerInput.responseBuilder
         .addDirective({
           type: 'Connections.SendRequest',
