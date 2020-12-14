@@ -93,7 +93,7 @@ describe('startCountdownIntentHandler', () => {
     test('wipes out the old reminders before creating the new countdown', async () => {
       await executeLambda(event);
 
-      // Each DELETE request is mado to a URL that looks like:
+      // Each DELETE request is made to a URL that looks like:
       // https://api.amazonalexa.com/v1/alerts/reminders/<reminder ID>
       const allDeletedIds = ((getDefaultApiClient()
         .invoke as unknown) as jest.SpyInstance).mock.calls.map((call) =>

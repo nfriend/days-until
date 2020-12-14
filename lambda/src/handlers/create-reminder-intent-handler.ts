@@ -10,6 +10,7 @@ import * as capitalize from 'capitalize';
 import { DaysUntilAttributes, db } from '~/adapters/dynamo-db';
 import { getReminderRequests } from '~/util/get-reminder-requests';
 import { getSessionAttributes } from '~/util/session-attributes';
+import { deleteRemindersForEvent } from '~/util/delete-reminders-for-event';
 
 export const INTENT_NAME = 'CreateReminderIntent';
 
@@ -216,6 +217,11 @@ export const createReminderIntentHandler: Alexa.RequestHandler = {
       dailyReminderAt,
       userTimeZone,
     );
+
+    // Delete any old reminders, in case the event already exists
+    await deleteRemindersForEvent(handlerInput, eventKey, {
+      alsoDeleteFromDB: true,
+    });
 
     const reminderIds = await Promise.all(
       reminderRequests.map(async (request) => {

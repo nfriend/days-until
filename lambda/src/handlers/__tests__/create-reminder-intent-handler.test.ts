@@ -16,59 +16,52 @@ jest.mock('~/util/session-attributes', () => ({
 
 describe('createReminderIntentHandler', () => {
   const eventDate = moment.utc('2001-03-05', 'YYYY-MM-DD');
-
-  const userAttributes: DaysUntilAttributes = {
-    events: {
-      'M BR0T': {
-        eventName: 'My Birthday',
-        eventDate: eventDate.toISOString(),
-      },
-    },
-  };
-
+  let userAttributes: DaysUntilAttributes;
   let event: any;
-
-  const createEvent = (diffs = {}) => {
-    event = createAlexaEvent(
-      _.merge(
-        {},
-        {
-          request: {
-            type: 'IntentRequest',
-            intent: {
-              name: 'CreateReminderIntent',
-              confirmationStatus: 'NONE',
-              slots: {
-                CountdownEvent: {
-                  value: 'My Birthday',
-                },
-                ReminderTime: {
-                  value: '13:30',
-                },
-              },
-            },
-          },
-          context: {
-            System: {
-              user: {
-                permissions: {
-                  consentToken: '<consent-token-here>',
-                },
-              },
-            },
-          },
-        },
-        diffs,
-      ),
-    );
-  };
 
   jest
     .spyOn(db, 'get')
     .mockImplementation(() => Promise.resolve(userAttributes));
   jest.spyOn(db, 'put').mockResolvedValue();
+  jest.spyOn(db, 'delete').mockResolvedValue();
 
   beforeEach(() => {
+    event = createAlexaEvent({
+      request: {
+        type: 'IntentRequest',
+        intent: {
+          name: 'CreateReminderIntent',
+          confirmationStatus: 'NONE',
+          slots: {
+            CountdownEvent: {
+              value: 'My Birthday',
+            },
+            ReminderTime: {
+              value: '13:30',
+            },
+          },
+        },
+      },
+      context: {
+        System: {
+          user: {
+            permissions: {
+              consentToken: '<consent-token-here>',
+            },
+          },
+        },
+      },
+    });
+
+    userAttributes = {
+      events: {
+        'M BR0T': {
+          eventName: 'My Birthday',
+          eventDate: eventDate.toISOString(),
+        },
+      },
+    };
+
     MockDate.set(new Date(Date.UTC(2001, 1, 3)));
 
     jest.spyOn(getDefaultApiClient(), 'invoke');
@@ -82,15 +75,7 @@ describe('createReminderIntentHandler', () => {
 
   describe("when the user hasn't yet granted permissions", () => {
     beforeEach(() => {
-      createEvent({
-        context: {
-          System: {
-            user: {
-              permissions: null,
-            },
-          },
-        },
-      });
+      event.context.System.user.permissions = null;
     });
 
     test('directs the user to enable permissions in the Alexa app', async () => {
@@ -105,10 +90,6 @@ describe('createReminderIntentHandler', () => {
   });
 
   describe('when the event is in the future', () => {
-    beforeEach(() => {
-      createEvent();
-    });
-
     test('creates reminders only for the ten days before the event', async () => {
       await executeLambda(event);
 
@@ -218,10 +199,6 @@ describe('createReminderIntentHandler', () => {
   });
 
   describe('when the event is in the past', () => {
-    beforeEach(() => {
-      createEvent();
-    });
-
     test('does not create any reminders', async () => {
       MockDate.set(new Date(Date.UTC(2001, 5, 5)));
 
@@ -231,6 +208,36 @@ describe('createReminderIntentHandler', () => {
         ((getDefaultApiClient()
           .invoke as unknown) as jest.SpyInstance).mock.calls.slice(1),
       ).toEqual([]);
+    });
+  });
+
+  describe('when the event already has existing reminders', () => {
+    beforeEach(() => {
+      userAttributes.events['M BR0T'].reminderIds = ['1', '2', '3'];
+    });
+
+    test('deletes any existing reminders before it creates new ones', async () => {
+      await executeLambda(event);
+
+      // Each DELETE request is made to a URL that looks like:
+      // https://api.amazonalexa.com/v1/alerts/reminders/<reminder ID>
+      const allDeletedIds = ((getDefaultApiClient()
+        .invoke as unknown) as jest.SpyInstance).mock.calls
+
+        // First call is to get timezone info
+        // Calls 2, 3, and 4 are to delete the existing reminders
+        // The rest are to create new reminders
+        .slice(1, 4)
+        .map((call) => _.last(call[0].url.split('/')));
+
+      expect(allDeletedIds).toEqual(
+        userAttributes.events['M BR0T'].reminderIds,
+      );
+
+      expect(db.delete).toHaveBeenCalledTimes(1);
+      expect(db.delete).toHaveBeenCalledWith(expect.anything(), [
+        'events.M BR0T.reminderIds',
+      ]);
     });
   });
 });
