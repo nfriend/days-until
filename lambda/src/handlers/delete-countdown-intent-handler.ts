@@ -9,6 +9,7 @@ import { DaysUntilAttributes, db } from '~/adapters/dynamo-db';
 import { getEventKey } from '~/util/get-event-key';
 import { getFailureInterjection } from '~/util/get-failure-interjection';
 import soundEffectWithSsml from '~/apla/sound-effect-with-ssml.json';
+import { deleteRemindersForEvent } from '~/util/delete-reminders-for-event';
 
 export const INTENT_NAME = 'DeleteCountdownIntent';
 
@@ -190,20 +191,10 @@ export const deleteCountdownIntentHandler: Alexa.RequestHandler = {
         .getResponse();
     }
 
-    const { reminderIds } = attributes.events[eventKey];
-    const remindersApiClient = handlerInput.serviceClientFactory.getReminderManagementServiceClient();
-    const permissions =
-      handlerInput.requestEnvelope.context.System.user.permissions;
+    // Delete all associated reminders
+    await deleteRemindersForEvent(handlerInput, eventKey);
 
-    // Delete all associated reminders, if any, and if we (still) have permission
-    if (reminderIds?.length > 0 && permissions) {
-      await Promise.all(
-        reminderIds.map(async (idToDelete) => {
-          return await remindersApiClient.deleteReminder(idToDelete);
-        }),
-      );
-    }
-
+    // Delete the event itself
     await db.delete(handlerInput.requestEnvelope, [`events.${eventKey}`]);
 
     const visualText = i18n.t('{{eventName}} has been deleted', i18nData);

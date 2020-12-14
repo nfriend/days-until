@@ -37,7 +37,7 @@ describe('connectionsResponseHandler', () => {
       const result = await executeLambda(event);
 
       expect(result).toSpeek(
-        'Now that I have your permission to create reminders, please say "set up daily reminders" to pick up where we left off.',
+        'Now that I have your permission to create reminders, please say, <break strength="strong"/> "set up daily reminders" <break strength="strong"/> to pick up where we left off.',
       );
     });
   });
@@ -51,7 +51,7 @@ describe('connectionsResponseHandler', () => {
       const result = await executeLambda(event);
 
       expect(result).toSpeek(
-        'Unfortunately, I can\'t create reminders without permission. If you\'d like to grant permission, you can do this by opening up this skill in the Alexa app or by saying "ask Days Until to set up daily reminders."',
+        'Unfortunately, I can\'t create reminders without permission. If you\'d like to grant permission, you can do this by opening up this skill in the Alexa app or by saying, <break strength="strong"/> "ask Days Until to set up daily reminders."',
       );
     });
   });

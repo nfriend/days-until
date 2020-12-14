@@ -15,11 +15,6 @@ export const connectionsResponseHandler: Alexa.RequestHandler = {
     );
   },
   async handle(handlerInput: Alexa.HandlerInput): Promise<Response> {
-    console.log(
-      'inside connectionsResponseHandler. request:',
-      JSON.stringify(handlerInput.requestEnvelope.request, null, 2),
-    );
-
     if (
       (handlerInput.requestEnvelope.request as any).payload.status ===
       'ACCEPTED'
@@ -33,11 +28,13 @@ export const connectionsResponseHandler: Alexa.RequestHandler = {
       const eventImageSrc = `${ASSETS_BASE_URL}/images/positive-vote.png`;
 
       const speak = i18n.t(
-        'Now that I have your permission to create reminders, please say "set up daily reminders" to pick up where we left off.',
+        'Now that I have your permission to create reminders, please say, <break strength="strong"/> "set up daily reminders" <break strength="strong"/> to pick up where we left off.',
       );
 
       const reprompt = chooseOne(
-        i18n.t('Sorry, please say "set up daily reminders".'),
+        i18n.t(
+          'Sorry, please say, <break strength="strong"/> "set up daily reminders".',
+        ),
       );
 
       return buildRegularResponse({
@@ -60,7 +57,7 @@ export const connectionsResponseHandler: Alexa.RequestHandler = {
       const eventImageSrc = `${ASSETS_BASE_URL}/images/sad.png`;
 
       const speak = i18n.t(
-        'Unfortunately, I can\'t create reminders without permission. If you\'d like to grant permission, you can do this by opening up this skill in the Alexa app or by saying "ask Days Until to set up daily reminders."',
+        'Unfortunately, I can\'t create reminders without permission. If you\'d like to grant permission, you can do this by opening up this skill in the Alexa app or by saying, <break strength="strong"/> "ask Days Until to set up daily reminders."',
       );
 
       return buildRegularResponse({

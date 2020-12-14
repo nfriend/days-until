@@ -16,6 +16,7 @@ import { buildRegularResponse } from '~/util/build-regular-response';
 import { ASSETS_BASE_URL } from '~/constants';
 import { YesNoIntentQuestion } from './yes-no-intent-question';
 import { setSessionAttributes } from '~/util/session-attributes';
+import { deleteRemindersForEvent } from '~/util/delete-reminders-for-event';
 
 export const INTENT_NAME = 'StartCountdownIntent';
 
@@ -228,6 +229,16 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
 
     const eventKey = getEventKey(eventName);
 
+    // It's possible this event already existed, and
+    // we just overwrote the old one. But the old event
+    // may have had reminders associated with it which
+    // are no longer relevant. So we need to make sure
+    // we clean up any old reminders.
+    await deleteRemindersForEvent(handlerInput, eventKey, {
+      alsoDeleteFromDB: true,
+    });
+
+    // Create the countdown in the database
     await db.put(handlerInput.requestEnvelope, {
       events: {
         [eventKey]: {

@@ -1,16 +1,19 @@
 import moment from 'moment';
 import MockDate from 'mockdate';
+import _ from 'lodash';
 import { createAlexaEvent } from './create-alexa-event';
 import { executeLambda } from './execute-lambda';
 import { db, DaysUntilAttributes } from '~/adapters/dynamo-db';
 import { setSessionAttributes } from '~/util/session-attributes';
 import { YesNoIntentQuestion } from '../yes-no-intent-question';
+import { getDefaultApiClient } from '~/util/get-default-api-client';
 
 jest.mock('~/util/choose-one');
 jest.mock('~/adapters/dynamo-db');
 jest.mock('~/util/session-attributes', () => ({
   setSessionAttributes: jest.fn(),
 }));
+jest.mock('~/util/get-default-api-client');
 
 describe('startCountdownIntentHandler', () => {
   let userAttributes: DaysUntilAttributes;
@@ -31,14 +34,23 @@ describe('startCountdownIntentHandler', () => {
         },
       },
     },
+    context: {
+      System: {
+        user: {
+          permissions: {},
+        },
+      },
+    },
   });
 
   jest
     .spyOn(db, 'get')
     .mockImplementation(() => Promise.resolve(userAttributes));
   jest.spyOn(db, 'put').mockResolvedValue();
+  jest.spyOn(db, 'delete').mockResolvedValue();
 
   beforeEach(() => {
+    jest.spyOn(getDefaultApiClient(), 'invoke');
     MockDate.set(new Date(Date.UTC(2001, 1, 3)));
     userAttributes = {};
   });
@@ -62,6 +74,41 @@ describe('startCountdownIntentHandler', () => {
         },
       }),
     ]);
+  });
+
+  describe('when the event already exists and has reminders', () => {
+    beforeEach(() => {
+      userAttributes = {
+        events: {
+          'M BR0T': {
+            eventName: 'My Birthday',
+            eventDate: moment.utc('2000-01-09', 'YYYY-MM-DD').toISOString(),
+            createdOn: moment.utc('1999-12-26', 'YYYY-MM-DD').toISOString(),
+            reminderIds: ['1', '2', '3'],
+          },
+        },
+      };
+    });
+
+    test('wipes out the old reminders before creating the new countdown', async () => {
+      await executeLambda(event);
+
+      // Each DELETE request is mado to a URL that looks like:
+      // https://api.amazonalexa.com/v1/alerts/reminders/<reminder ID>
+      const allDeletedIds = ((getDefaultApiClient()
+        .invoke as unknown) as jest.SpyInstance).mock.calls.map((call) =>
+        _.last(call[0].url.split('/')),
+      );
+
+      expect(allDeletedIds).toEqual(
+        userAttributes.events['M BR0T'].reminderIds,
+      );
+
+      expect(db.delete).toHaveBeenCalledTimes(1);
+      expect(db.delete).toHaveBeenCalledWith(expect.anything(), [
+        'events.M BR0T.reminderIds',
+      ]);
+    });
   });
 
   const expectNotToPromptForReminders = () => {
