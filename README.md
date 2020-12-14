@@ -178,6 +178,13 @@ applied:
 }
 ```
 
+### Skill description, updates description, and testing instructions
+
+See comments in
+[`lambda/utility-scripts/copy-plain-text-content.js`](lambda/utility-scripts/copy-plain-text-content.js)
+for an explanation about how `skill-package/*.txt` files get read and used as
+content for `skill.json`.
+
 ## Acknowledgements
 
 Icons from [www.flaticon.com](https://www.flaticon.com/) were made by the
