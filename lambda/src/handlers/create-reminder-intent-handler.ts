@@ -110,6 +110,11 @@ export const createReminderIntentHandler: Alexa.RequestHandler = {
         i18n.t('Sorry, what event would you like to be reminded about?'),
       );
 
+      console.log(
+        'eliciting for CountdownEvent slot with the following updatedIntent:',
+        JSON.stringify(updatedIntent, null, 2),
+      );
+
       return buildRegularResponse({
         handlerInput,
         visualText,
