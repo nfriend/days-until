@@ -87,6 +87,7 @@ export const createReminderIntentHandler: Alexa.RequestHandler = {
           },
           token: REMINDERS_PERMISSIONS_TOKEN,
         })
+        .withShouldEndSession(false)
         .getResponse();
     }
 

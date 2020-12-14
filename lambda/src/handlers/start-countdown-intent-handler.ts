@@ -90,7 +90,7 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
         .getResponse();
     }
 
-    const eventDateSlotValue = intent.slots.EventDate.value;
+    const eventDateSlotValue = intent?.slots?.EventDate?.value;
 
     if (!eventDateSlotValue) {
       // The user has not yet provided an event date
