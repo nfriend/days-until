@@ -26,7 +26,36 @@ describe('~/util/get-days-until.ts', () => {
     `when the event date is $eventDate, returns $output`,
     ({ eventDate, output }) => {
       const eventMoment = moment.utc(eventDate, 'YYYY-MM-DD');
-      expect(getDaysUntil(eventMoment, eventName)).toEqual(output);
+      expect(getDaysUntil(eventMoment, eventName, 'Etc/UTC')).toEqual(output);
     },
   );
+
+  describe('when the user is not in the UTC timezone', () => {
+    const expectCorrectDaysUntil = () => {
+      test("returns the correct date calculation relative to the device's current timezone", () => {
+        // event date must always be supplied in UTC timezone
+        const eventDate = moment.utc('2001-02-05');
+
+        expect(
+          getDaysUntil(eventDate, 'Christmas', 'America/New_York').diff,
+        ).toEqual(2);
+      });
+    };
+
+    describe("when it's really early in the day", () => {
+      beforeEach(() => {
+        MockDate.set(new Date(Date.UTC(2001, 1, 3, 0, 0, 0)));
+      });
+
+      expectCorrectDaysUntil();
+    });
+
+    describe("when it's really late in the day", () => {
+      beforeEach(() => {
+        MockDate.set(new Date(Date.UTC(2001, 1, 3, 23, 59, 59, 999)));
+      });
+
+      expectCorrectDaysUntil();
+    });
+  });
 });

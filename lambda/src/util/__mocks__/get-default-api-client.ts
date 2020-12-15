@@ -8,7 +8,7 @@ const mockApiClient = {
   invoke({ url, method }: InvokeParams) {
     if (method === 'GET' && url.includes('settings/System.timeZone')) {
       return Promise.resolve({
-        body: JSON.stringify({}),
+        body: JSON.stringify('America/Los_Angeles'),
         statusCode: 200,
         headers: [
           {

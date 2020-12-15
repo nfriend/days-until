@@ -17,6 +17,7 @@ import { ASSETS_BASE_URL } from '~/constants';
 import { YesNoIntentQuestion } from './yes-no-intent-question';
 import { setSessionAttributes } from '~/util/session-attributes';
 import { deleteRemindersForEvent } from '~/util/delete-reminders-for-event';
+import { getUserTimezone } from '~/util/get-user-timezone';
 
 export const INTENT_NAME = 'StartCountdownIntent';
 
@@ -317,7 +318,11 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
     }
 
     const eventImageSrc = getImageForEvent(eventName);
-    const visualText = getDaysUntil(eventDate, eventName).visual;
+    const visualText = getDaysUntil(
+      eventDate,
+      eventName,
+      await getUserTimezone(handlerInput),
+    ).visual;
 
     const backgroundAudio = chooseOne(
       'soundbank://soundlibrary/human/amzn_sfx_crowd_cheer_med_01',

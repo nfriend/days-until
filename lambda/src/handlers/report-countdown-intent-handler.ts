@@ -12,6 +12,7 @@ import { getFailureInterjection } from '~/util/get-failure-interjection';
 import soundEffectWithSsml from '~/apla/sound-effect-with-ssml.json';
 import { getDaysUntil } from '~/util/get-days-until';
 import { getImageForEvent } from '~/util/get-image-for-event';
+import { getUserTimezone } from '~/util/get-user-timezone';
 
 export const INTENT_NAME = 'ReportCountdownIntent';
 
@@ -98,7 +99,11 @@ export const reportCountdownIntentHandler: Alexa.RequestHandler = {
 
       const eventDate = moment(attributes.events[eventKey].eventDate).utc();
       const eventImageSrc = getImageForEvent(eventName);
-      const daysUntil = getDaysUntil(eventDate, eventName);
+      const daysUntil = getDaysUntil(
+        eventDate,
+        eventName,
+        await getUserTimezone(handlerInput),
+      );
 
       const backgroundAudio = chooseOne(
         'soundbank://soundlibrary/human/amzn_sfx_crowd_cheer_med_01',

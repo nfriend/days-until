@@ -1,5 +1,5 @@
 import i18n from 'i18next';
-import moment, { Moment } from 'moment';
+import moment, { Moment } from 'moment-timezone';
 import { chooseOne } from './choose-one';
 
 interface DaysUntil {
@@ -16,12 +16,30 @@ interface DaysUntil {
   predictableDescription: string;
 }
 
+/**
+ * Calculates the number of days to/from the provided event, and
+ * returns the diff in a variety of formats.
+ *
+ * @param eventDate A Moment object that represents the event date. Must be in UTC timezone.
+ * @param eventName The name of the event
+ * @param deviceTimeZone The time zone of the user's device
+ */
 export const getDaysUntil = (
   eventDate: Moment,
   eventName: string,
+  deviceTimeZone: string,
 ): DaysUntil => {
-  const today = moment().utc().startOf('day');
-  const diff = eventDate.diff(today, 'days');
+  const today = moment().utc().startOf('day').tz(deviceTimeZone);
+
+  // The event date is stored as a UTC date at the beginning of the day
+  // (the timezone of the device that created the countdown is ignored).
+  // But we need to test against the beginning of the day in _user's_ timezone.
+  // So we translate this date into the user's timezone, modifying the moment in time.
+  const diff = eventDate
+    .clone()
+    .startOf('day')
+    .tz(deviceTimeZone, true)
+    .diff(today, 'days');
 
   let visual = '(Not yet implemented.)';
   let speech = '(Not yet implemented.)';

@@ -96,9 +96,9 @@ describe('startCountdownIntentHandler', () => {
       // Each DELETE request is made to a URL that looks like:
       // https://api.amazonalexa.com/v1/alerts/reminders/<reminder ID>
       const allDeletedIds = ((getDefaultApiClient()
-        .invoke as unknown) as jest.SpyInstance).mock.calls.map((call) =>
-        _.last(call[0].url.split('/')),
-      );
+        .invoke as unknown) as jest.SpyInstance).mock.calls
+        .slice(0, -1)
+        .map((call) => _.last(call[0].url.split('/')));
 
       expect(allDeletedIds).toEqual(
         userAttributes.events['M BR0T'].reminderIds,

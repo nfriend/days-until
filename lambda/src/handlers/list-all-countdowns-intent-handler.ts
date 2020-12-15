@@ -9,6 +9,7 @@ import { buildRegularResponse } from '~/util/build-regular-response';
 import { chooseOne } from '~/util/choose-one';
 import { getDaysUntil } from '~/util/get-days-until';
 import { getImageForEvent } from '~/util/get-image-for-event';
+import { getUserTimezone } from '~/util/get-user-timezone';
 
 export const INTENT_NAME = 'ListAllCountdownsIntent';
 
@@ -24,6 +25,8 @@ export const listAllCountdownsIntentHandler: Alexa.RequestHandler = {
       handlerInput.requestEnvelope,
     );
 
+    const userTimeZone = await getUserTimezone(handlerInput);
+
     const events = attributes.events || {};
     const sortedUpcomingEvents = Object.values(events)
 
@@ -34,7 +37,7 @@ export const listAllCountdownsIntentHandler: Alexa.RequestHandler = {
         return {
           ...event,
           eventDate,
-          daysUntil: getDaysUntil(eventDate, event.eventName),
+          daysUntil: getDaysUntil(eventDate, event.eventName, userTimeZone),
         };
       })
 
