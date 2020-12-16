@@ -4,11 +4,11 @@
     "__ENVIRONMENT_ASK_PROFILE__": {
       "skillId": "amzn1.ask.skill.a904b878-9342-4031-9e86-a81ac29bddca",
       "skillMetadata": {
-        "lastDeployHash": "R7oiJGtpnKOStdDWf72Up3kEun4="
+        "lastDeployHash": "+we2J+mV4BrdPu5HTw7ETVnXq9Q="
       },
       "code": {
         "default": {
-          "lastDeployHash": "Zi9Svbkh+TmXHa8kLrKRchOZV74="
+          "lastDeployHash": "3EM9puGzl4wAny8xRw3jwaOY6Ag="
         }
       },
       "skillInfrastructure": {
