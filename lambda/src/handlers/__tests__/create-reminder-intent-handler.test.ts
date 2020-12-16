@@ -291,7 +291,7 @@ describe('createReminderIntentHandler', () => {
       const result = await executeLambda(event);
 
       expect(result).toSpeek(
-        "Sorry, but this device doesn't support reminders!",
+        "Shoot! Sorry, but this device doesn't support reminders!",
       );
     });
   });

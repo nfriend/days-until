@@ -12,6 +12,7 @@ import { getReminderRequests } from '~/util/get-reminder-requests';
 import { getSessionAttributes } from '~/util/session-attributes';
 import { deleteRemindersForEvent } from '~/util/delete-reminders-for-event';
 import { getEventNotFoundResponse } from '~/util/get-event-not-found-response';
+import { getFailureInterjection } from '~/util/get-failure-interjection';
 
 export const INTENT_NAME = 'CreateReminderIntent';
 
@@ -242,10 +243,13 @@ export const createReminderIntentHandler: Alexa.RequestHandler = {
 
         return buildRegularResponse({
           handlerInput,
-          visualText: i18n.t('Not supported'),
+          visualText: i18n.t("This device doesn't support reminders"),
           cardTitle,
           eventImageSrc: `${ASSETS_BASE_URL}/images/sorry.png`,
-          speak: i18n.t("Sorry, but this device doesn't support reminders!"),
+          speak: [
+            getFailureInterjection(),
+            i18n.t("Sorry, but this device doesn't support reminders!"),
+          ].join(' '),
         })
           .withShouldEndSession(true)
           .getResponse();
