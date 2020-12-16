@@ -19,6 +19,7 @@ Other changes include:
 
 - Celebratory sound effects when checking a countdown
 - Bug fixes
+- More accurate date calculation
 - Better event recognition
 - More flexible conversation patterns
 
