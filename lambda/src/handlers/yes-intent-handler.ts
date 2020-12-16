@@ -8,24 +8,24 @@ import { ASSETS_BASE_URL } from '~/constants';
 import { buildRegularResponse } from '~/util/build-regular-response';
 import { getSessionAttributes } from '~/util/session-attributes';
 import { chooseOne } from '~/util/choose-one';
+import { fallbackIntentHandler } from './fallback-intent-handler';
 
 export const yesIntentHandler: Alexa.RequestHandler = {
   canHandle(handlerInput: Alexa.HandlerInput) {
-    const question: YesNoIntentQuestion = getSessionAttributes(handlerInput)
-      .YesNoIntentQuestion;
-
     return (
       Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' &&
-      Alexa.getIntentName(handlerInput.requestEnvelope) ===
-        'AMAZON.YesIntent' &&
-      Object.values(YesNoIntentQuestion).includes(question)
+      Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.YesIntent'
     );
   },
   async handle(handlerInput: Alexa.HandlerInput) {
     const question: YesNoIntentQuestion = getSessionAttributes(handlerInput)
       .YesNoIntentQuestion;
 
-    if (question === YesNoIntentQuestion.ShouldCreateReminder) {
+    if (!Object.values(YesNoIntentQuestion).includes(question)) {
+      // if the user says "yes" when we weren't asking a yes/no question
+
+      return fallbackIntentHandler.handle(handlerInput);
+    } else if (question === YesNoIntentQuestion.ShouldCreateReminder) {
       return createReminderIntentHandler.handle(handlerInput);
     } else if (question === YesNoIntentQuestion.ShouldCreateAnotherReminder) {
       return startCountdownIntentHandler.handle(handlerInput);

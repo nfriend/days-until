@@ -10,23 +10,24 @@ import {
   setSessionAttributes,
 } from '~/util/session-attributes';
 import { stopIntentHandler } from './stop-intent-handler';
+import { fallbackIntentHandler } from './fallback-intent-handler';
 
 export const noIntentHandler: Alexa.RequestHandler = {
   canHandle(handlerInput: Alexa.HandlerInput) {
-    const question: YesNoIntentQuestion = getSessionAttributes(handlerInput)
-      .YesNoIntentQuestion;
-
     return (
       Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' &&
-      Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.NoIntent' &&
-      Object.values(YesNoIntentQuestion).includes(question)
+      Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.NoIntent'
     );
   },
   async handle(handlerInput: Alexa.HandlerInput) {
     const question: YesNoIntentQuestion = getSessionAttributes(handlerInput)
       .YesNoIntentQuestion;
 
-    if (question === YesNoIntentQuestion.ShouldCreateReminder) {
+    if (!Object.values(YesNoIntentQuestion).includes(question)) {
+      // if the user says "no" when we weren't asking a yes/no question
+
+      return fallbackIntentHandler.handle(handlerInput);
+    } else if (question === YesNoIntentQuestion.ShouldCreateReminder) {
       setSessionAttributes(handlerInput, {
         YesNoIntentQuestion:
           YesNoIntentQuestion.ShouldStopPromptingForReminders,

@@ -1,5 +1,15 @@
-This update fixes one small bug.
+This update fixes a small edge case bug.
 
-Currently, when a user attempts to set up daily reminders for a non-existent countdown, Alexa runs into an error ("Shoot! Something went wrong. Can you try again?").
+Previously, this skill didn't handle AMAZON.YesIntent or AMAZON.NoIntent if it wasn't expecting a question:
 
-Now this case is handled, and Alexa responds with a more informative response ("Shoot! I don't see a countdown for My Birthday").
+User: Alexa, open Days Until
+Alexa: Hello! Would you like to create a new countdown or check an existing one?
+User: Yes
+Alexa: You just triggered AMAZON.YesIntent, but no handler was able to handle the request.
+
+Now, these kind of situations redirect back to the skill's FallbackIntent handler:
+
+User: Alexa, open Days Until
+Alexa: Hello! Would you like to create a new countdown or check an existing one?
+User: Yes
+Alexa: Shoot! Sorry, but Days Until doesn't know how to do that! You can create, check, and delete countdowns, and also set countdown reminders. What would you like to do?

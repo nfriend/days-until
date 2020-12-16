@@ -8,6 +8,7 @@ let mockSessionAttributes = {};
 
 jest.mock('~/util/choose-one');
 jest.mock('~/adapters/dynamo-db');
+jest.mock('~/util/get-failure-interjection');
 jest.mock('~/util/session-attributes', () => ({
   getSessionAttributes: () => mockSessionAttributes,
   setSessionAttributes: jest.fn(),
@@ -30,6 +31,18 @@ describe('noIntentHandler', () => {
     .spyOn(db, 'get')
     .mockImplementation(() => Promise.resolve(userAttributes));
   jest.spyOn(db, 'put').mockResolvedValue();
+
+  describe('when the user is respond "no" when we weren\'t expecting it', () => {
+    test('redirects to the fallbackIntentHandler', async () => {
+      mockSessionAttributes = {};
+
+      const result = await executeLambda(event);
+
+      expect(result).toSpeek(
+        "Shoot! Sorry, but Days Until doesn't know how to do that! You can create, check, and delete countdowns, and also set countdown reminders. What would you like to do?",
+      );
+    });
+  });
 
   describe('when the user is respond "no" to "would you like to create a daily reminder?"', () => {
     test('prompts the user if they would like to opt out of future reminder requests', async () => {
