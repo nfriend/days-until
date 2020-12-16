@@ -229,11 +229,30 @@ export const createReminderIntentHandler: Alexa.RequestHandler = {
       alsoDeleteFromDB: true,
     });
 
-    const reminderIds = await Promise.all(
-      reminderRequests.map(async (request) => {
-        return (await remindersApiClient.createReminder(request)).alertToken;
-      }),
-    );
+    let reminderIds: string[];
+    try {
+      reminderIds = await Promise.all(
+        reminderRequests.map(async (request) => {
+          return (await remindersApiClient.createReminder(request)).alertToken;
+        }),
+      );
+    } catch (err) {
+      if (err.name === 'ServiceError') {
+        // The current device doesn't support creating reminders
+
+        return buildRegularResponse({
+          handlerInput,
+          visualText: i18n.t('Not supported'),
+          cardTitle,
+          eventImageSrc: `${ASSETS_BASE_URL}/images/sorry.png`,
+          speak: i18n.t("Sorry, but this device doesn't support reminders!"),
+        })
+          .withShouldEndSession(true)
+          .getResponse();
+      } else {
+        throw err;
+      }
+    }
 
     await db.put(handlerInput.requestEnvelope, {
       doNotPromptForReminders: false,

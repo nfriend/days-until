@@ -255,4 +255,44 @@ describe('createReminderIntentHandler', () => {
       expect(result).toSpeek("Shoot! I don't see a countdown for My Birthday");
     });
   });
+
+  describe("when the device doesn't support reminders", () => {
+    let originalInvoke: any;
+
+    beforeEach(() => {
+      originalInvoke = getDefaultApiClient().invoke;
+
+      getDefaultApiClient().invoke = (input) => {
+        if (input.method === 'POST' && input.url.includes('alerts/reminders')) {
+          return Promise.resolve({
+            body: JSON.stringify({
+              alertToken: 'fakeAlertToken',
+            }),
+            statusCode: 403,
+            headers: [
+              {
+                key: 'content-type',
+                value: 'application/json',
+              },
+            ],
+          });
+        } else {
+          return originalInvoke(input);
+        }
+      };
+    });
+
+    afterEach(() => {
+      // There's probably a better way to do this with jest.fn().... :thinking:
+      getDefaultApiClient().invoke = originalInvoke;
+    });
+
+    test("informs the user that it can't create reminders on the current devices", async () => {
+      const result = await executeLambda(event);
+
+      expect(result).toSpeek(
+        "Sorry, but this device doesn't support reminders!",
+      );
+    });
+  });
 });
