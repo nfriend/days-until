@@ -1,8 +1,5 @@
-The only change in this update is the skill logo.
+This update fixes one small bug.
 
-The skill logo is rendering strangely on Amazon.com (see https://www.amazon.com/Nathan-Friend-Consulting-LLC-Until/dp/B0759KJ8D2). I've removed the transparency from the original logos and replaced it with a white background:
+Currently, when a user attempts to set up daily reminders for a non-existent countdown, Alexa runs into an error ("Shoot! Something went wrong. Can you try again?").
 
-- https://d1qqbfelg1beem.cloudfront.net/images/days-until-icon-108-white-bg.png
-- https://d1qqbfelg1beem.cloudfront.net/images/days-until-icon-512-white-bg.png
-
-I am hoping this fixes the problem! The images look okay in the Alexa Developer Console.
+Now this case is handled, and Alexa responds with a more informative response ("Shoot! I don't see a countdown for My Birthday").

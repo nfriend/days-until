@@ -11,6 +11,7 @@ import { DaysUntilAttributes, db } from '~/adapters/dynamo-db';
 import { getReminderRequests } from '~/util/get-reminder-requests';
 import { getSessionAttributes } from '~/util/session-attributes';
 import { deleteRemindersForEvent } from '~/util/delete-reminders-for-event';
+import { getEventNotFoundResponse } from '~/util/get-event-not-found-response';
 
 export const INTENT_NAME = 'CreateReminderIntent';
 
@@ -107,6 +108,17 @@ export const createReminderIntentHandler: Alexa.RequestHandler = {
         .getResponse();
     }
 
+    const eventName = capitalize.words(countdownEventSlotValue);
+    const eventKey = getEventKey(eventName);
+    const attributes: DaysUntilAttributes = await db.get(
+      handlerInput.requestEnvelope,
+    );
+
+    if (!attributes.events?.[eventKey]) {
+      // If the requested event doesn't exist
+      return getEventNotFoundResponse(handlerInput, eventName, cardTitle);
+    }
+
     if (!reminderTimeSlotValue) {
       const visualText = i18n.t(
         'What time of day would you like to be reminded?',
@@ -188,6 +200,13 @@ export const createReminderIntentHandler: Alexa.RequestHandler = {
         .getResponse();
     }
 
+    const eventDate = moment.utc(attributes.events[eventKey].eventDate);
+
+    const upsServiceClient = handlerInput.serviceClientFactory.getUpsServiceClient();
+    const userTimeZone = await upsServiceClient.getSystemTimeZone(
+      handlerInput.requestEnvelope.context.System.device.deviceId,
+    );
+
     // Handle cases where the user said "Morning", "Night", etc.
     // See https://developer.amazon.com/en-US/docs/alexa/custom-skills/slot-type-reference.html#time
     const dailyReminderAt: string =
@@ -197,19 +216,6 @@ export const createReminderIntentHandler: Alexa.RequestHandler = {
         EV: '18:00',
         NI: '21:00',
       } as any)[reminderTimeSlotValue] || reminderTimeSlotValue;
-
-    const eventName = capitalize.words(countdownEventSlotValue);
-
-    const eventKey = getEventKey(eventName);
-    const attributes: DaysUntilAttributes = await db.get(
-      handlerInput.requestEnvelope,
-    );
-    const eventDate = moment.utc(attributes.events[eventKey].eventDate);
-
-    const upsServiceClient = handlerInput.serviceClientFactory.getUpsServiceClient();
-    const userTimeZone = await upsServiceClient.getSystemTimeZone(
-      handlerInput.requestEnvelope.context.System.device.deviceId,
-    );
 
     const reminderRequests = getReminderRequests(
       eventDate,

@@ -9,6 +9,7 @@ import { getDefaultApiClient } from '~/util/get-default-api-client';
 jest.mock('~/util/choose-one');
 jest.mock('~/adapters/dynamo-db');
 jest.mock('~/util/get-default-api-client');
+jest.mock('~/util/get-failure-interjection');
 jest.mock('~/util/session-attributes', () => ({
   setSessionAttributes: jest.fn(),
   getSessionAttributes: () => jest.fn(),
@@ -238,6 +239,20 @@ describe('createReminderIntentHandler', () => {
       expect(db.delete).toHaveBeenCalledWith(expect.anything(), [
         'events.M BR0T.reminderIds',
       ]);
+    });
+  });
+
+  describe("when the event doesn't exist", () => {
+    beforeEach(() => {
+      delete userAttributes.events['M BR0T'];
+    });
+
+    test("informs the user that it can't find the event", async () => {
+      const result = await executeLambda(event);
+
+      expect(db.delete).not.toHaveBeenCalled();
+
+      expect(result).toSpeek("Shoot! I don't see a countdown for My Birthday");
     });
   });
 });
