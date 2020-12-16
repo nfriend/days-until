@@ -47,13 +47,25 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
     // It's possible intent may not be provided since this handler
     // also handles the "Create a new countdown" button press
     const countdownEventSlotValue = intent?.slots?.CountdownEvent?.value;
+    const eventDateSlotValue = intent?.slots?.EventDate?.value;
 
     // Again, because it's possible we're not currently inside an IntentRequest,
     // we need to makes sure we explicitly elicit slots for _this_ intent.
-    const updatedIntent: Intent = intent || {
+    const updatedIntent: Intent = {
       name: INTENT_NAME,
-      confirmationStatus: 'NONE',
-      slots: {},
+      confirmationStatus: intent?.confirmationStatus || 'NONE',
+      slots: {
+        CountdownEvent: {
+          name: 'CountdownEvent',
+          value: countdownEventSlotValue,
+          confirmationStatus: 'NONE',
+        },
+        EventDate: {
+          name: 'EventDate',
+          value: eventDateSlotValue,
+          confirmationStatus: 'NONE',
+        },
+      },
     };
 
     const cardTitle = i18n.t('Create a new countdown');
@@ -91,8 +103,6 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
         .addElicitSlotDirective('CountdownEvent', updatedIntent)
         .getResponse();
     }
-
-    const eventDateSlotValue = intent?.slots?.EventDate?.value;
 
     if (!eventDateSlotValue) {
       // The user has not yet provided an event date
