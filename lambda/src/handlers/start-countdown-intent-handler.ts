@@ -49,6 +49,12 @@ export const startCountdownIntentHandler: Alexa.RequestHandler = {
     const countdownEventSlotValue = intent?.slots?.CountdownEvent?.value;
     const eventDateSlotValue = intent?.slots?.EventDate?.value;
 
+    console.log(
+      'countdownEventSlot:',
+      JSON.stringify(intent?.slots?.CountdownEvent),
+    );
+    console.log('eventDateSlot:', JSON.stringify(intent?.slots?.EventDate));
+
     // Again, because it's possible we're not currently inside an IntentRequest,
     // we need to makes sure we explicitly elicit slots for _this_ intent.
     const updatedIntent: Intent = {
